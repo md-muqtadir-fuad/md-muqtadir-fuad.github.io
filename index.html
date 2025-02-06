@@ -4,342 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Webpage Template</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* Header */
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: #444;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        nav ul li a:hover {
-            color: #e74c3c;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero h2 {
-            font-size: 4em;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
-
-        .cta-btn {
-            padding: 15px 30px;
-            background-color: #e74c3c;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-
-        /* About Section */
-        .about {
-            padding: 60px 20px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-        }
-
-        /* Features Section */
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 60px 20px;
-            background-color: #f1f1f1;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            background-color: #fff;
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 30%;
-            margin: 10px;
-        }
-
-        .feature-item h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .feature-item p {
-            font-size: 1.1em;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 20px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item {
-            background-color: #f1f1f1;
-            padding: 30px;
-            margin: 20px;
-            border-radius: 10px;
-            width: 30%;
-            margin: 20px auto;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-item p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item .name {
-            font-weight: bold;
-        }
-
-        /* Blog Section */
-        .blog {
-            padding: 80px 20px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-
-        .blog h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .blog-posts {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .blog-post {
-            background-color: #fff;
-            padding: 30px;
-            margin: 20px;
-            width: 30%;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .blog-post h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .blog-post p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        /* Contact Form Section */
-        .contact {
-            padding: 80px 20px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .contact form input,
-        .contact form textarea {
-            width: 80%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .contact form button {
-            padding: 12px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .contact form button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 1em;
-        }
-
-        /* Modal Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* JavaScript Alert */
-        .alert {
-            background-color: #f44336;
-            color: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 1.2em;
-            border-radius: 5px;
-        }
-
-        .alert.success {
-            background-color: #4CAF50;
-        }
-
-        .alert.info {
-            background-color: #2196F3;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .feature-item,
-            .testimonial-item,
-            .blog-post {
-                width: 80%;
-                margin: 10px 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero h2 {
-                font-size: 2.5em;
-            }
-
-            .cta-btn {
-                font-size: 1.1em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -372,22 +37,22 @@
     <!-- About Section -->
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>We specialize in creating websites that are not only visually appealing but also highly functional and user-friendly. Our team of experienced developers and designers ensure that every website we create delivers a superior user experience and is optimized for performance.</p>
+        <p>We specialize in creating websites that are not only visually appealing but also highly functional and user-friendly.</p>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="feature-item">
             <h3>Responsive Design</h3>
-            <p>Our websites are optimized for all devices, ensuring your content looks great on desktops, tablets, and smartphones.</p>
+            <p>Optimized for desktops, tablets, and smartphones.</p>
         </div>
         <div class="feature-item">
             <h3>Fast Performance</h3>
-            <p>Speed is a priority. We optimize every aspect of your site to load quickly and provide a smooth user experience.</p>
+            <p>Speed optimization for quick loading and smooth experience.</p>
         </div>
         <div class="feature-item">
             <h3>SEO Optimized</h3>
-            <p>We ensure that your website is search engine friendly, helping you rank higher and be found by the right audience.</p>
+            <p>Built with search engine optimization in mind for better rankings.</p>
         </div>
     </section>
 
@@ -395,38 +60,25 @@
     <section id="testimonials" class="testimonials">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-item">
-            <p>"This team transformed our website into something extraordinary. The design is sleek, and the functionality is flawless!"</p>
-            <p class="name">- Sarah Williams</p>
+            <p>"This team transformed our website into something extraordinary!"</p>
+            <p>- Sarah Williams</p>
         </div>
         <div class="testimonial-item">
-            <p>"Amazing service! Our website has seen a significant increase in traffic and engagement since the redesign."</p>
-            <p class="name">- John Doe</p>
-        </div>
-        <div class="testimonial-item">
-            <p>"The team really understood our needs and delivered a stunning site that exceeds our expectations!"</p>
-            <p class="name">- Mark Taylor</p>
+            <p>"Amazing service! Our website has seen significant improvements!"</p>
+            <p>- John Doe</p>
         </div>
     </section>
 
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <h2>Our Latest Blog Posts</h2>
-        <div class="blog-posts">
-            <div class="blog-post">
-                <h3>Web Design Trends for 2025</h3>
-                <p>Learn about the latest trends in web design and how you can implement them into your own projects.</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="blog-post">
-                <h3>SEO Best Practices</h3>
-                <p>Explore the best practices for optimizing your website to rank higher on search engines and attract more visitors.</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="blog-post">
-                <h3>How to Improve Website Performance</h3>
-                <p>Find out how to speed up your website to enhance the user experience and reduce bounce rates.</p>
-                <a href="#">Read More</a>
-            </div>
+        <div class="blog-post">
+            <h3>Web Design Trends for 2025</h3>
+            <p>Learn about the latest web design trends.</p>
+        </div>
+        <div class="blog-post">
+            <h3>SEO Best Practices</h3>
+            <p>Explore SEO techniques to enhance your website's visibility.</p>
         </div>
     </section>
 
@@ -436,7 +88,7 @@
         <form>
             <input type="text" placeholder="Your Name" required><br>
             <input type="email" placeholder="Your Email" required><br>
-            <textarea placeholder="Your Message" rows="4" required></textarea><br>
+            <textarea placeholder="Your Message" required></textarea><br>
             <button type="submit">Send Message</button>
         </form>
     </section>
@@ -446,5 +98,6 @@
         <p>&copy; 2025 My Modern Webpage. All rights reserved.</p>
     </footer>
 
+    <script src="scripts.js"></script>
 </body>
 </html>
