@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Webpage Template</title>
     <style>
-        /* General Reset */
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -19,6 +19,10 @@
             line-height: 1.6;
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         /* Header */
         header {
             background-color: #333;
@@ -29,6 +33,7 @@
 
         header h1 {
             font-size: 3em;
+            margin: 0;
         }
 
         /* Navigation */
@@ -43,7 +48,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 10px;
+            padding: 15px;
         }
 
         nav ul li {
@@ -69,6 +74,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative;
         }
 
         .hero h2 {
@@ -113,6 +119,7 @@
             justify-content: space-around;
             padding: 60px 20px;
             background-color: #f1f1f1;
+            flex-wrap: wrap;
         }
 
         .feature-item {
@@ -248,6 +255,63 @@
             font-size: 1em;
         }
 
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* JavaScript Alert */
+        .alert {
+            background-color: #f44336;
+            color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        .alert.success {
+            background-color: #4CAF50;
+        }
+
+        .alert.info {
+            background-color: #2196F3;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .features {
@@ -264,6 +328,7 @@
 
             nav ul {
                 flex-direction: column;
+                align-items: center;
             }
 
             .hero h2 {
