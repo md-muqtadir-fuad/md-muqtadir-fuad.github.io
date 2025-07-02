@@ -1,0 +1,126 @@
+* {
+    font-family: "Roboto Flex", sans-serif;
+    color: rgb(234, 235, 235);
+}
+body{
+    background-color: #001414;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000
+}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+.nav-left{
+    display: flex;
+}
+.logo {
+    border-radius: 50%;
+    margin: 0 1rem;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.nav-name{
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.5rem;
+    letter-spacing: 0.2rem;
+}
+.nav-right {
+    margin-left: auto;
+
+}
+.nav-items-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.nav-item {
+    margin: 1rem;
+    list-style-type: none;
+}
+.nav-items-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+.nav-items-link:hover {
+    color: #02a7bd;
+    text-decoration: none;  
+}
+
+/* hero section */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.hero-left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+.hero-left p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+.hero-left .btn {
+    background-color: #02a7bd;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+.hero-left .btn:hover {
+    background-color: #01949e;
+}
+.hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+}
+.gradient-frame {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/* footer */

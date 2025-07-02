@@ -8,17 +8,60 @@
     <meta name="description" content="Portfolio of Md. Muqtadir Fuad, showcasing skills in Machine Lrearning, AI, Industrial Engineering, webdev such as: HTML, CSS, and JavaScript.">
     <meta name="keywords" content="HTML, CSS, simple page">
     <meta name="author" content="Md. Muqtadir Fuad">
+    <meta name="robots" content="index,follow">
     <!--Link to external CSS file-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
     <!--Link to custom CSS file-->
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+        rel="stylesheet">
     <title>Md. Muqtadir Fuad - Industrial Engineer</title>
 </head>
 <body>
-    <h1>Welcome to My Simple HTML Page</h1>
-    <p>This is a basic HTML page with some styling.</p>
-    <p>Feel free to modify the content and styles as you wish!</p>
+    <!--nav bar-->
+    <navbar class="navbar">
+        <div class="navbar-container">
+            <div class="nav-left">
+                <div class="">
+                    <a href="/">
+                        <img src="./images/fuad_image.jfif" alt="Image of Md. Muqtadir Fuad" class="logo">
+                    </a>
+                </div>
+                <div class="">
+                    <h1 class="nav-name">Md. Muqtadir Fuad</h1>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-items-container">
+                    <li class = "nav-item"><a class = "nav-items-link" href="#home">Home</a></li>
+                    <li class = "nav-item"><a class = "nav-items-link" href="#about">About</a></li>
+                    <li class = "nav-item"><a class = "nav-items-link" href="#resume">Resume</a></li>
+                    <li class = "nav-item"><a class = "nav-items-link" href="#skills">Skills</a></li>
+                    <li class = "nav-item"><a class = "nav-items-link" href="#projects">Projects</a></li>
+                    <li class = "nav-item"><a class = "nav-items-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </navbar>
+
+    <!--Hero Section-->
+    <div id = "#about" class = "">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 class="hero-title">Hello, I'm Md. Muqtadir Fuad</h1>
+                <p class="hero-subtitle">Lorem ipsum dolor sit amet s repellat, provident aperiam, harum aspernatur voluptate impedit qui deserunt iusto consequuntur magnam rem asperiores quaerat facilis, reprehenderit culpa ea cumque fugit nihil maxime! Aperiam unde ipsam aspernatur autem odit eveniet ratione dignissimos iusto dolores eligendi sed pariatur, quam ducimus, adipisci iste! Quod consequuntur officia repudiandae accusamus aperiam, eligendi non. Architecto nulla laborum doloremque vitae! Maxime sint numquam rem nostrum facere minima, veritatis quae ab voluptates omnis iste enim tenetur a, sit reiciendis expedita tempora quam sequi vero delectus voluptatem itaque voluptatum mollitia? Deleniti totam libero odio quisquam iste molestiae blanditiis voluptatibus vel distinctio! Doloribus possimus, officiis, saepe eum vitae a magnam consequuntur, architecto aliquam numquam aperiam doloremque porro! Iste recusandae, eius commodi officiis illo id magni doloremque perferendis, ipsa quis nisi animi, pariatur aliquid consequuntur quos?</p>
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+            </div>
+            <div class="hero-right">
+                <span class="gradient-frame"><img src="./images/fuad_image.jfif" alt="Image of Md. Muqtadir Fuad" class="hero-image"></span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
