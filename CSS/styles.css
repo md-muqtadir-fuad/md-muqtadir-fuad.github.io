@@ -23,6 +23,7 @@ body{
 }
 .nav-left{
     display: flex;
+    align-items: center;
 }
 .logo {
     border-radius: 50%;
@@ -53,6 +54,12 @@ body{
     color: #02a7bd;
     text-decoration: none;  
 }
+.nav-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0 0 0 0.5rem;
+    text-align: left;
+}
 
 /* hero section */
 .hero-container {
@@ -60,23 +67,19 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 40vh;
+    padding: 4rem 0;
 }
 .hero-image {
     max-width: 200px;
     height: aut0;
     margin: 0 auto;
     display: block;
+    align-items: left;
 }
 .hero-left,
 .hero-right{
     width: 100%;
-}
-.nav-name {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: center;
 }
 .hero-container .hero-title {
     text-align: left;
