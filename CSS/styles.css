@@ -91,7 +91,35 @@ body{
     color: #ffffff;
     text-align: justify;
 }
-
+/*Resume Section*/
+.resume-container {
+    margin: 1rem;
+    padding: 6.5rem 1rem 0 1rem;
+    min-height: 100vh;
+}
+.resume-sub-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+}
+.line {
+    width: 100px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: .25rem 0 2rem 0 ;
+}
+.inner-line {
+    width: 40px;
+    height: 2px;
+    background-color: #02a7bd;
+    margin: .25rem 0 2rem 0 ;
+}
 /* Container */
 
 .container{
@@ -135,4 +163,11 @@ body{
         max-width: 1320px;
     }
 
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
 }
