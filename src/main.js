@@ -1,4 +1,4 @@
-// ...existing code...
+// For navbar collapse on scroll
 document.addEventListener('DOMContentLoaded', () => {
   const navCollapse = document.getElementById('navbarNavAltMarkup');
   if (!navCollapse) return;
@@ -13,4 +13,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 });
-// ...existing code...
