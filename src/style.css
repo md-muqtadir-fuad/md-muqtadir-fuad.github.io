@@ -103,7 +103,8 @@ h1 {
 
 /* Improve font rendering and ensure headings use intended font */
 body {
-  font-family: "Source Code Pro", monospace;
+  /* font-family: "Source Code Pro", monospace; */
+  font-family: "Poppins", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -111,7 +112,7 @@ body {
 
 /* Force consistent heading styles (override Bootstrap) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Poppins", monospace;
   font-weight: 700;           /* adjust to desired weight */
   line-height: 1.25;         /* tighter line-height for headings */
   letter-spacing: normal;
@@ -125,7 +126,7 @@ h3 { font-size: 1.25rem; }
 
 /* If headings still look wrong, increase specificity */
 nav h2, .container h2 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Poppins", monospace;
 }
 .tagline {
     font-size: 18px;
@@ -153,7 +154,8 @@ h2 {
     margin-bottom: 20px;
 }
 body {
-    font-family: "Source Code Pro", Arial, sans-serif;
+    font-family: "Poppins", monospace;
+/* Arial, sans-serif; */
     margin: 0;
     padding: 0;
     background-color: #0e0d0d;
@@ -230,8 +232,11 @@ body {
 .social-link {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Adjust gap between icon and text */
     text-decoration: none;
+    text-align: center;
     margin-top: 1.5rem;
     border-radius: 4px;
     transition: background-color 0.3s ease;
@@ -294,4 +299,16 @@ body {
     background-color: #500101; /* Even darker green on active state */
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2); /* Smaller shadow on active */
     transform: translateY(2px); /* Slight downward movement on active */
+}
+
+/* Connect with me section */
+.connect {
+    text-align: center;
+    margin: 40px 0 10px 0;
+}
+.connect-line-left, .connect-line-right {
+    border-top: 2px solid #6e0303;
+    flex-grow: 1;
+    align-self: center;
+    height: 0;
 }
