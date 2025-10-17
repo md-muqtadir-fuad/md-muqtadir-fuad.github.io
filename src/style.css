@@ -104,7 +104,7 @@ h1 {
 /* Improve font rendering and ensure headings use intended font */
 body {
   /* font-family: "Source Code Pro", monospace; */
-  font-family: "Poppins", monospace;
+  font-family: "Open Sans", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -112,7 +112,7 @@ body {
 
 /* Force consistent heading styles (override Bootstrap) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", monospace;
+  font-family: "Open Sans", monospace;
   font-weight: 700;           /* adjust to desired weight */
   line-height: 1.25;         /* tighter line-height for headings */
   letter-spacing: normal;
@@ -126,7 +126,7 @@ h3 { font-size: 1.25rem; }
 
 /* If headings still look wrong, increase specificity */
 nav h2, .container h2 {
-  font-family: "Poppins", monospace;
+  font-family: "Open Sans", monospace;
 }
 .tagline {
     font-size: 18px;
@@ -154,7 +154,7 @@ h2 {
     margin-bottom: 20px;
 }
 body {
-    font-family: "Poppins", monospace;
+    font-family: "Open Sans", monospace;
 /* Arial, sans-serif; */
     margin: 0;
     padding: 0;
@@ -305,10 +305,4 @@ body {
 .connect {
     text-align: center;
     margin: 40px 0 10px 0;
-}
-.connect-line-left, .connect-line-right {
-    border-top: 2px solid #6e0303;
-    flex-grow: 1;
-    align-self: center;
-    height: 0;
 }
