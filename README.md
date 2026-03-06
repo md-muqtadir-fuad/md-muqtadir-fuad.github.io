@@ -1,6 +1,18 @@
 # My Personal Portfolio
 under development
 
+## Tech Stack
+- Frontend: React + Vite + React Router
+- Backend: Node.js + Express + Mongoose
+- Database: MongoDB Atlas
+- Deployment: Vercel (frontend) + Render (backend)
+
+## Features (WIP)
+- Home: attractive glimpse / teaser
+- Multi-page navigation (About, Projects with details, Publications, etc.)
+- Contact form
+- Admin CRUD (future)
+
 ```
 portfolio/
 ├── client/                  # React (Vite/Create React App)
