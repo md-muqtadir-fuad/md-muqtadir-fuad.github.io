@@ -1,4 +1,4 @@
-const mongose = require('mongose');
+const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -12,7 +12,6 @@ const projectSchema = new mongoose.Schema({
         type: String,
         default: "", // can add a placeholder image link here later
     },
-
     technologies: {
         type: [String], // Array of strings, e.g., ["React", "Node", "MongoDB"]
         required: true,
