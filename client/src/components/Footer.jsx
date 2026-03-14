@@ -4,9 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <p>
-          © {new Date().getFullYear()} {siteContent.name}
-        </p>
+        <p>© {new Date().getFullYear()} {siteContent.name}</p>
 
         <div className="footer-links">
           <a href={siteContent.links.github} target="_blank" rel="noreferrer">
@@ -18,7 +16,12 @@ export default function Footer() {
           <a href={siteContent.links.orcid} target="_blank" rel="noreferrer">
             ORCID
           </a>
-          <a href={`mailto:${siteContent.email}`}>Email</a>
+          <a href={siteContent.links.website} target="_blank" rel="noreferrer">
+            Website
+          </a>
+          <a href={`mailto:${siteContent.email}`}>
+            Email
+          </a>
         </div>
       </div>
     </footer>
