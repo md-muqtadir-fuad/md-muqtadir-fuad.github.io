@@ -1,0 +1,151 @@
+// ===============================================================
+// Assumed Data Model
+// ===============================================================
+//
+// Collection: projects
+// Fields:
+//   - title: string (required)
+//   - description: string (required)
+//   - longDescription: string (optional)
+//   - imageUrl: string (optional, URL)
+//   - githubUrl: string (optional, URL)
+//   - liveUrl: string (optional, URL)
+//   - tags: list (optional, strings)
+//   - order: number (required)
+//   - createdAt: timestamp (optional)
+//
+// Collection: publications
+// Fields:
+//   - title: string (required)
+//   - authors: string (required)
+//   - journal: string (optional)
+//   - year: number (required)
+//   - link: string (optional, URL)
+//   - abstract: string (optional)
+//   - order: number (required)
+//
+// Collection: experience
+// Fields:
+//   - company: string (required)
+//   - role: string (required)
+//   - location: string (optional)
+//   - startDate: string (required, date)
+//   - endDate: string (optional, date or 'Present')
+//   - description: list (optional, strings)
+//   - order: number (required)
+//
+// Collection: users
+// Fields:
+//   - uid: string (required)
+//   - email: string (required, email)
+//   - displayName: string (optional)
+//   - role: string (required, 'admin' | 'user')
+//
+// ===============================================================
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "mmfuad01@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidUrl(url) {
+      return url is string && (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function hasOnlyAllowedFields(allowedFields) {
+      return request.resource.data.keys().hasOnly(allowedFields);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidProject(data) {
+      return hasOnlyAllowedFields(['id', 'title', 'slug', 'category', 'overview', 'highlights', 'tools', 'links', 'createdAt']) &&
+             data.title is string && data.title.size() > 0 &&
+             data.slug is string && data.slug.size() > 0 &&
+             data.category is string &&
+             data.overview is string &&
+             data.highlights is list &&
+             data.tools is list &&
+             data.links is list;
+    }
+
+    function isValidPublication(data) {
+      return hasOnlyAllowedFields(['id', 'title', 'authors', 'venue', 'year', 'status', 'type', 'link', 'abstract', 'createdAt']) &&
+             data.title is string && data.title.size() > 0 &&
+             data.authors is string && data.authors.size() > 0 &&
+             data.year is string &&
+             data.status is string &&
+             data.type is string &&
+             (!('link' in data) || data.link == "" || isValidUrl(data.link)) &&
+             (!('abstract' in data) || data.abstract is string);
+    }
+
+    function isValidExperience(data) {
+      return hasOnlyAllowedFields(['company', 'role', 'location', 'startDate', 'endDate', 'description', 'order']) &&
+             data.company is string && data.company.size() > 0 &&
+             data.role is string && data.role.size() > 0 &&
+             data.startDate is string &&
+             data.order is int;
+    }
+
+    function isValidUser(data) {
+      return hasOnlyAllowedFields(['uid', 'email', 'displayName', 'role']) &&
+             data.uid is string && data.uid == request.auth.uid &&
+             data.email is string && isValidEmail(data.email) &&
+             data.role in ['admin', 'user'];
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    // Projects: Publicly readable, Admin writable
+    match /projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin() && isValidProject(request.resource.data);
+    }
+
+    // Publications: Publicly readable, Admin writable
+    match /publications/{pubId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin() && isValidPublication(request.resource.data);
+    }
+
+    // Experience: Publicly readable, Admin writable
+    match /experience/{expId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin() && isValidExperience(request.resource.data);
+    }
+
+    // Users: Owner readable/writable (with role restriction), Admin full access
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == 'user' || isAdmin());
+      allow update: if (isOwner(userId) && isValidUser(request.resource.data) && request.resource.data.role == resource.data.role) || isAdmin();
+      allow delete: if isAdmin();
+    }
+  }
+}
