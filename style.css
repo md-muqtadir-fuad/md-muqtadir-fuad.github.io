@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-black font-sans antialiased;
+  }
+}
+
+/* Base resets to enforce only black and white */
+* {
+  border-color: #000;
+}
+
+a {
+  @apply hover:underline decoration-black underline-offset-4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight text-black;
+}
+
+.section-label {
+  @apply text-sm uppercase tracking-widest font-mono text-black border border-black px-3 py-1 mb-8 inline-block;
+}
+
+.item-card {
+  @apply border border-black p-6 mb-6 hover:bg-gray-50 transition-colors duration-300;
+}
+
+.tag {
+  @apply inline-block border border-black text-xs font-mono px-2 py-0.5 mr-2 mb-2 transition-colors duration-300;
+}
+
+.bullet-points li {
+  @apply relative pl-5 mb-2 list-none;
+}
+
+.bullet-points li::before {
+  content: "->";
+  @apply absolute left-0 text-current;
+}
+
+/* Custom scrollbar to keep it monochrome */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-left: 1px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+}

@@ -1,8 +1,146 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script>
-      window.location.replace("https://md-muqtadir-fuad.vercel.app");
-    </script>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Muqtadir Fuad | Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
+
+  <!-- Desktop Header -->
+  <header class="fixed top-0 w-full bg-white border-b border-black z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="font-bold text-lg font-mono tracking-tighter">MMF.</a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-8 font-mono text-sm uppercase">
+        <a href="/" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Home</a>
+        <a href="/experience.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Experience</a>
+        <a href="/projects.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Projects</a>
+        <a href="/publications.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
+        <a href="/achievements.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
+      </nav>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="menu-btn" class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
+        MENU
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
+    <a href="/" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Home</a>
+    <a href="/experience.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
+    <a href="/projects.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
+    <a href="/publications.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
+    <a href="/achievements.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
+  </div>
+
+  <main class="flex-grow max-w-6xl mx-auto px-6 pt-32 pb-24 w-full">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="mb-32 mt-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+        <div>
+          <h1 class="text-5xl md:text-7xl font-bold mb-4">Md. Muqtadir Fuad</h1>
+          <h2 class="text-xl md:text-2xl font-mono text-gray-800">Undergraduate Student, BUET</h2>
+        </div>
+        <div class="mt-6 md:mt-0 text-left md:text-right font-mono text-sm leading-relaxed">
+          <p>Dhaka, Bangladesh</p>
+          <p class="mt-1">Research & Engineering</p>
+        </div>
+      </div>
+      
+      <div class="border-t border-b border-black py-8 md:py-12">
+        <p class="text-xl md:text-3xl font-medium leading-tight md:leading-tight max-w-4xl">
+          I work across machine learning, optimization, engineering design, and smart manufacturing with growing interests in low-resource language technologies and applied AI systems.
+        </p>
+      </div>
+      
+      <div class="flex gap-4 mt-8 font-mono text-sm">
+        <a href="https://github.com/md-muqtadir-fuad" target="_blank" class="border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" class="border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">LinkedIn</a>
+        <a href="mailto:mmfuad01@gmail.com" class="border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Email</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="mb-32">
+      <h2 class="section-label">01. About</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+          <p class="mb-6 text-lg">
+            I am an undergraduate researcher at BUET with interests across machine learning, low-resource language technology, simulation, optimization, manufacturing systems, and engineering design.
+          </p>
+          <p class="text-lg">
+            My work combines analytical thinking with practical implementation, ranging from stochastic modeling and forecasting to smart manufacturing, CFD, CAD/CAM, and structural simulation.
+          </p>
+        </div>
+        
+        <div>
+          <div class="mb-10">
+            <h3 class="font-mono text-sm uppercase tracking-wider mb-4 border-b border-black pb-2">Education</h3>
+            <div class="mb-4">
+              <h4 class="font-bold">B.Sc. Engg. in Industrial and Production Engineering</h4>
+              <p class="font-mono text-sm mt-1">BUET | Dec 2021 — Present</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="font-mono text-sm uppercase tracking-wider mb-4 border-b border-black pb-2">Core Skills</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">R</span>
+              <span class="tag">C</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Time Series</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">AutoCAD</span>
+              <span class="tag">SolidWorks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mb-16">
+      <div class="border border-black p-8 md:p-16 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">Let's Connect</h2>
+        <p class="text-lg mb-10 max-w-2xl mx-auto font-mono">
+          Interested in operations research, low-resource NLP, or intelligent manufacturing systems? I'm always open to discussing new opportunities or research collaborations.
+        </p>
+        <a href="mailto:mmfuad01@gmail.com" class="inline-block border-2 border-black bg-black text-white px-8 py-4 font-mono uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
+          Say Hello
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-black bg-white mt-auto">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-mono text-sm">&copy; 2026 Md. Muqtadir Fuad. Built entirely in HTML/CSS/JS.</p>
+      <div class="flex gap-6 font-mono text-sm">
+        <a href="https://github.com/md-muqtadir-fuad">GitHub</a>
+        <a href="https://linkedin.com/in/md-muqtadir-fuad">LinkedIn</a>
+        <a href="/contacts.html">Contacts</a>
+        <a href="/blogs.html">Blogs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/main.js" type="module"></script>
+</body>
 </html>

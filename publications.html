@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Md. Muqtadir Fuad</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
+
+  <!-- Desktop Header -->
+  <header class="fixed top-0 w-full bg-white border-b border-black z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="font-bold text-lg font-mono tracking-tighter">MMF.</a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-8 font-mono text-sm uppercase">
+        <a href="/" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Home</a>
+        <a href="/experience.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Experience</a>
+        <a href="/projects.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Projects</a>
+        <a href="/publications.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
+        <a href="/achievements.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
+      </nav>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="menu-btn" class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
+        MENU
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
+    <a href="/" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Home</a>
+    <a href="/experience.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
+    <a href="/projects.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
+    <a href="/publications.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
+    <a href="/achievements.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
+  </div>
+
+  <main class="flex-grow max-w-6xl mx-auto px-6 pt-32 pb-24 w-full">
+    <!-- Publications Section -->
+    <section id="publications" class="mb-32 mt-8">
+      <h2 class="section-label">04. Publications</h2>
+      
+      <div class="space-y-6">
+        <!-- Pub 1 -->
+        <div class="item-card group">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold leading-tight">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Published in: IEEE Xplore (ICCIT 2025)</p>
+            </div>
+            <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
+              <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View Paper &rarr;</a>
+              <a href="#" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-1" class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+            </div>
+          </div>
+          <p class="text-sm mt-4">
+            A comprehensive study on aspect-based sentiment analysis for low-resource Bengali language, utilizing a fine-tuned mBERT architecture to process public sentiment on government services.
+          </p>
+          <div id="abstract-1" class="hidden mt-4 pt-4 border-t border-black text-sm">
+            <p><strong>Abstract:</strong> This paper introduces eGov-Lens, a comprehensive framework for aspect-based sentiment analysis tailored to the low-resource Bengali language. By utilizing a fine-tuned mBERT architecture, the system is designed to process and analyze public sentiment regarding government services effectively. It addresses the complexities of dialectal variations and code-mixing commonly found in user feedback, demonstrating robust performance and scalability suitable for live e-government deployment to enhance public service evaluation.</p>
+          </div>
+        </div>
+
+        <!-- Pub 2 -->
+        <div class="item-card group">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold leading-tight">IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Technical Poster</p>
+            </div>
+            <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
+              <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View Poster &rarr;</a>
+              <a href="#" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-2" class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+            </div>
+          </div>
+          <p class="text-sm mt-4">
+            Details the architecture of a cost-effective, real-time quality control conveyor prototype built with Arduino and ESP32 to demonstrate Industry 4.0 concepts in typical manufacturing workflows.
+          </p>
+          <div id="abstract-2" class="hidden mt-4 pt-4 border-t border-black text-sm">
+            <p><strong>Abstract:</strong> This technical poster details the architecture and implementation of a cost-effective, real-time quality control conveyor prototype. Built with Arduino and ESP32 microcontrollers, the system demonstrates foundational Industry 4.0 concepts by integrating sensor data for automated actuation and cloud data logging. The prototype offers a scalable approach to improving quality control, inventory management, and overall process efficiency in typical manufacturing workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-black bg-white mt-auto">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-mono text-sm">&copy; 2026 Md. Muqtadir Fuad. Built entirely in HTML/CSS/JS.</p>
+      <div class="flex gap-6 font-mono text-sm">
+        <a href="https://github.com/md-muqtadir-fuad">GitHub</a>
+        <a href="https://linkedin.com/in/md-muqtadir-fuad">LinkedIn</a>
+        <a href="/contacts.html">Contacts</a>
+        <a href="/blogs.html">Blogs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/main.js" type="module"></script>
+</body>
+</html>
