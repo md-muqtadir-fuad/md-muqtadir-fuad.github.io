@@ -1,72 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publications | Md. Muqtadir Fuad</title>
-  
+  <title>Publications | <b>Md. Muqtadir Fuad</b></title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
   <!-- Desktop Header -->
   <header class="fixed top-0 w-full bg-white border-b border-black z-50">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="/" class="font-bold text-lg font-mono tracking-tighter">MMF.</a>
-      
+
       <!-- Desktop Nav -->
       <nav class="hidden md:flex gap-8 font-mono text-sm uppercase">
         <a href="/" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Home</a>
         <a href="/experience.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Experience</a>
         <a href="/projects.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Projects</a>
-        <a href="/publications.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
-        <a href="/achievements.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
+        <a href="/publications.html"
+          class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
+        <a href="/achievements.html"
+          class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
       </nav>
 
       <!-- Mobile Nav Toggle -->
-      <button id="menu-btn" class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
+      <button id="menu-btn"
+        class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
         MENU
       </button>
     </div>
   </header>
 
   <!-- Mobile Nav -->
-  <div id="mobile-nav" class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
+  <div id="mobile-nav"
+    class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
     <a href="/" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Home</a>
-    <a href="/experience.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
-    <a href="/projects.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
-    <a href="/publications.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
-    <a href="/achievements.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
+    <a href="/experience.html"
+      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
+    <a href="/projects.html"
+      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
+    <a href="/publications.html"
+      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
+    <a href="/achievements.html"
+      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
   </div>
 
   <main class="flex-grow max-w-6xl mx-auto px-6 pt-32 pb-24 w-full">
     <!-- Publications Section -->
     <section id="publications" class="mb-32 mt-8">
       <h2 class="section-label">04. Publications</h2>
-      
+
       <div class="space-y-6">
         <!-- Pub 1 -->
         <div class="item-card group">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
             <div>
-              <h3 class="text-xl font-bold leading-tight">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</h3>
-              <p class="font-mono text-sm mt-2 text-gray-800">Published in: IEEE Xplore (ICCIT 2025)</p>
+              <h3 class="text-xl font-bold leading-tight">eGov-Lens: A Multi-Dimensional Machine Learning Approach to
+                Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Conference: 2025 28th International Conference on
+                Computer and Information Technology (ICCIT)</p>
+              <p class="font-mono text-sm mt-1 text-gray-700">
+                <b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Istiak Adnan, Tirthojit Das, Shatabdi Sen Prapti &
+                Nafisa Mahbub
+              </p>
             </div>
             <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
-              <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View Paper &rarr;</a>
-              <a href="#" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
-              <button data-abstract-id="abstract-1" class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+              <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View
+                Paper &rarr;</a>
+              <a href="https://www.researchgate.net/publication/404606534_eGov-Lens_A_Multi-Dimensional_Machine_Learning_Approach_to_Aspect-Based_Public_Feedback_Analysis_on_Bengali_e-Government_Platforms"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-1"
+                class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
             </div>
           </div>
           <p class="text-sm mt-4">
-            A comprehensive study on aspect-based sentiment analysis for low-resource Bengali language, utilizing a fine-tuned mBERT architecture to process public sentiment on government services.
+            A comprehensive study on aspect-based sentiment analysis for low-resource Bengali language, utilizing a
+            fine-tuned mBERT architecture to process public sentiment on government services.
           </p>
           <div id="abstract-1" class="hidden mt-4 pt-4 border-t border-black text-sm">
-            <p><strong>Abstract:</strong> With the rapid expansion of e-services under Digital Bangladesh initiatives, citizens increasingly rely on online platforms to access government services and most often share their opinion in social media and digital forums. Existing sentiment analysis lacks of aspect-level insights in terms of egovernment related services. This paper presents eGov-Lens, a practical pipeline for aspect-based analysis of Bengali public feedback on e-government channels. We curate and annotate 34,001 comments (2020-2024) spanning twelve services and four policy-relevant aspects- sentiment, ease of find, responsiveness, and accuracy. The approach benchmarks three text representations (bag-of-words/CountVectorizer, BanglaBERT, mBERT) with logistic regression, support vector classifier, and naïve bayes. BanglaBERT with a support-vector head attains the strongest single-aspect quality on the policy-critical Accuracy task (micro-avg accuracy ≈0.93), while BanglaBERT with logistic regression offers the best accuracy-latency trade-off for deployment and a classical CountVectorizer+LR baseline trains and infers fastest. An entropy-weighted TOPSIS combines quality and cost to rank alternatives, favoring CountVectorizer+LR overall with BanglaBERT+LR a close second, and providing actionable guidance for NLP deployment on resource-constrained government infrastructure.</p>
+            <p><strong>Abstract:</strong> With the rapid expansion of e-services under Digital Bangladesh initiatives,
+              citizens increasingly rely on online platforms to access government services and most often share their
+              opinion in social media and digital forums. Existing sentiment analysis lacks of aspect-level insights in
+              terms of egovernment related services. This paper presents eGov-Lens, a practical pipeline for
+              aspect-based analysis of Bengali public feedback on e-government channels. We curate and annotate 34,001
+              comments (2020-2024) spanning twelve services and four policy-relevant aspects- sentiment, ease of find,
+              responsiveness, and accuracy. The approach benchmarks three text representations
+              (bag-of-words/CountVectorizer, BanglaBERT, mBERT) with logistic regression, support vector classifier, and
+              naïve bayes. BanglaBERT with a support-vector head attains the strongest single-aspect quality on the
+              policy-critical Accuracy task (micro-avg accuracy ≈0.93), while BanglaBERT with logistic regression offers
+              the best accuracy-latency trade-off for deployment and a classical CountVectorizer+LR baseline trains and
+              infers fastest. An entropy-weighted TOPSIS combines quality and cost to rank alternatives, favoring
+              CountVectorizer+LR overall with BanglaBERT+LR a close second, and providing actionable guidance for NLP
+              deployment on resource-constrained government infrastructure.</p>
           </div>
         </div>
 
@@ -74,20 +110,127 @@
         <div class="item-card group">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
             <div>
-              <h3 class="text-xl font-bold leading-tight">IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control</h3>
-              <p class="font-mono text-sm mt-2 text-gray-800">Technical Poster</p>
+              <h3 class="text-xl font-bold leading-tight">Stochastic Modeling of Throughput-Quality Dynamics in
+                Labor-Intensive Manufacturing: A Comparative Analysis of Operator Fatigue and Process Instability</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Conference:8th IEOM Bangladesh International Conference on
+                Industrial
+                Engineering and Operations Management</p>
+              <p class="font-mono text-sm mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Istiak
+                Adnan &
+                Khalid Ammar</p>
             </div>
             <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
-              <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View Poster &rarr;</a>
-              <a href="#" class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
-              <button data-abstract-id="abstract-2" class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+              <a href="https://doi.org/10.46254/BA08.20250379" target="_blank"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View
+                Paper &rarr;</a>
+              <a href="https://ieomsociety.org/proceedings/bangladesh2025/379.pdf"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-3"
+                class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+            </div>
+          </div>
+
+          <p class="text-sm mt-4">
+            Presents a stochastic and comparative analysis of operator fatigue and process instability in
+            labor-intensive manufacturing using time-motion study, statistical process control, regression analysis,
+            process capability analysis, and Monte Carlo simulation.
+          </p>
+
+          <div id="abstract-3" class="hidden mt-4 pt-4 border-t border-black text-sm">
+            <p><strong>Abstract:</strong> The inherent variability of manual assembly processes presents significant
+              challenges to standardization and quality assurance within the semi-automated food production sector. This
+              study presents a quantitative and comparative analysis of the stochastic nature of human fatigue and its
+              effect on productivity. By integrating high-resolution time-motion analysis with statistical process
+              control (SPC), the research investigates two manual production lines to quantify quality parameters and
+              examine relationships among product shape, operator performance behavior, efficiency, and unit weight
+              consistency. Regression analysis was employed to estimate the relationship between time and worker fatigue
+              in a controlled environment. Furthermore, process capability analysis reveals the relationship between
+              human fatigue and process instability. Finally, using a Monte Carlo algorithm, the study simulates data to
+              quantify annual financial loss due to process instability.</p>
+          </div>
+        </div>
+
+        <div class="item-card group">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold leading-tight">IoT-Based Smart Conveyor System for Integrated Quality,
+                Inventory and Process Control</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Technical Poster</p>
+              <p class="font-mono text-sm mt-1 text-gray-700">
+                <b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur
+                Rahman & Nafis Ahmad
+              </p>
+            </div>
+            <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
+              <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View
+                Poster &rarr;</a>
+              <a href="https://www.researchgate.net/publication/394406896_IoT-Based_Smart_Conveyor_System_for_Integrated_Quality_Inventory_and_Process_Control"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-2"
+                class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
             </div>
           </div>
           <p class="text-sm mt-4">
-            Details the architecture of a cost-effective, real-time quality control conveyor prototype built with Arduino and ESP32 to demonstrate Industry 4.0 concepts in typical manufacturing workflows.
+            Details the architecture of a cost-effective, real-time quality control conveyor prototype built with
+            Arduino and ESP32 to demonstrate Industry 4.0 concepts in typical manufacturing workflows.
           </p>
           <div id="abstract-2" class="hidden mt-4 pt-4 border-t border-black text-sm">
-            <p><strong>Abstract:</strong> This technical poster details the architecture and implementation of a cost-effective, real-time quality control conveyor prototype. Built with Arduino and ESP32 microcontrollers, the system demonstrates foundational Industry 4.0 concepts by integrating sensor data for automated actuation and cloud data logging. The prototype offers a scalable approach to improving quality control, inventory management, and overall process efficiency in typical manufacturing workflows.</p>
+            <p><strong>Abstract:</strong>This project presents an IoT-based smart conveyor system designed for automated
+              weight-triggered operation and real-time inventory tracking. Using a 5kg load cell with an HX711
+              amplifier, the system detects when an item’s weight exceeds a preset threshold (e.g., 200 grams) to start
+              the conveyor motor controlled by an L298N driver and a 6V 600RPM DC gear motor. A mechanical arm, operated
+              by an SG-90 micro servo motor, places items onto the conveyor belt. The HC-SR04 ultrasonic sensor detects
+              and counts each passing item, providing immediate visual feedback through a green LED. The ESP32
+              microcontroller enables IoT connectivity, allowing remote monitoring and real-time data logging of weight,
+              item count, and system status for efficient inventory management and process control. This automated setup
+              enhances accuracy, efficiency, and quality assurance in manufacturing lines.</p>
+          </div>
+        </div>
+
+        <div class="item-card group">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold leading-tight">Aerodynamic Performance Analysis of NACA 4415 Airfoil
+                Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis</h3>
+              <p class="font-mono text-sm mt-2 text-gray-800">Conference: 7th Bangladesh Conference on Industrial
+                Engineering and Operations Management</p>
+              <p class="font-mono text-sm mt-1 text-gray-700">Md Zisanul Haque Bhuiyan, <b>Md. Muqtadir Fuad</b>, Masud
+                Rana, A. S. M. Maruf Hasan & Khalid Ammar</p>
+            </div>
+            <div class="font-mono text-sm mt-4 md:mt-0 md:ml-4 flex flex-wrap gap-2 justify-start md:justify-end">
+              <a href="https://doi.org/10.46254/BA07.20240040" target="_blank"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">View
+                Paper &rarr;</a>
+              <a href="https://ieomsociety.org/proceedings/bangladesh2024/40.pdf"
+                class="border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center">PDF</a>
+              <button data-abstract-id="abstract-4"
+                class="abstract-toggle border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors block text-center cursor-pointer">Abstract</button>
+            </div>
+          </div>
+
+          <p class="text-sm mt-4">
+            Presents a steady-state CFD-based comparative analysis of standard NACA 4415 airfoil, NACA 4415 with Gurney
+            flap, and NACA 4415 with bionic flap using lift coefficient, drag coefficient, lift-to-drag ratio, and
+            pressure-velocity contours.
+          </p>
+
+          <div id="abstract-4" class="hidden mt-4 pt-4 border-t border-black text-sm">
+            <p><strong>Abstract:</strong> NACA 4415 is one of the most common and widely studied airfoils in aerodynamic
+              research. Incorporating flaps with the NACA 4415 airfoil is an effective way to improve aerodynamic
+              performance and efficiency. This study presents a comparative numerical analysis among a standard NACA
+              4415 airfoil, a modified NACA 4415 airfoil incorporating a Gurney flap, and a NACA 4415 airfoil
+              incorporating a bionic flap based on the coefficient of lift and coefficient of drag at various angles of
+              attack, including -15°, -10°, -5°, 0°, 5°, 10°, and 15°, with a flap height of 2% of the chord length. The
+              airfoil performance was evaluated under a constant upstream velocity of 20 m/s using Computational Fluid
+              Dynamics simulations. Performance was measured based on the lift-to-drag coefficient ratio and validated
+              using velocity and pressure contours over the surface of the airfoil. The highest lift-to-drag ratio was
+              found in the NACA 4415 airfoil incorporating a Gurney flap, followed by the standard NACA 4415 airfoil,
+              while the NACA 4415 airfoil incorporating a bionic flap showed the lowest ratio. At 0° angle of attack,
+              the Gurney flap improved the lift-to-drag ratio by 49.9% compared to the standard airfoil, while the
+              bionic flap reduced the ratio by 19.86%. Overall, the NACA 4415 airfoil with Gurney flap outperformed the
+              other two airfoil configurations, and the velocity and pressure contours supported the results obtained
+              from lift and drag coefficients.</p>
           </div>
         </div>
       </div>
@@ -97,7 +240,7 @@
 
   <footer class="border-t border-black bg-white mt-auto">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="font-mono text-sm">&copy; 2026 Md. Muqtadir Fuad.</p>
+      <p class="font-mono text-sm">&copy; 2026 <b>Md. Muqtadir Fuad</b>.</p>
       <div class="flex gap-6 font-mono text-sm">
         <a href="https://github.com/md-muqtadir-fuad">GitHub</a>
         <a href="https://linkedin.com/in/md-muqtadir-fuad">LinkedIn</a>
@@ -109,4 +252,5 @@
 
   <script src="/main.js" type="module"></script>
 </body>
+
 </html>
