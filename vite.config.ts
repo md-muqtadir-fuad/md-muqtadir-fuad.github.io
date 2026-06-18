@@ -20,6 +20,7 @@ export default defineConfig(() => {
           achievements: path.resolve(__dirname, 'achievements.html'),
           contacts: path.resolve(__dirname, 'contacts.html'),
           blogs: path.resolve(__dirname, 'blogs.html'),
+          '404': path.resolve(__dirname, '404.html'),
         },
       },
     },
