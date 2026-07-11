@@ -56,14 +56,25 @@
   </div>
 
   <main class="flex-grow max-w-6xl mx-auto px-6 pt-32 pb-24 w-full">
-    <!-- Projects Section -->
-    <section id="projects" class="mb-32 mt-8">
-      <h2 class="section-label">03. Target Projects</h2>
+    <!-- Current Projects Section -->
+    <section id="current-projects" class="mb-24 mt-8">
+      <h2 class="section-label">03. Currently Running Projects</h2>
+      <ol class="list-decimal pl-6 space-y-4 text-lg">
+        <li><strong>LLM+Supply chain</strong></li>
+        <li><strong>RL+Textile</strong></li>
+        <li><strong>Reactive dying + ML</strong></li>
+      </ol>
+    </section>
 
+    <!-- Research Projects Section -->
+    <section id="research-projects" class="mb-32">
+      <h2 class="section-label">Research Projects</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <!-- Proj 1 -->
+
         <div class="item-card flex flex-col justify-between group">
           <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=eGov-Lens" alt="eGov-Lens" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-2xl font-bold">eGov-Lens</h3>
               <span class="font-mono text-xs uppercase tracking-wider text-gray-600">NLP / ML</span>
@@ -79,131 +90,50 @@
               <span class="tag">NLP</span>
               <span class="tag">Python</span>
             </div>
-            <a href="https://github.com/md-muqtadir-fuad/eGov-Lens"
-              class="font-mono text-sm uppercase tracking-wider">View Source &rarr;</a>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/md-muqtadir-fuad/eGov-Lens"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-egov-lens.html"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
           </div>
         </div>
 
-        <!-- Proj 2 -->
+        <!-- Dengue Project -->
         <div class="item-card flex flex-col justify-between group">
           <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Dengue+Forecasting" alt="Dengue Forecasting" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
             <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold">IoT-Based Smart Conveyor</h3>
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">IoT / IE</span>
+              <h3 class="text-2xl font-bold">Dengue Forecasting</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Forecasting / ML</span>
             </div>
             <p class="mb-6 text-sm md:text-base">
-              Integrated quality, inventory, and process control system using IoT sensors (ESP32, Arduino) with
-              real-time process monitoring.
+              Dengue fever outbreak forecasting using multiple predictive models and advanced data preprocessing techniques.
             </p>
           </div>
           <div>
             <div class="mb-4">
-              <span class="tag">Arduino</span>
-              <span class="tag">ESP32</span>
-              <span class="tag">C++</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Forecasting</span>
+              <span class="tag">Data Processing</span>
             </div>
-            <a href="#" class="font-mono text-sm uppercase tracking-wider">Project Details &rarr;</a>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Zenodo &rarr;</a>
+              <a href="/blog-dengue.html"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
           </div>
         </div>
 
-        <!-- Proj 3 -->
-        <div class="item-card flex flex-col justify-between group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold">Badhan Web Automation</h3>
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Automation</span>
-            </div>
-            <p class="mb-6 text-sm md:text-base">
-              Python and Selenium script designed to bulk upload and manage blood donor records efficiently directly
-              from batch CSV files.
-            </p>
-          </div>
-          <div>
-            <div class="mb-4">
-              <span class="tag">Python</span>
-              <span class="tag">Selenium</span>
-              <span class="tag">Automation</span>
-            </div>
-            <a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86"
-              class="font-mono text-sm uppercase tracking-wider">View Pull Request &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Proj 4 -->
-        <div class="item-card flex flex-col justify-between group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold">IoT-Enabled Web Platform</h3>
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Web App</span>
-            </div>
-            <p class="mb-6 text-sm md:text-base">
-              Centralized monitoring portal surfacing sensor data via PHP endpoints for manufacturing processes in
-              academic settings.
-            </p>
-          </div>
-          <div>
-            <div class="mb-4">
-              <span class="tag">PHP</span>
-              <span class="tag">JS</span>
-              <span class="tag">HTML/CSS</span>
-            </div>
-            <a href="https://github.com/md-muqtadir-fuad/iot-web-app"
-              class="font-mono text-sm uppercase tracking-wider">View Source &rarr;</a>
-          </div>
-        </div>
-
-        <!--proj 5-->
-        <div class="item-card flex flex-col justify-between group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold">BezierLab</h3>
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Desktop GUI</span>
-            </div>
-            <p class="mb-6 text-sm md:text-base">
-              Interactive desktop GUI for visualizing and generating N-degree Bezier curves with real-time curve
-              construction and control-point manipulation.
-            </p>
-          </div>
-          <div>
-            <div class="mb-4">
-              <span class="tag">Python</span>
-              <span class="tag">GUI</span>
-              <span class="tag">Bezier Curves</span>
-            </div>
-            <a href="https://github.com/md-muqtadir-fuad/BezierLab"
-              class="font-mono text-sm uppercase tracking-wider">View Source &rarr;</a>
-          </div>
-        </div>
-
-        <!--proj 6-->
-
-        <div class="item-card flex flex-col justify-between group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-2xl font-bold">BNWP WikiConnect Theme</h3>
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">WordPress Theme</span>
-            </div>
-            <p class="mb-6 text-sm md:text-base">
-              Custom WordPress theme for Bangla WikiConnect featuring Bengali-first design, project pages, member
-              profiles, language switching, and responsive layouts.
-            </p>
-          </div>
-          <div>
-            <div class="mb-4">
-              <span class="tag">WordPress</span>
-              <span class="tag">PHP</span>
-              <span class="tag">Bootstrap</span>
-            </div>
-            <a href="https://github.com/bnwp/bnwp-wp-theme" class="font-mono text-sm uppercase tracking-wider">View
-              Source &rarr;</a>
-          </div>
-        </div>
-
+        
         <!--proj 7-->
 
 
+
         <div class="item-card flex flex-col justify-between group">
           <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=QueryNest" alt="QueryNest" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-2xl font-bold">QueryNest</h3>
               <span class="font-mono text-xs uppercase tracking-wider text-gray-600">RAG App</span>
@@ -221,14 +151,115 @@
               <span class="tag">Chroma</span>
               <span class="tag">Docker</span>
             </div>
-            <a href="https://github.com/md-muqtadir-fuad/QueryNest"
-              class="font-mono text-sm uppercase tracking-wider">View Source &rarr;</a>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/md-muqtadir-fuad/QueryNest"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-querynest.html"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
           </div>
         </div>
 
-        <!--proj 8-->
+        
+      </div>
+    </section>
+
+    <!-- Academic Projects Section -->
+    <section id="academic-projects" class="mb-32">
+      <h2 class="section-label">Academic Projects</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Proj 2 -->
+
         <div class="item-card flex flex-col justify-between group">
           <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=IoT+Conveyor" alt="IoT-Based Smart Conveyor" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">IoT-Based Smart Conveyor</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">IoT / IE</span>
+            </div>
+            <p class="mb-6 text-sm md:text-base">
+              Integrated quality, inventory, and process control system using IoT sensors (ESP32, Arduino) with
+              real-time process monitoring.
+            </p>
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="tag">Arduino</span>
+              <span class="tag">ESP32</span>
+              <span class="tag">C++</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="font-mono text-sm uppercase tracking-wider hover:underline">Project Details &rarr;</a>
+              <a href="/blog-iot-conveyor.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Proj 4 -->
+
+        <div class="item-card flex flex-col justify-between group">
+          <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=IoT+Platform" alt="IoT-Enabled Web Platform" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">IoT-Enabled Web Platform</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Web App</span>
+            </div>
+            <p class="mb-6 text-sm md:text-base">
+              Centralized monitoring portal surfacing sensor data via PHP endpoints for manufacturing processes in
+              academic settings.
+            </p>
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="tag">PHP</span>
+              <span class="tag">JS</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/md-muqtadir-fuad/iot-web-app"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-iot-platform.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <!--proj 5-->
+
+        <div class="item-card flex flex-col justify-between group">
+          <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=BezierLab" alt="BezierLab" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">BezierLab</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Desktop GUI</span>
+            </div>
+            <p class="mb-6 text-sm md:text-base">
+              Interactive desktop GUI for visualizing and generating N-degree Bezier curves with real-time curve
+              construction and control-point manipulation.
+            </p>
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="tag">Python</span>
+              <span class="tag">GUI</span>
+              <span class="tag">Bezier Curves</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/md-muqtadir-fuad/BezierLab"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-bezierlab.html"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <!--proj 8-->
+
+        <div class="item-card flex flex-col justify-between group">
+          <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Shoe+Shiner" alt="Shoe Shiner Pro" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-2xl font-bold">Shoe Shiner Pro</h3>
               <span class="font-mono text-xs uppercase tracking-wider text-gray-600">CAD Prototype</span>
@@ -245,11 +276,80 @@
               <span class="tag">Product Design</span>
               <span class="tag">Prototype</span>
             </div>
-            <a href="#" class="font-mono text-sm uppercase tracking-wider">View Source &rarr;</a>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-shoe-shiner.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
           </div>
         </div>
 
 
+      
+      </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section id="other-projects" class="mb-32">
+      <h2 class="section-label">Other Projects</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Proj 3 -->
+
+        <div class="item-card flex flex-col justify-between group">
+          <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Web+Automation" alt="Badhan Web Automation" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">Badhan Web Automation</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Automation</span>
+            </div>
+            <p class="mb-6 text-sm md:text-base">
+              Python and Selenium script designed to bulk upload and manage blood donor records efficiently directly
+              from batch CSV files.
+            </p>
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="tag">Python</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">Automation</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86"
+                class="font-mono text-sm uppercase tracking-wider hover:underline">View Pull Request &rarr;</a>
+              <a href="/blog-badhan.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <!--proj 6-->
+
+
+        <div class="item-card flex flex-col justify-between group">
+          <div>
+            <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=WP+Theme" alt="BNWP WikiConnect Theme" class="w-full h-48 object-cover mb-6 border border-black group-hover:opacity-90 transition-opacity">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">BNWP WikiConnect Theme</h3>
+              <span class="font-mono text-xs uppercase tracking-wider text-gray-600">WordPress Theme</span>
+            </div>
+            <p class="mb-6 text-sm md:text-base">
+              Custom WordPress theme for Bangla WikiConnect featuring Bengali-first design, project pages, member
+              profiles, language switching, and responsive layouts.
+            </p>
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="tag">WordPress</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Bootstrap</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/bnwp/bnwp-wp-theme" class="font-mono text-sm uppercase tracking-wider hover:underline">View Source &rarr;</a>
+              <a href="/blog-bnwp.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Read Blog &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        
       </div>
     </section>
 
