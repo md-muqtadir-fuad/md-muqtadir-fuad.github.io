@@ -94,7 +94,7 @@ const template = (title, desc) => `<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="/main.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>`;
 
