@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://md-muqtadir-fuad.github.io/sitemap.xml
