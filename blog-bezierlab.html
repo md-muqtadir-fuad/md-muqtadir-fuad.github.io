@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BezierLab | Md. Muqtadir Fuad</title>
+  <title>BezierLab: Interactive N-Degree Bézier Curve Construction | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How I engineered BezierLab, an interactive Python desktop application for creating, manipulating, and visualizing N-degree Bézier curves in real time." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -16,6 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError : false
+    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -52,21 +67,78 @@
           <span>•</span>
           <span>5 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">BezierLab</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">BezierLab: Interactive N-Degree Bézier Curve Construction in Python</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          A dummy blog post discussing the development of the BezierLab application.
+          How I built a standalone desktop GUI for generating, manipulating, and analyzing arbitrary-degree parametric Bézier curves with real-time mathematical rendering.
         </p>
       </header>
 
-      <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/BezierLab/refs/heads/master/assets/img/scr-shot.png" alt="BezierLab" class="w-full h-auto object-cover mb-12 border border-black">
+      <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/BezierLab/refs/heads/master/assets/img/scr-shot.png" alt="BezierLab Application Interface" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Bézier curves are fundamental to modern computational geometry, computer-aided design (CAD), CNC toolpath generation, and vector typography. While commercial CAD packages hide the underlying mathematics behind black-box smoothing functions, engineering students and designers often lack an intuitive tool to explore how shifting higher-order control points affects curve curvature and derivative continuity.
         </p>
         <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          To bridge this gap, I created <strong>BezierLab</strong>—an open-source, interactive desktop application built in Python that enables real-time visual construction and analytical inspection of Bézier curves of arbitrary degrees.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Mathematical Foundation</h2>
+        <p>
+          A Bézier curve of degree $n$ parameterized by $t \in [0, 1]$ is formulated as a linear combination of Bernstein basis polynomials $b_{i,n}(t)$ weighted by control points $P_i \in \mathbb{R}^2$:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
+          <p class="font-bold">Parametric Bézier Curve Equation:</p>
+          <div class="overflow-x-auto text-base">
+            $$B(t) = \sum_{i=0}^{n} b_{i,n}(t) P_i, \quad t \in [0, 1]$$
+          </div>
+          <p class="font-bold mt-2">Bernstein Basis Polynomials:</p>
+          <div class="overflow-x-auto text-base">
+            $$b_{i,n}(t) = \binom{n}{i} t^i (1 - t)^{n - i} = \frac{n!}{i!(n - i)!} t^i (1 - t)^{n - i}$$
+          </div>
+        </div>
+        <p>
+          For numerical stability when evaluating high-degree curves, BezierLab implements <strong>De Casteljau's algorithm</strong>, recursively interpolating between intermediate control vertices:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm">
+          <p class="font-bold mb-2">Recursive De Casteljau Relation:</p>
+          <div class="overflow-x-auto text-base">
+            $$P_i^{(k)}(t) = (1 - t) P_i^{(k-1)}(t) + t P_{i+1}^{(k-1)}(t), \quad \begin{cases} k = 1, 2, \dots, n \\ i = 0, 1, \dots, n - k \end{cases}$$
+          </div>
+          <p class="mt-2 text-xs text-gray-600">where $P_i^{(0)}(t) = P_i$, and $B(t) = P_0^{(n)}(t)$.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Core Features of BezierLab</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Arbitrary Degree Support ($n \ge 1$):</strong> Seamlessly construct linear, quadratic, cubic, quartic, and higher $N$-degree curves by dynamically inserting or removing control nodes.</li>
+          <li><strong>Direct Canvas Interaction:</strong> Drag-and-drop control vertices $P_i = (x_i, y_i)$ with immediate sub-millisecond recalculation and canvas repainting.</li>
+          <li><strong>Convex Hull Visualization:</strong> Displays the bounding polygon formed by the control point set $\{P_0, P_1, \dots, P_n\}$, visually verifying the convex hull property: $B(t) \in \text{conv}(P_0, \dots, P_n)$.</li>
+          <li><strong>Coordinate Inspection &amp; Export:</strong> Inspect exact discrete spatial coordinates $(x_t, y_t)$ across parameterized step increments $\Delta t$, with full PNG image export support.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Engineering Applications</h2>
+        <p>
+          In manufacturing and mechanical engineering, Bézier curve interpolation provides critical advantages:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>CNC Toolpath Optimization:</strong> Replacing segmented linear polylines with continuous $G^1$ (tangent continuous) and $G^2$ (curvature continuous) smooth spline curves, drastically cutting machine head jerk, vibration, and surface scallop height.</li>
+          <li><strong>Robotic Trajectory Planning:</strong> Generating smooth position-velocity profiles between workspace waypoints to respect actuator torque and acceleration constraints.</li>
+          <li><strong>Aerodynamic Airfoil Design:</strong> Parameterizing NACA and bionic flap profiles with minimal control variables.</li>
+        </ul>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Download &amp; Repository</h2>
+        <p>
+          BezierLab is open-source and distributed both as Python source code and standalone Windows executables:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>GitHub Repository:</strong> <a href="https://github.com/md-muqtadir-fuad/BezierLab" target="_blank" rel="noopener noreferrer" class="underline font-medium">github.com/md-muqtadir-fuad/BezierLab</a>
+          </li>
+          <li>
+            <strong>Binary Releases:</strong> Available on SourceForge and GitHub Releases.
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

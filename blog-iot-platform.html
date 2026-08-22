@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IoT-Enabled Web Platform | Md. Muqtadir Fuad</title>
+  <title>Designing an IoT-Enabled Web Platform | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How I built a centralized web portal and REST API to ingest, visualize, and monitor industrial IoT sensor telemetry in real time." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -52,21 +53,57 @@
           <span>•</span>
           <span>5 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">IoT-Enabled Web Platform</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Designing an IoT-Enabled Web Platform for Manufacturing Telemetry</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          A blog post discussing the development of the IoT-Enabled Web Platform.
+          How I built a full-stack telemetry and process monitoring portal connecting embedded sensor nodes to an interactive web dashboard for smart manufacturing.
         </p>
       </header>
 
-      <img src="https://private-user-images.githubusercontent.com/87650669/479851827-21cb13aa-001c-45d2-aa31-3d6402283a97.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODM3OTk3NzUsIm5iZiI6MTc4Mzc5OTQ3NSwicGF0aCI6Ii84NzY1MDY2OS80Nzk4NTE4MjctMjFjYjEzYWEtMDAxYy00NWQyLWFhMzEtM2Q2NDAyMjgzYTk3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA3MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNzExVDE5NTExNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM5MzU3NDQxMTM0MmUzYTZlOTZiODYwZDNlMmI0ODIyZDI3MmNkYjg3N2YwZWNiNzU1ZDIyYmVmNjllYmM1YmImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.QxLPoOR2zjyYBxZC22EJFuExhYwPwuoBJz4EamM8_X0" alt="IoT-Enabled Web Platform" class="w-full h-auto object-cover mb-12 border border-black">
+      <img src="https://i.postimg.cc/VkjL6gY2/479851827-21cb13aa-001c-45d2-aa31-3d6402283a97.png" alt="IoT Web Platform Dashboard" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          <!--txt goes here-->
+          In manufacturing laboratories and production workshops, equipment operates across complex parameters—temperatures, load thresholds, vibration levels, and cycle times. However, extracting real-time insights often requires engineers to walk machine to machine, writing down readings on physical clipboards.
         </p>
         <p>
-          <!--txt goes here-->
+          I developed the <strong>IoT-Enabled Web Platform</strong> to bridge this gap: providing a lightweight, robust telemetry portal that connects microcontroller sensor nodes directly to a central dashboard with real-time graphs, anomaly alerts, and structured audit logs.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">End-to-End System Architecture</h2>
+        <p>
+          The architecture follows a streamlined three-tier design:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Edge Hardware Tier:</strong> ESP32 and Arduino microcontrollers equipped with load cells, temperature sensors, and encoders, sampling data and transmitting JSON payloads over HTTP POST requests.</li>
+          <li><strong>API &amp; Ingestion Tier (PHP/MySQL):</strong> Lightweight REST endpoints validating incoming token headers, sanitizing parameters, and inserting time-series records into optimized relational tables.</li>
+          <li><strong>Visualization Dashboard (JS / HTML / CSS):</strong> Interactive client-side portal utilizing asynchronous polling and dynamic chart rendering to display real-time sensor streams without full-page reloads.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Key Capabilities &amp; Features</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Multi-Sensor Live Gauges:</strong> Real-time visualization of process variables such as unit weights, operating temperatures, and production cycle run-rates.</li>
+          <li><strong>Out-of-Tolerance Alerting:</strong> Automated visual flag triggers whenever monitored parameters breach predefined upper/lower control limits.</li>
+          <li><strong>Historical Trend Analysis:</strong> Filterable historical query engine allowing engineers to analyze shift-wise variations and export raw production logs to CSV.</li>
+          <li><strong>Low-Bandwidth Optimization:</strong> Optimized JSON payload structures and compressed HTTP headers enabling reliable transmission over lossy industrial Wi-Fi networks.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Practical Engineering Insights</h2>
+        <p>
+          Deploying IoT in industrial and academic workshop environments highlighted the critical need for edge-side fault tolerance. The microcontrollers incorporate local flash buffer queues so that if network connectivity temporarily drops, sensor readings are cached locally and synchronized once the connection is restored.
+        </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Project Repository</h2>
+        <p>
+          The complete source code for both the web application and embedded API integration is open-source on GitHub:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>GitHub Repository:</strong> <a href="https://github.com/md-muqtadir-fuad/iot-web-app" target="_blank" rel="noopener noreferrer" class="underline font-medium">github.com/md-muqtadir-fuad/iot-web-app</a>
+          </li>
+          <li>
+            <strong>Technologies:</strong> PHP, MySQL, JavaScript, HTML5/CSS3, ESP32, RESTful API
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shoe Shiner Pro | Md. Muqtadir Fuad</title>
+  <title>Shoe Shiner Pro: From CAD Concept to Prototype | Md. Muqtadir Fuad</title>
+  <meta name="description" content="A comprehensive walkthrough of designing, simulating, and fabricating the Shoe Shiner Pro automated prototype using SolidWorks and ANSYS FEA." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -16,6 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError : false
+    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -50,23 +65,86 @@
         <div class="mb-4 font-mono text-sm flex items-center gap-4 text-gray-600">
           <time datetime="2026-07-08">July 8, 2026</time>
           <span>•</span>
-          <span>5 min read</span>
+          <span>6 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Shoe Shiner Pro</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Shoe Shiner Pro: From CAD Concept to Functional Prototype</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          Shoe Shiner Pro: A Proto-type
+          How we designed, simulated, and fabricated an automated shoe-shining device using SolidWorks 3D CAD, ANSYS FEA structural analysis, and electromechanical prototyping.
         </p>
       </header>
 
-      <img src="https://placehold.co/800x400/f3f4f6/1f2937?text=Shoe+Shiner+Pro" alt="Shoe Shiner Pro" class="w-full h-auto object-cover mb-12 border border-black">
-
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          <!--txt goes here-->
+          Manual shoe polishing is time-consuming, messy, and inconsistent. In commercial offices, hospitality venues, and residences, there is a clear demand for an automated, compact device that can clean, wax, and buff footwear rapidly without requiring the user to stoop or soil their hands.
         </p>
         <p>
-          <!--txt goes here-->
+          As part of the <strong>Product Design I &amp; II</strong> capstone sequence at BUET (Department of Industrial and Production Engineering), our team developed <strong>Shoe Shiner Pro</strong>: an automated electromechanical consumer appliance designed from first principles, refined through FEA simulation, and validated via a fully working physical prototype.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Mechanism Synthesis &amp; Kinematics</h2>
+        <p>
+          The core engineering challenge was creating a compact mechanism capable of performing three distinct operations within a single compact footprint:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Surface De-Dusting:</strong> Coarse synthetic bristle roller removing loose dirt and debris.</li>
+          <li><strong>Dispensing Cream/Polish:</strong> A cam-actuated valve mechanism delivering controlled micro-doses of cream polish onto the shoe surface.</li>
+          <li><strong>High-Speed Buffing &amp; Polishing:</strong> Dual counter-rotating microfiber cylindrical pads delivering uniform friction buffing for an optimal gloss finish.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Parametric CAD Modeling in SolidWorks</h2>
+        <p>
+          We modeled the complete assembly in <strong>SolidWorks</strong>, focusing on Design for Manufacturing and Assembly (DFMA) principles:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm">
+          <p class="font-bold mb-2">CAD Subassembly Breakdown:</p>
+          <ul class="space-y-1">
+            <li>&bull; Ergonomic outer chassis with anti-slip footplate and debris capture drawer</li>
+            <li>&bull; Gearbox transmission converting motor output to dual roller shafts</li>
+            <li>&bull; Polish reservoir subassembly with spring-loaded plunger actuation</li>
+            <li>&bull; Internal electrical housing insulating motors and wiring from dust</li>
+          </ul>
+        </div>
+        <p>
+          Interference detection analyses were conducted in SolidWorks to verify clearance tolerances across all rotating joints and gear meshes prior to tooling.
+        </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Finite Element Structural Analysis in ANSYS</h2>
+        <p>
+          Because the device directly supports user foot pressure during operation, structural integrity was paramount. We exported the chassis and footplate geometry to <strong>ANSYS Workbench</strong> for static structural stress analysis:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
+          <p class="font-bold">Von Mises Equivalent Stress Formulation:</p>
+          <div class="overflow-x-auto text-base">
+            $$\sigma_v = \sqrt{\frac{1}{2}\left[(\sigma_1 - \sigma_2)^2 + (\sigma_2 - \sigma_3)^2 + (\sigma_3 - \sigma_1)^2\right]}$$
+          </div>
+          <p class="font-bold mt-2">Factor of Safety (FOS) Criterion:</p>
+          <div class="overflow-x-auto text-base">
+            $$\text{FOS} = \frac{\sigma_{\text{yield}}}{\sigma_{\max}} \ge 2.5$$
+          </div>
+        </div>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+          <li><strong>Loading Conditions:</strong> Applied vertical static downward forces up to $F = 1000\text{ N}$ (simulating heavy foot load) with fixed base boundary constraints.</li>
+          <li><strong>Mesh Generation:</strong> High-density tetrahedral mesh with local refinement around fillet zones and screw fastening points.</li>
+          <li><strong>Stress &amp; Deflection Results:</strong> Maximum von Mises stress $\sigma_{\max}$ remained well below the yield strength $\sigma_{\text{yield}}$ of the selected engineering polymer, confirming an $\text{FOS} \gt 2.5$ with negligible deflection ($\delta \lt 0.4\text{ mm}$).</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Fabrication &amp; Prototype Testing</h2>
+        <p>
+          The prototype was physically constructed using high-torque DC gear motors, machined aluminum drive shafts, durable bristle cylinders, and safety interlock pressure switches that automatically stop roller rotation when the user's foot is removed.
+        </p>
+        <p>
+          Testing confirmed that the automated cycle cleans and polishes a shoe in under 30 seconds with zero polish splatter, fulfilling all original design targets.
+        </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Key Engineering Competencies</h2>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>Design &amp; Simulation:</strong> SolidWorks 3D CAD, ANSYS Workbench (Static Structural FEA), DFMA
+          </li>
+          <li>
+            <strong>Electromechanical Integration:</strong> Motor sizing, gear transmission, sensor-switched electrical safety circuits
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

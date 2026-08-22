@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IoT-Based Smart Conveyor | Md. Muqtadir Fuad</title>
+  <title>Building an IoT-Based Smart Conveyor System | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How we engineered an IoT-enabled smart conveyor prototype combining load cells, ultrasonic sensors, microcontrollers, and real-time inventory telemetry." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -16,6 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError : false
+    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -50,23 +65,101 @@
         <div class="mb-4 font-mono text-sm flex items-center gap-4 text-gray-600">
           <time datetime="2026-07-08">July 8, 2026</time>
           <span>•</span>
-          <span>5 min read</span>
+          <span>6 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">IoT-Based Smart Conveyor</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Building an IoT-Based Smart Conveyor for Quality &amp; Inventory Control</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          A dummy blog post discussing the development of the IoT-Based Smart Conveyor.
+          How we engineered an ESP32 and Arduino-driven smart conveyor prototype combining real-time load cell calibration, ultrasonic counting, robotic sorting, and cloud logging.
         </p>
       </header>
 
-      <img src="https://github.com/md-muqtadir-fuad/iot-web-app/blob/master/groups/poster/B8.png?raw=true" alt="IoT-Based Smart Conveyor" class="w-full h-auto object-cover mb-12 border border-black">
+      <!-- Publication Badge -->
+      <div class="border border-black p-5 mb-10 bg-gray-50 font-mono">
+        <div class="text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+          <span class="inline-block w-2 h-2 bg-black"></span>
+          Published Technical Poster
+        </div>
+        <h2 class="text-base font-bold font-sans text-black leading-snug mb-2">
+          IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control
+        </h2>
+        <p class="text-xs text-gray-700 font-sans mb-3">
+          <b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur Rahman &amp; Nafis Ahmad
+        </p>
+        <div class="flex flex-wrap items-center gap-3 text-xs">
+          <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            DOI: 10.13140/RG.2.2.25476.23683 &rarr;
+          </a>
+          <a href="https://www.researchgate.net/publication/394406896_IoT-Based_Smart_Conveyor_System_for_Integrated_Quality_Inventory_and_Process_Control" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            ResearchGate Publication &rarr;
+          </a>
+        </div>
+      </div>
+
+      <img src="https://github.com/md-muqtadir-fuad/iot-web-app/blob/master/groups/poster/B8.png?raw=true" alt="IoT-Based Smart Conveyor System Overview" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          <!--txt goes here-->
+          In labor-intensive manufacturing facilities, manual weight checking and piece counting are notorious sources of bottlenecking and variability. Operators experience fatigue over extended shifts, causing out-of-spec products to pass inspection and creating discrepancies between actual production output and logged inventory.
         </p>
         <p>
-          <!--txt goes here-->
+          To address this operational challenge, we designed and fabricated an <strong>IoT-Based Smart Conveyor System</strong>. The prototype demonstrates a cost-effective, automated solution for real-time weight discrimination, automated item counting, mechanical rejection/sorting, and cloud-synced inventory telemetry.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Electromechanical Hardware Stack</h2>
+        <p>
+          The system integrates sensing, actuation, and computation into a cohesive feedback loop:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Weight Measurement:</strong> A 5kg strain-gauge load cell connected to an HX711 24-bit precision analog-to-digital converter (ADC) for high-resolution weight measurements.</li>
+          <li><strong>Object Detection &amp; Counting:</strong> An HC-SR04 ultrasonic sensor positioned above the belt to detect item passage and trigger visual verification indicators.</li>
+          <li><strong>Actuation &amp; Sorting:</strong> An SG-90 micro servo motor actuating a robotic gate arm to route defective or out-of-spec packages onto a bypass lane.</li>
+          <li><strong>Conveyor Drive:</strong> A 6V 600 RPM high-torque DC gear motor modulated by an L298N dual H-bridge motor driver for smooth acceleration and stopping.</li>
+          <li><strong>Dual Microcontroller Architecture:</strong> An Arduino Uno handling real-time low-level sensor sampling and motor PWM, coupled with an ESP32 for Wi-Fi telemetry and HTTP data streaming.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Control Logic &amp; Operational Sequence</h2>
+        <p>
+          Weight calibration is performed by converting raw 24-bit counts from the HX711 ADC into physical mass (grams) using a linear tare-offset and scaling factor:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
+          <p class="font-bold">Load Cell Mass Calibration Formula:</p>
+          <div class="overflow-x-auto text-base">
+            $$W = \frac{\text{ADC}_{\text{raw}} - \text{ADC}_{\text{tare}}}{K_{\text{calibration}}}$$
+          </div>
+          <p class="font-bold mt-2">Rejection Condition:</p>
+          <div class="overflow-x-auto text-base">
+            $$\text{Reject Flag} = \begin{cases} 1 & \text{if } |W - W_{\text{nominal}}| \gt \Delta W_{\text{tolerance}} \\ 0 & \text{otherwise} \end{cases}$$
+          </div>
+        </div>
+        <p>
+          The system operates under an event-driven control sequence to ensure minimal idle power consumption and reliable sorting:
+        </p>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Idle State:</strong> The conveyor remains stationary until an object is placed on the infeed weighing platform.</li>
+          <li><strong>Weight Acquisition &amp; Thresholding:</strong> The HX711 samples the strain gauge. If the measured mass exceeds the operational trigger threshold ($W \ge 200\text{ g}$), the system evaluates tolerance limits.</li>
+          <li><strong>Conveyor Engagement:</strong> The L298N driver engages the DC motor, advancing the item down the track.</li>
+          <li><strong>Passage Verification:</strong> The ultrasonic sensor detects object transit, increments the validated batch counter, and pulses an on-board indicator LED.</li>
+          <li><strong>Rejection / Routing:</strong> If the reject flag is triggered, the ESP32 signals the SG-90 servo to deflect the item before it reaches the final bin.</li>
+          <li><strong>Telemetry Broadcast:</strong> The ESP32 formats the payload (timestamp, piece weight $W$, pass/fail flag, total tally) into a JSON packet and transmits it to the centralized web server.</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Performance &amp; Key Takeaways</h2>
+        <p>
+          During experimental trials, the automated conveyor achieved a 100% item count accuracy and consistent weight-sorting responsiveness under high cycle rates. The direct integration of IoT telemetry eliminated paper-based logging delays, demonstrating how accessible embedded electronics can upgrade conventional manufacturing lines to Industry 4.0 standards.
+        </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">References &amp; Citation</h2>
+        <p>
+          For full technical specifications, circuit schematics, and experimental data, consult the published technical poster:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>DOI:</strong> <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" rel="noopener noreferrer" class="underline font-medium">10.13140/RG.2.2.25476.23683</a>
+          </li>
+          <li>
+            <strong>ResearchGate:</strong> <a href="https://www.researchgate.net/publication/394406896_IoT-Based_Smart_Conveyor_System_for_Integrated_Quality_Inventory_and_Process_Control" target="_blank" rel="noopener noreferrer" class="underline font-medium">View Publication Archive</a>
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

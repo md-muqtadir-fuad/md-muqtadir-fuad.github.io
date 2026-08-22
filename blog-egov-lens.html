@@ -16,6 +16,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError : false
+    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -57,44 +71,93 @@
           <span>•</span>
           <span>5 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Building eGov-Lens: NLP-Driven Citizen Feedback Analysis</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">eGov-Lens: Multi-Dimensional Aspect-Based Feedback Analysis for Bengali e-Government</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          How we architected a scalable web-based analytics platform to automate complaint categorization and sentiment analysis for smarter governance.
+          How we curated a 34,001-comment Bengali public service feedback dataset and benchmarked transformer architectures with Entropy-weighted TOPSIS for deployment-ready governance intelligence.
         </p>
       </header>
 
-      <img src="https://placehold.co/800x400/f3f4f6/1f2937?text=eGov-Lens+Dashboard" alt="eGov-Lens Dashboard" class="w-full h-auto object-cover mb-12 border border-black">
+      <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/eGov-Lens/refs/heads/master/mBERT%2BSVC/picture/svc_roc_responsiveness.png" alt="eGov-Lens Aspect ROC-AUC Curves" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          In modern governance, listening to citizens is critical. However, analyzing thousands of unstructured complaints daily poses a significant challenge for municipalities and government agencies. That's where <strong>eGov-Lens</strong> comes in—a platform designed to leverage Natural Language Processing (NLP) to automate the categorization and sentiment analysis of citizen feedback.
+          In modern public administration, citizen feedback across digital touchpoints represents a vital pulse on public service delivery. However, citizen feedback in Bengali is frequently unstructured, colloquial, noisy, and covers multiple operational dimensions simultaneously.
+        </p>
+        <p>
+          To address this, we developed <strong>eGov-Lens</strong>—a comprehensive, multi-dimensional aspect-based NLP framework for analyzing citizen feedback across 12 major Bangladeshi e-government services.
         </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">The Problem</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Curating the 34,001-Comment Dataset</h2>
         <p>
-          Prior to this solution, public complaints were manually read and assigned to relevant departments (e.g., sanitation, road maintenance, water supply). This manual pipeline was slow, prone to human error, and completely lacked real-time sentiment visibility. Decision-makers couldn't easily pinpoint which areas had the highest negative sentiment or which specific issues were trending.
+          We curated and manually annotated a corpus of <strong>34,001 Bengali comments</strong> collected between 2020 and 2024 from the official public forums and channels of 12 critical e-government services:
         </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm">
+          <p class="font-bold mb-2">12 Covered E-Government Service Sectors:</p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+            <span>&bull; BRTA (Road Transport)</span>
+            <span>&bull; BDRIS (Birth &amp; Death Reg.)</span>
+            <span>&bull; BTRC (Telecom Reg.)</span>
+            <span>&bull; Consumer Rights</span>
+            <span>&bull; Agriculture (DAE)</span>
+            <span>&bull; Digital Bangladesh</span>
+            <span>&bull; Education Portals</span>
+            <span>&bull; Election Commission</span>
+            <span>&bull; Medical &amp; Health</span>
+            <span>&bull; Police Services</span>
+            <span>&bull; Postal Services</span>
+            <span>&bull; Teletalk Services</span>
+          </div>
+        </div>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Architecting the Solution</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Multi-Aspect Analytical Framework</h2>
         <p>
-          We decided to split the architecture into a responsive frontend built with <strong>React</strong> and a robust API backend powered by <strong>FastAPI</strong>. The NLP heavy-lifting is handled using customized transformer models optimized for text classification and sentiment scoring.
+          Instead of generic sentiment polarity, eGov-Lens decomposes each citizen review into four policy-actionable aspect categories:
         </p>
-        
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Frontend (React + Tailwind):</strong> Provides an interactive dashboard for officials to monitor real-time complaint volumes, sentiment trends, and geographical distribution.</li>
-          <li><strong>Backend (FastAPI):</strong> Handles concurrent request processing efficiently and serves predictions from the ML models.</li>
-          <li><strong>NLP Engine:</strong> Utilizes fine-tuned language models to categorize incoming text into 15+ civic departments and assigns a sentiment score ranging from strongly negative to positive.</li>
+          <li><strong>Sentiment:</strong> Overall public sentiment polarity (Positive, Negative, Neutral).</li>
+          <li><strong>Ease of Finding (EoF):</strong> Navigation and accessibility of specific service workflows.</li>
+          <li><strong>Responsiveness:</strong> Turnaround speed, server downtime, and administrative responsiveness.</li>
+          <li><strong>Accuracy:</strong> Information correctness, document precision, and transactional integrity.</li>
         </ul>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Overcoming Model Drift</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Model Benchmarking &amp; Architecture</h2>
         <p>
-          One of our core challenges was adapting the model to local dialects and changing public concerns. We implemented an active learning loop where administrative corrections to categorizations are fed back into the dataset to continuously retrain the model, ensuring high accuracy over time.
+          We benchmarked 7 distinct machine learning and transformer representation combinations:
         </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Text Representations:</strong> CountVectorizer (BoW n-grams), Multilingual BERT (mBERT), and pretrained domain-specific <strong>BanglaBERT</strong>.</li>
+          <li><strong>Classifiers:</strong> Support Vector Classifier (SVC), Logistic Regression (LR), and Multinomial Naive Bayes (MNB).</li>
+        </ul>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Impact</h2>
+        <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/eGov-Lens/refs/heads/master/BanglaBERT%2BSVC/picture/svc_roc_sentiment.png" alt="BanglaBERT + SVC ROC Curve across Sentiment Classes" class="w-full h-auto object-cover my-8 border border-black">
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Deployment-Aware Entropy-Weighted TOPSIS</h2>
         <p>
-          Deploying eGov-Lens reduced the average complaint routing time by over 80%. Officials now have a bird's-eye view of civic health, enabling them to preemptively allocate resources to the most distressed sectors before minor issues escalate.
+          In resource-constrained governmental infrastructure, raw accuracy alone is insufficient. We utilized the <strong>Technique for Order Preference by Similarity to Ideal Solution (TOPSIS)</strong> with objective Shannon Entropy weighting across 6 critical operational criteria:
         </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
+          <p class="font-bold">TOPSIS Closeness Coefficient Formula:</p>
+          <div class="overflow-x-auto text-base">
+            $$C_i^* = \frac{D_i^-}{D_i^+ + D_i^-}, \quad C_i^* \in [0, 1]$$
+          </div>
+          <p class="text-xs text-gray-600">where $D_i^+$ and $D_i^-$ represent the Euclidean distance to the positive-ideal and negative-ideal solutions across Accuracy, F1-score, Recall, ROC-AUC, Training Time, and Inference Latency.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Repository &amp; Open Dataset</h2>
+        <p>
+          The complete source code, preprocessing scripts, fine-tuned models, and annotated Bengali dataset are open-source:
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="https://github.com/md-muqtadir-fuad/eGov-Lens" target="_blank" rel="noopener noreferrer" class="font-mono text-sm border border-black px-4 py-2 uppercase hover:bg-black hover:text-white transition-colors">
+            GitHub Repository &rarr;
+          </a>
+          <a href="https://doi.org/10.5281/zenodo.20090598" target="_blank" rel="noopener noreferrer" class="font-mono text-sm border border-black px-4 py-2 uppercase hover:bg-black hover:text-white transition-colors">
+            Zenodo DOI (10.5281/zenodo.20090598) &rarr;
+          </a>
+          <a href="https://www.researchgate.net/publication/404606534_eGov-Lens_A_Multi-Dimensional_Machine_Learning_Approach_to_Aspect-Based_Public_Feedback_Analysis_on_Bengali_e-Government_Platforms" target="_blank" rel="noopener noreferrer" class="font-mono text-sm border border-black px-4 py-2 uppercase hover:bg-black hover:text-white transition-colors">
+            ResearchGate Paper &rarr;
+          </a>
+        </div>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

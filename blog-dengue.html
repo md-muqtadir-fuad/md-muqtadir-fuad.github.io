@@ -17,6 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError : false
+    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -58,6 +72,28 @@
           How I built a district-level forecasting framework to compare statistical, machine-learning, and deep-learning models from one to six months ahead.
         </p>
       </header>
+
+      <!-- Published Paper Notice Banner -->
+      <div class="border border-black p-5 mb-10 bg-gray-50 font-mono">
+        <div class="text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+          <span class="inline-block w-2 h-2 bg-black"></span>
+          Peer-Reviewed Journal Publication &bull; PLOS ONE
+        </div>
+        <h2 class="text-base font-bold font-sans text-black leading-snug mb-2">
+          Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh
+        </h2>
+        <p class="text-xs text-gray-700 font-sans mb-3">
+          <b>Md. Muqtadir Fuad</b>, Md. Sajib Milki, Ridwan Al Aziz &bull; <em>Published: August 21, 2026</em>
+        </p>
+        <div class="flex flex-wrap items-center gap-3 text-xs">
+          <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            DOI: 10.1371/journal.pone.0353069 &rarr;
+          </a>
+          <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            Read on PLOS ONE &rarr;
+          </a>
+        </div>
+      </div>
 
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Aedes_aegypti.jpg/960px-Aedes_aegypti.jpg" alt="Aedes aegypti mosquito, the primary vector of dengue" class="w-full h-auto object-cover mb-12 border border-black">
 
@@ -101,10 +137,23 @@
 
         <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Evaluation beyond a single error score</h2>
         <p>
-          Forecast quality is summarized with MAE, RMSE, and MAPE, but the analysis does not stop at an overall leaderboard. The generated artifacts include metrics by district, by horizon, and by case regime, together with train, validation, and test predictions and residuals. Outbreak classification reports add precision, recall, and F1-score, connecting continuous case forecasts to the practical question of whether a surge is detected.
+          Forecast quality is evaluated using both continuous magnitude metrics and binary outbreak classification scores across lead horizons $h \in \{1, 2, \dots, 6\}$:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
+          <p class="font-bold">Continuous Error Metrics:</p>
+          <div class="overflow-x-auto text-base">
+            $$\text{MAE} = \frac{1}{N}\sum_{t=1}^{N} |y_t - \hat{y}_t|, \qquad \text{RMSE} = \sqrt{\frac{1}{N}\sum_{t=1}^{N} (y_t - \hat{y}_t)^2}, \qquad \text{MAPE} = \frac{100\%}{N}\sum_{t=1}^{N} \left|\frac{y_t - \hat{y}_t}{y_t}\right|$$
+          </div>
+          <p class="font-bold mt-2">Outbreak Early Warning &amp; Alerting Metrics:</p>
+          <div class="overflow-x-auto text-base">
+            $$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}, \qquad \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}, \qquad F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
+          </div>
+        </div>
+        <p>
+          The generated artifacts include metrics by district, by horizon, and by case regime, together with train, validation, and test predictions and residuals. Outbreak classification reports connect continuous case forecasts to the operational question of whether a public health surge is detected in advance.
         </p>
         <p>
-          Interpretability is part of the workflow as well. Feature-importance and sensitivity outputs help explain what drives a model, while SHAP analysis is available for XGBoost. Separate causality experiments use Granger causality and PCMCI, and Diebold&ndash;Mariano significance tests help determine whether differences in forecast error are meaningful rather than incidental.
+          Interpretability is part of the workflow as well. Feature-importance and sensitivity outputs help explain what drives a model, while SHAP analysis is available for XGBoost. Separate causality experiments use Granger causality and PCMCI, and Diebold&ndash;Mariano significance tests help determine whether differences in forecast error are statistically significant rather than incidental.
         </p>
 
         <h2 class="text-2xl font-bold mt-10 mb-4 text-black">What the experiments revealed</h2>
@@ -127,10 +176,22 @@
         <p>
           The most valuable result of this work is the evaluation system around the models. Reliable dengue forecasting requires chronological validation, local analysis, horizon-aware reporting, interpretable evidence, and honest treatment of uncertainty. A sophisticated architecture is useful only when the surrounding experiment can show where it works and where it fails.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Research Paper &amp; Resources</h2>
         <p>
-          The complete source code, model implementations, experiment outputs, and setup instructions are available in the
-          <a href="https://github.com/md-muqtadir-fuad/dengue-forecasting" target="_blank" rel="noopener noreferrer" class="underline font-medium">Dengue Forecasting repository on GitHub</a>.
+          The full experimental methodology, district-panel datasets, serotype and climate covariates analysis, and benchmark findings are published open-access:
         </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>Peer-Reviewed Paper:</strong> <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="underline font-medium">PLOS ONE (DOI: 10.1371/journal.pone.0353069)</a>
+          </li>
+          <li>
+            <strong>Source Code:</strong> <a href="https://github.com/md-muqtadir-fuad/dengue-forecasting" target="_blank" rel="noopener noreferrer" class="underline font-medium">Dengue Forecasting repository on GitHub</a>
+          </li>
+          <li>
+            <strong>Dataset &amp; Artifacts:</strong> <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer" class="underline font-medium">Zenodo Repository (DOI: 10.5281/zenodo.19589534)</a>
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">

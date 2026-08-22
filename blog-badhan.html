@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Badhan Web Automation | Md. Muqtadir Fuad</title>
+  <title>Automating Blood Donor Management with Python & Selenium | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How I automated bulk blood donor record ingestion for Badhan BUET Zone using Python, Selenium WebDriver, and data validation pipelines." />
+
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,21 +53,74 @@
           <span>•</span>
           <span>5 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Badhan Web Automation</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Automating Blood Donor Management with Python &amp; Selenium for Badhan</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          A dummy blog post discussing the development of the Badhan Web Automation project.
+          How I built a resilient web automation workflow to parse batch donation registries and automate portal entry for a nationwide voluntary blood donation organization.
         </p>
       </header>
 
-      <img src="https://placehold.co/800x400/f3f4f6/1f2937?text=Badhan+Web+Automation" alt="Badhan Web Automation" class="w-full h-auto object-cover mb-12 border border-black">
+      <div class="border border-black p-5 mb-10 bg-gray-50 font-mono">
+        <div class="text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+          <span class="inline-block w-2 h-2 bg-black"></span>
+          Open Source Contribution
+        </div>
+        <p class="text-sm font-sans text-gray-800 mb-3">
+          <strong>Badhan Web Automation Script:</strong> Automated bulk donor record ingestion and form validation pipeline contributed to the Badhan BUET Zone codebase.
+        </p>
+        <a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86" target="_blank" rel="noopener noreferrer" class="text-xs font-mono border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors inline-block">
+          View Pull Request #86 &rarr;
+        </a>
+      </div>
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          <!--txt goes here-->
+          <strong>Badhan</strong> is a prominent voluntary blood donation organization operating across educational institutes in Bangladesh, with its central roots at BUET. Every semester, Badhan organizes large-scale blood grouping drives and donation camps, collecting vital donor data to support patients in critical emergency conditions.
         </p>
         <p>
-          <!--txt goes here-->
+          However, converting paper collection forms or raw spreadsheets from drives into the centralized Badhan database was historically done through manual web form submissions. Volunteers had to copy and paste hundreds of entries line by line—a tedious process highly susceptible to typos in phone numbers and blood groups.
         </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">The Solution Architecture</h2>
+        <p>
+          To solve this operational bottleneck, I built an automated ingestion script using <strong>Python</strong>, <strong>Pandas</strong>, and <strong>Selenium WebDriver</strong>. The automation pipeline executes in four structured stages:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Data Cleansing &amp; Normalization:</strong> Reads batch CSV/Excel registries, standardizes blood group nomenclature (e.g., handling variations like "A+", "A positive", "A(+)"), strips whitespace, and verifies 11-digit Bangladeshi mobile number patterns using regular expressions.</li>
+          <li><strong>Authenticated Session Handling:</strong> Automatically logs into the authorized administrative dashboard, stores session tokens, and navigates to the donor registry forms.</li>
+          <li><strong>Automated Form Ingestion:</strong> Populates student ID, hall name, contact details, blood group, donation availability, and last donation timestamps using explicit DOM waits.</li>
+          <li><strong>Exception Logging &amp; Audit Trail:</strong> If a donor entry fails (e.g., duplicate record or network drop), the script captures a screenshot, logs the row index and error reason, and continues without terminating the batch.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Technical Challenges &amp; Resilience</h2>
+        <p>
+          Automating modern web interfaces requires handling subtle UI dynamics:
+        </p>
+        <div class="border border-black p-4 bg-gray-50 font-mono text-sm">
+          <p class="font-bold mb-2">Key Engineering Techniques:</p>
+          <ul class="space-y-1">
+            <li>&bull; Explicit Waits via <code>WebDriverWait</code> and <code>expected_conditions</code> instead of brittle static sleep timers.</li>
+            <li>&bull; Jittered rate-limiting between form submissions to avoid triggering server-side DDoS tripwires.</li>
+            <li>&bull; Fallback selector hierarchies (ID &rarr; Name &rarr; Relative XPath) to survive minor UI refactors.</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Impact &amp; Contribution</h2>
+        <p>
+          The automation script slashed donor record registration time from several volunteer-hours per campaign down to mere minutes, eliminating transcription errors and ensuring that fresh blood donor data is instantly queryable during emergency requests.
+        </p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Repository &amp; Pull Request</h2>
+        <p>
+          The implementation was submitted to the official Badhan BUET Zone repository:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+          <li>
+            <strong>GitHub Pull Request:</strong> <a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86" target="_blank" rel="noopener noreferrer" class="underline font-medium">Badhan-BUET-Zone/badhan Pull Request #86</a>
+          </li>
+          <li>
+            <strong>Technologies:</strong> Python, Selenium WebDriver, Pandas, RegEx
+          </li>
+        </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">
