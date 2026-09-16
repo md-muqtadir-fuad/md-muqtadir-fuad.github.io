@@ -1,0 +1,541 @@
+
+================================================================================
+PDF PAGE 126 (Report Page 106)
+================================================================================
+106 
+ 
+Chapter 08 
+Cost & Sensitivity Analysis 
+8.1 Introduction  
+ Cost is deeply intertwined with product design, as design decisions significantly impact overall expenses. 
+The primary factors shaping a product's economic viability are cost and revenue, with the aim of 
+minimizing costs while maximizing profits. Conducting a cost analysis highlights a product's capacity to 
+generate the desired output while remaining profitable. It also helps evaluate whether the product can 
+reach its break-even point effectively. 
+  
+8.2 Forecasting Demand 
+Methodology: Proportional Scaling Approach  
+We utilized the Proportional Scaling Approach to forecast the one-year demand for the proposed product. 
+This method is based on survey results and assumes that the sample accurately represents the target 
+population. The steps of the methodology are outlined below: 
+ 
+8.2.1 Target Population Identification 
+The total number of potential adopters for the product was identified as 2941 institutions, comprising 245 
+Hotels, 324 Schools and Colleges, 136 Hospitals, 115 Private Universities, 1200 Private Banks, and 921 
+Corporate Offices 
+ 
+8.2.2 Survey Implementation 
+A survey was conducted among 35 individuals of corresponding institutions, which served as a 
+representative sample of the target population. The survey revealed that 80% of the respondents expressed 
+interest in adopting the product. 
+ 
+8.2.3 Adoption Rate Calculation 
+The adoption rate was calculated using the following equation: 
+Adoption Rate = Number of Positive Responses / Total Number of Surveyed Institutions 
+ Substituting the survey data 
+Adoption Rate = 28/35=0.8(80%) 
+
+================================================================================
+PDF PAGE 127 (Report Page 107)
+================================================================================
+107 
+ 
+8.2.4 Demand Forecasting 
+The adoption rate was scaled up to the entire target population to estimate the total demand. The formula 
+used was: 
+Forecasted Demand = Total Population × Adoption Rate 
+Applying the values: 
+Forecasted Demand = 2941 × 0.8 = 2353 units 
+Hence, the estimated one-year demand for the product is 2353 units. 
+ 
+8.2.5 Scenario Analysis: 
+To address potential variations in market conditions, sensitivity analysis was performed using different 
+adoption rates: 
+Optimistic scenario (90% adoption):  
+2353 × 0.9 = 2118 units 
+Realistic scenario (80% adoption):  
+2353 × 0.8 = 1882 units 
+Pessimistic scenario (70% adoption):  
+2353 × 0.7 = 1647 units 
+These scenarios provide a range of possible outcomes to inform decision-making. 
+In conclusion, the Proportional Scaling Approach offers a straightforward and effective means of 
+forecasting demand using survey data. The projected demand for the product in its first year is 1882 units, 
+with the potential for variation depending on market dynamics. 
+ 
+8.3 Manufacturing Cost  
+Manufacturing cost is the cost of production that is directly incurred during the production process. It 
+includes 
+direct 
+labor, 
+direct 
+material, 
+and 
+manufacturing 
+overhead 
+costs.   
+The projected demand for the product in its first year is 1882 units. If we want to target capturing about 
+30% of the total demand, 
+The expected annual sales volume becomes 565 units. 
+  
+8.3.1 Cost of Machinery  
+1. Lathe Machine 
+
+================================================================================
+PDF PAGE 128 (Report Page 108)
+================================================================================
+108 
+ 
+Specification: CQ6230A Single Phase Conventional Lathe Manual Lathe Machine (4.5 feet) 
+Purchasing Cost – 1,70,000/-  
+Effective lifespan - 20 years  
+Quantity - 2  
+Total Cost - 3,40,000/-   
+2. Drill Machine (BOKY 13mm)  
+Purchasing Cost- 9,000/-   
+Effective lifespan- 10 years  
+Quantity- 1  
+Total Cost - 9,000/-  
+3. Arc Welding Machine (ARC300 IGBT)   
+Purchasing Cost – 15,820/-  
+Quantity - 2  
+Effective Lifespan - 10 years  
+Total Cost – 31,640/-  
+Total Cost of Machinery- 3,80,640/-  
+Machinery will be bought in credit with a 12% interest rate & 2% risk factor. Payback period 20 years.  
+  
+8.3.2 Cost of Raw Material (per unit of product)  
+1. Mild steel sheet  
+Require Quantity- 3kg kg 
+Price per kg- 130/-  
+Total Cost per unit product: 390/- 
+2. Stainless steel sheet (4ft×8ft×1mm) 
+Require Quantity- 1sheet 
+Price per sheet- 5800/- 
+Total Cost per unit product: 5800/- 
+3. Nylon Brush (0.2 Nylon) 
+Require Quantity- 6 unit  
+Price per unit- 130/- 
+Total Cost per unit product: 780/- 
+
+================================================================================
+PDF PAGE 129 (Report Page 109)
+================================================================================
+109 
+ 
+Total Cost of Raw Material per product- 6,970/-  
+Total Cost of Raw Material per year = 39,38,050/-  
+ 
+8.3.3 Cost of Labor  
+1. Lathe Operator   
+Employee-2  
+Salary - 22,500/- (per month per person)  
+2. Drilling & Cutting Operator  
+Employee - 2  
+Salary - 10,000/- (per month per person)  
+3. Welding Operator  
+Employee - 2  
+Salary – 11,000/- (per month per person)  
+4. Assembly Stuff 
+Employee - 4   
+Salary -9,000/- (per month per person)   
+5. Floor & Toilet Cleaner   
+Employee - 2  
+Salary – 7,000/- (per month per person) 
+6. Miscellaneous  
+Mainly covers festive bonus (15% on basic salary) & incentive (6% on basic salary) on Performance.  
+Expense-40,000/-(approx.)  
+Total Cost of Labor per Month - 1,77,000/-  
+Total Cost of Labor per Year – 21,24,000/-  
+8.3.4 Purchasing Cost per Unit of Product (External Part) 
+  
+Table 8. 1: Purchasing cost per unit 
+Parts  
+Price per Unit (Tk.)  Quantity  
+Total Cost  
+Spur Gear  
+250 
+10  
+2500 
+Worm gear  
+1270 
+4  
+5080  
+
+================================================================================
+PDF PAGE 130 (Report Page 110)
+================================================================================
+110 
+ 
+AC to DC Converter 645 
+1  
+645 
+Nut Bolt  
+25 
+20  
+500  
+Ball Bearing  
+99 
+20 
+1980 
+DC Motor 1HP 
+4829 
+2 
+9658 
+Solid shiner  
+3000 
+1 
+3000 
+Total 
+23363 
+Total Purchasing Cost per Year – 1,32,00,095/- (expected sale - 565 units) 
+ 
+8.3.5 Manufacturing Overhead Cost  
+ 
+Table 8. 2: Manufacturing Overhead Cost 
+Cost Item  
+No. of Post  
+Monthly  
+Salary/person (Tk.)  
+Cost  
+Production 
+Manager  
+1  
+30,000  
+30,000  
+Manufacturing 
+Engineer  
+1  
+25,000  
+25,000  
+Quality 
+Control 
+Manager  
+1  
+20,000  
+20,000  
+Power 
+Consumption  
+  
+  
+15,000  
+Factory Rent  
+  
+  
+25,000  
+Total (per Month) 
+ 
+ 
+1,15,0000 
+Total (per Year) 
+ 
+ 
+13,80,000 
+ 
+ 
+ 
+
+================================================================================
+PDF PAGE 131 (Report Page 111)
+================================================================================
+111 
+ 
+8.3.6 Total Manufacturing Cost  
+ 
+Table 8. 3: Total Manufacturing Cost 
+Criteria  
+Cost  
+Cost of Raw Material 
+    3938050 
+Cost of purchasing 
+  13200095 
+Cost of Labor  
+    2124000 
+Manufacturing Overhead  
+    1380000  
+Total                                                                      20642145 
+ 
+8.4 Non-Manufacturing Cost  
+Non-manufacturing costs are the costs that are not directly related to manufacturing, but these are needed 
+to maintain the supply chain properly. These costs primarily include selling and administrative expenses. 
+Non-manufacturing costs are generally incurred at the later portion of the supply chain.  
+  
+8.4.1 Administrative cost  
+  
+Table 8. 4: Administrative cost of administrative personnel per month 
+Post  
+No. of Post  
+Monthly 
+Salary/person (Tk.)  
+Cost  
+CEO  
+1  
+60000  
+60000  
+CFO  
+1  
+50000  
+50000  
+CMO  
+1  
+40000  
+40000  
+Product Development Officer  
+1  
+25000  
+25000  
+Clerk  
+1  
+10000  
+10000  
+Total (per month) 
+ 
+ 
+1,85,000 
+ 
+Total Administrative Cost (per year)- 22,20,000/-  
+ 
+
+================================================================================
+PDF PAGE 132 (Report Page 112)
+================================================================================
+112 
+ 
+8.4.2 Sales & Marketing Expense  
+1. Marketing Manager  
+Employee-1 
+Salary (per month)-20,000/-  
+Total salary (per year)-2,40,000/-  
+2. Advertising Cost (per year)-60,000/-  
+Total Sales & Marketing Cost (per year)-3,00,000/-  
+ 
+8.4.3 Bank Loan & Interest  
+Total bank loan – 20,00,000 Tk.   
+Interest rate, i = 14%   
+Repayment periods, n= 20 years  
+Annuity, A= 301972/- 
+ 
+Total non-manufacturing cost 
+ 
+Table 8. 5: Total Non-Manufacturing Cost (per year) 
+Administration  
+  
+2220000 
+Office Rent  
+ 
+ 200000  
+Sales & Marketing  
+ 
+ 300000  
+Bank loan (Annuity)  
+ 
+ 301972 
+Advancement for factory space  
+ 
+ 200000  
+Taxes  
+ 
+ 60000 
+Insurances  
+ 
+ 80000  
+Utilities  
+ 
+ 77551 
+Total 
+ 
+3439523 
+  
+ 
+ 
+
+================================================================================
+PDF PAGE 133 (Report Page 113)
+================================================================================
+113 
+ 
+8.5 Total Cost 
+ 
+Table 8. 6: Total Yearly Cost  
+Criteria  
+Cost  
+Manufacturing  
+20642145 
+Non-Manufacturing  
+  3439523 
+Total  
+24081668 
+ 
+8.6 Break Even Analysis  
+Total Fixed Cost - 3439523/-  
+Fixed Cost per unit= 6087.65/- (expected sales 565 unit)  
+Total Variable Cost = Manufacturing Cost= 20642145/-  
+Variable Cost per unit= 36534.77/- (expected sales 565 units)  
+Total production Cost per unit = 42,622/- 
+Revenue (year 1): 
+We are expecting approximately 25% profit on variable cost 
+Profit per unit = 0.25*Variable cost = 9133.6925/-  
+Selling price per unit: 51756/-  
+Total revenue:  29242140/- 
+At Beak Even Point,   
+Selling price × QBEP = Total Fixed cost+ Variable cost per unit × QBEP  
+Or, 51756× QBEP = 3439523 + (36534.77 × QBEP)   
+Or, QBEP = 226 units.  
+Break-even Period: 1*226/565 = 0.4 year  
+                                                  = 4.8 month 
+ 
+ 
+
+================================================================================
+PDF PAGE 134 (Report Page 114)
+================================================================================
+114 
+ 
+ 
+Figure 8. 1: Break-Even Analysis 
+Break-even Quantity = 226 unit 
+Break-even Period= 0.4 year 
+ 
+8.7 Sensitivity Analysis  
+Sensitivity analysis gives an insight about how sensitive the break-even point is with respect to a particular 
+cost or revenue parameter. In this sensitivity analysis, a change of 8% is made for each cost parameter 
+separately and then break-even point is computed. This analysis will provide the list of sensitive 
+parameters.  
+ 
+8.7.1 Sensitivity of Demand: 
+We would produce 565 unit per year   
+Increase of Demand= 10% 
+New demand per year = 565+565*0.1= 622 
+At Break-Even, 
+Or, 51756× QBEP = 3439523 + (36534.77 × QBEP)   
+Or, QBEP = 226 units (No change)  
+0
+5000000
+10000000
+15000000
+20000000
+25000000
+30000000
+35000000
+40000000
+0
+100
+200
+300
+400
+500
+600
+700
+Cost
+Quantity
+BEP Analysis
+VC
+TC
+FC
+REV
+
+================================================================================
+PDF PAGE 135 (Report Page 115)
+================================================================================
+115 
+ 
+So, demand does not affect Breakeven Point. 
+So, the demand has no effect on breakeven point. The breakeven point is not sensitive to demand.   
+  
+8.7.2 Sensitivity of Direct Material:  
+ 
+Table 8. 7: Direct Material Cost 
+Cost of Raw Material 
+  3938050 
+Cost of purchasing 
+13200095 
+  Total                                                                  17138145 
+After 10% increase,  
+Total cost of direct material = 18851959.5/-  
+Total variable cost will be per unit production = 36534.77- (17138145/565) +(18851959.5/565) 
+=39568.1/-  
+At Break Even Point,   
+Selling price × Qbep = Total Fixed cost+ Variable cost × Qbep   
+51756× QBEP = 3439523 + (39568.1× QBEP)   
+Or, QBEP =283 units   
+Δ QBEP = (283-226)/226*100%   
+            = 25.22%   
+So, the breakeven is highly sensitive to direct material cost.   
+ 
+8.7.3 Sensitivity of Direct Labor   
+Total cost of labor per Year = 21,24,000/-   
+After 10% increase, total cost of labor = 2124000*1.10   
+= 2336400/-   
+Total variable cost will be = 20642145 + (2336400-2124000)  
+= 20854545/-   
+Variable cost per unit = 20854545/565   
+=36910.7/-   
+At Break Even Point,   
+Selling price × Qbep = Total Fixed cost+ Variable cost × Qbep   
+
+================================================================================
+PDF PAGE 136 (Report Page 116)
+================================================================================
+116 
+ 
+Or, 51756× Qbep =3439523+ (36910.7× Qbep)   
+Or, Qbep =232 units  
+ΔQbep = (232-226)/226*100%   
+= 2.65%   
+So, the breakeven is sensitive to direct material cost.   
+ 
+8.7.4 Sensitivity of Administrative Cost   
+Total administrative cost = 22,20,000/-    
+After 10% increase, total administrative cost = 2220000*1.10   
+= 2442000/-   
+Total fixed cost will be = 3439523+(2442000-2220000)  
+= 3661523/- 
+ At Break Even Point,   
+Selling price × Qbep = Total Fixed cost+ Variable cost × Qbep  Or, 51756× Qbep =3661523 + (36534.77× 
+Qbep)  
+Or, Qbep = 241 units.   
+ΔQbep = (241-226)/226*100%   
+= 6.64%   
+So, the administrative cost has relatively less impact on the breakeven point.   
+  
+8.7.5 Sensitivity of Selling Expenses   
+Total selling expenses = 300000/-   
+10% expenses of selling expenses leads increase of fixed cost 
+After 10% increase, the selling expenses is = 300000*1.10   
+= 330000/-   
+Total fixed cost will be = 3439523+ 
+(330000-300000) = 3469523/-  
+At Break Even Point,   
+Selling price × QBEP = Total Fixed cost+ Variable cost × QBEP 
+Or, 51756× QBEP =3469523+ (36534.77× QBEP)  
+Or, QBEP = 228 units.   
+
+================================================================================
+PDF PAGE 137 (Report Page 117)
+================================================================================
+117 
+ 
+Δ QBEP = (228– 226)/226*100%   
+= .88%   
+So, the administrative cost has a little impact on the breakeven point.  
+  
+To summarize, we can see to if we increase 10%, the sensitivity of   
+Demand: 0%   
+Direct Material: 25.22%   
+Direct Labor: 2.65%   
+Administrative Cost: 6.64%   
+Selling Cost: 0.88%   
+It can be seen direct material cost have the highest influence on the sensitivity of Q. The cost analysis is 
+concerned with determining the monetary value of inputs (raw material), called the overall cost of 
+production which helps in deciding the optimum level of production. Cost analysis helped us estimate the 
+payback period by examining the break-even point. 
+ 
+ 
+
+================================================================================
+PDF PAGE 138 (Report Page 118)
+================================================================================
+118 
+ 
+ 
+ 
+ 

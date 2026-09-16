@@ -11,6 +11,20 @@
   }
 }
 
+/* Ensure horizontal scroll containers clip contents and don't expand the root document */
+.overflow-x-auto, .overflow-x-scroll {
+  position: relative;
+  max-width: 100%;
+  contain: paint;
+}
+
+/* Ensure KaTeX block display equations wrap or scroll internally, never overflowing the page */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
 /* Base resets to enforce only black and white */
 * {
   border-color: #000;
@@ -56,3 +70,20 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb {
   background: #000;
 }
+
+/* Editorial Monochrome LinkedIn author badge */
+.in-badge {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-left: 4px;
+  text-decoration: none;
+}
+.in-badge rect {
+  fill: #000000;
+  transition: fill 0.2s ease;
+}
+.in-badge:hover rect {
+  fill: #0A66C2;
+}
+

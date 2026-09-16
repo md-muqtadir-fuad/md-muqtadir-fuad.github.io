@@ -30,6 +30,7 @@ export default defineConfig(() => {
           'blog-iot-platform': path.resolve(__dirname, 'blog-iot-platform.html'),
           'blog-querynest': path.resolve(__dirname, 'blog-querynest.html'),
           'blog-shoe-shiner': path.resolve(__dirname, 'blog-shoe-shiner.html'),
+          'blog-semi-automated-shoe-cleaning-machine': path.resolve(__dirname, 'blog-semi-automated-shoe-cleaning-machine.html'),
         },
       },
     },

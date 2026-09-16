@@ -1,0 +1,3730 @@
+{
+  "96": {
+    "captions": [],
+    "tables": []
+  },
+  "97": {
+    "captions": [
+      "Table 6. 1: Qualitative Analysis of Material Selection for Different Sections"
+    ],
+    "tables": [
+      [
+        [
+          "Section",
+          "Sub-section",
+          "Parts",
+          "Material\nSelection",
+          "Other Material\nOptions",
+          "Reasons\nBehind\nSelection"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Base",
+          "Base",
+          "Nylon",
+          "Polycarbonate,\nABS",
+          "Impact\nresistance,\nlightweight"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Brush",
+          "Nylon Brush\nFiber",
+          "Nylon 6",
+          "Polypropylene,\nPolyester (PET)",
+          "Durability,\nflexibility,\nwater\nresistance"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Motor",
+          "DC Motor",
+          "Gear Motor",
+          "Brushed DC\nMotor",
+          "High torque,\nspeed\nregulation"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Mechanism",
+          "Worm Gear",
+          "Mild Steel",
+          "High-Speed\nSteel, Alloy Steel",
+          "Cost-effective,\ndurability"
+        ],
+        [
+          "Shiner\nPart",
+          "Shiner\nMechanism",
+          "Vibrating\nPlate",
+          "Stainless Steel",
+          "Mild Steel,\nAluminum Alloy",
+          "Easy to clean,\nhigh durability"
+        ],
+        [
+          "Shiner\nPart",
+          "Shiner\nMechanism",
+          "Mold Sponge",
+          "Polyurethane\nFoam",
+          "Rubber, Felt",
+          "Good\ncushioning,\nlightweight"
+        ],
+        [
+          "Shiner\nPart",
+          "Shiner\nMechanism",
+          "Dispenser",
+          "Mild Steel",
+          "Cast Iron, Mild",
+          "Lightweight,\nchemical\nresistance"
+        ],
+        [
+          "Shoe Sole\nCleaning\nPart",
+          "Roller\nMechanism",
+          "Roller Brush",
+          "Nylon Bristle",
+          "Polypropylene,\nPVC",
+          "Abrasion\nresistance,\nflexibility"
+        ],
+        [
+          "Shoe Sole\nCleaning\nPart",
+          "Base",
+          "Base",
+          "Stainless Steel",
+          "High-Density\nPolyethylene",
+          "Durability,\nstrength"
+        ]
+      ]
+    ]
+  },
+  "98": {
+    "captions": [
+      "Table 6. 2: Qualitative Analysis of Manufacturing Process Selection"
+    ],
+    "tables": [
+      [
+        [
+          "Section",
+          "Sub-section",
+          "Parts",
+          "Possible\nManufacturing\nProcess",
+          "Make/Outsource",
+          "Manufacturing\nProcess\nSelection",
+          "Reasons\nBehind\nSelection"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Base",
+          "Base",
+          "Injection\nMolding,\nCasting",
+          "Make",
+          "Injection\nMolding",
+          "Uniformity,\ncost-\neffective for\ncomplex\nshapes"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Brush",
+          "Nylon\nBrush Fiber",
+          "Extrusion,\nInjection\nMolding",
+          "Outsource",
+          "Extrusion",
+          "Better\ncontrol over\nfiber\nthickness"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Motor",
+          "DC Motor",
+          "Assembly",
+          "Outsource",
+          "Assembly",
+          "More\nconvenient\nto buy pre-\nassembled"
+        ],
+        [
+          "Brush\nCleaning\nPart",
+          "Mechanism",
+          "Spur Gear",
+          "Gear Cutting,\nHobbing",
+          "Make",
+          "Gear Cutting",
+          "Achieves\nhigh\ndimensional\naccuracy"
+        ]
+      ]
+    ]
+  },
+  "99": {
+    "captions": [
+      "Table 6. 3: Qualitative Analysis of Parts Joining Method Selection"
+    ],
+    "tables": [
+      [
+        [
+          "Shiner\nPart",
+          "Shiner\nMechanism",
+          "Mold\nSponge",
+          "Die Cutting",
+          "Make",
+          "Die Cutting",
+          "Cost-\neffective for\nsoft\nmaterials"
+        ],
+        [
+          "Shiner\nPart",
+          "Motor",
+          "Motor",
+          "Assembly",
+          "Outsource",
+          "Assembly",
+          "More\nconvenient\nto buy pre-\nassembled"
+        ],
+        [
+          "Shoe\nSole\nCleaning\nPart",
+          "Roller\nMechanism",
+          "Roller\nBrush",
+          "Extrusion,\nMilling",
+          "Outsource",
+          "Extrusion",
+          "Cost-\neffective for\nbrush\nproduction"
+        ],
+        [
+          "Shoe\nSole\nCleaning\nPart",
+          "Base",
+          "Base",
+          "Bending,\nWelding",
+          "Make",
+          "Bending",
+          "Durability,\neasy to form"
+        ]
+      ],
+      [
+        [
+          "Parts",
+          "Type of\nJoint",
+          "Joining Method Options",
+          "Joint Selected",
+          "Reasons Behind\nSelection"
+        ],
+        [
+          "Base and\nCasing",
+          "Permanent",
+          "Brazing, Soldering, Explosion\nWelding, Friction Stir Welding",
+          "Brazing",
+          "Cheap, highly available"
+        ],
+        [
+          "Base and\nBearing",
+          "Permanent",
+          "Shrink Fitting, Press Fitting,\nAdhesive Bonding, Welding",
+          "Arc Welding",
+          "Cost-effective, no\nrequirement of high\nprecision"
+        ]
+      ]
+    ]
+  },
+  "100": {
+    "captions": [],
+    "tables": [
+      [
+        [
+          "Motor and\nShaft",
+          "Temporary",
+          "Threaded Connection, Welding,\nTapered Connection with\nLocking Nut",
+          "Threaded\nConnection",
+          "Flexibility, easily\nremovable"
+        ],
+        [
+          "Bearing\nand Shaft",
+          "Temporary",
+          "Shrink Fitting, Press Fitting,\nAdhesive Bonding, Set Screw,\nLocking Collars",
+          "Press Fitting",
+          "Ease of maintenance,\ngood for high-speed\napplications"
+        ],
+        [
+          "Shaft and\nGear",
+          "Permanent",
+          "Welding, Brazing, Adhesive\nBonding, Tapered Shaft and\nGear",
+          "Brazing",
+          "Cheap, highly available"
+        ],
+        [
+          "Shaft and\nWheel",
+          "Permanent",
+          "Bolted Joint, Adhesive Bonding,\nKeyed Joint, Welding",
+          "Brazing",
+          "Cost-effective, simple\nto execute"
+        ],
+        [
+          "Wheel and\nCrank Shaft",
+          "Temporary",
+          "Bolted Flange Connection,\nSpline Connection, Welding",
+          "Bolted Flange\nConnection",
+          "High strength, ease of\ndisassembly"
+        ]
+      ]
+    ]
+  },
+  "101": {
+    "captions": [],
+    "tables": []
+  },
+  "102": {
+    "captions": [],
+    "tables": []
+  },
+  "103": {
+    "captions": [
+      "Table 7. 1: Likert Chart for comparing material selection",
+      "Table 7. 2: List of material properties selected for roller shaft"
+    ],
+    "tables": [
+      [
+        [
+          "Qualitative Rating",
+          "Numerical Value"
+        ],
+        [
+          "Very Good",
+          "5"
+        ],
+        [
+          "Good",
+          "4"
+        ],
+        [
+          "Moderate",
+          "3"
+        ],
+        [
+          "Poor",
+          "2"
+        ],
+        [
+          "Very Poor",
+          "1"
+        ]
+      ],
+      [
+        [
+          "Property",
+          "AISI 316 Stainless\nSteel",
+          "AISI 347 Annealed\nStainless Steel",
+          "1045 Carbon Steel\n(Cold Drawn)"
+        ],
+        [
+          "Elastic Modulus (GPa)",
+          "193",
+          "200",
+          "205"
+        ]
+      ]
+    ]
+  },
+  "104": {
+    "captions": [
+      "Table 7. 3: Lists of selection criteria with values from Likert scale"
+    ],
+    "tables": [
+      [
+        [
+          "Shear Modulus (GPa)",
+          "77",
+          "78",
+          "80"
+        ],
+        [
+          "Mass Density (kg/m³)",
+          "8000",
+          "8000",
+          "7850"
+        ],
+        [
+          "Coefficient of Thermal\nExpansion (/K)",
+          "16.0 x 10⁻⁶",
+          "15.6 x 10⁻⁶",
+          "11.7 x 10⁻⁶"
+        ],
+        [
+          "Compressive Strength\n(MPa)",
+          "1700",
+          "1724",
+          "310"
+        ],
+        [
+          "Approximate Cost\n(BDT/kg)",
+          "500-600",
+          "600-700",
+          "150-250"
+        ]
+      ],
+      [
+        [
+          "Property",
+          "AISI 316 Stainless\nSteel",
+          "AISI 347 Annealed\nStainless Steel",
+          "1045 Carbon Steel\n(Cold Drawn)"
+        ],
+        [
+          "Weldability",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Corrosion Resistance",
+          "5",
+          "5",
+          "2"
+        ],
+        [
+          "Appearance",
+          "5",
+          "5",
+          "2"
+        ],
+        [
+          "Availability",
+          "5",
+          "4",
+          "5"
+        ]
+      ]
+    ]
+  },
+  "105": {
+    "captions": [
+      "Table 7. 4: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Selection\nCriteria",
+          "Number of positive decisions, N=n(n-1)/2=10(10-1)/2=45",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positiv\ne\ndecisio\nns",
+          "Relative\nemphasis\nCoefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "1\n0",
+          "1\n1",
+          "1\n2",
+          "1\n3",
+          "1\n4",
+          "1\n5",
+          "1\n6",
+          "1\n7",
+          "1\n8",
+          "1\n9",
+          "2\n0",
+          "2\n1",
+          "2\n2",
+          "2\n3",
+          "2\n4",
+          "2\n5",
+          "2\n6",
+          "2\n7",
+          "2\n8",
+          "2\n9",
+          "3\n0",
+          "3\n1",
+          "3\n2",
+          "3\n3",
+          "3\n4",
+          "3\n5",
+          "3\n6",
+          "3\n7",
+          "3\n8",
+          "3\n9",
+          "4\n0",
+          "4\n1",
+          "4\n2",
+          "4\n3",
+          "4\n4",
+          "4\n5",
+          null,
+          null
+        ],
+        [
+          "Elastic Mod.",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "9",
+          "0.2"
+        ],
+        [
+          "Shear Mod.",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "8",
+          "0.178"
+        ],
+        [
+          "Mass\nDensity",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "7",
+          "0.156"
+        ],
+        [
+          "Coefficient\nof Ther. Ex.",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "5",
+          "0.111"
+        ],
+        [
+          "Comp.\nStren.",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "6",
+          "0.133"
+        ],
+        [
+          "Cost",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "0",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2",
+          "0.044"
+        ],
+        [
+          "Weldability",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "",
+          "0",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.067"
+        ],
+        [
+          "Corr.\nResistance",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "4",
+          "0.089"
+        ],
+        [
+          "Appearance",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Availability",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "1",
+          "1",
+          "0.022"
+        ],
+        [
+          "Total No of Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "45",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "106": {
+    "captions": [
+      "Table 7. 5: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Selection\nCriteria",
+          "Weighting\nFactor",
+          "AISI 316 Stainless\nSteel",
+          null,
+          "AISI 347 Annealed\nStainless Steel",
+          null,
+          "1045 Carbon Steel",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ",
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ",
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ"
+        ],
+        [
+          "Elastic\nModulus",
+          "0.2",
+          "94.15",
+          "18.83",
+          "97.56",
+          "19.51",
+          "100",
+          "20"
+        ],
+        [
+          "Shear\nModulus",
+          "0.178",
+          "96.25",
+          "17.14",
+          "97.5",
+          "17.37",
+          "100",
+          "17.8"
+        ],
+        [
+          "Mass\nDensity",
+          "0.156",
+          "100",
+          "15.6",
+          "100",
+          "15.6",
+          "98.13",
+          "15.3"
+        ],
+        [
+          "Coefficient\nof Thermal\nExpansion",
+          "0.111",
+          "73.13",
+          "8.12",
+          "75",
+          "8.33",
+          "100",
+          "11.1"
+        ],
+        [
+          "Compressive\nStrength",
+          "0.133",
+          "98.61",
+          "13.12",
+          "100",
+          "13.3",
+          "17.99",
+          "2.39"
+        ],
+        [
+          "Cost",
+          "0.044",
+          "30",
+          "1.32",
+          "25",
+          "1.1",
+          "100",
+          "4.4"
+        ],
+        [
+          "Weldability",
+          "0.067",
+          "5",
+          "0.335",
+          "4",
+          "0.268",
+          "3",
+          "0.201"
+        ],
+        [
+          "Corrosion\nResistance",
+          "0.089",
+          "5",
+          "0.445",
+          "5",
+          "0.445",
+          "2",
+          "0.178"
+        ],
+        [
+          "Appearance",
+          "0",
+          "5",
+          "0",
+          "5",
+          "0",
+          "2",
+          "0"
+        ],
+        [
+          "Availability",
+          "0.022",
+          "5",
+          "0.11",
+          "4",
+          "0.088",
+          "5",
+          "0.11"
+        ],
+        [
+          "Material\nPerformance\nIndex, γ",
+          "",
+          "",
+          "75.02",
+          "",
+          "76.011",
+          "",
+          "71.479"
+        ]
+      ]
+    ]
+  },
+  "107": {
+    "captions": [
+      "Table 7. 6: Material Properties Comparison for frame and base",
+      "Table 7. 7: Likert Scale for Non-Numeric Properties"
+    ],
+    "tables": [
+      [
+        [
+          "Property",
+          "Aluminum\nAlloy (6061)",
+          "Stainless\nSteel (AISI\n304)",
+          "High-Density\nPolyethylene\n(HDPE)",
+          "Mild Steel"
+        ],
+        [
+          "Density (kg/m³)",
+          "2700",
+          "8000",
+          "950",
+          "7850"
+        ],
+        [
+          "Tensile Strength (MPa)",
+          "290",
+          "520",
+          "26",
+          "370"
+        ],
+        [
+          "Elastic Modulus (GPa)",
+          "69",
+          "193",
+          "0.8",
+          "210"
+        ]
+      ],
+      [
+        [
+          "Property",
+          "Aluminum\nAlloy (6061)",
+          "Stainless Steel\n(AISI 304)",
+          "High-Density\nPolyethylene\n(HDPE)",
+          "Mild Steel"
+        ],
+        [
+          "Cost",
+          "3",
+          "1",
+          "5",
+          "5"
+        ],
+        [
+          "Appearance",
+          "4",
+          "5",
+          "3",
+          "2"
+        ]
+      ]
+    ]
+  },
+  "108": {
+    "captions": [
+      "Table 7. 8: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Selection Criteria",
+          "Number of positive decisions, N=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive decisions",
+          "Relative\nemphasis\nCoefficient, α"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Density (kg/m³)",
+          "0",
+          "0",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Tensile Strength (MPa)",
+          "1",
+          "",
+          "",
+          "",
+          "1",
+          "0",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Elastic Modulus (GPa)",
+          "",
+          "1",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "0",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Cost",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "",
+          "0",
+          "",
+          "1",
+          "2",
+          "0.2"
+        ],
+        [
+          "Appearance",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "1",
+          "0",
+          "1",
+          "0.1"
+        ],
+        [
+          "Total positive decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "109": {
+    "captions": [
+      "Table 7. 9: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Selection Criteria",
+          "Weighting\nFactor,\nα",
+          "Aluminum\nAlloy (6061)",
+          null,
+          "Stainless\nSteel (AISI 304)",
+          null,
+          "HDPE",
+          null,
+          "Mild Steel",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty, β",
+          "Weighte\nd Score,\nαβ",
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ",
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ",
+          "Scaled\nProperty,\nβ",
+          "Weighted\nScore, αβ"
+        ],
+        [
+          "Density",
+          "0.2",
+          "35.19",
+          "7.04",
+          "11.88",
+          "2.38",
+          "100",
+          "20",
+          "12.1",
+          "2.42"
+        ],
+        [
+          "Tensile Strength",
+          "0.3",
+          "55.77",
+          "16.73",
+          "100",
+          "30",
+          "5",
+          "1.5",
+          "71.15",
+          "21.35"
+        ],
+        [
+          "Elastic Modulus",
+          "0.2",
+          "32.86",
+          "6.57",
+          "91.9",
+          "18.38",
+          "0.38",
+          "0.08",
+          "100",
+          "20"
+        ],
+        [
+          "Cost",
+          "0.2",
+          "33.33",
+          "6.67",
+          "100",
+          "20",
+          "20",
+          "4",
+          "20",
+          "4"
+        ],
+        [
+          "Appearance",
+          "0.1",
+          "4",
+          "0.4",
+          "5",
+          "0.5",
+          "3",
+          "0.3",
+          "2",
+          "0.2"
+        ],
+        [
+          "Material Performance Index",
+          "",
+          "",
+          "37.41",
+          "",
+          "71.26",
+          "",
+          "25.88",
+          "",
+          "47.97"
+        ]
+      ]
+    ]
+  },
+  "110": {
+    "captions": [
+      "Table 7. 10:  List of material properties selected for lower sole cleaner brush fiber",
+      "Table 7. 11:  Determination of Relative Importance of Goals Using Digital Logic Method",
+      "Table 7. 12: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Property",
+          "Nylon 6",
+          "Polypropylene",
+          "Polyester (PET)"
+        ],
+        [
+          "Abrasion Resistance",
+          "5",
+          "3",
+          "4"
+        ],
+        [
+          "Flexibility",
+          "4",
+          "5",
+          "3"
+        ],
+        [
+          "Water Resistance",
+          "5",
+          "5",
+          "4"
+        ],
+        [
+          "Durability",
+          "5",
+          "3",
+          "3"
+        ],
+        [
+          "Cost (BDT per kg)",
+          "250",
+          "150",
+          "200"
+        ]
+      ],
+      [
+        [
+          "Selection\nCriteria",
+          "Number of positive decisions, N=n(n-\n1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\ndecisions",
+          "Relative\nemphasis\nCoefficient, α"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Abrasion\nResistance",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.4"
+        ],
+        [
+          "Flexibility",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Water\nResistance",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Durability",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Cost",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Number of Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ],
+      [
+        [
+          "Selection\nCriteria",
+          "Weighting\nFactor (α)",
+          "Nylon 6",
+          null,
+          "Polypropylene (β)",
+          null,
+          "Polyester (PET)",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nproperties,\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nproperties,\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nproperties,\n(β)",
+          "Weighted\nScore\n(αβ)"
+        ],
+        [
+          "Abrasion\nResistance",
+          "0.4",
+          "100",
+          "40",
+          "60",
+          "24",
+          "80",
+          "32"
+        ],
+        [
+          "Flexibility",
+          "0.2",
+          "80",
+          "16",
+          "100",
+          "20",
+          "60",
+          "12"
+        ]
+      ]
+    ]
+  },
+  "111": {
+    "captions": [],
+    "tables": [
+      [
+        [
+          "Water\nResistance",
+          "0.3",
+          "100",
+          "30",
+          "100",
+          "30",
+          "80",
+          "24"
+        ],
+        [
+          "Durability",
+          "0.1",
+          "100",
+          "10",
+          "60",
+          "6",
+          "60",
+          "6"
+        ],
+        [
+          "Cost",
+          "0",
+          "60",
+          "0",
+          "100",
+          "0",
+          "75",
+          "0"
+        ],
+        [
+          "Material\nPerformance\nIndex, γ",
+          "",
+          "",
+          "96",
+          "",
+          "80",
+          "",
+          "74"
+        ]
+      ]
+    ]
+  },
+  "112": {
+    "captions": [
+      "Table 7. 13: List of properties for comparing manufacturing process for AISI 347 Annealed Stainless Steel used in roller shaft.",
+      "Table 7. 14: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Turning on Lathe Machine",
+          "Extrusion",
+          "CNC Machining"
+        ],
+        [
+          "Dimensional Accuracy",
+          "4",
+          "2",
+          "5"
+        ],
+        [
+          "Surface Finish",
+          "4",
+          "3",
+          "5"
+        ],
+        [
+          "Metallurgical Properties",
+          "5",
+          "4",
+          "5"
+        ],
+        [
+          "Cost Efficiency",
+          "3",
+          "5",
+          "2"
+        ],
+        [
+          "Machining Time",
+          "4",
+          "5",
+          "3"
+        ],
+        [
+          "Process Complexity",
+          "3",
+          "2",
+          "4"
+        ]
+      ],
+      [
+        [
+          "Selection Criteria\nDimensional Accuracy",
+          "Number of positive decisions, N=n(n-1)/2=6(6-1)/2=15",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive decisions",
+          "Relative emphasis Coefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          null,
+          null
+        ],
+        [
+          null,
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "5",
+          "0.333"
+        ],
+        [
+          "Surface Finish",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.267"
+        ],
+        [
+          "Metallurgical Properties",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.200"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.133"
+        ],
+        [
+          "Machining Time",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.067"
+        ],
+        [
+          "Process Complexity",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0.000"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "15",
+          "1.000"
+        ]
+      ]
+    ]
+  },
+  "113": {
+    "captions": [
+      "Table 7. 15: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weighti\nng\nFactor\n(α)",
+          "Turning on Lathe\nMachine",
+          null,
+          "Extrusion",
+          null,
+          "CNC Machining",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nPropertie\ns, (β)",
+          "Weighte\nd Score\n(αβ)",
+          "Scaled\nPropertie\ns, (β)",
+          "Weighte\nd Score\n(αβ)",
+          "Scaled\nPropertie\ns, (β)",
+          "Weighte\nd Score\n(αβ)"
+        ],
+        [
+          "Dimension\nal\nAccuracy",
+          "0.333",
+          "80",
+          "26.64",
+          "40",
+          "13.32",
+          "100",
+          "33.3"
+        ],
+        [
+          "Surface\nFinish",
+          "0.267",
+          "80",
+          "21.36",
+          "60",
+          "16.02",
+          "100",
+          "26.7"
+        ],
+        [
+          "Metallurgic\nal\nProperties",
+          "0.2",
+          "100",
+          "20",
+          "80",
+          "16",
+          "100",
+          "20"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.133",
+          "60",
+          "7.98",
+          "100",
+          "13.3",
+          "40",
+          "5.32"
+        ],
+        [
+          "Machining\nTime",
+          "0.067",
+          "80",
+          "5.36",
+          "100",
+          "6.7",
+          "60",
+          "4.02"
+        ],
+        [
+          "Process\nComplexit\ny",
+          "0",
+          "75",
+          "0",
+          "50",
+          "0",
+          "100",
+          "0"
+        ],
+        [
+          "Performanc\ne Index, γ",
+          "",
+          "",
+          "81.34",
+          "",
+          "65.34",
+          "",
+          "89.34"
+        ]
+      ]
+    ]
+  },
+  "114": {
+    "captions": [
+      "Table 7. 16: List of properties for Stainless Steel (AISI 304) used in base and frame of the",
+      "Table 7. 17: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Laser Cutting",
+          "Welding and Assembly",
+          "Sheet Metal Forming"
+        ],
+        [
+          "Dimensional Accuracy",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Surface Finish",
+          "4",
+          "3",
+          "3"
+        ],
+        [
+          "Structural Strength",
+          "3",
+          "5",
+          "4"
+        ],
+        [
+          "Cost Efficiency",
+          "3",
+          "4",
+          "5"
+        ],
+        [
+          "Machining Time",
+          "4",
+          "3",
+          "4"
+        ],
+        [
+          "Process Complexity",
+          "3",
+          "2",
+          "4"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=6(6-1)/2=15",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions",
+          "Relative\nemphasis\nCoefficien\nt,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "1\n0",
+          "11",
+          "1\n2",
+          "1\n3",
+          "1\n4",
+          "15",
+          null,
+          null
+        ],
+        [
+          "Dimensional\nAccuracy",
+          "1",
+          "0",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.267"
+        ],
+        [
+          "Surface\nFinish",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "3",
+          "0.200"
+        ],
+        [
+          "Structural\nStrength",
+          "",
+          "1",
+          "",
+          "",
+          "",
+          "1",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "5",
+          "0.333"
+        ],
+        [
+          "Cost\nEfficiency",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.133"
+        ],
+        [
+          "Machining\nTime",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.067"
+        ],
+        [
+          "Process\nComplexity",
+          "",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0.000"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "15",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "115": {
+    "captions": [
+      "Table 7. 18: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weighting\nFactor (α)",
+          "Laser Cutting",
+          null,
+          "Welding and\nAssembly",
+          null,
+          "Sheet Metal\nForming",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nproperty,\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nproperty,\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nproperty,\n(β)",
+          "Weighted\nScore\n(αβ)"
+        ],
+        [
+          "Dimensional\nAccuracy",
+          "0.267",
+          "100",
+          "26.7",
+          "80",
+          "21.36",
+          "60",
+          "16.02"
+        ],
+        [
+          "Surface\nFinish",
+          "0.2",
+          "100",
+          "20",
+          "75",
+          "15",
+          "75",
+          "15"
+        ],
+        [
+          "Structural\nStrength",
+          "0.333",
+          "60",
+          "19.98",
+          "100",
+          "33.3",
+          "80",
+          "26.64"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.133",
+          "60",
+          "7.98",
+          "80",
+          "10.64",
+          "100",
+          "13.3"
+        ],
+        [
+          "Machining\nTime",
+          "0.067",
+          "100",
+          "6.7",
+          "75",
+          "5.03",
+          "100",
+          "6.7"
+        ],
+        [
+          "Process\nComplexity",
+          "0",
+          "75",
+          "0",
+          "50",
+          "0",
+          "100",
+          "0"
+        ],
+        [
+          "Performance\nIndex, γ",
+          "",
+          "",
+          "81.36",
+          "",
+          "85.33",
+          "",
+          "77.66"
+        ]
+      ]
+    ]
+  },
+  "116": {
+    "captions": [
+      "Table 7. 19: List of properties for comparing manufacturing process for AISI 347 Annealed",
+      "Table 7. 20: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Injection Molding",
+          "Extrusion",
+          "Monofilament Drawing"
+        ],
+        [
+          "Abrasion Resistance",
+          "4",
+          "5",
+          "4"
+        ],
+        [
+          "Flexibility",
+          "3",
+          "4",
+          "5"
+        ],
+        [
+          "Durability",
+          "4",
+          "4",
+          "5"
+        ],
+        [
+          "Cost Efficiency",
+          "3",
+          "4",
+          "3"
+        ],
+        [
+          "Ease of Manufacturing",
+          "4",
+          "5",
+          "3"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions",
+          "Relative\nemphasis\nCoefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Abrasion Resistance",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.4"
+        ],
+        [
+          "Flexibility",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Durability",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Ease of Manufacturing",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "117": {
+    "captions": [
+      "Table 7. 21: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weightin\ng Factor\n(α)",
+          "Injection Molding",
+          null,
+          "Extrusion",
+          null,
+          "Monofilament\nDrawing",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nPropert\ny\n(β)",
+          "Weighte\nd Score\n(αβ)",
+          "Scaled\nPropert\ny\n(β)",
+          "Weighte\nd Score\n(αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighte\nd Score\n(αβ)"
+        ],
+        [
+          "Abrasion\nResistance",
+          "0.4",
+          "80",
+          "32",
+          "100",
+          "40",
+          "80",
+          "32"
+        ],
+        [
+          "Flexibility",
+          "0.3",
+          "60",
+          "18",
+          "80",
+          "24",
+          "100",
+          "30"
+        ],
+        [
+          "Durability",
+          "0.2",
+          "80",
+          "16",
+          "80",
+          "16",
+          "100",
+          "20"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.1",
+          "75",
+          "7.5",
+          "100",
+          "10",
+          "75",
+          "7.5"
+        ],
+        [
+          "Ease of\nManufac.",
+          "0",
+          "80",
+          "0",
+          "100",
+          "0",
+          "60",
+          "0"
+        ],
+        [
+          "Performance\nIndex, γ",
+          "",
+          "",
+          "73.5",
+          "",
+          "90",
+          "",
+          "89.5"
+        ]
+      ]
+    ]
+  },
+  "118": {
+    "captions": [
+      "Table 7. 22: List of properties for permanent joining process of machine parts",
+      "Table 7. 23: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "TIG Welding",
+          "MIG Welding",
+          "Spot Welding",
+          "Arc Welding"
+        ],
+        [
+          "Strength of Joint",
+          "5",
+          "4",
+          "3",
+          "4"
+        ],
+        [
+          "Precision",
+          "5",
+          "4",
+          "2",
+          "3"
+        ],
+        [
+          "Durability",
+          "5",
+          "4",
+          "3",
+          "4"
+        ],
+        [
+          "Cost Efficiency",
+          "2",
+          "4",
+          "5",
+          "4"
+        ],
+        [
+          "Ease of Operation",
+          "3",
+          "5",
+          "5",
+          "3"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions",
+          "Relative\nemphasis\nCoefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Strength of Joint",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.4"
+        ],
+        [
+          "Precision",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Durability",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Ease of Operation",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "119": {
+    "captions": [
+      "Table 7. 24: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weighting\nFactor (α)",
+          "TIG Welding",
+          null,
+          "MIG Welding",
+          null,
+          "Spot Welding",
+          null,
+          "Arc Welding",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)"
+        ],
+        [
+          "Strength of\nJoint",
+          "0.4",
+          "100",
+          "40",
+          "80",
+          "32",
+          "60",
+          "24",
+          "80",
+          "32"
+        ],
+        [
+          "Precision",
+          "0.3",
+          "100",
+          "30",
+          "80",
+          "24",
+          "40",
+          "12",
+          "60",
+          "18"
+        ],
+        [
+          "Durability",
+          "0.2",
+          "100",
+          "20",
+          "80",
+          "16",
+          "60",
+          "12",
+          "80",
+          "16"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.1",
+          "40",
+          "4",
+          "80",
+          "8",
+          "100",
+          "10",
+          "80",
+          "8"
+        ],
+        [
+          "Ease of\nOperation",
+          "0",
+          "60",
+          "0",
+          "100",
+          "0",
+          "100",
+          "0",
+          "60",
+          "0"
+        ],
+        [
+          "Material\nPerformance\nIndex, γ",
+          "",
+          "",
+          "94",
+          "",
+          "80",
+          "",
+          "58",
+          "",
+          "74"
+        ]
+      ]
+    ]
+  },
+  "120": {
+    "captions": [
+      "Table 7. 25: List of properties for temporary joining process of machine parts",
+      "Table 7. 26: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Bolts and Nuts",
+          "Threaded Inserts",
+          "Clamping",
+          "Snap Fit"
+        ],
+        [
+          "Ease of Assembly/Disassembly",
+          "4",
+          "3",
+          "5",
+          "5"
+        ],
+        [
+          "Holding Strength",
+          "5",
+          "4",
+          "3",
+          "3"
+        ],
+        [
+          "Cost Efficiency",
+          "4",
+          "3",
+          "5",
+          "4"
+        ],
+        [
+          "Durability of Joint",
+          "5",
+          "4",
+          "3",
+          "3"
+        ],
+        [
+          "Vibration Resistance",
+          "4",
+          "4",
+          "2",
+          "3"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions\n4",
+          "Relative\nemphasis\nCoefficient,\nα\n0.4"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Ease of Assembly/Disassembly",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          null,
+          null
+        ],
+        [
+          "Holding Strength",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Durability of Joint",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Vibration Resistance",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Number of Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "121": {
+    "captions": [
+      "Table 7. 27: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weighting\nFactor (α)",
+          "Bolts and Nuts",
+          null,
+          "Threaded Inserts",
+          null,
+          "Clamping",
+          null,
+          "Snap Fit",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore (αβ)"
+        ],
+        [
+          "Ease of\nAssembly/Disassembly",
+          "0.4",
+          "80",
+          "32",
+          "60",
+          "24",
+          "100",
+          "40",
+          "100",
+          "40"
+        ],
+        [
+          "Holding Strength",
+          "0.3",
+          "100",
+          "30",
+          "80",
+          "24",
+          "60",
+          "18",
+          "60",
+          "18"
+        ],
+        [
+          "Cost Efficiency",
+          "0.2",
+          "80",
+          "16",
+          "60",
+          "12",
+          "100",
+          "20",
+          "80",
+          "16"
+        ],
+        [
+          "Durability of Joint",
+          "0.1",
+          "100",
+          "10",
+          "80",
+          "8",
+          "60",
+          "6",
+          "60",
+          "6"
+        ],
+        [
+          "Vibration Resistance",
+          "0",
+          "80",
+          "0",
+          "80",
+          "0",
+          "40",
+          "0",
+          "60",
+          "0"
+        ],
+        [
+          "Performance Index, γ",
+          "",
+          "",
+          "88",
+          "",
+          "68",
+          "",
+          "84",
+          "",
+          "80"
+        ]
+      ]
+    ]
+  },
+  "122": {
+    "captions": [
+      "Table 7. 28: List of properties for Finishing operation of the parts",
+      "Table 7. 29: Determination of Relative Importance of Goals Using Digital Logic Method"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Polishing",
+          "Electroplating",
+          "Powder\nCoating"
+        ],
+        [
+          "Surface Smoothness",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Corrosion Resistance",
+          "2",
+          "5",
+          "4"
+        ],
+        [
+          "Aesthetic Appeal",
+          "4",
+          "4",
+          "5"
+        ],
+        [
+          "Cost Efficiency",
+          "3",
+          "3",
+          "4"
+        ],
+        [
+          "Durability of Finish",
+          "2",
+          "4",
+          "5"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions",
+          "Relative\nemphasis\nCoefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Surface Smoothness",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.4"
+        ],
+        [
+          "Corrosion Resistance",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Aesthetic Appeal",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Durability of Finish",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ]
+    ]
+  },
+  "123": {
+    "captions": [
+      "Table 7. 30: Calculation of the Performance Index",
+      "Table 7. 31: List of properties for coloring and aesthetic finish"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Weighting\nFactor (α)",
+          "Polishing",
+          null,
+          "Electroplating",
+          null,
+          "Powder Coating",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)"
+        ],
+        [
+          "Surface\nSmoothness",
+          "0.4",
+          "100",
+          "40",
+          "80",
+          "32",
+          "60",
+          "24"
+        ],
+        [
+          "Corrosion\nResistance",
+          "0.3",
+          "40",
+          "12",
+          "100",
+          "30",
+          "80",
+          "24"
+        ],
+        [
+          "Aesthetic\nAppeal",
+          "0.2",
+          "80",
+          "16",
+          "80",
+          "16",
+          "100",
+          "20"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.1",
+          "75",
+          "7.5",
+          "75",
+          "7.5",
+          "100",
+          "10"
+        ],
+        [
+          "Durability\nof Finish",
+          "0",
+          "40",
+          "0",
+          "80",
+          "0",
+          "100",
+          "0"
+        ],
+        [
+          "Performance\nIndex, γ",
+          "",
+          "",
+          "75.5",
+          "",
+          "85.5",
+          "",
+          "78"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Powder Coating",
+          "Anodizing",
+          "Spray Painting"
+        ],
+        [
+          "Aesthetic Appeal",
+          "4",
+          "4",
+          "5"
+        ],
+        [
+          "Durability of Finish",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Cost Efficiency",
+          "4",
+          "3",
+          "5"
+        ],
+        [
+          "Corrosion Resistance",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Ease of Application",
+          "4",
+          "3",
+          "5"
+        ]
+      ]
+    ]
+  },
+  "124": {
+    "captions": [
+      "Table 7. 32: Determination of Relative Importance of Goals Using Digital Logic Method",
+      "Table 7. 33: Calculation of the Performance Index"
+    ],
+    "tables": [
+      [
+        [
+          "Criteria",
+          "Number of positive decisions,\nN=n(n-1)/2=5(5-1)/2=10",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "Positive\nDecisions",
+          "Relative\nemphasis\nCoefficient,\nα"
+        ],
+        [
+          null,
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          null,
+          null
+        ],
+        [
+          "Aesthetic Appeal",
+          "1",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4",
+          "0.4"
+        ],
+        [
+          "Durability of Finish",
+          "0",
+          "",
+          "",
+          "",
+          "1",
+          "1",
+          "1",
+          "",
+          "",
+          "",
+          "3",
+          "0.3"
+        ],
+        [
+          "Cost Efficiency",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "1",
+          "1",
+          "",
+          "2",
+          "0.2"
+        ],
+        [
+          "Corrosion Resistance",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "",
+          "1",
+          "1",
+          "0.1"
+        ],
+        [
+          "Ease of Application",
+          "",
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "0",
+          "",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Total Positive Decisions",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "10",
+          "1"
+        ]
+      ],
+      [
+        [
+          "Criteria",
+          "Weighting\nFactor (α)",
+          "Powder Coating",
+          null,
+          "Anodizing",
+          null,
+          "Spray Painting",
+          null
+        ],
+        [
+          null,
+          null,
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)",
+          "Scaled\nProperty\n(β)",
+          "Weighted\nScore\n(αβ)"
+        ],
+        [
+          "Aesthetic\nAppeal",
+          "0.4",
+          "80",
+          "32",
+          "80",
+          "32",
+          "100",
+          "40"
+        ],
+        [
+          "Durability\nof Finish",
+          "0.3",
+          "100",
+          "30",
+          "80",
+          "24",
+          "60",
+          "18"
+        ],
+        [
+          "Cost\nEfficiency",
+          "0.2",
+          "80",
+          "16",
+          "60",
+          "12",
+          "100",
+          "20"
+        ],
+        [
+          "Corrosion\nResistance",
+          "0.1",
+          "100",
+          "10",
+          "80",
+          "8",
+          "60",
+          "6"
+        ],
+        [
+          "Ease of\nApplication",
+          "0",
+          "80",
+          "0",
+          "60",
+          "0",
+          "100",
+          "0"
+        ],
+        [
+          "Performance\nIndex, γ",
+          "",
+          "",
+          "88",
+          "",
+          "76",
+          "",
+          "84"
+        ]
+      ]
+    ]
+  },
+  "125": {
+    "captions": [],
+    "tables": []
+  }
+}
