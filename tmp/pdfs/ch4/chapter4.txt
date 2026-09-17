@@ -1,0 +1,131 @@
+                                         Chapter 04
+                               Functional Decomposition
+4.1 Introduction
+Functional decomposition is an analytical approach where we break down a complex system
+into manageable component functions and processes. This technique is crucial for developing
+and managing intricate products, as it allows a top-down view that displays increasingly
+detailed levels of functionality within a system. A functional decomposition model or diagram
+visualizes the total breakdown and structure of a product’s processes, helping designers
+understand how each part contributes to the overall purpose.
+The decomposition process involves four essential steps:
+Step 1: Identify the Primary Function
+The design’s core function must be distilled into a simple statement and represented in a “black
+box,” where energy, material, and information inputs and outputs define the boundaries of the
+system.
+Step 2: Develop Sub-functions
+The primary function is broken down into specific sub-functions necessary to support the
+system's purpose, ensuring each component contributes effectively to the main goal.
+Step 3: Organize Sub-functions
+By arranging the sub-functions in a logical order, the process flow becomes streamlined, which
+is particularly important for complex products with multiple interacting elements.
+Step 4: Refine Sub-functions
+Each sub-function is examined for further decomposition. This ensures that every aspect of the
+function is addressed, contributing to the integrity of the overall system.
+
+
+4.2 Black Box Model of Functional Decomposition
+The black box model is a simplified approach to functional decomposition, where the system
+is represented abstractly with its inputs and outputs for energy, material, and information. This
+model provides a high-level overview of the functionality without delving into internal details.
+It is especially useful for understanding or describing complex systems in terms of what they
+do rather than how they work, enabling a clear representation of input-output relationships.
+
+
+
+
+                                                                                               35
+Black box diagram of our semi-automated shoe cleaning machine is given below
+
+
+
+
+        Figure 4. 1: Black Box Model of the Semi-automated shoe cleaning machine
+
+
+
+
+                                                                                   36
+4.3 Component Hierarchy
+Component hierarchy is a very effective method of listing the components required to design
+a product. The component hierarchy methodology simply distinguishes between the core
+portions of the product and then lists the components for those portions. The portions are simply
+termed as sub-assembly. When the function of all sub-assemblies are satisfied, the prime
+function is satisfied. This can be repeated iteratively down several levels developing a function
+tree. Function trees are fast and easy to construct, but this ease of construction comes at the
+expense of understanding interactions between sub- assemblies
+
+
+The component hierarchy of our semi-automated shoe cleaning machine is shown below:
+
+
+
+
+        Figure 4. 2: Component Hierarchy of Semi-automated shoe cleaning machine
+
+
+
+
+                                                                                              37
+4.4 Cluster Function Structure for Semi-Automated Shoe Cleaning Machine
+
+
+
+
+   Figure 4. 3: Cluster function of energy flow of Semi-automated shoe cleaning machine
+
+
+
+
+   Figure 4. 4: Cluster function of energy flow of Semi-automated shoe cleaning machine
+
+
+
+
+                                                                                          38
+   Figure 4. 5: Cluster function of energy flow of Semi-automated shoe cleaning machine
+
+
+4.5 Conclusion
+In conclusion, the use of the black box model, component hierarchy, and cluster function
+structure provides a comprehensive approach to the functional decomposition of the semi-
+automated shoe cleaning machine. The black box model offers a concise overview of the
+machine’s inputs and outputs, while the component hierarchy breaks down each part’s role in
+the overall system. The cluster function structure further illustrates the flow of material and
+energy, providing a deeper understanding of each component's contribution. Collectively, these
+decomposition methods contribute to a well-structured and efficient design, making the semi-
+automated shoe cleaning machine both functional and user-friendly.
+
+
+
+
+                                                                                            39
+                                         Chapter 05
+                                        Design Analysis
+5.1 Introduction
+The systematic process of designing, which includes tasks such as gathering information,
+planning, and effective communication, is often referred to as design analysis. Product
+development is typically divided into several stages, each involving specific activities. These
+stages frequently require different analyses, such as market research to understand consumer
+behavior or financial evaluations to identify risks and investment opportunities. In the case of
+the "Automated Shoe Cleaner," certain design evaluations are essential to transform the concept
+into a tangible product.
+A critical phase in product development is design analysis, which helps minimize or eliminate
+reliance on extensive physical prototyping and testing. Through detailed research into customer
+needs, material selection, manufacturing methods, and assembly processes, a prototype for the
+"Automated Shoe Cleaner" has been developed. This section will provide an overview of the
+"Automated Shoe Cleaner" components skillfully designed using SolidWorks software.
+Additionally, a detailed stress analysis, conducted using Ansys software, will be presented to
+ensure the product’s design is both robust and reliable.
+5.2 Final Design and Parts of “Semi-Automated Shoe Cleaner”
+5.2.1 Parts of “Automated Shoe Cleaner”
+
+
+
+
+                                    Figure 5. 1: Base Plate
+
+
+
+
+                                                                                             40
+

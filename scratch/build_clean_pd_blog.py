@@ -8,7 +8,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_appendix_reference import get_appendix_a_html, get_appendix_b_html, get_references_html
 from build_math_latex import format_paragraph_with_math, format_table_cell
 from build_ch6_ch7_tables import get_ch6_7_table_html
+from build_ch1 import get_ch1_html
+from build_ch2 import get_ch2_html
 from build_ch3 import get_ch3_page_html
+from build_ch4 import get_ch4_html
 from build_ch8 import get_ch8_page_html
 from build_ch9 import get_ch9_page_html
 
@@ -124,6 +127,36 @@ def build_clean_html():
         page = doc[pno]
         pdf_page = pno + 1
         rep_page = get_report_page_num(pno)
+
+        # --- Chapter 1 (PDF Pages 21 to 25): Consolidated and semantically cleaned ---
+        if pdf_page == 21:
+            page_html = []
+            page_html.append('<div class="pdf-page-marker my-10 pt-4 border-t-2 border-black/20 text-xs font-mono text-gray-500 flex justify-between items-center" id="page-21">')
+            page_html.append('  <span id="page-22"></span><span id="page-23"></span><span id="page-24"></span><span id="page-25"></span>')
+            page_html.append('  <span class="font-bold">Report Pages 1-5</span>')
+            page_html.append('  <span>PDF Pages 21-25 / 151</span>')
+            page_html.append('</div>\n')
+            page_html.append(get_ch1_html())
+            all_content_html.append('\n'.join(page_html))
+            continue
+
+        if 22 <= pdf_page <= 25:
+            continue
+
+        # --- Chapter 2 (PDF Pages 26 to 45): Consolidated survey presentation ---
+        if pdf_page == 26:
+            page_html = []
+            page_html.append('<div class="pdf-page-marker my-10 pt-4 border-t-2 border-black/20 text-xs font-mono text-gray-500 flex justify-between items-center" id="page-26">')
+            page_html.append('  ' + ''.join(f'<span id="page-{page}"></span>' for page in range(27, 46)))
+            page_html.append('  <span class="font-bold">Report Pages 6-25</span>')
+            page_html.append('  <span>PDF Pages 26-45 / 151</span>')
+            page_html.append('</div>\n')
+            page_html.append(get_ch2_html())
+            all_content_html.append('\n'.join(page_html))
+            continue
+
+        if 27 <= pdf_page <= 45:
+            continue
         
         # --- PDF Pages 48 to 53 (Report Pages 28 to 33): Consolidated Range ---
         if pdf_page == 48:
@@ -141,6 +174,21 @@ def build_clean_html():
             continue
 
         if 49 <= pdf_page <= 53:
+            continue
+
+        # --- Chapter 4 (PDF Pages 55 to 59): Consolidated functional decomposition ---
+        if pdf_page == 55:
+            page_html = []
+            page_html.append('<div class="pdf-page-marker my-10 pt-4 border-t-2 border-black/20 text-xs font-mono text-gray-500 flex justify-between items-center" id="page-55">')
+            page_html.append('  ' + ''.join(f'<span id="page-{page}"></span>' for page in range(56, 60)))
+            page_html.append('  <span class="font-bold">Report Pages 35-39</span>')
+            page_html.append('  <span>PDF Pages 55-59 / 151</span>')
+            page_html.append('</div>\n')
+            page_html.append(get_ch4_html())
+            all_content_html.append('\n'.join(page_html))
+            continue
+
+        if 56 <= pdf_page <= 59:
             continue
 
         page_html = []
