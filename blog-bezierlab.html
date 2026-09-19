@@ -90,7 +90,7 @@
           Bézier curves are fundamental to modern computational geometry, computer-aided design (CAD), CNC toolpath generation, and vector typography. While commercial CAD packages hide the underlying mathematics behind black-box smoothing functions, engineering students and designers often lack an intuitive tool to explore how shifting higher-order control points affects curve curvature and derivative continuity.
         </p>
         <p>
-          To bridge this gap, I created <strong>BezierLab</strong>—an open-source, interactive desktop application built in Python that enables real-time visual construction and analytical inspection of Bézier curves of arbitrary degrees.
+          To address this gap, I created <strong>BezierLab</strong>: an open-source, interactive desktop application built in Python that enables real-time visual construction and analytical inspection of Bézier curves of arbitrary degrees.
         </p>
 
         <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Mathematical Foundation</h2>
@@ -120,7 +120,7 @@
 
         <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Core Features of BezierLab</h2>
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Arbitrary Degree Support ($n \ge 1$):</strong> Seamlessly construct linear, quadratic, cubic, quartic, and higher $N$-degree curves by dynamically inserting or removing control nodes.</li>
+          <li><strong>Arbitrary Degree Support ($n \ge 1$):</strong> Construct linear, quadratic, cubic, quartic, and higher $N$-degree curves by dynamically inserting or removing control nodes.</li>
           <li><strong>Direct Canvas Interaction:</strong> Drag-and-drop control vertices $P_i = (x_i, y_i)$ with immediate sub-millisecond recalculation and canvas repainting.</li>
           <li><strong>Convex Hull Visualization:</strong> Displays the bounding polygon formed by the control point set $\{P_0, P_1, \dots, P_n\}$, visually verifying the convex hull property: $B(t) \in \text{conv}(P_0, \dots, P_n)$.</li>
           <li><strong>Coordinate Inspection &amp; Export:</strong> Inspect exact discrete spatial coordinates $(x_t, y_t)$ across parameterized step increments $\Delta t$, with full PNG image export support.</li>
@@ -134,7 +134,6 @@
           <li><strong>CNC Toolpath Optimization:</strong> Replacing segmented linear polylines with continuous $G^1$ (tangent continuous) and $G^2$ (curvature continuous) smooth spline curves, drastically cutting machine head jerk, vibration, and surface scallop height.</li>
           <li><strong>Robotic Trajectory Planning:</strong> Generating smooth position-velocity profiles between workspace waypoints to respect actuator torque and acceleration constraints.</li>
           <li><strong>Aerodynamic Airfoil Design:</strong> Parameterizing NACA and bionic flap profiles with minimal control variables.</li>
-        </ul>
         </ul>
 
         <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Download &amp; Repository</h2>
