@@ -31,6 +31,7 @@ export default defineConfig(() => {
           'blog-querynest': path.resolve(__dirname, 'blog-querynest.html'),
           'blog-shoe-shiner': path.resolve(__dirname, 'blog-shoe-shiner.html'),
           'blog-semi-automated-shoe-cleaning-machine': path.resolve(__dirname, 'blog-semi-automated-shoe-cleaning-machine.html'),
+          'blog-scientific-figures-tools': path.resolve(__dirname, 'blog-scientific-figures-tools.html'),
         },
       },
     },
