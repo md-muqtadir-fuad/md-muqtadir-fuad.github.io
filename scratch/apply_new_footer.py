@@ -1,130 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBJDYRXEB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+import os
+import re
 
-    gtag('config', 'G-BJBJDYRXEB');
-  </script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Designing an IoT-Enabled Web Platform | Md. Muqtadir Fuad</title>
-  <meta name="description" content="How I built a centralized web portal and REST API to ingest, visualize, and monitor industrial IoT sensor telemetry in real time." />
-
-  <!-- Fav icon-->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
-
-  <!-- Desktop Header -->
-  <header class="fixed top-0 w-full bg-white border-b border-black z-50">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/" class="font-bold text-lg font-mono tracking-tighter">MMF.</a>
-      <nav class="hidden md:flex gap-8 font-mono text-sm uppercase">
-        <a href="/" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Home</a>
-        <a href="/experience.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Experience</a>
-        <a href="/projects.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Projects</a>
-        <a href="/publications.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
-        <a href="/achievements.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
-      </nav>
-      <button id="menu-btn" class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
-        MENU
-      </button>
-    </div>
-  </header>
-
-  <div id="mobile-nav" class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
-    <a href="/" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Home</a>
-    <a href="/experience.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
-    <a href="/projects.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
-    <a href="/publications.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
-    <a href="/achievements.html" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
-  </div>
-
-  <main class="flex-grow max-w-3xl mx-auto px-6 pt-32 pb-24 w-full">
-    <article class="mb-16">
-      <header class="mb-12">
-        <div class="mb-4 font-mono text-sm flex items-center gap-4 text-gray-600">
-          <time datetime="2026-07-08">July 8, 2026</time>
-          <span>•</span>
-          <span>5 min read</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Designing an IoT-Enabled Web Platform for Manufacturing Telemetry</h1>
-        <p class="text-xl text-gray-700 leading-relaxed">
-          How I built a full-stack telemetry and process monitoring portal connecting embedded sensor nodes to an interactive web dashboard for smart manufacturing.
-        </p>
-      </header>
-
-      <img src="https://i.postimg.cc/VkjL6gY2/479851827-21cb13aa-001c-45d2-aa31-3d6402283a97.png" alt="IoT Web Platform Dashboard" class="w-full h-auto object-cover mb-12 border border-black">
-
-      <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
-        <p>
-          In manufacturing laboratories and production workshops, equipment operates across complex parameters (temperatures, load thresholds, vibration levels, and cycle times). However, extracting real-time insights often requires engineers to walk machine to machine, writing down readings on physical clipboards.
-        </p>
-        <p>
-          I developed the <strong>IoT-Enabled Web Platform</strong> to bridge this gap: providing a lightweight, robust telemetry portal that connects microcontroller sensor nodes directly to a central dashboard with real-time graphs, anomaly alerts, and structured audit logs.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">End-to-End System Architecture</h2>
-        <p>
-          The architecture follows a streamlined three-tier design:
-        </p>
-        <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Edge Hardware Tier:</strong> ESP32 and Arduino microcontrollers equipped with load cells, temperature sensors, and encoders, sampling data and transmitting JSON payloads over HTTP POST requests.</li>
-          <li><strong>API &amp; Ingestion Tier (PHP/MySQL):</strong> Lightweight REST endpoints validating incoming token headers, sanitizing parameters, and inserting time-series records into optimized relational tables.</li>
-          <li><strong>Visualization Dashboard (JS / HTML / CSS):</strong> Interactive client-side portal utilizing asynchronous polling and dynamic chart rendering to display real-time sensor streams without full-page reloads.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Key Capabilities &amp; Features</h2>
-        <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Multi-Sensor Live Gauges:</strong> Real-time visualization of process variables such as unit weights, operating temperatures, and production cycle run-rates.</li>
-          <li><strong>Out-of-Tolerance Alerting:</strong> Automated visual flag triggers whenever monitored parameters breach predefined upper/lower control limits.</li>
-          <li><strong>Historical Trend Analysis:</strong> Filterable historical query engine allowing engineers to analyze shift-wise variations and export raw production logs to CSV.</li>
-          <li><strong>Low-Bandwidth Optimization:</strong> Optimized JSON payload structures and compressed HTTP headers enabling reliable transmission over lossy industrial Wi-Fi networks.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Practical Engineering Insights</h2>
-        <p>
-          Deploying IoT in industrial and academic workshop environments highlighted the critical need for edge-side fault tolerance. The microcontrollers incorporate local flash buffer queues so that if network connectivity temporarily drops, sensor readings are cached locally and synchronized once the connection is restored.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Project Repository</h2>
-        <p>
-          The complete source code for both the web application and embedded API integration is open-source on GitHub:
-        </p>
-        <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
-          <li>
-            <strong>GitHub Repository:</strong> <a href="https://github.com/md-muqtadir-fuad/iot-web-app" target="_blank" rel="noopener noreferrer" class="underline font-medium">github.com/md-muqtadir-fuad/iot-web-app</a>
-          </li>
-          <li>
-            <strong>Technologies:</strong> PHP, MySQL, JavaScript, HTML5/CSS3, ESP32, RESTful API
-          </li>
-        </ul>
-      </div>
-      
-      <div class="mt-16 pt-8 border-t border-black">
-        <a href="/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
-          &larr; Back to Blogs
-        </a>
-      </div>
-    </article>
-  </main>
-
-  <footer class="border-t border-black bg-gray-50 text-black mt-auto">
+NEW_FOOTER = '''  <footer class="border-t border-black bg-gray-50 text-black mt-auto">
     <div class="max-w-6xl mx-auto px-6 py-12">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
@@ -265,8 +142,51 @@
         <div>&copy; 2026 Md. Muqtadir Fuad. All rights reserved.</div>
       </div>
     </div>
-  </footer>
+  </footer>'''
 
-  <script type="module" src="/main.js"></script>
-</body>
-</html>
+TARGET_FILES = [
+    'index.html',
+    'experience.html',
+    'projects.html',
+    'publications.html',
+    'achievements.html',
+    'contacts.html',
+    'blogs.html',
+    '404.html',
+    'blog-badhan.html',
+    'blog-bezierlab.html',
+    'blog-bnwp.html',
+    'blog-dengue.html',
+    'blog-egov-lens.html',
+    'blog-iot-conveyor.html',
+    'blog-iot-platform.html',
+    'blog-querynest.html',
+    'blog-scientific-figures-tools.html',
+    'blog-semi-automated-shoe-cleaning-machine.html',
+    'blog-shoe-shiner.html'
+]
+
+root_dir = r'c:\Users\DELL\Desktop\venv-python\portfolio-ai\portfolio-static\md-muqtadir-fuad.github.io'
+
+pattern = re.compile(r'<footer[\s\S]*?</footer>', re.MULTILINE)
+
+updated_count = 0
+for filename in TARGET_FILES:
+    filepath = os.path.join(root_dir, filename)
+    if not os.path.exists(filepath):
+        print(f"File not found: {filepath}")
+        continue
+    
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    if pattern.search(content):
+        new_content = pattern.sub(NEW_FOOTER.strip(), content)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+        print(f"Updated {filename}")
+        updated_count += 1
+    else:
+        print(f"No footer found in {filename}")
+
+print(f"\nSuccessfully updated {updated_count} HTML files.")

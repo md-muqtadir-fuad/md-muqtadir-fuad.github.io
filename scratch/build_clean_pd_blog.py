@@ -712,7 +712,7 @@ def build_clean_html():
                     if bullet_match:
                         b_text = bullet_match.group(1)
                         b_esc = html.escape(b_text)
-                        page_html.append(f'<li class="relative pl-6 mb-2 list-none font-sans text-gray-800 leading-relaxed"><span class="absolute left-0 text-black font-mono font-bold">→</span>{b_esc}</li>\n')
+                        page_html.append(f'<li class="relative pl-6 mb-2 list-none font-sans text-gray-800 leading-relaxed"><span class="absolute left-0 text-black font-mono font-bold">•</span>{b_esc}</li>\n')
                         idx += 1
                         continue
 

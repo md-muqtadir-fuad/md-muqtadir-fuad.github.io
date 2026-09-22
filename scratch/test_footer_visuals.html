@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Footer Design Concepts Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-white text-black p-8 space-y-16">
+
+  <div>
+    <h1 class="text-2xl font-bold font-mono uppercase tracking-wider mb-2">Footer Brainstorming Options</h1>
+    <p class="text-gray-600">Comparing 3 distinct aesthetic layouts tailored for Md. Muqtadir Fuad's portfolio.</p>
+  </div>
+
+  <!-- OPTION 1: 4-COLUMN ACADEMIC & RESEARCHER DOSSIER -->
+  <div class="border border-black">
+    <div class="bg-black text-white px-4 py-2 font-mono text-sm font-bold flex justify-between">
+      <span>OPTION 1: THE ACADEMIC & RESEARCH DOSSIER (RECOMMENDED)</span>
+      <span class="text-gray-400">Structured 4-Column Grid • High Authority</span>
+    </div>
+    <footer class="border-t border-black bg-gray-50 text-black">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          
+          <!-- Col 1: Identity & Direct Inquiries -->
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-bold text-lg leading-tight">Md. Muqtadir Fuad</h3>
+              <p class="font-mono text-xs text-gray-600 mt-1">Researcher • BUET / IAT</p>
+            </div>
+            <p class="text-xs text-gray-700 leading-relaxed">
+              Industrial & Production Engineering graduate researching RL, IoT systems, and intelligent manufacturing.
+            </p>
+            <div class="space-y-2 pt-1">
+              <a href="mailto:muqtadir@iat.buet.ac.bd" class="inline-flex items-center gap-2 text-xs font-mono border border-black/30 bg-white hover:bg-black hover:text-white px-2.5 py-1.5 transition-colors w-full">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 3L2 10h20L12 3z"/></svg>
+                <span class="truncate">muqtadir@iat.buet.ac.bd</span>
+              </a>
+              <a href="mailto:mmfuad01@gmail.com" class="inline-flex items-center gap-2 text-xs font-mono border border-black/30 bg-white hover:bg-black hover:text-white px-2.5 py-1.5 transition-colors w-full">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span class="truncate">mmfuad01@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Academic & Research Profiles -->
+          <div>
+            <h4 class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-300 pb-1">Academic Profiles</h4>
+            <ul class="space-y-2.5 font-mono text-xs">
+              <li>
+                <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">Google Scholar</span>
+                    <span class="text-[10px] text-gray-500">Citations & Papers</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://orcid.org/0009-0009-4362-0780" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.306v7.444h2.297c2.359 0 3.869-1.516 3.869-3.722 0-2.016-1.397-3.722-3.816-3.722h-2.35z"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">ORCID</span>
+                    <span class="text-[10px] text-gray-500 font-mono">0009-0009-4362-0780</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.researchgate.net/profile/Md-Muqtadir-Fuad?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.363 8.363 0 0 0-.078.53 9 9 0 0 0-.79-1.078c-.37-.417-.82-.74-1.35-.97C13.44.433 12.81.3 12.08.3c-.928 0-1.78.21-2.556.63-.775.42-1.42 1.01-1.933 1.77-.514.76-.894 1.66-1.14 2.7-.248 1.04-.372 2.18-.372 3.42 0 1.25.124 2.39.372 3.43.246 1.04.626 1.94 1.14 2.7.513.76 1.158 1.35 1.933 1.77.776.42 1.628.63 2.556.63.79 0 1.467-.14 2.03-.42.564-.28 1.04-.66 1.43-1.14v4.54h2.15V9.45c0-1.2-.1-2.2-.3-3-.2-.8-.5-1.4-.9-1.9-.4-.5-.9-.9-1.5-1.1-.6-.2-1.3-.3-2.1-.3-.6 0-1.2.1-1.7.3-.5.2-.9.5-1.2.9-.3.4-.6.9-.7 1.4-.1.5-.2 1.1-.2 1.8h-2.1c0-.9.1-1.7.4-2.4.3-.7.7-1.4 1.2-1.9.5-.5 1.2-.9 1.9-1.2.7-.3 1.6-.4 2.5-.4.8 0 1.5.1 2.1.3.6.2 1.1.5 1.5.9.4.4.7.9.9 1.5.2.6.3 1.3.3 2.1v.37c.36-.61.85-1.1 1.46-1.47.62-.37 1.36-.55 2.22-.55 1.17 0 2.1.38 2.78 1.14.68.76 1.02 1.83 1.02 3.21v7.62h-2.15v-7.2c0-.96-.2-1.68-.6-2.17-.4-.49-1-.73-1.8-.73-.55 0-1.04.14-1.47.43-.43.28-.77.7-.99 1.24v8.43h-2.15V6.7z"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">ResearchGate</span>
+                    <span class="text-[10px] text-gray-500 font-mono">Md-Muqtadir-Fuad</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Code & Professional Network -->
+          <div>
+            <h4 class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-300 pb-1">Network & Code</h4>
+            <ul class="space-y-2.5 font-mono text-xs">
+              <li>
+                <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">GitHub</span>
+                    <span class="text-[10px] text-gray-500 font-mono">md-muqtadir-fuad</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">LinkedIn</span>
+                    <span class="text-[10px] text-gray-500 font-mono">in/md-muqtadir-fuad</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-gray-800 hover:text-black hover:underline">
+                  <span class="w-6 h-6 rounded border border-black/20 bg-white flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </span>
+                  <div>
+                    <span class="font-bold block">Curriculum Vitae</span>
+                    <span class="text-[10px] text-gray-500 font-mono">Google Drive [PDF]</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Quick Navigation -->
+          <div>
+            <h4 class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-300 pb-1">Quick Links</h4>
+            <div class="grid grid-cols-2 gap-x-3 gap-y-2 font-mono text-xs">
+              <a href="/" class="hover:underline hover:text-black text-gray-700">Home</a>
+              <a href="/experience.html" class="hover:underline hover:text-black text-gray-700">Experience</a>
+              <a href="/projects.html" class="hover:underline hover:text-black text-gray-700">Projects</a>
+              <a href="/publications.html" class="hover:underline hover:text-black text-gray-700">Publications</a>
+              <a href="/achievements.html" class="hover:underline hover:text-black text-gray-700">Achievements</a>
+              <a href="/blogs.html" class="hover:underline hover:text-black text-gray-700">Blogs</a>
+              <a href="/contacts.html" class="hover:underline hover:text-black text-gray-700">Contacts</a>
+              <a href="#top" class="hover:underline hover:text-black text-gray-700">Top &uarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="border-t border-black/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs font-mono text-gray-600">
+          <div>&copy; 2026 Md. Muqtadir Fuad. All rights reserved.</div>
+          <div>Department of IPE • BUET</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- OPTION 2: THE INTERACTIVE PILL MATRIX -->
+  <div class="border border-black">
+    <div class="bg-black text-white px-4 py-2 font-mono text-sm font-bold flex justify-between">
+      <span>OPTION 2: THE INTERACTIVE BADGE MATRIX</span>
+      <span class="text-gray-400">Card-Based Tactile Grid</span>
+    </div>
+    <footer class="border-t border-black bg-gray-50 text-black">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <h3 class="text-xl font-bold font-mono">Let's Connect & Collaborate</h3>
+            <p class="text-sm text-gray-600">Open for research inquiries, project discussions, and technical exchanges.</p>
+          </div>
+          <div class="flex flex-wrap gap-4 font-mono text-xs">
+            <a href="/" class="hover:underline">Home</a>
+            <a href="/experience.html" class="hover:underline">Experience</a>
+            <a href="/projects.html" class="hover:underline">Projects</a>
+            <a href="/publications.html" class="hover:underline">Publications</a>
+            <a href="/blogs.html" class="hover:underline">Blogs</a>
+            <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing" class="hover:underline">CV</a>
+          </div>
+        </div>
+
+        <!-- Matrix of 7 platforms -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+          <!-- Official Email -->
+          <a href="mailto:muqtadir@iat.buet.ac.bd" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 3L2 10h20L12 3z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">Official Email</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">muqtadir@iat.buet.ac.bd</div>
+            </div>
+          </a>
+
+          <!-- Personal Email -->
+          <a href="mailto:mmfuad01@gmail.com" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">Personal Email</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">mmfuad01@gmail.com</div>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">LinkedIn</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">in/md-muqtadir-fuad</div>
+            </div>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">GitHub</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">md-muqtadir-fuad</div>
+            </div>
+          </a>
+
+          <!-- Google Scholar -->
+          <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">Google Scholar</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">Citations & Profile</div>
+            </div>
+          </a>
+
+          <!-- ORCID -->
+          <a href="https://orcid.org/0009-0009-4362-0780" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.306v7.444h2.297c2.359 0 3.869-1.516 3.869-3.722 0-2.016-1.397-3.722-3.816-3.722h-2.35z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">ORCID</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">0009-0009-4362-0780</div>
+            </div>
+          </a>
+
+          <!-- ResearchGate -->
+          <a href="https://www.researchgate.net/profile/Md-Muqtadir-Fuad?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.363 8.363 0 0 0-.078.53 9 9 0 0 0-.79-1.078c-.37-.417-.82-.74-1.35-.97C13.44.433 12.81.3 12.08.3c-.928 0-1.78.21-2.556.63-.775.42-1.42 1.01-1.933 1.77-.514.76-.894 1.66-1.14 2.7-.248 1.04-.372 2.18-.372 3.42 0 1.25.124 2.39.372 3.43.246 1.04.626 1.94 1.14 2.7.513.76 1.158 1.35 1.933 1.77.776.42 1.628.63 2.556.63.79 0 1.467-.14 2.03-.42.564-.28 1.04-.66 1.43-1.14v4.54h2.15V9.45c0-1.2-.1-2.2-.3-3-.2-.8-.5-1.4-.9-1.9-.4-.5-.9-.9-1.5-1.1-.6-.2-1.3-.3-2.1-.3-.6 0-1.2.1-1.7.3-.5.2-.9.5-1.2.9-.3.4-.6.9-.7 1.4-.1.5-.2 1.1-.2 1.8h-2.1c0-.9.1-1.7.4-2.4.3-.7.7-1.4 1.2-1.9.5-.5 1.2-.9 1.9-1.2.7-.3 1.6-.4 2.5-.4.8 0 1.5.1 2.1.3.6.2 1.1.5 1.5.9.4.4.7.9.9 1.5.2.6.3 1.3.3 2.1v.37c.36-.61.85-1.1 1.46-1.47.62-.37 1.36-.55 2.22-.55 1.17 0 2.1.38 2.78 1.14.68.76 1.02 1.83 1.02 3.21v7.62h-2.15v-7.2c0-.96-.2-1.68-.6-2.17-.4-.49-1-.73-1.8-.73-.55 0-1.04.14-1.47.43-.43.28-.77.7-.99 1.24v8.43h-2.15V6.7z"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">ResearchGate</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">profile/Md-Muqtadir-Fuad</div>
+            </div>
+          </a>
+
+          <!-- CV Link -->
+          <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing" target="_blank" rel="noopener noreferrer" class="group border border-black bg-white hover:bg-black hover:text-white p-3 flex items-center gap-3 transition-colors">
+            <div class="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 group-hover:border-white">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="overflow-hidden">
+              <div class="font-bold text-xs uppercase tracking-wider">Curriculum Vitae</div>
+              <div class="font-mono text-[11px] text-gray-500 group-hover:text-gray-300 truncate">View PDF &rarr;</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="border-t border-black/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs font-mono text-gray-600">
+          <div>&copy; 2026 Md. Muqtadir Fuad. All rights reserved.</div>
+          <div>BUET • IAT & IPE</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- OPTION 3: THE MINIMALIST EDITORIAL SPLIT -->
+  <div class="border border-black">
+    <div class="bg-black text-white px-4 py-2 font-mono text-sm font-bold flex justify-between">
+      <span>OPTION 3: THE MINIMALIST EDITORIAL SPLIT</span>
+      <span class="text-gray-400">Ultra-Clean Two-Tier Bar</span>
+    </div>
+    <footer class="border-t border-black bg-gray-50 text-black">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 border-b border-black/10">
+          
+          <!-- Left: Identity & Emails -->
+          <div class="space-y-3">
+            <div>
+              <span class="font-bold text-lg">Md. Muqtadir Fuad</span>
+              <span class="text-xs font-mono text-gray-500 ml-2">/ BUET Researcher</span>
+            </div>
+            <div class="flex flex-wrap gap-3 font-mono text-xs">
+              <a href="mailto:muqtadir@iat.buet.ac.bd" class="inline-flex items-center gap-2 border border-black px-3 py-1.5 bg-white hover:bg-black hover:text-white transition-colors">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 3L2 10h20L12 3z"/></svg>
+                <span>muqtadir@iat.buet.ac.bd</span>
+              </a>
+              <a href="mailto:mmfuad01@gmail.com" class="inline-flex items-center gap-2 border border-black px-3 py-1.5 bg-white hover:bg-black hover:text-white transition-colors">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>mmfuad01@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Profile Icon Badges -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <span class="font-mono text-xs uppercase tracking-wider text-gray-500 hidden sm:inline">Profiles:</span>
+            <div class="flex items-center gap-2">
+              <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar" class="w-10 h-10 border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+              </a>
+              <a href="https://orcid.org/0009-0009-4362-0780" target="_blank" rel="noopener noreferrer" title="ORCID" class="w-10 h-10 border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.306v7.444h2.297c2.359 0 3.869-1.516 3.869-3.722 0-2.016-1.397-3.722-3.816-3.722h-2.35z"/></svg>
+              </a>
+              <a href="https://www.researchgate.net/profile/Md-Muqtadir-Fuad?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" title="ResearchGate" class="w-10 h-10 border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.363 8.363 0 0 0-.078.53 9 9 0 0 0-.79-1.078c-.37-.417-.82-.74-1.35-.97C13.44.433 12.81.3 12.08.3c-.928 0-1.78.21-2.556.63-.775.42-1.42 1.01-1.933 1.77-.514.76-.894 1.66-1.14 2.7-.248 1.04-.372 2.18-.372 3.42 0 1.25.124 2.39.372 3.43.246 1.04.626 1.94 1.14 2.7.513.76 1.158 1.35 1.933 1.77.776.42 1.628.63 2.556.63.79 0 1.467-.14 2.03-.42.564-.28 1.04-.66 1.43-1.14v4.54h2.15V9.45c0-1.2-.1-2.2-.3-3-.2-.8-.5-1.4-.9-1.9-.4-.5-.9-.9-1.5-1.1-.6-.2-1.3-.3-2.1-.3-.6 0-1.2.1-1.7.3-.5.2-.9.5-1.2.9-.3.4-.6.9-.7 1.4-.1.5-.2 1.1-.2 1.8h-2.1c0-.9.1-1.7.4-2.4.3-.7.7-1.4 1.2-1.9.5-.5 1.2-.9 1.9-1.2.7-.3 1.6-.4 2.5-.4.8 0 1.5.1 2.1.3.6.2 1.1.5 1.5.9.4.4.7.9.9 1.5.2.6.3 1.3.3 2.1v.37c.36-.61.85-1.1 1.46-1.47.62-.37 1.36-.55 2.22-.55 1.17 0 2.1.38 2.78 1.14.68.76 1.02 1.83 1.02 3.21v7.62h-2.15v-7.2c0-.96-.2-1.68-.6-2.17-.4-.49-1-.73-1.8-.73-.55 0-1.04.14-1.47.43-.43.28-.77.7-.99 1.24v8.43h-2.15V6.7z"/></svg>
+              </a>
+              <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-10 h-10 border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 border border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom nav bar -->
+        <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-600">
+          <div>&copy; 2026 Md. Muqtadir Fuad. All rights reserved.</div>
+          <div class="flex gap-4">
+            <a href="/" class="hover:underline hover:text-black">Home</a>
+            <a href="/experience.html" class="hover:underline hover:text-black">Experience</a>
+            <a href="/projects.html" class="hover:underline hover:text-black">Projects</a>
+            <a href="/publications.html" class="hover:underline hover:text-black">Publications</a>
+            <a href="/blogs.html" class="hover:underline hover:text-black">Blogs</a>
+            <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing" class="hover:underline hover:text-black">CV</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
