@@ -36,8 +36,9 @@ portfolio-static/
 ├── projects.html           # Projects showcase
 ├── publications.html       # Research publications
 ├── achievements.html       # Awards and recognition
-├── blogs.html              # Blog listing
-├── blog-*.html             # Individual blog posts
+├── blogs-posts/
+│   ├── blogs.html          # Blog listing
+│   └── posts/              # Individual blog posts (blog-*.html)
 ├── contacts.html           # Contact page
 ├── 404.html                # Not found page
 ├── style.css               # Global styles with Tailwind

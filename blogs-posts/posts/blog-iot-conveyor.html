@@ -13,8 +13,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forecasting Dengue Outbreaks Across Bangladesh | Md. Muqtadir Fuad</title>
-  <meta name="description" content="How I built a district-level, multi-horizon dengue forecasting framework that compares statistical, machine-learning, and deep-learning models." />
+  <title>Building an IoT-Based Smart Conveyor System | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How we engineered an IoT-enabled smart conveyor prototype combining load cells, ultrasonic sensors, microcontrollers, and real-time inventory telemetry." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -75,137 +75,113 @@
         <div class="mb-4 font-mono text-sm flex items-center gap-4 text-gray-600">
           <time datetime="2026-07-08">July 8, 2026</time>
           <span>•</span>
-          <span>7 min read</span>
+          <span>6 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Forecasting Dengue Outbreaks Across Bangladesh</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Building an IoT-Based Smart Conveyor for Quality &amp; Inventory Control</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          How I built a district-level forecasting framework to compare statistical, machine-learning, and deep-learning models from one to six months ahead.
+          How we engineered an ESP32 and Arduino-driven smart conveyor prototype combining real-time load cell calibration, ultrasonic counting, robotic sorting, and cloud logging.
         </p>
       </header>
 
-      <!-- Published Paper Notice Banner -->
+      <!-- Publication Badge -->
       <div class="border border-black p-5 mb-10 bg-gray-50 font-mono">
         <div class="text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
           <span class="inline-block w-2 h-2 bg-black"></span>
-          Peer-Reviewed Journal Publication &bull; PLOS ONE
+          Published Technical Poster
         </div>
         <h2 class="text-base font-bold font-sans text-black leading-snug mb-2">
-          Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh
+          IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control
         </h2>
         <p class="text-xs text-gray-700 font-sans mb-3">
-          <b>Md. Muqtadir Fuad</b>, Md. Sajib Milki, Ridwan Al Aziz &bull; <em>Published: August 21, 2026</em>
+          <b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur Rahman &amp; Nafis Ahmad
         </p>
         <div class="flex flex-wrap items-center gap-3 text-xs">
-          <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
-            DOI: 10.1371/journal.pone.0353069 &rarr;
+          <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            DOI: 10.13140/RG.2.2.25476.23683 &rarr;
           </a>
-          <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
-            Read on PLOS ONE &rarr;
+          <a href="https://youtu.be/_iA_Y-_De4U" target="_blank" rel="noopener noreferrer" class="border border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition-colors">
+            YouTube Video &rarr;
           </a>
         </div>
       </div>
 
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Aedes_aegypti.jpg/960px-Aedes_aegypti.jpg" alt="Aedes aegypti mosquito, the primary vector of dengue" class="w-full h-auto object-cover mb-12 border border-black">
+      <img src="https://github.com/md-muqtadir-fuad/iot-web-app/blob/master/groups/poster/B8.png?raw=true" alt="IoT-Based Smart Conveyor System Overview" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          Dengue forecasting is not simply a matter of predicting the next number in a time series. Case counts can change sharply across seasons and locations, districts do not behave alike, and the warning becomes less certain as the forecast horizon grows. A useful system therefore needs to answer several questions at once: <em>how many cases might occur, where might they occur, how far ahead can we see, and how reliable is the warning?</em>
+          In labor-intensive manufacturing facilities, manual weight checking and piece counting are notorious sources of bottlenecking and variability. Operators experience fatigue over extended shifts, causing out-of-spec products to pass inspection and creating discrepancies between actual production output and logged inventory.
         </p>
         <p>
-          I built <strong>Dengue Forecasting</strong> as a reproducible framework for investigating those questions. The project forecasts monthly dengue cases at district level for horizons of one to six months, and evaluates a broad set of models through a consistent pipeline. The goal is not to crown a fashionable algorithm; it is to understand which approaches remain dependable across locations, lead times, and outbreak regimes.
+          To address this operational challenge, we designed and fabricated an <strong>IoT-Based Smart Conveyor System</strong>. The prototype demonstrates a cost-effective, automated solution for real-time weight discrimination, automated item counting, mechanical rejection/sorting, and cloud-synced inventory telemetry.
         </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">One problem, several modeling perspectives</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Electromechanical Hardware Stack</h2>
         <p>
-          No single family of models has an automatic advantage on this kind of data. Classical time-series methods can capture trend and seasonality with relatively transparent assumptions. Tree ensembles are strong at learning nonlinear relationships from engineered features. Recurrent neural networks can model temporal dependencies, while transformer-based forecasting can combine static and time-varying signals across multiple horizons.
+          The system integrates sensing, actuation, and computation into a cohesive feedback loop:
         </p>
-        <p>The repository implements a deliberately diverse model suite:</p>
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Statistical baselines:</strong> Multiple Linear Regression, SARIMAX, and Prophet.</li>
-          <li><strong>Machine learning:</strong> Random Forest, Support Vector Regression, XGBoost, and CatBoost.</li>
-          <li><strong>Deep learning:</strong> stacked LSTM, attention LSTM, and the Temporal Fusion Transformer.</li>
+          <li><strong>Weight Measurement:</strong> A 5kg strain-gauge load cell connected to an HX711 24-bit precision analog-to-digital converter (ADC) for high-resolution weight measurements.</li>
+          <li><strong>Object Detection &amp; Counting:</strong> An HC-SR04 ultrasonic sensor positioned above the belt to detect item passage and trigger visual verification indicators.</li>
+          <li><strong>Actuation &amp; Sorting:</strong> An SG-90 micro servo motor actuating a robotic gate arm to route defective or out-of-spec packages onto a bypass lane.</li>
+          <li><strong>Conveyor Drive:</strong> A 6V 600 RPM high-torque DC gear motor modulated by an L298N dual H-bridge motor driver for smooth acceleration and stopping.</li>
+          <li><strong>Dual Microcontroller Architecture:</strong> An Arduino Uno handling real-time low-level sensor sampling and motor PWM, coupled with an ESP32 for Wi-Fi telemetry and HTTP data streaming.</li>
         </ul>
-        <p>
-          Keeping these models in one framework makes the experiment more useful than a collection of isolated notebooks. Each approach receives comparable train, validation, and test treatment, produces predictions in a common long format, and reports results at the overall, district, and forecast-horizon levels.
-        </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Designing for real forecasting, not random splitting</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Control Logic &amp; Operational Sequence</h2>
         <p>
-          Time-series evaluation must respect chronology. A random split can leak information from the future into the past and produce an optimistic score that will not survive deployment. This project uses held-out validation and test periods, with configurable purge intervals between splits. Hyperparameter tuning happens within that temporal structure rather than borrowing future observations.
-        </p>
-        <p>
-          The pipeline also treats the forecast horizon as a first-class variable. A one-month warning and a six-month warning are different tasks, so their errors should not be hidden inside a single average. Every model can generate horizon-specific results, allowing performance to be traced as the lead time increases.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">From raw records to district-level features</h2>
-        <p>
-          The preprocessing stage organizes historical case observations, selected predictors, district identifiers, and time-indexed features into model-ready data. Districts can be represented explicitly, including through one-hot encoding where appropriate, so a pooled model can learn shared patterns without pretending that every location is identical.
-        </p>
-        <p>
-          The repository also contains Bangladesh administrative boundary data and scripts for district-level reporting. That spatial layer matters: a national total may describe the size of a dengue season, but local planning depends on knowing how risk is distributed.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Evaluation beyond a single error score</h2>
-        <p>
-          Forecast quality is evaluated using both continuous magnitude metrics and binary outbreak classification scores across lead horizons $h \in \{1, 2, \dots, 6\}$:
+          Weight calibration is performed by converting raw 24-bit counts from the HX711 ADC into physical mass (grams) using a linear tare-offset and scaling factor:
         </p>
         <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
-          <p class="font-bold">Continuous Error Metrics:</p>
+          <p class="font-bold">Load Cell Mass Calibration Formula:</p>
           <div class="overflow-x-auto text-base">
-            $$\text{MAE} = \frac{1}{N}\sum_{t=1}^{N} |y_t - \hat{y}_t|, \qquad \text{RMSE} = \sqrt{\frac{1}{N}\sum_{t=1}^{N} (y_t - \hat{y}_t)^2}, \qquad \text{MAPE} = \frac{100\%}{N}\sum_{t=1}^{N} \left|\frac{y_t - \hat{y}_t}{y_t}\right|$$
+            $$W = \frac{\text{ADC}_{\text{raw}} - \text{ADC}_{\text{tare}}}{K_{\text{calibration}}}$$
           </div>
-          <p class="font-bold mt-2">Outbreak Early Warning &amp; Alerting Metrics:</p>
+          <p class="font-bold mt-2">Rejection Condition:</p>
           <div class="overflow-x-auto text-base">
-            $$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}, \qquad \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}, \qquad F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
+            $$\text{Reject Flag} = \begin{cases} 1 & \text{if } |W - W_{\text{nominal}}| \gt \Delta W_{\text{tolerance}} \\ 0 & \text{otherwise} \end{cases}$$
           </div>
         </div>
         <p>
-          The generated artifacts include metrics by district, by horizon, and by case regime, together with train, validation, and test predictions and residuals. Outbreak classification reports connect continuous case forecasts to the operational question of whether a public health surge is detected in advance.
+          The system operates under an event-driven control sequence to ensure minimal idle power consumption and reliable sorting:
         </p>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Idle State:</strong> The conveyor remains stationary until an object is placed on the infeed weighing platform.</li>
+          <li><strong>Weight Acquisition &amp; Thresholding:</strong> The HX711 samples the strain gauge. If the measured mass exceeds the operational trigger threshold ($W \ge 200\text{ g}$), the system evaluates tolerance limits.</li>
+          <li><strong>Conveyor Engagement:</strong> The L298N driver engages the DC motor, advancing the item down the track.</li>
+          <li><strong>Passage Verification:</strong> The ultrasonic sensor detects object transit, increments the validated batch counter, and pulses an on-board indicator LED.</li>
+          <li><strong>Rejection / Routing:</strong> If the reject flag is triggered, the ESP32 signals the SG-90 servo to deflect the item before it reaches the final bin.</li>
+          <li><strong>Telemetry Broadcast:</strong> The ESP32 formats the payload (timestamp, piece weight $W$, pass/fail flag, total tally) into a JSON packet and transmits it to the centralized web server.</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Video Demonstration</h2>
+        <div class="relative w-full aspect-video border border-black my-6 bg-black" style="aspect-ratio: 16/9;">
+          <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/_iA_Y-_De4U" title="IoT-based Smart Conveyor System Demonstration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Performance &amp; Key Takeaways</h2>
         <p>
-          Interpretability is part of the workflow as well. Feature-importance and sensitivity outputs help explain what drives a model, while SHAP analysis is available for XGBoost. Separate causality experiments use Granger causality and PCMCI, and Diebold&ndash;Mariano significance tests help determine whether differences in forecast error are statistically significant rather than incidental.
+          During experimental trials, the automated conveyor achieved a 100% item count accuracy and consistent weight-sorting responsiveness under high cycle rates. The direct integration of IoT telemetry eliminated paper-based logging delays, demonstrating how accessible embedded electronics can upgrade conventional manufacturing lines to Industry 4.0 standards.
         </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">What the experiments revealed</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">References &amp; Citation</h2>
         <p>
-          The repository results show XGBoost and Random Forest as competitive performers across forecast horizons. They also reinforce three important realities: accuracy generally declines at longer lead times, performance varies substantially between districts, and low-case regimes are especially difficult to predict. Those findings argue against presenting one aggregate score as the full story.
-        </p>
-        <p>
-          In an early-warning setting, the best model is not necessarily the one with the smallest global RMSE. A useful choice must balance case-count accuracy, outbreak recall, stability across districts, interpretability, and the amount of advance notice it provides. The framework preserves these views so that model selection can reflect the operational need.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Building a reproducible research pipeline</h2>
-        <p>
-          Each model writes a structured set of artifacts: fitted model files, tuned parameters, configuration manifests, long-form predictions, residuals, per-horizon summaries, district-level metrics, regime-wise results, and interpretation outputs. This makes an experiment traceable and allows downstream comparison scripts to work without model-specific manual cleanup.
-        </p>
-        <p>
-          The project also documents separate environments where library requirements differ (particularly for SARIMAX and the Temporal Fusion Transformer). It is a practical detail, but an important one: reproducibility includes the software environment, not only the modeling code.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">The larger lesson</h2>
-        <p>
-          The most valuable result of this work is the evaluation system around the models. Reliable dengue forecasting requires chronological validation, local analysis, horizon-aware reporting, interpretable evidence, and honest treatment of uncertainty. A sophisticated architecture is useful only when the surrounding experiment can show where it works and where it fails.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Research Paper &amp; Resources</h2>
-        <p>
-          The full experimental methodology, district-panel datasets, serotype and climate covariates analysis, and benchmark findings are published open-access:
+          For full technical specifications, circuit schematics, and experimental data, consult the published technical poster:
         </p>
         <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
           <li>
-            <strong>Peer-Reviewed Paper:</strong> <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="underline font-medium">PLOS ONE (DOI: 10.1371/journal.pone.0353069)</a>
+            <strong>DOI:</strong> <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" rel="noopener noreferrer" class="underline font-medium">10.13140/RG.2.2.25476.23683</a>
           </li>
           <li>
-            <strong>Source Code:</strong> <a href="https://github.com/md-muqtadir-fuad/dengue-forecasting" target="_blank" rel="noopener noreferrer" class="underline font-medium">Dengue Forecasting repository on GitHub</a>
+            <strong>ResearchGate:</strong> <a href="https://www.researchgate.net/publication/394406896_IoT-Based_Smart_Conveyor_System_for_Integrated_Quality_Inventory_and_Process_Control" target="_blank" rel="noopener noreferrer" class="underline font-medium">View Publication Archive</a>
           </li>
           <li>
-            <strong>Dataset &amp; Artifacts:</strong> <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer" class="underline font-medium">Zenodo Repository (DOI: 10.5281/zenodo.19589534)</a>
+            <strong>Video Demonstration:</strong> <a href="https://youtu.be/_iA_Y-_De4U" target="_blank" rel="noopener noreferrer" class="underline font-medium">Watch on YouTube</a>
           </li>
         </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">
-        <a href="/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
+        <a href="/blogs-posts/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
           &larr; Back to Blogs
         </a>
       </div>
@@ -224,7 +200,7 @@
           <a href="/experience.html" class="hover:underline">Experience</a>
           <a href="/projects.html" class="hover:underline">Projects</a>
           <a href="/publications.html" class="hover:underline">Publications</a>
-          <a href="/blogs.html" class="hover:underline">Blogs</a>
+          <a href="/blogs-posts/blogs.html" class="hover:underline">Blogs</a>
           <a href="/contacts.html" class="hover:underline">Contacts</a>
         </div>
       </div>

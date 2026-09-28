@@ -85,7 +85,7 @@ const template = (title, desc) => `<!DOCTYPE html>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">
-        <a href="/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
+        <a href="/blogs-posts/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
           &larr; Back to Blogs
         </a>
       </div>
@@ -104,7 +104,7 @@ const template = (title, desc) => `<!DOCTYPE html>
           <a href="/experience.html" class="hover:underline">Experience</a>
           <a href="/projects.html" class="hover:underline">Projects</a>
           <a href="/publications.html" class="hover:underline">Publications</a>
-          <a href="/blogs.html" class="hover:underline">Blogs</a>
+          <a href="/blogs-posts/blogs.html" class="hover:underline">Blogs</a>
           <a href="/contacts.html" class="hover:underline">Contacts</a>
         </div>
       </div>

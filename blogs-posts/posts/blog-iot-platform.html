@@ -13,8 +13,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shoe Shiner Pro: From CAD Concept to Prototype | Md. Muqtadir Fuad</title>
-  <meta name="description" content="A comprehensive walkthrough of designing, simulating, and fabricating the Shoe Shiner Pro automated prototype using SolidWorks and ANSYS FEA." />
+  <title>Designing an IoT-Enabled Web Platform | Md. Muqtadir Fuad</title>
+  <meta name="description" content="How I built a centralized web portal and REST API to ingest, visualize, and monitor industrial IoT sensor telemetry in real time." />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -27,20 +27,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
-
-  <!-- KaTeX for LaTeX Math Rendering -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-    onload="renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '\\[', right: '\\]', display: true},
-        {left: '\\(', right: '\\)', display: false},
-        {left: '$', right: '$', display: false}
-      ],
-      throwOnError : false
-    });"></script>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
 
@@ -75,100 +61,63 @@
         <div class="mb-4 font-mono text-sm flex items-center gap-4 text-gray-600">
           <time datetime="2026-07-08">July 8, 2026</time>
           <span>•</span>
-          <span>6 min read</span>
+          <span>5 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Shoe Shiner Pro: From CAD Concept to Functional Prototype</h1>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Designing an IoT-Enabled Web Platform for Manufacturing Telemetry</h1>
         <p class="text-xl text-gray-700 leading-relaxed">
-          How we designed, simulated, and fabricated an automated shoe-shining device using SolidWorks 3D CAD, ANSYS FEA structural analysis, and electromechanical prototyping.
+          How I built a full-stack telemetry and process monitoring portal connecting embedded sensor nodes to an interactive web dashboard for smart manufacturing.
         </p>
       </header>
 
-      <!-- Featured Image -->
-      <div class="mb-12">
-        <img src="https://i.postimg.cc/13b7qDcf/1000047398.jpg"
-          alt="Shoe Shiner Pro Physical Working Prototype"
-          class="w-full h-auto max-h-[550px] object-cover border border-black">
-        <p class="font-mono text-xs text-gray-600 mt-2 text-center">
-          Shoe Shiner and Cleaner physical working prototype.
-        </p>
-      </div>
+      <img src="https://i.postimg.cc/VkjL6gY2/479851827-21cb13aa-001c-45d2-aa31-3d6402283a97.png" alt="IoT Web Platform Dashboard" class="w-full h-auto object-cover mb-12 border border-black">
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
         <p>
-          Manual shoe polishing is time-consuming, messy, and inconsistent. In commercial offices, hospitality venues, and residences, there is a clear demand for an automated, compact device that can clean, wax, and buff footwear rapidly without requiring the user to stoop or soil their hands.
+          In manufacturing laboratories and production workshops, equipment operates across complex parameters (temperatures, load thresholds, vibration levels, and cycle times). However, extracting real-time insights often requires engineers to walk machine to machine, writing down readings on physical clipboards.
         </p>
         <p>
-          As part of the <strong>Product Design I &amp; II</strong> capstone sequence at BUET (Department of Industrial and Production Engineering), our team developed <strong>Shoe Shiner Pro</strong>: an automated electromechanical consumer appliance designed from first principles, refined through FEA simulation, and validated via a fully working physical prototype.
+          I developed the <strong>IoT-Enabled Web Platform</strong> to bridge this gap: providing a lightweight, robust telemetry portal that connects microcontroller sensor nodes directly to a central dashboard with real-time graphs, anomaly alerts, and structured audit logs.
         </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Mechanism Synthesis &amp; Kinematics</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">End-to-End System Architecture</h2>
         <p>
-          The core engineering challenge was creating a compact mechanism capable of performing three distinct operations within a single compact footprint:
+          The architecture follows a streamlined three-tier design:
         </p>
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Surface De-Dusting:</strong> Coarse synthetic bristle roller removing loose dirt and debris.</li>
-          <li><strong>Dispensing Cream/Polish:</strong> A cam-actuated valve mechanism delivering controlled micro-doses of cream polish onto the shoe surface.</li>
-          <li><strong>High-Speed Buffing &amp; Polishing:</strong> Dual counter-rotating microfiber cylindrical pads delivering uniform friction buffing for an optimal gloss finish.</li>
+          <li><strong>Edge Hardware Tier:</strong> ESP32 and Arduino microcontrollers equipped with load cells, temperature sensors, and encoders, sampling data and transmitting JSON payloads over HTTP POST requests.</li>
+          <li><strong>API &amp; Ingestion Tier (PHP/MySQL):</strong> Lightweight REST endpoints validating incoming token headers, sanitizing parameters, and inserting time-series records into optimized relational tables.</li>
+          <li><strong>Visualization Dashboard (JS / HTML / CSS):</strong> Interactive client-side portal utilizing asynchronous polling and dynamic chart rendering to display real-time sensor streams without full-page reloads.</li>
         </ul>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Parametric CAD Modeling in SolidWorks</h2>
-        <p>
-          We modeled the complete assembly in <strong>SolidWorks</strong>, focusing on Design for Manufacturing and Assembly (DFMA) principles:
-        </p>
-        <div class="border border-black p-4 bg-gray-50 font-mono text-sm">
-          <p class="font-bold mb-2">CAD Subassembly Breakdown:</p>
-          <ul class="space-y-1">
-            <li>&bull; Ergonomic outer chassis with anti-slip footplate and debris capture drawer</li>
-            <li>&bull; Gearbox transmission converting motor output to dual roller shafts</li>
-            <li>&bull; Polish reservoir subassembly with spring-loaded plunger actuation</li>
-            <li>&bull; Internal electrical housing insulating motors and wiring from dust</li>
-          </ul>
-        </div>
-        <p>
-          Interference detection analyses were conducted in SolidWorks to verify clearance tolerances across all rotating joints and gear meshes prior to tooling.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Finite Element Structural Analysis in ANSYS</h2>
-        <p>
-          Because the device directly supports user foot pressure during operation, structural integrity was a critical requirement. We exported the chassis and footplate geometry to <strong>ANSYS Workbench</strong> for static structural stress analysis:
-        </p>
-        <div class="border border-black p-4 bg-gray-50 font-mono text-sm space-y-3">
-          <p class="font-bold">Von Mises Equivalent Stress Formulation:</p>
-          <div class="overflow-x-auto text-base">
-            $$\sigma_v = \sqrt{\frac{1}{2}\left[(\sigma_1 - \sigma_2)^2 + (\sigma_2 - \sigma_3)^2 + (\sigma_3 - \sigma_1)^2\right]}$$
-          </div>
-          <p class="font-bold mt-2">Factor of Safety (FOS) Criterion:</p>
-          <div class="overflow-x-auto text-base">
-            $$\text{FOS} = \frac{\sigma_{\text{yield}}}{\sigma_{\max}} \ge 2.5$$
-          </div>
-        </div>
-        <ul class="list-disc pl-6 space-y-2 mt-4">
-          <li><strong>Loading Conditions:</strong> Applied vertical static downward forces up to $F = 1000\text{ N}$ (simulating heavy foot load) with fixed base boundary constraints.</li>
-          <li><strong>Mesh Generation:</strong> High-density tetrahedral mesh with local refinement around fillet zones and screw fastening points.</li>
-          <li><strong>Stress &amp; Deflection Results:</strong> Maximum von Mises stress $\sigma_{\max}$ remained well below the yield strength $\sigma_{\text{yield}}$ of the selected engineering polymer, confirming an $\text{FOS} \gt 2.5$ with negligible deflection ($\delta \lt 0.4\text{ mm}$).</li>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Key Capabilities &amp; Features</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Multi-Sensor Live Gauges:</strong> Real-time visualization of process variables such as unit weights, operating temperatures, and production cycle run-rates.</li>
+          <li><strong>Out-of-Tolerance Alerting:</strong> Automated visual flag triggers whenever monitored parameters breach predefined upper/lower control limits.</li>
+          <li><strong>Historical Trend Analysis:</strong> Filterable historical query engine allowing engineers to analyze shift-wise variations and export raw production logs to CSV.</li>
+          <li><strong>Low-Bandwidth Optimization:</strong> Optimized JSON payload structures and compressed HTTP headers enabling reliable transmission over lossy industrial Wi-Fi networks.</li>
         </ul>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Fabrication &amp; Prototype Testing</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Practical Engineering Insights</h2>
         <p>
-          The prototype was physically constructed using high-torque DC gear motors, machined aluminum drive shafts, durable bristle cylinders, and safety interlock pressure switches that automatically stop roller rotation when the user's foot is removed.
-        </p>
-        <p>
-          Testing confirmed that the automated cycle cleans and polishes a shoe in under 30 seconds with zero polish splatter, fulfilling all original design targets.
+          Deploying IoT in industrial and academic workshop environments highlighted the critical need for edge-side fault tolerance. The microcontrollers incorporate local flash buffer queues so that if network connectivity temporarily drops, sensor readings are cached locally and synchronized once the connection is restored.
         </p>
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Key Engineering Competencies</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-black">Project Repository</h2>
+        <p>
+          The complete source code for both the web application and embedded API integration is open-source on GitHub:
+        </p>
         <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
           <li>
-            <strong>Design &amp; Simulation:</strong> SolidWorks 3D CAD, ANSYS Workbench (Static Structural FEA), DFMA
+            <strong>GitHub Repository:</strong> <a href="https://github.com/md-muqtadir-fuad/iot-web-app" target="_blank" rel="noopener noreferrer" class="underline font-medium">github.com/md-muqtadir-fuad/iot-web-app</a>
           </li>
           <li>
-            <strong>Electromechanical Integration:</strong> Motor sizing, gear transmission, sensor-switched electrical safety circuits
+            <strong>Technologies:</strong> PHP, MySQL, JavaScript, HTML5/CSS3, ESP32, RESTful API
           </li>
         </ul>
       </div>
       
       <div class="mt-16 pt-8 border-t border-black">
-        <a href="/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
+        <a href="/blogs-posts/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
           &larr; Back to Blogs
         </a>
       </div>
@@ -187,7 +136,7 @@
           <a href="/experience.html" class="hover:underline">Experience</a>
           <a href="/projects.html" class="hover:underline">Projects</a>
           <a href="/publications.html" class="hover:underline">Publications</a>
-          <a href="/blogs.html" class="hover:underline">Blogs</a>
+          <a href="/blogs-posts/blogs.html" class="hover:underline">Blogs</a>
           <a href="/contacts.html" class="hover:underline">Contacts</a>
         </div>
       </div>
