@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!href) return;
     
     // Determine active path matching logic
-    const isActive = href === currentPath || 
-                     (currentPath === '/' && href === '/') || 
-                     (currentPath.includes('index.html') && href === '/') ||
-                     (href !== '/' && currentPath.includes(href));
+    const isHome = (currentPath === '/' || currentPath.endsWith('/index.html')) && (href === '/' || href === '/index.html');
+    const isDirectMatch = href !== '/' && currentPath.endsWith(href);
+    const isActive = isHome || isDirectMatch;
                      
     if (isActive) {
       link.classList.add('bg-black', 'text-white');
