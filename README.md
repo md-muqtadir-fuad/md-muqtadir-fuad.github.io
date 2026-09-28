@@ -138,11 +138,6 @@ The portfolio showcases multiple engineering and data science projects demonstra
 - E-governance and public technology
 - Environmental and public health applications
 
-## Utilities
-
-- **generate_blogs.js** - Script for generating blog pages from metadata
-- **fix_projects.js** - Utility for managing project data
-
 ## License
 
 This portfolio is personal work. For inquiries regarding projects, research, or collaboration, please visit the contact page.
