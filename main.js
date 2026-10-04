@@ -42,6 +42,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Automatically open external links in a new tab safely
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    
+    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')) {
+      try {
+        const url = new URL(href, window.location.origin);
+        if (url.origin !== window.location.origin) {
+          link.setAttribute('target', '_blank');
+          if (!link.getAttribute('rel')) {
+            link.setAttribute('rel', 'noopener noreferrer');
+          }
+        }
+      } catch (e) {
+        link.setAttribute('target', '_blank');
+        if (!link.getAttribute('rel')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    }
+  });
+
   // Abstract toggling
   const abstractToggles = document.querySelectorAll('.abstract-toggle');
   abstractToggles.forEach(toggle => {
