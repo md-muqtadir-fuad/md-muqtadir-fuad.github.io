@@ -1,4 +1,154 @@
-<!DOCTYPE html>
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+import hljs from 'highlight.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+const CONTENT_DIR = path.resolve(rootDir, 'blogs-posts/content');
+const POSTS_DIR = path.resolve(rootDir, 'blogs-posts/posts');
+const BLOGS_HTML_PATH = path.resolve(rootDir, 'blogs-posts/blogs.html');
+
+// Configure marked with highlight.js and clean semantics
+const customRenderer = {
+  heading(token) {
+    const text = this.parser.parseInline(token.tokens);
+    const id = text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+    return `<h${token.depth} id="${id}">${text}</h${token.depth}>\n`;
+  },
+
+  code(token) {
+    const text = token.text;
+    const lang = token.lang;
+    let highlighted = text;
+    let validLang = lang;
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        highlighted = hljs.highlight(text, { language: lang }).value;
+      } catch {
+        highlighted = text;
+      }
+    } else {
+      try {
+        const auto = hljs.highlightAuto(text);
+        highlighted = auto.value;
+        validLang = auto.language;
+      } catch {
+        highlighted = text;
+      }
+    }
+
+    const langBadge = validLang ? `<div class="text-xs font-mono uppercase text-gray-400 pb-2 border-b border-gray-700 mb-2">${validLang}</div>` : '';
+    return `<pre><code class="hljs ${validLang ? 'language-' + validLang : ''}">${langBadge}${highlighted}</code></pre>\n`;
+  },
+
+  image(token) {
+    const caption = token.text || token.title || '';
+    return `<div class="my-8 border border-black bg-gray-50 overflow-hidden">
+      <img src="${token.href}" alt="${caption}" class="w-full h-auto object-cover block" loading="lazy" />
+      ${caption ? `<p class="font-mono text-xs text-gray-600 p-2 text-center border-t border-black bg-white mb-0">${caption}</p>` : ''}
+    </div>\n`;
+  },
+
+  link(token) {
+    const text = this.parser.parseInline(token.tokens);
+    const isExternal = token.href.startsWith('http://') || token.href.startsWith('https://');
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const titleAttr = token.title ? ` title="${token.title}"` : '';
+    return `<a href="${token.href}"${targetAttr}${titleAttr}>${text}</a>`;
+  }
+};
+
+marked.use({ renderer: customRenderer, gfm: true, breaks: false });
+
+function calculateReadTime(text) {
+  const wordCount = text.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(wordCount / 200));
+  return `${minutes} min read`;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return dateStr;
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function generateHtmlPage({ frontmatter, contentHtml, slug, rawMarkdown }) {
+  const title = frontmatter.title || 'Blog Post';
+  const description = frontmatter.description || '';
+  const dateStr = frontmatter.date || '';
+  const formattedDate = formatDate(dateStr);
+  const readTime = frontmatter.readTime || calculateReadTime(rawMarkdown);
+  const category = frontmatter.category || '';
+  const coverImage = frontmatter.coverImage || '';
+  const coverCaption = frontmatter.coverCaption || '';
+  const coverAlt = frontmatter.coverAlt || title;
+  const keywords = Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : (frontmatter.keywords || '');
+  const author = frontmatter.author || 'Md. Muqtadir Fuad';
+  const canonicalUrl = `https://md-muqtadir-fuad.github.io/blogs-posts/posts/${slug}.html`;
+
+  // Hero Cover Image HTML
+  let heroImageHtml = '';
+  if (coverImage) {
+    heroImageHtml = `
+      <!-- Featured Image -->
+      <div class="mb-12">
+        <img src="${coverImage}"
+          alt="${coverAlt}"
+          class="w-full h-auto max-h-[550px] object-cover border border-black">
+        ${coverCaption ? `<p class="font-mono text-xs text-gray-600 mt-2 text-center">${coverCaption}</p>` : ''}
+      </div>`;
+  }
+
+  // Metrics Highlight Bar (optional)
+  let metricsHtml = '';
+  if (Array.isArray(frontmatter.metrics) && frontmatter.metrics.length > 0) {
+    metricsHtml = `
+      <!-- Quick Metrics Highlight Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-${Math.min(4, frontmatter.metrics.length)} gap-4 mb-12">
+        ${frontmatter.metrics.map(m => `
+        <div class="border border-black p-4 text-center bg-gray-50">
+          <span class="block text-2xl md:text-3xl font-bold font-mono">${m.value}</span>
+          <span class="font-mono text-xs uppercase tracking-wider text-gray-600">${m.label}</span>
+        </div>`).join('\n')}
+      </div>`;
+  }
+
+  // Author Bio / Reference Box
+  let authorBioHtml = '';
+  if (frontmatter.authorBio !== false) {
+    const bioTitle = frontmatter.authorBioTitle || 'About the Author &amp; Organization';
+    const bioText = frontmatter.authorBioText || '<strong>Md. Muqtadir Fuad</strong> is a graduate in Industrial and Production Engineering from BUET, conducting research at the intersection of Operations Research, Machine Learning, and Social Impact.';
+    
+    let linksHtml = '';
+    if (Array.isArray(frontmatter.authorLinks) && frontmatter.authorLinks.length > 0) {
+      linksHtml = `
+        <div class="flex flex-wrap gap-4 text-xs mt-3">
+          ${frontmatter.authorLinks.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">${l.label} &rarr;</a>`).join('\n')}
+        </div>`;
+    }
+
+    authorBioHtml = `
+      <!-- Author Bio / Reference Box -->
+      <div class="mt-12 p-6 border border-black bg-gray-50 font-mono text-sm">
+        <div class="font-bold uppercase tracking-wider mb-2 text-black">${bioTitle}</div>
+        <p class="text-gray-800 mb-3 font-sans text-sm leading-relaxed">
+          ${bioText}
+        </p>
+        ${linksHtml}
+      </div>`;
+  }
+
+  return `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,14 +166,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- SEO Primary Meta Tags -->
-  <title>Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities | Md. Muqtadir Fuad</title>
-  <meta name="title" content="Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities | Md. Muqtadir Fuad" />
-  <meta name="description" content="A reflection on two years serving as Treasurer and Executive Member of BADHAN, BUET Zone: mobilizing 1,279 bags of blood, raising BDT 300k in relief funds, managing emergency blood logistics, and passing the torch." />
-  <meta name="keywords" content="BADHAN, BUET Zone, Voluntary Blood Donation, Community Leadership, Emergency Supply Chain, Relief Fund, Student Leadership, Md. Muqtadir Fuad, BUET" />
-  <meta name="author" content="Md. Muqtadir Fuad" />
+  <title>${title} | Md. Muqtadir Fuad</title>
+  <meta name="title" content="${title} | Md. Muqtadir Fuad" />
+  <meta name="description" content="${description.replace(/"/g, '&quot;')}" />
+  ${keywords ? `<meta name="keywords" content="${keywords.replace(/"/g, '&quot;')}" />` : ''}
+  <meta name="author" content="${author}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#000000" />
-  <link rel="canonical" href="https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-badhan.html" />
+  <link rel="canonical" href="${canonicalUrl}" />
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -33,39 +183,39 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-badhan.html" />
-  <meta property="og:title" content="Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities | Md. Muqtadir Fuad" />
-  <meta property="og:description" content="A reflection on two years serving as Treasurer and Executive Member of BADHAN, BUET Zone: mobilizing 1,279 bags of blood, raising BDT 300k in relief funds, managing emergency blood logistics, and passing the torch." />
-  <meta property="og:image" content="https://i.postimg.cc/6qHXXqjm/1772567890101.jpg" />
+  <meta property="og:url" content="${canonicalUrl}" />
+  <meta property="og:title" content="${title} | Md. Muqtadir Fuad" />
+  <meta property="og:description" content="${description.replace(/"/g, '&quot;')}" />
+  ${coverImage ? `<meta property="og:image" content="${coverImage}" />` : '<meta property="og:image" content="https://md-muqtadir-fuad.github.io/apple-touch-icon.png" />'}
   <meta property="og:site_name" content="Md. Muqtadir Fuad" />
   <meta property="og:locale" content="en_US" />
-  <meta property="article:published_time" content="2026-02-28" />
-  <meta property="article:author" content="Md. Muqtadir Fuad" />
-  <meta property="article:section" content="Community & Leadership" />
+  ${dateStr ? `<meta property="article:published_time" content="${dateStr}" />` : ''}
+  <meta property="article:author" content="${author}" />
+  ${category ? `<meta property="article:section" content="${category}" />` : ''}
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-badhan.html" />
-  <meta name="twitter:title" content="Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities | Md. Muqtadir Fuad" />
-  <meta name="twitter:description" content="A reflection on two years serving as Treasurer and Executive Member of BADHAN, BUET Zone: mobilizing 1,279 bags of blood, raising BDT 300k in relief funds, managing emergency blood logistics, and passing the torch." />
-  <meta name="twitter:image" content="https://i.postimg.cc/6qHXXqjm/1772567890101.jpg" />
+  <meta name="twitter:url" content="${canonicalUrl}" />
+  <meta name="twitter:title" content="${title} | Md. Muqtadir Fuad" />
+  <meta name="twitter:description" content="${description.replace(/"/g, '&quot;')}" />
+  ${coverImage ? `<meta name="twitter:image" content="${coverImage}" />` : '<meta name="twitter:image" content="https://md-muqtadir-fuad.github.io/apple-touch-icon.png" />'}
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities",
-    "description": "A reflection on two years serving as Treasurer and Executive Member of BADHAN, BUET Zone: mobilizing 1,279 bags of blood, raising BDT 300k in relief funds, managing emergency blood logistics, and passing the torch.",
-    "image": "https://i.postimg.cc/6qHXXqjm/1772567890101.jpg",
-    "datePublished": "2026-02-28",
+    "headline": "${title.replace(/"/g, '\\"')}",
+    "description": "${description.replace(/"/g, '\\"')}",
+    "image": "${coverImage || 'https://md-muqtadir-fuad.github.io/apple-touch-icon.png'}",
+    "datePublished": "${dateStr}",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-badhan.html"
+      "@id": "${canonicalUrl}"
     },
     "author": {
       "@type": "Person",
-      "name": "Md. Muqtadir Fuad",
+      "name": "${author}",
       "url": "https://md-muqtadir-fuad.github.io"
     },
     "publisher": {
@@ -126,161 +276,24 @@
     <article class="mb-16">
       <header class="mb-10">
         <div class="mb-4 font-mono text-sm flex flex-wrap items-center gap-3 text-gray-600">
-          <time datetime="2026-02-28">February 28, 2026</time>
-          <span>•</span>
-          <span>6 min read</span>
-          <span>•</span><span class="border border-black px-2 py-0.5 text-xs font-mono uppercase bg-gray-50">Community & Leadership</span>
+          ${formattedDate ? `<time datetime="${dateStr}">${formattedDate}</time>` : ''}
+          ${formattedDate && readTime ? '<span>•</span>' : ''}
+          ${readTime ? `<span>${readTime}</span>` : ''}
+          ${category ? `<span>•</span><span class="border border-black px-2 py-0.5 text-xs font-mono uppercase bg-gray-50">${category}</span>` : ''}
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Two Years with BADHAN, BUET Zone: 1,279 Bags of Hope, Leadership, and Unspoken Realities</h1>
-        <p class="text-xl text-gray-700 leading-relaxed">A reflection on two years serving as Treasurer and Executive Member of BADHAN, BUET Zone: mobilizing 1,279 bags of blood, raising BDT 300k in relief funds, managing emergency blood logistics, and passing the torch.</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">${title}</h1>
+        ${description ? `<p class="text-xl text-gray-700 leading-relaxed">${description}</p>` : ''}
       </header>
 
-      
-      <!-- Featured Image -->
-      <div class="mb-12">
-        <img src="https://i.postimg.cc/6qHXXqjm/1772567890101.jpg"
-          alt="Md. Muqtadir Fuad - BADHAN BUET Zone"
-          class="w-full h-auto max-h-[550px] object-cover border border-black">
-        <p class="font-mono text-xs text-gray-600 mt-2 text-center">The Executive Committee, volunteers, and supporters of BADHAN, BUET Zone.</p>
-      </div>
+      ${heroImageHtml}
 
-      
-      <!-- Quick Metrics Highlight Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-        
-        <div class="border border-black p-4 text-center bg-gray-50">
-          <span class="block text-2xl md:text-3xl font-bold font-mono">1,279</span>
-          <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Total Blood Bags</span>
-        </div>
-
-        <div class="border border-black p-4 text-center bg-gray-50">
-          <span class="block text-2xl md:text-3xl font-bold font-mono">~760</span>
-          <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Tenure Mobilized</span>
-        </div>
-
-        <div class="border border-black p-4 text-center bg-gray-50">
-          <span class="block text-2xl md:text-3xl font-bold font-mono">300k</span>
-          <span class="font-mono text-xs uppercase tracking-wider text-gray-600">BDT Relief Fund</span>
-        </div>
-
-        <div class="border border-black p-4 text-center bg-gray-50">
-          <span class="block text-2xl md:text-3xl font-bold font-mono">2+ Yrs</span>
-          <span class="font-mono text-xs uppercase tracking-wider text-gray-600">Dedicated Service</span>
-        </div>
-      </div>
+      ${metricsHtml}
 
       <div class="prose prose-lg max-w-none text-gray-800 space-y-6">
-        <p><strong><a href="https://en.wikipedia.org/wiki/Badhan_(organization)" target="_blank" rel="noopener noreferrer">BADHAN (বাঁধন)</a></strong> is a voluntary blood donors&#39; organization driven by a clear mission: to turn voluntary blood donation into a nationwide social movement. Founded on university campuses across Bangladesh, BADHAN inspires young students to donate selflessly, building a reliable, non-commercial safety net for thousands of patients trapped in acute healthcare emergencies.</p>
-<p>From the earliest days of my campus life at <strong>Bangladesh University of Engineering and Technology (BUET)</strong>, I felt drawn to this community. Watching seniors and batchmates wake up at 3:00 AM to arrange blood for a stranger undergoing critical surgery left an indelible mark on me. In <strong>July 2023</strong>, I officially joined BADHAN’s BUET chapter (an extension of the founding parent organization), initially stepping in as a volunteer.</p>
-<p>What began as answering donation hotline calls and helping set up donor desks quickly evolved into deeper operational commitments. Later in July 2023, I was recruited into the <strong>Executive Committee</strong>, and with the trust of our members, was subsequently entrusted with the role of <strong>Treasurer</strong> of the BUET Zonal Committee. Over the following two years, until my official resignation on <strong>February 27, 2026</strong>, my university journey became inextricably linked with the heartbeat of this organization.</p>
-<h2 id="what-we-accomplished-in-these-two-years">What We Accomplished in These Two Years</h2>
-<p>Behind every statistic in voluntary blood donation is a human heartbeat: an accident victim revived, a thalassemia warrior given another month of life, a mother surviving emergency postpartum hemorrhage, or a child undergoing heart surgery. Between <strong>July 2023 and February 2025</strong>, our collective efforts yielded numbers that we hold with deep gratitude and humility:</p>
-<ul>
-<li><strong>1,279 Bags of Blood Collected:</strong> Through regular donation drives, emergency dispatch calls, and student mobilization across BUET from July 2023 to February 2025.</li>
-<li><strong>~760 Bags During Core Leadership Tenure:</strong> Together with our dedicated volunteers and core unit teams, approximately 760 bags of blood were gathered directly from donors across the BUET community under our direct coordination.</li>
-<li><strong>BDT 300,000 (Approx. $2,500 USD) Disaster Relief Fund:</strong> Mobilized through rapid crowd-sourcing from our generous alumni network and university students to support families during national flood and disaster crises.</li>
-<li><strong>Dormitory-to-Dormitory Awareness Campaigns:</strong> Organized comprehensive blood grouping camps, awareness workshops, and voluntary donation drives across all student residential halls (dormitories) as well as centrally on the BUET campus.</li>
-</ul>
-<h3 id="distribution-breakdown-1279-blood-bags-july-2023-february-2025">Distribution Breakdown: 1,279 Blood Bags (July 2023 – February 2025)</h3>
-<p><em>Official record from BADHAN BUET Zone donation registries:</em></p>
-<table>
-<thead>
-<tr>
-<th align="left">Blood Group</th>
-<th align="left">Count</th>
-<th align="left">Percentage</th>
-<th align="left">Group Category</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>O+</strong></td>
-<td align="left">376</td>
-<td align="left">29.40%</td>
-<td align="left">Common Positive</td>
-</tr>
-<tr>
-<td align="left"><strong>B+</strong></td>
-<td align="left">365</td>
-<td align="left">28.54%</td>
-<td align="left">Common Positive</td>
-</tr>
-<tr>
-<td align="left"><strong>A+</strong></td>
-<td align="left">291</td>
-<td align="left">22.75%</td>
-<td align="left">Common Positive</td>
-</tr>
-<tr>
-<td align="left"><strong>AB+</strong></td>
-<td align="left">162</td>
-<td align="left">12.67%</td>
-<td align="left">Universal Recipient</td>
-</tr>
-<tr>
-<td align="left"><strong>O-</strong></td>
-<td align="left">34</td>
-<td align="left">2.66%</td>
-<td align="left">Rare Universal Donor</td>
-</tr>
-<tr>
-<td align="left"><strong>B-</strong></td>
-<td align="left">23</td>
-<td align="left">1.80%</td>
-<td align="left">Rare Negative</td>
-</tr>
-<tr>
-<td align="left"><strong>A-</strong></td>
-<td align="left">15</td>
-<td align="left">1.17%</td>
-<td align="left">Rare Negative</td>
-</tr>
-<tr>
-<td align="left"><strong>AB-</strong></td>
-<td align="left">13</td>
-<td align="left">1.02%</td>
-<td align="left">Extremely Rare Negative</td>
-</tr>
-<tr>
-<td align="left"><strong>Total</strong></td>
-<td align="left"><strong>1,279</strong></td>
-<td align="left"><strong>100.0%</strong></td>
-<td align="left"><strong>Positive: 1,194 (93.4%) | Negative: 85 (6.6%)</strong></td>
-</tr>
-</tbody></table>
-<h2 id="engineering-meets-humanitarian-logistics">Engineering Meets Humanitarian Logistics</h2>
-<p>Managing the treasury and operations of BADHAN BUET Zone required solving non-trivial optimization and coordination problems. Whenever our zonal team ran campus-wide grouping campaigns, hundreds of new student records were generated on paper cards. Entering them manually into the central web portal created an administrative bottleneck where volunteers spent late hours transcribing records by hand.</p>
-<p>To eliminate this friction, I developed an automated data-ingestion pipeline using <strong>Python, Pandas, and Selenium WebDriver</strong> (<a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86" target="_blank" rel="noopener noreferrer">Pull Request #86</a>). By automating the validation and batch ingestion of donor contacts, hall allocations, and blood groups, we turned hours of administrative manual entry into a 5-minute automated script, ensuring newly identified donors were immediately reachable during hospital emergencies.</p>
-<h2 id="the-unspoken-struggles-rare-negative-groups-and-urgent-calls">The Unspoken Struggles: Rare Negative Groups and Urgent Calls</h2>
-<p>While the numbers tell a story of resilience, leadership in a voluntary blood organization also brings you face-to-face with heartbreaking systemic constraints.</p>
-<p>As the data above illustrates, <strong>only 6.6% of our collections were Rh-negative blood</strong> (just 85 bags across two years: 34 O-, 23 B-, 15 A-, and 13 AB-). Yet the demand for rare negative groups was relentlessly high. When an emergency case arrived at Dhaka Medical College Hospital or BSMMU requiring multiple units of O-negative or AB-negative blood on short notice, our team would exhaust every contact list, call dormitories room by room, and reach out across sister chapters in Dhaka.</p>
-<p>The suffering endured by patients’ families during negative blood shortages was acute and visceral. Balancing this constant emergency pressure around demanding engineering course loads, midterms, lab finals, and 2:00 AM hospital visits took an immense toll on our volunteers.</p>
-<blockquote>
-<p>&quot;Scheduling around classes, exams, and late-night emergencies was tough, and we couldn&#39;t meet every urgent need. For any shortfall and the suffering it caused, I take full responsibility and offer my sincere apologies.&quot;</p>
-</blockquote>
-<h2 id="gratitude-and-the-power-of-teamwork">Gratitude and the Power of Teamwork</h2>
-<p>No single person drives BADHAN; it relies on dedicated volunteers working together behind the scenes. I want to express my deepest, heartfelt gratitude to my brother and fellow zonal leader, <strong><a href="https://www.linkedin.com/in/sakt2002020/" target="_blank" rel="noopener noreferrer">S. M. Asif Kowser Tonmoy</a></strong> (President, 2024–2025). As President and Treasurer, we spent countless midnight hours deliberating emergency allocations, balancing financial audits, handling logistics, and weathering the intense storm of campus responsibility. His leadership, calm composure, and unwavering resolve anchored our entire team through thick and thin.</p>
-<p>I am equally grateful to my entire executive team, the unit conveners, our alumni who backed our disaster relief funds without hesitation, and above all, every student who rolled up their sleeve to give a piece of themselves to save a stranger. Every single bag represents lives touched, families supported, and hope restored.</p>
-<h2 id="passing-the-torch-february-2026">Passing the Torch: February 2026</h2>
-<p>In late February 2026, our zone formally announced the <strong>new Executive Zonal Committee of BADHAN, BUET Zone</strong>. Seeing the next batch of passionate volunteers step into leadership fills me with pride and reassurance.</p>
-<p>With their appointment, my formal tenure came to a close, and I resigned on <strong>February 27, 2026</strong>. Stepping down as Treasurer and Executive Member is bittersweet, but it is the natural rhythm of campus leadership. While my formal executive duties have ended, my commitment to voluntary blood donation and the spirit of BADHAN remains a lifelong pledge.</p>
-<p>To the incoming committee: lead with empathy, protect every donor, embrace data and technology to scale your reach, and never forget that what you do is sacred work.</p>
-
+        ${contentHtml}
       </div>
 
-      
-      <!-- Author Bio / Reference Box -->
-      <div class="mt-12 p-6 border border-black bg-gray-50 font-mono text-sm">
-        <div class="font-bold uppercase tracking-wider mb-2 text-black">About the Author & Organization</div>
-        <p class="text-gray-800 mb-3 font-sans text-sm leading-relaxed">
-          <strong>Md. Muqtadir Fuad</strong> served as Treasurer and Executive Member of BADHAN, BUET Zone (July 2023 – February 2026). He is a graduate in Industrial and Production Engineering from BUET, conducting research at the intersection of Operations Research, Machine Learning, and Social Impact.
-        </p>
-        
-        <div class="flex flex-wrap gap-4 text-xs mt-3">
-          <a href="https://www.linkedin.com/company/badhan/" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">BADHAN on LinkedIn &rarr;</a>
-<a href="https://badhan-buet.web.app/#/credits" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">Fuad on Badhan &rarr;</a>
-<a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">Badhan Web Automation PR &rarr;</a>
-        </div>
-      </div>
+      ${authorBioHtml}
 
       <div class="mt-16 pt-8 border-t border-black flex justify-between items-center">
         <a href="/blogs-posts/blogs.html" class="font-mono text-sm uppercase hover:underline flex items-center gap-2">
@@ -454,4 +467,124 @@
   <script type="module" src="/main.js"></script>
 </body>
 
-</html>
+</html>`;
+}
+
+function updateBlogsListing(postsMeta) {
+  if (!fs.existsSync(BLOGS_HTML_PATH)) return;
+
+  let blogsHtml = fs.readFileSync(BLOGS_HTML_PATH, 'utf-8');
+
+  const START_MARKER = '<!-- AUTO_GENERATED_POSTS_START -->';
+  const END_MARKER = '<!-- AUTO_GENERATED_POSTS_END -->';
+
+  // Ensure markers exist in blogs.html right after <div class="grid grid-cols-1 gap-8">
+  if (!blogsHtml.includes(START_MARKER)) {
+    const gridMatch = /<div class="grid grid-cols-1 gap-8">/;
+    if (gridMatch.test(blogsHtml)) {
+      blogsHtml = blogsHtml.replace(
+        gridMatch,
+        `<div class="grid grid-cols-1 gap-8">\n        ${START_MARKER}\n        ${END_MARKER}`
+      );
+    }
+  }
+
+  // Filter posts that are not already listed as legacy manual posts
+  const outsideContent = blogsHtml.replace(new RegExp(`${START_MARKER}[\\s\\S]*?${END_MARKER}`), '');
+
+  const cardsToInsert = [];
+  for (const post of postsMeta) {
+    const postUrl = `/blogs-posts/posts/${post.slug}.html`;
+    // If the legacy HTML already has an article linking to this post, don't duplicate it in the auto-grid
+    if (outsideContent.includes(postUrl)) {
+      continue;
+    }
+
+    const formattedDate = formatDate(post.date);
+    const categoryBadge = post.category
+      ? `<span class="border border-black px-1.5 py-0.5 bg-black text-white">${post.category}</span>`
+      : '';
+
+    const card = `
+        <!-- Auto Generated Blog Card: ${post.title} -->
+        <article class="border border-black p-6 hover:bg-gray-50 transition-colors flex flex-col h-full group">
+          <div class="mb-4">
+            ${formattedDate ? `<time class="font-mono text-sm block mb-2">${formattedDate}</time>` : ''}
+            <h3 class="text-xl font-bold font-mono tracking-tight group-hover:underline">
+              <a href="${postUrl}">
+                ${post.title}
+              </a>
+            </h3>
+          </div>
+          ${post.description ? `<p class="text-sm mb-6 flex-grow">${post.description}</p>` : ''}
+          <a href="${postUrl}" class="font-mono text-sm border border-black px-4 py-2 uppercase hover:bg-black hover:text-white transition-colors text-center inline-block w-fit">Read Post</a>
+        </article>`;
+    cardsToInsert.push(card);
+  }
+
+  const replacement = `${START_MARKER}${cardsToInsert.join('\n')}\n        ${END_MARKER}`;
+  const markerRegex = new RegExp(`${START_MARKER}[\\s\\S]*?${END_MARKER}`);
+  if (markerRegex.test(blogsHtml)) {
+    blogsHtml = blogsHtml.replace(markerRegex, replacement);
+    fs.writeFileSync(BLOGS_HTML_PATH, blogsHtml, 'utf-8');
+    console.log(`[build-blogs] Updated blogs.html with ${cardsToInsert.length} auto-generated posts.`);
+  }
+}
+
+export function buildBlogs() {
+  if (!fs.existsSync(CONTENT_DIR)) {
+    fs.mkdirSync(CONTENT_DIR, { recursive: true });
+  }
+  if (!fs.existsSync(POSTS_DIR)) {
+    fs.mkdirSync(POSTS_DIR, { recursive: true });
+  }
+
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => {
+    if (!f.endsWith('.md')) return false;
+    const lower = f.toLowerCase();
+    return !lower.startsWith('_') && lower !== 'readme.md' && lower !== 'template.md';
+  });
+  console.log(`[build-blogs] Found ${files.length} markdown file(s) in blogs-posts/content/`);
+
+  const postsMeta = [];
+
+  for (const file of files) {
+    const slug = file.replace(/\.md$/, '');
+    const filePath = path.join(CONTENT_DIR, file);
+    const rawContent = fs.readFileSync(filePath, 'utf-8');
+
+    const { data: frontmatter, content: rawMarkdown } = matter(rawContent);
+    const contentHtml = marked.parse(rawMarkdown);
+
+    const fullHtml = generateHtmlPage({
+      frontmatter,
+      contentHtml,
+      slug,
+      rawMarkdown
+    });
+
+    const outputPath = path.join(POSTS_DIR, `${slug}.html`);
+    fs.writeFileSync(outputPath, fullHtml, 'utf-8');
+    console.log(`[build-blogs] Generated ${slug}.html`);
+
+    postsMeta.push({
+      slug,
+      title: frontmatter.title || slug,
+      date: frontmatter.date || '',
+      description: frontmatter.description || '',
+      category: frontmatter.category || '',
+    });
+  }
+
+  // Sort by date descending
+  postsMeta.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+  updateBlogsListing(postsMeta);
+
+  return postsMeta;
+}
+
+// Run directly if executed as CLI
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  buildBlogs();
+}
