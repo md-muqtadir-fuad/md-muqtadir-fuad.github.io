@@ -12,7 +12,7 @@ title: "IEOM BUET Student Chapter"
 date: "2026-10-08"
 
 # [Required] Short summary (1-2 sentences). Used for card description and SEO meta tags.
-description: "My voluntery activities on the IEOM BUET Student Chapter. How I along with my friends revived the almost dead club"
+description: "My voluntery activities on the IEOM BUET Student Chapter. My contribitions, journey, ResearchSpark 2026, what I wanted to do and what I did."
 
 # [Optional] Estimated read time (if omitted, automatically calculated from word count)
 readTime: "2 min read"
