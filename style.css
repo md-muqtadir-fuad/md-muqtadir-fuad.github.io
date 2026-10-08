@@ -39,11 +39,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-label {
-  @apply text-sm uppercase tracking-widest font-mono text-black border border-black px-3 py-1 mb-8 inline-block;
+  @apply text-sm uppercase tracking-widest font-mono text-black border border-black px-3 py-1 mb-4 inline-block;
 }
 
 .item-card {
-  @apply border border-black p-6 mb-6 hover:bg-gray-50 transition-colors duration-300;
+  @apply border-b border-black py-4 px-3 hover:bg-gray-50 transition-colors duration-300;
 }
 
 .tag {

@@ -507,7 +507,7 @@ function updateBlogsListing(postsMeta) {
 
     const card = `
         <!-- Auto Generated Blog Card: ${post.title} -->
-        <article class="border border-black p-6 hover:bg-gray-50 transition-colors flex flex-col h-full group">
+        <article class="border-b border-black p-6 hover:bg-gray-50 transition-colors flex flex-col h-full group">
           <div class="mb-4">
             ${formattedDate ? `<time class="font-mono text-sm block mb-2">${formattedDate}</time>` : ''}
             <h3 class="text-xl font-bold font-mono tracking-tight group-hover:underline">
