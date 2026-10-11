@@ -1,5 +1,5 @@
 <!--
-  UPDATES — shown in the "Updates" section of the home page.
+  UPDATES: shown in the "Updates" section of the home page.
 
   How to add an update:
     1. Add a "## Mon YYYY" heading (or reuse an existing one), newest first.

@@ -23,19 +23,23 @@ function markdownWatcherPlugin() {
     name: 'vite-plugin-markdown-blogs',
     configureServer(server: any) {
       const contentDir = path.resolve(__dirname, 'blogs-posts/content');
-      const updatesFile = path.resolve(__dirname, 'content/updates.md');
-      server.watcher.add([contentDir, updatesFile]);
+      // Home page sections generated from content/*.md. Import paths must stay literal so Vite can resolve them.
+      const homeSections: Record<string, () => Promise<void>> = {
+        [path.resolve(__dirname, 'content/updates.md')]: () => import('./scripts/build-updates.js').then(m => m.buildUpdates()),
+        [path.resolve(__dirname, 'content/publications.md')]: () => import('./scripts/build-publications.js').then(m => m.buildPublications()),
+      };
+      server.watcher.add([contentDir, ...Object.keys(homeSections)]);
 
       const handleChange = async (file: string) => {
         const basename = path.basename(file).toLowerCase();
-        if (path.resolve(file) === updatesFile) {
-          console.log('[markdown-watcher] Detected change in updates.md, rebuilding Updates section...');
+        const homeSection = homeSections[path.resolve(file)];
+        if (homeSection) {
+          console.log(`[markdown-watcher] Detected change in ${path.basename(file)}, rebuilding home page section...`);
           try {
-            const { buildUpdates } = await import('./scripts/build-updates.js');
-            buildUpdates();
+            await homeSection();
             server.ws.send({ type: 'full-reload' });
           } catch (err) {
-            console.error('[markdown-watcher] Error rebuilding updates:', err);
+            console.error(`[markdown-watcher] Error rebuilding ${path.basename(file)}:`, err);
           }
           return;
         }

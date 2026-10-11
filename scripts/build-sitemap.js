@@ -14,7 +14,7 @@ const CONTENT_DIR = path.resolve(rootDir, 'blogs-posts/content');
 // Top-level pages: [url path, source files whose changes affect the page].
 // experience/projects/publications/achievements/contacts.html are redirects to the home page, so they are left out.
 const PAGES = [
-  ['/', ['index.html', 'content/updates.md']],
+  ['/', ['index.html', 'content/updates.md', 'content/publications.md']],
   ['/blogs-posts/blogs.html', ['blogs-posts/blogs.html']],
 ];
 

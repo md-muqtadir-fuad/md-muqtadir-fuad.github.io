@@ -108,12 +108,14 @@ npm run preview
 | `npm run content:build` | Run the three generators below |
 | `npm run blogs:build` | Markdown in `blogs-posts/content/` → blog post pages + blog listing |
 | `npm run updates:build` | `content/updates.md` → Updates section of `index.html` |
+| `npm run publications:build` | `content/publications.md` → Publications section (and its structured data) of `index.html` |
 | `npm run sitemap:build` | Regenerate `sitemap.xml` from all pages and blog posts |
 | `npm run new:post "Title"` | Scaffold a new Markdown blog post |
 
 ## Editing Content
 
 - **Updates section:** edit [`content/updates.md`](content/updates.md). Add a `## Mon YYYY` heading and `- ` bullets, newest first. Don't edit the list in `index.html` directly; it is overwritten on every build.
+- **Publications section:** edit [`content/publications.md`](content/publications.md). Use `## Group`, then `### Title` with `- authors:`, `- venue:`, `- date:` (optional), `- links:` lines, then the abstract. A doi.org link also adds the paper to the page's structured data. Don't edit the list in `index.html` directly.
 - **Blog posts:** see [`blogs-posts/content/README.md`](blogs-posts/content/README.md).
 - **Sitemap:** generated on every build, so new blog posts are added automatically.
 

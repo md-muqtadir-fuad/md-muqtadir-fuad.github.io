@@ -92,6 +92,9 @@ main section[id] {
 .pub-authors {
   @apply text-sm text-gray-800 mt-1;
 }
+.pub-authors a {
+  @apply underline decoration-gray-400 underline-offset-2 hover:decoration-black;
+}
 .pub-venue {
   @apply text-sm text-gray-700;
 }
