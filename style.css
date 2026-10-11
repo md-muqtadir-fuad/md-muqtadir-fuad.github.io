@@ -42,6 +42,87 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-sm uppercase tracking-widest font-mono text-black border border-black px-3 py-1 mb-4 inline-block;
 }
 
+/* Home page: two-column profile layout */
+.site-nav {
+  @apply flex gap-4 md:gap-6 overflow-x-auto font-mono text-[11px] md:text-xs uppercase tracking-wider whitespace-nowrap;
+  scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+.site-nav a {
+  @apply py-1 no-underline hover:underline;
+}
+
+main section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+.section-title {
+  @apply text-2xl font-bold border-b border-black pb-2 mb-5;
+}
+
+.subsection-title {
+  @apply font-mono text-xs uppercase tracking-widest text-gray-700 mt-8 mb-3;
+}
+
+.sidebar-links {
+  @apply flex flex-wrap gap-x-4 gap-y-2 md:flex-col md:gap-2 text-sm;
+}
+.sidebar-links a {
+  @apply inline-flex items-center gap-2.5;
+}
+.sidebar-links svg {
+  @apply w-4 h-4 shrink-0;
+}
+
+.news-list li {
+  @apply grid grid-cols-[5.5rem_1fr] gap-3 py-1.5 text-sm md:text-base;
+}
+.news-list li > span {
+  @apply font-mono text-xs text-gray-600 pt-1 whitespace-nowrap;
+}
+
+.pub-list > li {
+  @apply py-3;
+}
+.pub-title {
+  @apply font-bold leading-snug;
+}
+.pub-authors {
+  @apply text-sm text-gray-800 mt-1;
+}
+.pub-venue {
+  @apply text-sm text-gray-700;
+}
+.pub-links {
+  @apply flex flex-wrap gap-2 mt-2;
+}
+.pub-links a,
+.pub-links button {
+  @apply border border-black px-2 py-0.5 font-mono text-[11px] uppercase tracking-wider cursor-pointer no-underline transition-colors hover:bg-black hover:text-white;
+}
+.pub-abstract {
+  @apply text-sm text-gray-800 leading-relaxed mt-3 pl-4 border-l-2 border-black;
+}
+
+.project-row {
+  @apply grid grid-cols-[96px_1fr] sm:grid-cols-[140px_1fr] gap-4 items-start;
+}
+.project-row img {
+  @apply w-full aspect-[4/3] border border-black bg-white;
+}
+.project-row img:not(.object-contain) {
+  @apply object-cover;
+}
+
+.cv-list li {
+  @apply flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6 py-2.5;
+}
+.cv-list li > span {
+  @apply font-mono text-xs text-gray-600 whitespace-nowrap sm:pt-1 sm:order-last;
+}
+
 .item-card {
   @apply border-b border-black py-4 px-3 hover:bg-gray-50 transition-colors duration-300;
 }

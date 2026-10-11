@@ -14,10 +14,34 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Md. Muqtadir Fuad - Engineer, researcher, and data science graduate from BUET. Explore research publications, engineering projects, and technical blogs." />
+
+  <!-- SEO primary meta tags -->
+  <title>Md. Muqtadir Fuad | Engineer &amp; Researcher, BUET</title>
+  <meta name="description" content="Md. Muqtadir Fuad, Industrial and Production Engineering graduate from BUET. Research in machine learning, forecasting, NLP, optimization and smart manufacturing." />
+  <meta name="author" content="Md. Muqtadir Fuad" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="https://md-muqtadir-fuad.github.io/" />
   <meta name="google-site-verification" content="HcEnngzxzwc3impgNPU3142grQor1yKwi8ok2XAmuFI" />
   <meta name="msvalidate.01" content="34C21815E57A7C50DF19C222D0D4104B" />
-  <title>Md. Muqtadir Fuad | Portfolio</title>
+
+  <!-- Open Graph (LinkedIn, Facebook, WhatsApp link previews) -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://md-muqtadir-fuad.github.io/" />
+  <meta property="og:site_name" content="Md. Muqtadir Fuad" />
+  <meta property="og:title" content="Md. Muqtadir Fuad | Engineer &amp; Researcher, BUET" />
+  <meta property="og:description" content="Research in machine learning, forecasting, NLP, optimization and smart manufacturing. Publications, projects and blog." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg" />
+  <meta property="og:image:alt" content="Portrait of Md. Muqtadir Fuad" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="profile:first_name" content="Muqtadir" />
+  <meta property="profile:last_name" content="Fuad" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Md. Muqtadir Fuad | Engineer &amp; Researcher, BUET" />
+  <meta name="twitter:description" content="Research in machine learning, forecasting, NLP, optimization and smart manufacturing." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg" />
 
   <!-- Fav icon-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -27,617 +51,461 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg">
 
   <link rel="stylesheet" href="/style.css">
 
-  <!-- Structured data: Person -->
+  <!-- Structured data: profile page, person and publications -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Md. Muqtadir Fuad",
-    "url": "https://md-muqtadir-fuad.github.io/",
-    "email": "mailto:muqtadir@iat.buet.ac.bd",
-    "jobTitle": "Fab Lab Program Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Institute of Appropriate Technology, BUET"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Bangladesh University of Engineering and Technology (BUET)",
-      "url": "https://www.buet.ac.bd/"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Dhaka",
-      "addressCountry": "BD"
-    },
-    "knowsAbout": [
-      "Machine Learning",
-      "Natural Language Processing",
-      "Time Series Forecasting",
-      "Optimization",
-      "Smart Manufacturing",
-      "Industrial and Production Engineering",
-      "Engineering Design",
-      "CFD"
-    ],
-    "sameAs": [
-      "https://scholar.google.com/citations?user=KumeQCkAAAAJ",
-      "https://orcid.org/0009-0009-4362-0780",
-      "https://www.researchgate.net/profile/Md-Muqtadir-Fuad",
-      "https://github.com/md-muqtadir-fuad",
-      "https://www.linkedin.com/in/md-muqtadir-fuad/"
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://md-muqtadir-fuad.github.io/#page",
+        "url": "https://md-muqtadir-fuad.github.io/",
+        "name": "Md. Muqtadir Fuad | Engineer & Researcher, BUET",
+        "inLanguage": "en",
+        "mainEntity": { "@id": "https://md-muqtadir-fuad.github.io/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://md-muqtadir-fuad.github.io/#person",
+        "name": "Md. Muqtadir Fuad",
+        "alternateName": "Muqtadir Fuad",
+        "url": "https://md-muqtadir-fuad.github.io/",
+        "image": "https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg",
+        "email": "mailto:muqtadir@iat.buet.ac.bd",
+        "description": "Industrial and Production Engineering graduate from BUET working on machine learning, forecasting, NLP, optimization and smart manufacturing.",
+        "jobTitle": "Fab Lab Program Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Institute of Appropriate Technology, BUET"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Bangladesh University of Engineering and Technology (BUET)",
+          "url": "https://www.buet.ac.bd/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressCountry": "BD"
+        },
+        "knowsAbout": [
+          "Machine Learning",
+          "Natural Language Processing",
+          "Time Series Forecasting",
+          "Optimization",
+          "Smart Manufacturing",
+          "Industrial and Production Engineering",
+          "Engineering Design",
+          "CFD"
+        ],
+        "sameAs": [
+          "https://scholar.google.com/citations?user=KumeQCkAAAAJ",
+          "https://orcid.org/0009-0009-4362-0780",
+          "https://www.researchgate.net/profile/Md-Muqtadir-Fuad",
+          "https://github.com/md-muqtadir-fuad",
+          "https://www.linkedin.com/in/md-muqtadir-fuad/"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh",
+        "author": { "@id": "https://md-muqtadir-fuad.github.io/#person" },
+        "datePublished": "2026-08-21",
+        "isPartOf": { "@type": "Periodical", "name": "PLOS ONE" },
+        "sameAs": "https://doi.org/10.1371/journal.pone.0353069"
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms",
+        "author": { "@id": "https://md-muqtadir-fuad.github.io/#person" },
+        "datePublished": "2025",
+        "publisher": { "@type": "Organization", "name": "IEEE" },
+        "sameAs": "https://doi.org/10.1109/ICCIT68739.2025.11491291"
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "Stochastic Modeling of Throughput-Quality Dynamics in Labor-Intensive Manufacturing: A Comparative Analysis of Operator Fatigue and Process Instability",
+        "author": { "@id": "https://md-muqtadir-fuad.github.io/#person" },
+        "datePublished": "2025",
+        "publisher": { "@type": "Organization", "name": "IEOM Society International" },
+        "sameAs": "https://doi.org/10.46254/BA08.20250379"
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "Aerodynamic Performance Analysis of NACA 4415 Airfoil Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis",
+        "author": { "@id": "https://md-muqtadir-fuad.github.io/#person" },
+        "datePublished": "2024",
+        "publisher": { "@type": "Organization", "name": "IEOM Society International" },
+        "sameAs": "https://doi.org/10.46254/BA07.20240040"
+      }
     ]
   }
   </script>
 </head>
 
-<body class="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white">
+<body class="bg-white text-black min-h-screen selection:bg-black selection:text-white">
 
-  <!-- Desktop Header -->
-  <header class="fixed top-0 w-full bg-white border-b border-black z-50">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/" class="font-bold text-lg font-mono tracking-tighter">MMF.</a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex gap-8 font-mono text-sm uppercase">
-        <a href="/" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Home</a>
-        <a href="/experience.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Experience</a>
-        <a href="/projects.html" class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Projects</a>
-        <a href="/publications.html"
-          class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Publications</a>
-        <a href="/achievements.html"
-          class="px-2 py-1 transition-colors hover:bg-black hover:text-white">Achievements</a>
+  <header class="sticky top-0 z-50 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-6">
+      <a href="#about" class="font-bold font-mono tracking-tighter shrink-0">MMF.</a>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#updates">Updates</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#honors">Honors</a>
       </nav>
-
-      <!-- Mobile Nav Toggle -->
-      <button id="menu-btn"
-        class="md:hidden font-mono text-sm border border-black px-3 py-1 uppercase hover:bg-black hover:text-white transition-colors">
-        MENU
-      </button>
     </div>
   </header>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-nav"
-    class="hidden fixed inset-0 top-16 bg-white z-40 border-b border-black p-6 flex flex-col gap-6 font-mono text-2xl uppercase">
-    <a href="/" class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Home</a>
-    <a href="/experience.html"
-      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Experience</a>
-    <a href="/projects.html"
-      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Projects</a>
-    <a href="/publications.html"
-      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Publications</a>
-    <a href="/achievements.html"
-      class="block border-b border-black pb-2 hover:bg-black hover:text-white transition-colors">Achievements</a>
-  </div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 md:grid md:grid-cols-[230px_1fr] md:gap-14 lg:gap-20">
 
-  <main class="flex-grow max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+    <!-- Left: profile sidebar -->
+    <aside class="pt-10 md:pt-12 pb-8 md:pb-16">
+      <div class="md:sticky md:top-26">
+        <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg"
+          alt="Portrait of Md. Muqtadir Fuad" width="144" height="144" fetchpriority="high"
+          class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-[60%_center] border border-black mb-5">
 
-    <!-- Hero Section -->
-    <section id="hero" class="mb-10 md:mb-12 mt-4">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5">
-        <div>
-          <h1 class="text-3xl md:text-4xl font-bold mb-2">Md. Muqtadir Fuad</h1>
-          <h2 class="text-base md:text-lg font-mono text-gray-800 mb-4">B. Sc Graduate, BUET</h2>
-          <div class="flex flex-wrap gap-3 font-mono text-xs md:text-sm">
-            <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer"
-              class="border border-black px-3.5 py-1.5 hover:bg-black hover:text-white transition-colors">GitHub</a>
-            <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" rel="noopener noreferrer"
-              class="border border-black px-3.5 py-1.5 hover:bg-black hover:text-white transition-colors">LinkedIn</a>
-            <a href="mailto:muqtadir@iat.buet.ac.bd"
-              class="border border-black px-3.5 py-1.5 hover:bg-black hover:text-white transition-colors">Email</a>
-          </div>
-        </div>
-        <div class="mt-4 md:mt-0 text-left md:text-right font-mono text-xs md:text-sm leading-relaxed">
-          <p>Dhaka, Bangladesh</p>
-          <p class="mt-0.5">Research & Engineering</p>
-        </div>
-      </div>
+        <h1 class="text-2xl font-bold leading-tight">Md. Muqtadir Fuad</h1>
+        <p class="mt-2 text-sm text-gray-800 leading-snug">Fab Lab Program Engineer<br>Institute of Appropriate Technology, BUET</p>
+        <p class="mt-1 font-mono text-xs text-gray-600">Dhaka, Bangladesh</p>
 
-      <div class="border-t border-b border-black py-4 md:py-5">
-        <p class="text-base md:text-lg font-medium leading-relaxed max-w-3xl">
-          I work across machine learning, optimization, engineering design, and smart manufacturing with growing
-          interests in applied AI systems.
-        </p>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="mb-10 md:mb-12">
-      <h2 class="section-label">01. About</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        <div>
-          <p class="mb-6 text-lg">
-            I am a graduate from Industrial and Production Engineering at BUET with interests across machine learning
-            (forecasting/LLMs/ASR), optimization, manufacturing systems, and engineering design. Currently working as
-            Fab Lab Program Engineer at Institute of Appropriate Technology, BUET under HEAT Sub-Project PIN-14011.
-          </p>
-          <p class="text-lg">
-            My work combines analytical thinking with practical implementation, ranging from stochastic modeling and
-            forecasting to smart manufacturing, CFD, CAD/CAM, and structural simulation.
-          </p>
-        </div>
-
-        <div>
-          <div class="mb-10">
-            <h3 class="font-mono text-sm uppercase tracking-wider mb-4 border-b border-black pb-2">Education</h3>
-            <div class="mb-4">
-              <h4 class="font-bold">B.Sc. Engg. in Industrial and Production Engineering</h4>
-              <p class="font-mono text-sm mt-1">BUET | Dec 2021 — June 2026</p>
-              <p class="font-mono text-xs text-gray-700 mt-2 leading-relaxed">
-                <span class="font-bold text-black">Undergraduate Thesis:</span> Data-Driven Color Recipe Recommendation System for Reactive Dyeing of Cotton and Blended Knit Fabrics<br>
-                <span class="text-gray-600">Supervisor: <a href="https://ipe.buet.ac.bd/faculty/ridwan-al-aziz" target="_blank" rel="noopener noreferrer" class="underline hover:text-black">Dr. Ridwan Al Aziz</a></span>
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="font-mono text-sm uppercase tracking-wider mb-4 border-b border-black pb-2">Core Skills</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Python</span>
-              <span class="tag">MATLAB</span>
-              <span class="tag">R</span>
-              <span class="tag">C</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">NLP</span>
-              <span class="tag">Time Series</span>
-              <span class="tag">Optimization</span>
-              <span class="tag">AutoCAD</span>
-              <span class="tag">SolidWorks</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Experience Section -->
-    <section id="featured-experience" class="mb-10 md:mb-12">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-        <h2 class="section-label">02. Experience</h2>
-        <a href="/experience.html" class="font-mono text-sm uppercase tracking-wider hover:underline mt-4 md:mt-0">View
-          All Experience &rarr;</a>
-      </div>
-      <div class="item-card relative">
-        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold">Fab Lab Program Engineer: Fabrication</h3>
-            <p class="font-mono text-sm mt-1 text-gray-800">Institute of Appropriate Technology - BUET</p>
-            <p class="font-mono text-sm mt-1 text-gray-800">HEAT Sub-Project PIN-14011</p>
-          </div>
-          <div class="font-mono text-sm mt-2 md:mt-0 whitespace-nowrap md:text-right">
-            Jul. 2026 &mdash; Present<br>
-            Dhaka, Bangladesh
-          </div>
-        </div>
-        <ul class="bullet-points text-sm md:text-base">
-          <li>Install, calibrate, maintain, and troubleshoot lab equipment including <mark>3D printers</mark>,
-            <mark>CNC machines</mark>, <mark>laser cutters</mark>, <mark>PCB tools</mark>, oscilloscopes, and
-            <mark>AI/IoT systems</mark>.</li>
-          <li>Hands-on technical support for <mark>rapid prototyping</mark>, <mark>testing</mark>, and
-            <mark>product development</mark>.</li>
-          <li>Conduct routine <mark>calibration</mark>, <mark>preventive maintenance</mark>, and
-            <mark>performance monitoring</mark>.</li>
+        <ul class="sidebar-links mt-6">
+          <li>
+            <a href="mailto:muqtadir@iat.buet.ac.bd">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Email
+            </a>
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+              Google Scholar
+            </a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0009-0009-4362-0780">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.306v7.444h2.297c2.359 0 3.869-1.516 3.869-3.722 0-2.016-1.397-3.722-3.816-3.722h-2.35z"/></svg>
+              ORCID
+            </a>
+          </li>
+          <li>
+            <a href="https://www.researchgate.net/profile/Md-Muqtadir-Fuad">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h3a3 3 0 0 1 0 6H9m3 0 3 4"/></svg>
+              ResearchGate
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/md-muqtadir-fuad">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/md-muqtadir-fuad/">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              CV (PDF)
+            </a>
+          </li>
+          <li>
+            <a href="/blogs-posts/blogs.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Blog
+            </a>
+          </li>
         </ul>
-        <div class="flex justify-end mt-4">
-          <a href="/experience.html" class="font-mono text-sm uppercase tracking-wider hover:underline">Details
-            &rarr;</a>
-        </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- Selected Publications Section -->
-    <section id="selected-publications" class="mb-10 md:mb-12">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-        <h2 class="section-label">03. Publications</h2>
-        <a href="/publications.html"
-          class="font-mono text-sm uppercase tracking-wider hover:underline mt-4 md:mt-0">View All Publications
-          &rarr;</a>
-      </div>
+    <!-- Right: content -->
+    <main class="pb-16 md:pt-12 min-w-0">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="item-card group flex flex-col justify-between mb-0">
-          <div>
-            <h3 class="text-lg font-bold leading-tight mb-2">Tactical vs. strategic: An adaptable framework for
-              horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in
-              Bangladesh</h3>
-            <p class="font-mono text-xs mt-2 text-gray-800">Journal: PLOS ONE (2026)</p>
-            <p class="font-mono text-xs mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b>, Md. Sajib Milki &amp; Ridwan Al
-              Aziz</p>
-          </div>
-          <div class="mt-4 flex justify-between items-center">
-            <div class="flex gap-2">
-              <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer"
-                class="border border-black px-2 py-1 text-xs hover:bg-black hover:text-white transition-colors">Paper</a>
-            </div>
-            <a href="/publications.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-
-        <div class="item-card group flex flex-col justify-between mb-0">
-          <div>
-            <h3 class="text-lg font-bold leading-tight mb-2">eGov-Lens: A Multi-Dimensional Machine Learning Approach to
-              Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</h3>
-            <p class="font-mono text-xs mt-2 text-gray-800">Conference: ICCIT 2025</p>
-            <p class="font-mono text-xs mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b>, et al.</p>
-          </div>
-          <div class="mt-4 flex justify-between items-center">
-            <div class="flex gap-2">
-              <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank" rel="noopener noreferrer"
-                class="border border-black px-2 py-1 text-xs hover:bg-black hover:text-white transition-colors">Paper</a>
-            </div>
-            <a href="/publications.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-
-        <div class="item-card group flex flex-col justify-between mb-0">
-          <div>
-            <h3 class="text-lg font-bold leading-tight mb-2">Stochastic Modeling of Throughput-Quality Dynamics in
-              Labor-Intensive Manufacturing: A Comparative Analysis of Operator Fatigue and Process Instability</h3>
-            <p class="font-mono text-xs mt-2 text-gray-800">Conference: 8th IEOM Bangladesh 2025</p>
-            <p class="font-mono text-xs mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b>, et al.</p>
-          </div>
-          <div class="mt-4 flex justify-between items-center">
-            <div class="flex gap-2">
-              <a href="https://doi.org/10.46254/BA08.20250379" target="_blank" rel="noopener noreferrer"
-                class="border border-black px-2 py-1 text-xs hover:bg-black hover:text-white transition-colors">Paper</a>
-            </div>
-            <a href="/publications.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-
-        <div class="item-card group flex flex-col justify-between mb-0">
-          <div>
-            <h3 class="text-lg font-bold leading-tight mb-2">IoT-Based Smart Conveyor System for Integrated Quality,
-              Inventory and Process Control</h3>
-            <p class="font-mono text-xs mt-2 text-gray-800">Technical Poster (2024)</p>
-            <p class="font-mono text-xs mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b>, et al.</p>
-          </div>
-          <div class="mt-4 flex justify-between items-center">
-            <div class="flex gap-2">
-              <a href="https://doi.org/10.13140/RG.2.2.25476.23683" target="_blank" rel="noopener noreferrer"
-                class="border border-black px-2 py-1 text-xs hover:bg-black hover:text-white transition-colors">Poster</a>
-            </div>
-            <a href="/publications.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-
-        <div class="item-card group flex flex-col justify-between mb-0">
-          <div>
-            <h3 class="text-lg font-bold leading-tight mb-2">Data-Driven Color Recipe Recommendation System for Reactive Dyeing of Cotton and Blended Knit Fabrics</h3>
-            <p class="font-mono text-xs mt-2 text-gray-800">Undergraduate Thesis &bull; Dept. of IPE, BUET</p>
-            <p class="font-mono text-xs mt-1 text-gray-700"><b>Md. Muqtadir Fuad</b> &amp; Md. Istiak Adnan</p>
-            <p class="font-mono text-[11px] text-gray-600 mt-1">Supervisor: <a href="https://ipe.buet.ac.bd/faculty/ridwan-al-aziz" target="_blank" rel="noopener noreferrer" class="underline hover:text-black">Dr. Ridwan Al Aziz</a></p>
-          </div>
-          <div class="mt-4 flex justify-between items-center">
-            <div class="flex gap-2">
-              <a href="/blogs-posts/posts/blog-ug-thesis.html"
-                class="border border-black px-2 py-1 text-xs hover:bg-black hover:text-white transition-colors">Read Blog</a>
-            </div>
-            <a href="/publications.html#thesis" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects Section -->
-    <section id="featured-projects" class="mb-10 md:mb-12">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-        <h2 class="section-label">04. Projects</h2>
-        <a href="/projects.html" class="font-mono text-sm uppercase tracking-wider hover:underline mt-4 md:mt-0">View
-          All Projects &rarr;</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="item-card flex flex-col justify-between group mb-0 p-0 overflow-hidden">
-          <img
-            src="https://raw.githubusercontent.com/md-muqtadir-fuad/eGov-Lens/refs/heads/master/mBERT%2BSVC/picture/svc_roc_responsiveness.png"
-            alt="eGov-Lens"
-            class="w-full h-40 object-cover border-b border-black group-hover:opacity-90 transition-opacity">
-          <div class="p-6 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-lg font-bold">eGov-Lens</h3>
-              </div>
-              <p class="mb-4 text-sm text-gray-700">
-                A scalable ABSA framework for Bengali e-government platforms fine-tuning mBERT.
-              </p>
-              <div class="mb-4">
-                <span class="tag">mBERT</span>
-                <span class="tag">NLP</span>
-              </div>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <a href="https://github.com/md-muqtadir-fuad/eGov-Lens" target="_blank" rel="noopener noreferrer"
-                class="font-mono text-xs uppercase tracking-wider hover:underline">Source</a>
-              <a href="/projects.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-                &rarr;</a>
-            </div>
-          </div>
-        </div>
-        <div class="item-card flex flex-col justify-between group mb-0 p-0 overflow-hidden">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Aedes_aegypti.jpg/960px-Aedes_aegypti.jpg"
-            alt="Dengue Forecasting"
-            class="w-full h-40 object-cover border-b border-black group-hover:opacity-90 transition-opacity">
-          <div class="p-6 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-lg font-bold">Dengue Forecasting</h3>
-              </div>
-              <p class="mb-4 text-sm text-gray-700">
-                Dengue fever outbreak forecasting using multiple predictive models and data preprocessing.
-              </p>
-              <div class="mb-4">
-                <span class="tag">Forecasting</span>
-                <span class="tag">ML</span>
-              </div>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <div class="flex gap-2">
-                <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer"
-                  class="font-mono text-xs uppercase tracking-wider hover:underline">Paper</a>
-                <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer"
-                  class="font-mono text-xs uppercase tracking-wider hover:underline">Zenodo</a>
-              </div>
-              <a href="/blogs-posts/posts/blog-dengue.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Blog
-                &rarr;</a>
-            </div>
-          </div>
-        </div>
-        <div class="item-card flex flex-col justify-between group mb-0 p-0 overflow-hidden">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/RAG_diagram.svg" alt="QueryNest"
-            class="w-full h-40 object-contain bg-white p-2 border-b border-black group-hover:opacity-90 transition-opacity">
-          <div class="p-6 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-lg font-bold">QueryNest</h3>
-              </div>
-              <p class="mb-4 text-sm text-gray-700">
-                Document-based RAG system using LangChain, Gemini API, Chroma, and FastAPI.
-              </p>
-              <div class="mb-4">
-                <span class="tag">LangChain</span>
-                <span class="tag">Gemini API</span>
-              </div>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <a href="https://github.com/md-muqtadir-fuad/QueryNest" target="_blank" rel="noopener noreferrer"
-                class="font-mono text-xs uppercase tracking-wider hover:underline">Source</a>
-              <a href="/projects.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-                &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selected Achievements Section -->
-    <section id="selected-achievements" class="mb-10 md:mb-12">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-        <h2 class="section-label">05. Achievements</h2>
-        <a href="/achievements.html"
-          class="font-mono text-sm uppercase tracking-wider hover:underline mt-4 md:mt-0">View All Achievements
-          &rarr;</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="item-card flex flex-col justify-between mb-0">
-          <div>
-            <h4 class="text-lg font-bold">Certificate of Reviewer</h4>
-            <p class="font-mono text-xs mt-1 text-gray-800">IEOM Society International</p>
-            <p class="font-mono text-xs mt-1 text-gray-700">May 2026</p>
-            <p class="text-sm mt-4 text-gray-700">Recognized for serving as a reviewer for technical papers at the 7th
-              African IEOM Conference.</p>
-          </div>
-          <div class="mt-6 flex justify-end">
-            <a href="/achievements.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-        <div class="item-card flex flex-col justify-between mb-0">
-          <div>
-            <h4 class="text-lg font-bold">Certificate of Presentation</h4>
-            <p class="font-mono text-xs mt-1 text-gray-800">IEOM Society International</p>
-            <p class="font-mono text-xs mt-1 text-gray-700">Dec. 2025</p>
-            <p class="text-sm mt-4 text-gray-700">Delivered an oral presentation at the 8th IEOM Bangladesh
-              International Conference on stochastic modeling in manufacturing.</p>
-          </div>
-          <div class="mt-6 flex justify-end">
-            <a href="/achievements.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-        <div class="item-card flex flex-col justify-between mb-0">
-          <div>
-            <h4 class="text-lg font-bold">Certificate of Appreciation</h4>
-            <p class="font-mono text-xs mt-1 text-gray-800">CUET</p>
-            <p class="font-mono text-xs mt-1 text-gray-700">Nov. 2025</p>
-            <p class="text-sm mt-4 text-gray-700">Recognized for participation and achievement in a hackathon focused on
-              ASR and LLMs.</p>
-          </div>
-          <div class="mt-6 flex justify-end">
-            <a href="/achievements.html" class="font-mono text-xs uppercase tracking-wider hover:underline">Details
-              &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="mb-12">
-      <div class="p-6 md:p-12 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Let's Connect</h2>
-        <p class="text-base md:text-lg mb-8 max-w-2xl mx-auto font-mono">
-          Interested in OR, RL, LLM, IoT or intelligent manufacturing systems? I'm always open to discussing new
-          opportunities or research collaborations.
+      <!-- About -->
+      <section id="about" class="mb-14">
+        <h2 class="section-title">About</h2>
+        <p class="mb-4 text-lg leading-relaxed">
+          I am an Industrial and Production Engineering graduate from BUET, currently working as Fab Lab Program
+          Engineer at the Institute of Appropriate Technology, BUET (HEAT Sub-Project PIN-14011).
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="mailto:muqtadir@iat.buet.ac.bd"
-            class="inline-block border-2 border-black bg-black text-white px-6 py-3 font-mono text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
-            Official Email
-          </a>
-          <a href="mailto:mmfuad01@gmail.com"
-            class="inline-block border-2 border-black bg-white text-black px-6 py-3 font-mono text-sm uppercase tracking-widest hover:bg-black hover:text-white transition-colors">
-            Personal Email
-          </a>
+        <p class="mb-4 text-lg leading-relaxed">
+          My research spans machine learning (forecasting, NLP, ASR), optimization, and smart manufacturing. I have
+          worked on dengue outbreak forecasting, aspect-based sentiment analysis for Bengali e-government services,
+          stochastic modeling of manual production lines, and CFD analysis. I am currently exploring LLMs for supply
+          chains and reinforcement learning for textile processes.
+        </p>
+        <p class="mb-6 text-lg leading-relaxed">
+          I'm open to research collaborations in OR, RL, LLMs, IoT and intelligent manufacturing. Reach me at
+          <a href="mailto:muqtadir@iat.buet.ac.bd" class="underline">muqtadir@iat.buet.ac.bd</a> or
+          <a href="mailto:mmfuad01@gmail.com" class="underline">mmfuad01@gmail.com</a>.
+        </p>
+
+        <h3 class="subsection-title">Education</h3>
+        <div class="mb-6">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <p class="font-bold">B.Sc. Engg. in Industrial and Production Engineering, BUET</p>
+            <p class="font-mono text-xs text-gray-700 whitespace-nowrap">2021 &ndash; 2026</p>
+          </div>
+          <p class="text-sm text-gray-800 mt-1">
+            Thesis: <em>Data-Driven Color Recipe Recommendation System for Reactive Dyeing of Cotton and Blended Knit
+              Fabrics</em>, supervised by
+            <a href="https://ipe.buet.ac.bd/faculty/ridwan-al-aziz" class="underline">Dr. Ridwan Al Aziz</a>
+          </p>
         </div>
-      </div>
-    </section>
 
-  </main>
+        <h3 class="subsection-title">Skills</h3>
+        <p class="text-sm text-gray-800 leading-relaxed">
+          Python, R, MATLAB, C, JavaScript &middot; Machine Learning, NLP, Time Series, Optimization &middot;
+          SolidWorks, AutoCAD, ANSYS
+        </p>
+      </section>
 
-  <footer class="border-t border-black bg-gray-50 text-black mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-        <div>
-          <h3 class="text-xl font-bold font-mono">Md. Muqtadir Fuad</h3>
-          <p class="text-xs text-gray-600 font-mono">Open for research inquiries, collaboration, and technical exchange.</p>
+      <!-- Updates -->
+      <section id="updates" class="mb-14">
+        <h2 class="section-title">Updates</h2>
+        <ul class="news-list">
+          <!-- Generated from content/updates.md by scripts/build-updates.js. Edit the .md file, not this list. -->
+          <!-- AUTO_GENERATED_UPDATES_START -->
+          <li><span>Oct 2026</span><p>Wrote about my time as webmaster of the IEOM BUET Student Chapter. <a class="underline" href="/blogs-posts/posts/blog-ieom-buet.html">Blog</a></p></li>
+          <li><span>Sep 2026</span><p>New post on plotting and figure tools for researchers. <a class="underline" href="/blogs-posts/posts/blog-scientific-figures-tools.html">Blog</a></p></li>
+          <li><span>Aug 2026</span><p>Dengue forecasting paper published in <strong>PLOS ONE</strong>. <a class="underline" href="https://doi.org/10.1371/journal.pone.0353069">Paper</a></p></li>
+          <li><span>Jul 2026</span><p>Joined the Institute of Appropriate Technology, BUET as <strong>Fab Lab Program Engineer</strong>.</p></li>
+          <li><span>Jun 2026</span><p>Completed my B.Sc. in Industrial and Production Engineering at BUET.</p></li>
+          <li><span>May 2026</span><p>Served as a reviewer for the 7th African and 9th European <strong>IEOM</strong> conferences.</p></li>
+          <li><span>Dec 2025</span><p>Presented our stochastic modeling paper at the 8th IEOM Bangladesh conference.</p></li>
+          <li><span>Nov 2025</span><p>Led Team ZeroAuth in the AI-FICATION hackathon at CUET (Bangla dialect ASR).</p></li>
+          <!-- AUTO_GENERATED_UPDATES_END -->
+        </ul>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="mb-14">
+        <h2 class="section-title">Publications</h2>
+
+        <h3 class="subsection-title">Journal &amp; Conference</h3>
+        <ol class="pub-list">
+          <li>
+            <p class="pub-title">Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Md. Sajib Milki, Ridwan Al Aziz</p>
+            <p class="pub-venue"><em>PLOS ONE</em>, 2026</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1371/journal.pone.0353069">Paper</a>
+              <a href="https://doi.org/10.5281/zenodo.19589534">Data</a>
+              <a href="/blogs-posts/posts/blog-dengue.html">Blog</a>
+              <button class="abstract-toggle" data-abstract-id="abs-dengue">Abstract</button>
+            </div>
+            <p id="abs-dengue" class="pub-abstract hidden">Dengue remains a major public health problem in endemic regions, including Bangladesh. Forecasting algorithms relying on climatic variables may not capture epidemiological information such as dengue serotype patterns. This study proposes a horizon-dependent dengue forecasting framework and applies it to Bangladesh. This pipeline included temporal, meteorological, demographic, and epidemiological covariates in a district-panel pipeline and compares classical, machine-learning, and deep-learning algorithms using aggregate, horizon-wise, regime-wise, outbreak-detection, and uncertainty metrics. Coefficient-based interpretation, SHAP, permutation importance, and nonlinear causal-dependence analysis were used to examine predictor impacts across horizons. SARIMAX was used as the baseline model. TFT produced quantile forecasts but showed poor interval calibration during outbreak periods. Results show that no single model performed best across all forecasting horizons: SARIMAX ranked highest for one-step outbreak alerting (precision = 0.886, recall = 0.824, F1 score = 0.854, and ROC-AUC = 0.950), whereas Prophet performed best for pooled magnitude forecasting at horizons 2–6. MLR showed competitive performance in regime-wise evaluation. These findings show that dengue forecasting algorithms should be selected according to the intended decision objective and evaluated using task-relevant protocols.</p>
+          </li>
+          <li>
+            <p class="pub-title">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Istiak Adnan, Tirthojit Das, Shatabdi Sen Prapti, Nafisa Mahbub</p>
+            <p class="pub-venue"><em>28th International Conference on Computer and Information Technology (ICCIT)</em>, 2025</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291">Paper</a>
+              <a href="https://github.com/md-muqtadir-fuad/eGov-Lens">Code &amp; Data</a>
+              <a href="/blogs-posts/posts/blog-egov-lens.html">Blog</a>
+              <button class="abstract-toggle" data-abstract-id="abs-egov">Abstract</button>
+            </div>
+            <p id="abs-egov" class="pub-abstract hidden">With the rapid expansion of e-services under Digital Bangladesh initiatives, citizens increasingly rely on online platforms to access government services and most often share their opinion in social media and digital forums. Existing sentiment analysis lacks of aspect-level insights in terms of egovernment related services. This paper presents eGov-Lens, a practical pipeline for aspect-based analysis of Bengali public feedback on e-government channels. We curate and annotate 34,001 comments (2020-2024) spanning twelve services and four policy-relevant aspects- sentiment, ease of find, responsiveness, and accuracy. The approach benchmarks three text representations (bag-of-words/CountVectorizer, BanglaBERT, mBERT) with logistic regression, support vector classifier, and naïve bayes. BanglaBERT with a support-vector head attains the strongest single-aspect quality on the policy-critical Accuracy task (micro-avg accuracy ≈0.93), while BanglaBERT with logistic regression offers the best accuracy-latency trade-off for deployment and a classical CountVectorizer+LR baseline trains and infers fastest. An entropy-weighted TOPSIS combines quality and cost to rank alternatives, favoring CountVectorizer+LR overall with BanglaBERT+LR a close second, and providing actionable guidance for NLP deployment on resource-constrained government infrastructure.</p>
+          </li>
+          <li>
+            <p class="pub-title">Stochastic Modeling of Throughput-Quality Dynamics in Labor-Intensive Manufacturing: A Comparative Analysis of Operator Fatigue and Process Instability</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Istiak Adnan, Khalid Ammar</p>
+            <p class="pub-venue"><em>8th IEOM Bangladesh International Conference on Industrial Engineering and Operations Management</em>, 2025</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.46254/BA08.20250379">Paper</a>
+              <button class="abstract-toggle" data-abstract-id="abs-stochastic">Abstract</button>
+            </div>
+            <p id="abs-stochastic" class="pub-abstract hidden">The inherent variability of manual assembly processes presents significant challenges to standardization and quality assurance within the semi-automated food production sector. This study presents a quantitative and comparative analysis of the stochastic nature of human fatigue and its effect on productivity. By integrating high-resolution time-motion analysis with statistical process control (SPC), the research investigates two manual production lines to quantify quality parameters and examine relationships among product shape, operator performance behavior, efficiency, and unit weight consistency. Regression analysis was employed to estimate the relationship between time and worker fatigue in a controlled environment. Furthermore, process capability analysis reveals the relationship between human fatigue and process instability. Finally, using a Monte Carlo algorithm, the study simulates data to quantify annual financial loss due to process instability.</p>
+          </li>
+          <li>
+            <p class="pub-title">Aerodynamic Performance Analysis of NACA 4415 Airfoil Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis</p>
+            <p class="pub-authors">Md Zisanul Haque Bhuiyan, <b>Md. Muqtadir Fuad</b>, Masud Rana, A. S. M. Maruf Hasan, Khalid Ammar</p>
+            <p class="pub-venue"><em>7th Bangladesh Conference on Industrial Engineering and Operations Management</em>, 2024</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.46254/BA07.20240040">Paper</a>
+              <button class="abstract-toggle" data-abstract-id="abs-naca">Abstract</button>
+            </div>
+            <p id="abs-naca" class="pub-abstract hidden">NACA 4415 is one of the most common and widely studied airfoils in aerodynamic research. Incorporating flaps with the NACA 4415 airfoil is an effective way to improve aerodynamic performance and efficiency. This study presents a comparative numerical analysis among a standard NACA 4415 airfoil, a modified NACA 4415 airfoil incorporating a Gurney flap, and a NACA 4415 airfoil incorporating a bionic flap based on the coefficient of lift and coefficient of drag at various angles of attack, including -15°, -10°, -5°, 0°, 5°, 10°, and 15°, with a flap height of 2% of the chord length. The airfoil performance was evaluated under a constant upstream velocity of 20 m/s using Computational Fluid Dynamics simulations. Performance was measured based on the lift-to-drag coefficient ratio and validated using velocity and pressure contours over the surface of the airfoil. The highest lift-to-drag ratio was found in the NACA 4415 airfoil incorporating a Gurney flap, followed by the standard NACA 4415 airfoil, while the NACA 4415 airfoil incorporating a bionic flap showed the lowest ratio. At 0° angle of attack, the Gurney flap improved the lift-to-drag ratio by 49.9% compared to the standard airfoil, while the bionic flap reduced the ratio by 19.86%. Overall, the NACA 4415 airfoil with Gurney flap outperformed the other two airfoil configurations, and the velocity and pressure contours supported the results obtained from lift and drag coefficients.</p>
+          </li>
+        </ol>
+
+        <h3 class="subsection-title">Thesis, Reports &amp; Posters</h3>
+        <ol class="pub-list">
+          <li>
+            <p class="pub-title">Data-Driven Color Recipe Recommendation System for Reactive Dyeing of Cotton and Blended Knit Fabrics</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Md. Istiak Adnan &middot; Supervisor: Dr. Ridwan Al Aziz</p>
+            <p class="pub-venue">Undergraduate Thesis, Dept. of IPE, BUET, 2026</p>
+            <div class="pub-links">
+              <a href="/blogs-posts/posts/blog-ug-thesis.html">Blog</a>
+              <button class="abstract-toggle" data-abstract-id="abs-thesis">Abstract</button>
+            </div>
+            <p id="abs-thesis" class="pub-abstract hidden">Reactive dye recipe development for cotton and blended knit fabrics depends on historical shade-matching, laboratory trials, and CMC-based color evaluation in industry. This thesis presents a data-driven recipe recommendation framework built from industrial shade-matching records. The dataset includes target shade information, fabric and fiber composition, dye formulations, and instrumental color measurements. The framework used historical similarity retrieval, dye-name prediction using supervised learning, dye-percentage regression and ΔE-based quality prediction. The historical baseline performed better for candidate retrieval. It achieved 0.7821 component dye accuracy, 0.6154 exact sequence accuracy, and 0.7692 top-3 dye-set accuracy. For top-1 prediction, the Gradient Boosting recipe outperforms baseline, with 0.8269 component accuracy, 0.6538 exact sequence accuracy, and 0.6538 top-1 dye-set accuracy. Its dye-percentage model achieved 0.2750 total recipe percentage MAE. The Extra Trees quality model predicted maximum ΔE with 0.1492 MAE, and 72.44% of predictions were within ±0.20 ΔE. The results show that a hybrid framework beats single model: historical retrieval improves candidate coverage, supervised learning improves top-1 recipe prediction, and ΔE estimation supports risk-based ranking.</p>
+          </li>
+          <li>
+            <p class="pub-title">Semi-Automated Shoe Cleaning Machine: Design, Simulation, and Feasibility Analysis</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Ashiqur Rahman Noor, Md Sadiqul Haque, Ananya Halder, Yashna Noor</p>
+            <p class="pub-venue">Capstone Engineering Design Report, Dept. of IPE, BUET, 2024</p>
+            <div class="pub-links">
+              <a href="/blogs-posts/posts/blog-semi-automated-shoe-cleaning-machine.html">Report</a>
+              <button class="abstract-toggle" data-abstract-id="abs-shoe">Abstract</button>
+            </div>
+            <p id="abs-shoe" class="pub-abstract hidden">The &ldquo;Semi-Automated Shoe Cleaning Machine&rdquo; report presents a comprehensive study conducted in the context of Bangladesh, focusing on the development and evaluation of an innovative cleaning solution that combines traditional cleaning methods with semi-automated technology. In a country where efficient and hygienic cleaning solutions are becoming increasingly necessary, this product is designed to cater to individuals and small businesses seeking an affordable and user-friendly shoe cleaning solution. Based on the market survey results, we determined the customer requirements and technical specifications, along with their relationships and correlations. We then conducted qualitative analysis of material, manufacturing processes, and joining process selections. Following this, we performed quantitative analyses by calculating relative emphasis coefficients using the Digital Logic Method and performance indices. Additionally, we conducted equivalent (von Mises) stress, total deformation, fatigue life, and fatigue safety factor analyses using Ansys. Finally, we performed cost, breakeven, and sensitivity analyses for our product.</p>
+          </li>
+          <li>
+            <p class="pub-title">IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control</p>
+            <p class="pub-authors"><b>Md. Muqtadir Fuad</b>, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur Rahman, Nafis Ahmad</p>
+            <p class="pub-venue">Technical Poster, 2024</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.13140/RG.2.2.25476.23683">Poster</a>
+              <a href="https://youtu.be/_iA_Y-_De4U">Video</a>
+              <a href="/blogs-posts/posts/blog-iot-conveyor.html">Blog</a>
+              <button class="abstract-toggle" data-abstract-id="abs-conveyor">Abstract</button>
+            </div>
+            <p id="abs-conveyor" class="pub-abstract hidden">This project presents an IoT-based smart conveyor system designed for automated weight-triggered operation and real-time inventory tracking. Using a 5kg load cell with an HX711 amplifier, the system detects when an item's weight exceeds a preset threshold (e.g., 200 grams) to start the conveyor motor controlled by an L298N driver and a 6V 600RPM DC gear motor. A mechanical arm, operated by an SG-90 micro servo motor, places items onto the conveyor belt. The HC-SR04 ultrasonic sensor detects and counts each passing item, providing immediate visual feedback through a green LED. The ESP32 microcontroller enables IoT connectivity, allowing remote monitoring and real-time data logging of weight, item count, and system status for efficient inventory management and process control. This automated setup enhances accuracy, efficiency, and quality assurance in manufacturing lines.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="mb-14">
+        <h2 class="section-title">Projects</h2>
+        <div class="space-y-6">
+          <div class="project-row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/RAG_diagram.svg" alt="QueryNest" class="object-contain p-1" loading="lazy">
+            <div>
+              <p class="font-bold">QueryNest</p>
+              <p class="text-sm text-gray-800 mt-1">Document-grounded RAG system using LangChain, Gemini API, Chroma and FastAPI.</p>
+              <div class="pub-links"><a href="https://github.com/md-muqtadir-fuad/QueryNest">Code</a><a href="/blogs-posts/posts/blog-querynest.html">Blog</a></div>
+            </div>
+          </div>
+          <div class="project-row">
+            <img src="https://i.postimg.cc/VkjL6gY2/479851827-21cb13aa-001c-45d2-aa31-3d6402283a97.png" alt="IoT-Enabled Web Platform" loading="lazy">
+            <div>
+              <p class="font-bold">IoT-Enabled Web Platform</p>
+              <p class="text-sm text-gray-800 mt-1">Monitoring portal that surfaces manufacturing sensor data through PHP endpoints.</p>
+              <div class="pub-links"><a href="https://github.com/md-muqtadir-fuad/iot-web-app">Code</a><a href="/blogs-posts/posts/blog-iot-platform.html">Blog</a></div>
+            </div>
+          </div>
+          <div class="project-row">
+            <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/BezierLab/refs/heads/master/assets/img/scr-shot.png" alt="BezierLab" loading="lazy">
+            <div>
+              <p class="font-bold">BezierLab</p>
+              <p class="text-sm text-gray-800 mt-1">Desktop GUI for constructing N-degree Bézier curves with live control-point editing.</p>
+              <div class="pub-links"><a href="https://github.com/md-muqtadir-fuad/BezierLab">Code</a><a href="/blogs-posts/posts/blog-bezierlab.html">Blog</a></div>
+            </div>
+          </div>
+          <div class="project-row">
+            <img src="https://i.postimg.cc/13b7qDcf/1000047398.jpg" alt="Shoe Shiner Pro" loading="lazy">
+            <div>
+              <p class="font-bold">Shoe Shiner Pro</p>
+              <p class="text-sm text-gray-800 mt-1">Automated shoe-shining device taken from SolidWorks/ANSYS design to a working prototype.</p>
+              <div class="pub-links"><a href="/blogs-posts/posts/blog-shoe-shiner.html">Blog</a></div>
+            </div>
+          </div>
+          <div class="project-row">
+            <img src="https://i.postimg.cc/Yqrx8nPD/bnwp-theme.png" alt="BNWP WikiConnect Theme" loading="lazy">
+            <div>
+              <p class="font-bold">BNWP WikiConnect Theme</p>
+              <p class="text-sm text-gray-800 mt-1">Bengali-first WordPress theme for Bangla WikiConnect with project pages and member profiles.</p>
+              <div class="pub-links"><a href="https://github.com/bnwp/bnwp-wp-theme">Code</a><a href="/blogs-posts/posts/blog-bnwp.html">Blog</a></div>
+            </div>
+          </div>
+          <div class="project-row">
+            <img src="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/badhan-pull.png" alt="Badhan Web Automation" loading="lazy">
+            <div>
+              <p class="font-bold">Badhan Web Automation</p>
+              <p class="text-sm text-gray-800 mt-1">Python/Selenium tool that bulk-uploads blood donor records from CSV files.</p>
+              <div class="pub-links"><a href="https://github.com/Badhan-BUET-Zone/badhan/pull/86">Pull Request</a><a href="/blogs-posts/posts/blog-badhan.html">Blog</a></div>
+            </div>
+          </div>
         </div>
-        <div class="flex flex-wrap gap-4 font-mono text-xs">
-          <a href="/" class="hover:underline">Home</a>
-          <a href="/experience.html" class="hover:underline">Experience</a>
-          <a href="/projects.html" class="hover:underline">Projects</a>
-          <a href="/publications.html" class="hover:underline">Publications</a>
-          <a href="/blogs-posts/blogs.html" class="hover:underline">Blogs</a>
-          <a href="/contacts.html" class="hover:underline">Contacts</a>
-        </div>
-      </div>
+      </section>
 
-      <!-- Matrix of 8 Platforms (Borderless Clean Style) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4 mb-10">
-        
-        <!-- 1. Official Email -->
-        <a href="mailto:muqtadir@iat.buet.ac.bd"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 3L2 10h20L12 3z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">Official Email</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">muqtadir@iat.buet.ac.bd</div>
-          </div>
-        </a>
+      <!-- Experience -->
+      <section id="experience" class="mb-14">
+        <h2 class="section-title">Experience</h2>
+        <ul class="cv-list mb-8">
+          <li>
+            <div><p class="font-bold">Fab Lab Program Engineer</p><p class="text-sm text-gray-800">Institute of Appropriate Technology, BUET &middot; HEAT Sub-Project PIN-14011</p><p class="text-sm text-gray-700 mt-1">Maintain and calibrate 3D printers, CNC machines, laser cutters, PCB tools and AI/IoT systems; support rapid prototyping and product development.</p></div>
+            <span>Jul 2026 &ndash; Present</span>
+          </li>
+          <li>
+            <div><p class="font-bold">Industrial Engineering Intern</p><p class="text-sm text-gray-800">PRAN Industrial Park, Ghorashal</p><p class="text-sm text-gray-700 mt-1">Line balancing, material handling, and throughput and quality data collection.</p></div>
+            <span>Nov &ndash; Dec 2025</span>
+          </li>
+          <li>
+            <div><p class="font-bold">Research Trainee</p><p class="text-sm text-gray-800">The Royal Scientific Publications Ltd., Dhaka</p></div>
+            <span>Jul 2025 &ndash; Jun 2026</span>
+          </li>
+        </ul>
 
-        <!-- 2. Personal Email -->
-        <a href="mailto:mmfuad01@gmail.com"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">Personal Email</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">mmfuad01@gmail.com</div>
-          </div>
-        </a>
+        <h3 class="subsection-title">Leadership &amp; Service</h3>
+        <ul class="cv-list">
+          <li>
+            <div><p class="font-bold">Reviewer, IEOM Society International</p><p class="text-sm text-gray-800">7th African IEOM (Cape Town) &middot; 9th European IEOM (Spain)</p></div>
+            <span>2026</span>
+          </li>
+          <li>
+            <div><p class="font-bold">General Secretary, BADHAN BUET Zone</p><p class="text-sm text-gray-800">Coordinated drives collecting 1,279 blood bags; raised BDT 300,000 for flood relief. <a href="/blogs-posts/posts/blog-badhan.html" class="underline">Blog</a></p></div>
+            <span>Apr 2025 &ndash; Feb 2026</span>
+          </li>
+          <li>
+            <div><p class="font-bold">General Secretary, Satyen Bose Science Club, BUET</p><p class="text-sm text-gray-800">Organized national science festivals and olympiads.</p></div>
+            <span>Apr 2025 &ndash; Mar 2026</span>
+          </li>
+          <li>
+            <div><p class="font-bold">Webmaster, IEOM Society Student Branch, BUET</p><p class="text-sm text-gray-800">Ran the chapter website and event registration. <a href="/blogs-posts/posts/blog-ieom-buet.html" class="underline">Blog</a></p></div>
+            <span>May 2025 &ndash; Mar 2026</span>
+          </li>
+          <li>
+            <div><p class="font-bold">Publication Secretary, AIPE, BUET</p><p class="text-sm text-gray-800">Departmental magazines, newsletters and event publicity.</p></div>
+            <span>Jun 2025 &ndash; Apr 2026</span>
+          </li>
+        </ul>
+      </section>
 
-        <!-- 3. Google Scholar -->
-        <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">Google Scholar</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">scholar/KumeQCkAAAAJ</div>
-          </div>
-        </a>
+      <!-- Honors -->
+      <section id="honors" class="mb-14">
+        <h2 class="section-title">Honors &amp; Certificates</h2>
+        <ul class="news-list mb-8">
+          <li><span>May 2026</span><p>Certificate of Reviewer, 7th African IEOM Conference &mdash; IEOM Society. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/review-africa-26.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Dec 2025</span><p>Certificates of Presentation and Attendance, 8th IEOM Bangladesh Conference. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/ieom-25-pp.jpg?raw=true" class="underline">Presentation</a> &middot; <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/attendence-25.jpg?raw=true" class="underline">Attendance</a></p></li>
+          <li><span>Dec 2025</span><p>Wiki Loves Children 2025 &mdash; Bangla WikiConnect. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/wiki-child-25.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Dec 2025</span><p>Internship Completion Certificate &mdash; PRAN-RFL Group. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/intern.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Nov 2025</span><p>Certificate of Appreciation, AI-FICATION Hackathon (ASR &amp; LLMs) &mdash; CUET. Public rank 23, private rank 28. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/asr-25.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Feb 2025</span><p>Amar Ekushey Editathon 2025 &mdash; Wikimedia Bangladesh. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/ekushey-25.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Dec 2024</span><p>Certificate of Presentation, 7th IEOM Bangladesh Conference (NACA 4415 airfoil). <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/ieom-24-pp.jpg?raw=true" class="underline">Credential</a></p></li>
+        </ul>
 
-        <!-- 4. ORCID -->
-        <a href="https://orcid.org/0009-0009-4362-0780" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.306v7.444h2.297c2.359 0 3.869-1.516 3.869-3.722 0-2.016-1.397-3.722-3.816-3.722h-2.35z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">ORCID</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">0009-0009-4362-0780</div>
-          </div>
-        </a>
+        <h3 class="subsection-title">Courses</h3>
+        <ul class="news-list">
+          <li><span>Jun 2024</span><p>Introduction to R &mdash; Bohubrihi. <a href="https://res.cloudinary.com/bohubrihi/image/upload/v1719169976/production/667873b5726937986928c5f6.pdf" class="underline">Credential</a></p></li>
+          <li><span>May 2024</span><p>Python for Everybody Specialization &mdash; University of Michigan, Coursera. <a href="https://www.coursera.org/account/accomplishments/specialization/QVR5GBJFJ6CN" class="underline">Credential</a></p></li>
+          <li><span>May 2024</span><p>Python Programming: A Concise Introduction &mdash; Wesleyan University, Coursera. <a href="https://www.coursera.org/account/accomplishments/verify/NRJPDGGLA9SU" class="underline">Credential</a></p></li>
+          <li><span>Dec 2023</span><p>The Data Forge (ML &amp; NLP) &mdash; HerWILL. <a href="https://github.com/md-muqtadir-fuad/portfolio/blob/master/public/images/herwill-nlp.jpg?raw=true" class="underline">Credential</a></p></li>
+          <li><span>Feb 2022</span><p>Python Basics &mdash; University of Michigan, Coursera. <a href="https://www.coursera.org/account/accomplishments/verify/DR8YHAECTWP6" class="underline">Credential</a></p></li>
+        </ul>
+      </section>
 
-        <!-- 5. ResearchGate -->
-        <a href="https://www.researchgate.net/profile/Md-Muqtadir-Fuad?ev=hdr_xprf" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.363 8.363 0 0 0-.078.53 9 9 0 0 0-.79-1.078c-.37-.417-.82-.74-1.35-.97C13.44.433 12.81.3 12.08.3c-.928 0-1.78.21-2.556.63-.775.42-1.42 1.01-1.933 1.77-.514.76-.894 1.66-1.14 2.7-.248 1.04-.372 2.18-.372 3.42 0 1.25.124 2.39.372 3.43.246 1.04.626 1.94 1.14 2.7.513.76 1.158 1.35 1.933 1.77.776.42 1.628.63 2.556.63.79 0 1.467-.14 2.03-.42.564-.28 1.04-.66 1.43-1.14v4.54h2.15V9.45c0-1.2-.1-2.2-.3-3-.2-.8-.5-1.4-.9-1.9-.4-.5-.9-.9-1.5-1.1-.6-.2-1.3-.3-2.1-.3-.6 0-1.2.1-1.7.3-.5.2-.9.5-1.2.9-.3.4-.6.9-.7 1.4-.1.5-.2 1.1-.2 1.8h-2.1c0-.9.1-1.7.4-2.4.3-.7.7-1.4 1.2-1.9.5-.5 1.2-.9 1.9-1.2.7-.3 1.6-.4 2.5-.4.8 0 1.5.1 2.1.3.6.2 1.1.5 1.5.9.4.4.7.9.9 1.5.2.6.3 1.3.3 2.1v.37c.36-.61.85-1.1 1.46-1.47.62-.37 1.36-.55 2.22-.55 1.17 0 2.1.38 2.78 1.14.68.76 1.02 1.83 1.02 3.21v7.62h-2.15v-7.2c0-.96-.2-1.68-.6-2.17-.4-.49-1-.73-1.8-.73-.55 0-1.04.14-1.47.43-.43.28-.77.7-.99 1.24v8.43h-2.15V6.7z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">ResearchGate</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">profile/Md-Muqtadir-Fuad</div>
-          </div>
-        </a>
-
-        <!-- 6. GitHub -->
-        <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">GitHub</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">github.com/md-muqtadir-fuad</div>
-          </div>
-        </a>
-
-        <!-- 7. LinkedIn -->
-        <a href="https://www.linkedin.com/in/md-muqtadir-fuad/" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">LinkedIn</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">in/md-muqtadir-fuad</div>
-          </div>
-        </a>
-
-        <!-- 8. Curriculum Vitae -->
-        <a href="https://drive.google.com/drive/folders/1JUhDSJzOHMZNoj8A99ni9DeYwGfImAQz?usp=sharing" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 py-1.5 transition-colors">
-          <div class="w-8 h-8 rounded border border-black/25 bg-white flex items-center justify-center shrink-0 group-hover:border-black group-hover:bg-black group-hover:text-white transition-colors">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-            </svg>
-          </div>
-          <div class="overflow-hidden">
-            <div class="font-bold text-xs uppercase tracking-wider group-hover:underline">Curriculum Vitae</div>
-            <div class="font-mono text-[11px] text-gray-500 truncate">Google Drive [PDF] &rarr;</div>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- Bottom Line -->
-      <div class="border-t border-black/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs font-mono text-gray-600">
-        <div>&copy; 2026 Md. Muqtadir Fuad. All rights reserved.</div>
-      </div>
-    </div>
-  </footer>
+      <footer class="pt-6 border-t border-black font-mono text-xs text-gray-600 flex flex-wrap justify-between gap-2">
+        <span>&copy; 2026 Md. Muqtadir Fuad</span>
+        <a href="/blogs-posts/blogs.html">All blog posts &rarr;</a>
+      </footer>
+    </main>
+  </div>
 
   <script src="/main.js" type="module"></script>
 </body>

@@ -102,9 +102,20 @@ npm run preview
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server on port 3000 |
-| `npm run build` | Create optimized production build |
+| `npm run dev` | Build content, then start development server on port 3000 |
+| `npm run build` | Build content, then create optimized production build |
 | `npm run preview` | Preview production build locally |
+| `npm run content:build` | Run the three generators below |
+| `npm run blogs:build` | Markdown in `blogs-posts/content/` → blog post pages + blog listing |
+| `npm run updates:build` | `content/updates.md` → Updates section of `index.html` |
+| `npm run sitemap:build` | Regenerate `sitemap.xml` from all pages and blog posts |
+| `npm run new:post "Title"` | Scaffold a new Markdown blog post |
+
+## Editing Content
+
+- **Updates section:** edit [`content/updates.md`](content/updates.md). Add a `## Mon YYYY` heading and `- ` bullets, newest first. Don't edit the list in `index.html` directly; it is overwritten on every build.
+- **Blog posts:** see [`blogs-posts/content/README.md`](blogs-posts/content/README.md).
+- **Sitemap:** generated on every build, so new blog posts are added automatically.
 
 ## Configuration Files
 

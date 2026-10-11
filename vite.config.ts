@@ -23,10 +23,22 @@ function markdownWatcherPlugin() {
     name: 'vite-plugin-markdown-blogs',
     configureServer(server: any) {
       const contentDir = path.resolve(__dirname, 'blogs-posts/content');
-      server.watcher.add(contentDir);
+      const updatesFile = path.resolve(__dirname, 'content/updates.md');
+      server.watcher.add([contentDir, updatesFile]);
 
       const handleChange = async (file: string) => {
         const basename = path.basename(file).toLowerCase();
+        if (path.resolve(file) === updatesFile) {
+          console.log('[markdown-watcher] Detected change in updates.md, rebuilding Updates section...');
+          try {
+            const { buildUpdates } = await import('./scripts/build-updates.js');
+            buildUpdates();
+            server.ws.send({ type: 'full-reload' });
+          } catch (err) {
+            console.error('[markdown-watcher] Error rebuilding updates:', err);
+          }
+          return;
+        }
         if (file.endsWith('.md') && !basename.startsWith('_') && basename !== 'readme.md' && basename !== 'template.md') {
           console.log(`[markdown-watcher] Detected change in ${path.basename(file)}, rebuilding blogs...`);
           try {
