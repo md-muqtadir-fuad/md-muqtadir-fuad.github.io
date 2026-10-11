@@ -27,6 +27,9 @@ function markdownWatcherPlugin() {
       const homeSections: Record<string, () => Promise<void>> = {
         [path.resolve(__dirname, 'content/updates.md')]: () => import('./scripts/build-updates.js').then(m => m.buildUpdates()),
         [path.resolve(__dirname, 'content/publications.md')]: () => import('./scripts/build-publications.js').then(m => m.buildPublications()),
+        [path.resolve(__dirname, 'content/projects.md')]: () => import('./scripts/build-sections.js').then(m => m.buildProjects()),
+        [path.resolve(__dirname, 'content/experience.md')]: () => import('./scripts/build-sections.js').then(m => m.buildExperience()),
+        [path.resolve(__dirname, 'content/honors.md')]: () => import('./scripts/build-sections.js').then(m => m.buildHonors()),
       };
       server.watcher.add([contentDir, ...Object.keys(homeSections)]);
 

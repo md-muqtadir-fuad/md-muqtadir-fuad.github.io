@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "content:build": "node scripts/build-blogs.js && node scripts/build-updates.js && node scripts/build-publications.js && node scripts/build-sitemap.js",
+    "content:build": "node scripts/build-blogs.js && node scripts/build-updates.js && node scripts/build-publications.js && node scripts/build-sections.js && node scripts/build-sitemap.js",
     "dev": "npm run content:build && vite --port=3000 --host=0.0.0.0",
     "build": "npm run content:build && vite build",
     "preview": "vite preview",
     "blogs:build": "node scripts/build-blogs.js",
     "updates:build": "node scripts/build-updates.js",
     "publications:build": "node scripts/build-publications.js",
+    "sections:build": "node scripts/build-sections.js",
     "sitemap:build": "node scripts/build-sitemap.js",
     "new:post": "node scripts/new-post.js"
   },
