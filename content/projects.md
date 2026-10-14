@@ -49,7 +49,7 @@ Bengali-first WordPress theme for Bangla WikiConnect with project pages and memb
 
 Python/Selenium tool that bulk-uploads blood donor records from CSV files.
 
-# Meal Optimization System
+### Meal Optimization System
 - image: https://i.postimg.cc/TP4bJ84x/Screenshot-2.png
 - links: [Code](https://github.com/md-muqtadir-fuad/meal-optimizer) 
 
