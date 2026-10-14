@@ -48,3 +48,9 @@ Bengali-first WordPress theme for Bangla WikiConnect with project pages and memb
 - links: [Pull Request](https://github.com/Badhan-BUET-Zone/badhan/pull/86) [Blog](/blogs-posts/posts/blog-badhan.html)
 
 Python/Selenium tool that bulk-uploads blood donor records from CSV files.
+
+# Meal Optimization System
+- image: https://i.postimg.cc/TP4bJ84x/Screenshot-2.png
+- links: [Code](https://github.com/md-muqtadir-fuad/meal-optimizer) 
+
+It aims to optimize the monthly meal planning for dormitory dining system by minimizing costs while meeting the nutritional and dietary needs of students. It uses Gurobi Optimizer to solve the linear programming problem.
