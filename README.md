@@ -155,7 +155,9 @@ The portfolio showcases multiple engineering and data science projects demonstra
 
 ## License
 
-This portfolio is personal work. For inquiries regarding projects, research, or collaboration, please visit the contact page.
+The source code is under the [MIT License](LICENSE). The written content, photos, and publication material are © Md. Muqtadir Fuad, all rights reserved, and are not covered by the MIT License.
+
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for how to report problems or suggest fixes.
 
 ## Contact
 
