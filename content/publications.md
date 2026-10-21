@@ -50,8 +50,10 @@ NACA 4415 is one of the most common and widely studied airfoils in aerodynamic r
 
 ### A Physics-Informed Hybrid Forward-Inverse Machine Learning Framework for High-Dimensional Sparse Recipe Reconstruction
 - authors: **Md. Muqtadir Fuad**, Md. Istiak Adnan, [Ridwan Al Aziz](https://ipe.buet.ac.bd/faculty/ridwan-al-aziz)
-- venue: Under review · arXiv preprint (submitted), 2026
-- links:
+- venue: Under review, 2026
+- links: [arXiv](https://arxiv.org/abs/2610.14097)
+
+High-dimensional sparse recipe formulation in process industries involves nonlinear association of various covariates, bounded by sparsity constraints and multi-criteria tolerances. Traditional physics-based classical methods (such as Kubelka-Munk) fail to generate sparse candidate recipes properly due to their simplified assumptions and industrial process variations. This study proposes a hybrid physics-informed uncertainty-aware framework that is structured into three modules: (a) Module A, a multi-target forward quality model; (b) Module B, a sparse inverse reconstructor; and (c) Module C, a feasibility-constrained ranking layer. Then it has been validated in an industrial textile dyeing context with recipe-grouped cross-validation under multi-illuminant quality assessment comprising process and production information, target reflectance, K/S values, and spectral descriptors. Histogram Gradient Boosting (HGB) with spectral-only features (Rλ, K/S) and Gradient Boosting Regressor (GBDT) with recipe-process features outperforms other configurations with out-of-Fold MAE of 0.1655 and 0.1523 in the forward quality model. For inverse reconstruction, a component-wise median blend achieved a recipe-vector MAE of 0.0295. Exploratory conditional treatment effect (CATE) suggests an observational association that alkali adjustment reduces error for red and pale shades (CATE = -0.196). This framework provides a human-in-the-loop decision-support tool that minimizes costly laboratory trials across industrial formulation domains.
 
 ## Thesis
 
@@ -72,8 +74,29 @@ Reactive dye recipe development for cotton and blended knit fabrics depends on h
 The “Semi-Automated Shoe Cleaning Machine” report presents a comprehensive study conducted in the context of Bangladesh, focusing on the development and evaluation of an innovative cleaning solution that combines traditional cleaning methods with semi-automated technology. In a country where efficient and hygienic cleaning solutions are becoming increasingly necessary, this product is designed to cater to individuals and small businesses seeking an affordable and user-friendly shoe cleaning solution. Based on the market survey results, we determined the customer requirements and technical specifications, along with their relationships and correlations. We then conducted qualitative analysis of material, manufacturing processes, and joining process selections. Following this, we performed quantitative analyses by calculating relative emphasis coefficients using the Digital Logic Method and performance indices. Additionally, we conducted equivalent (von Mises) stress, total deformation, fatigue life, and fatigue safety factor analyses using Ansys. Finally, we performed cost, breakeven, and sensitivity analyses for our product.
 
 ### IoT-Based Smart Conveyor System for Integrated Quality, Inventory and Process Control
-- authors: **Md. Muqtadir Fuad**, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur Rahman, Nafis Ahmad
+- authors: **Md. Muqtadir Fuad**, Abdullah Al Mazid, Md. Ahabab Ul Haq, Most. Noshin Ibnat, Chowdhury Mouinur Rahman, [Nafis Ahmad](https://ipe.buet.ac.bd/faculty/dr-nafis-ahmad)
 - venue: Technical Poster, 2024
 - links: [Poster](https://doi.org/10.13140/RG.2.2.25476.23683) [Video](https://youtu.be/_iA_Y-_De4U) [Blog](/blogs-posts/posts/blog-iot-conveyor.html)
 
 This project presents an IoT-based smart conveyor system designed for automated weight-triggered operation and real-time inventory tracking. Using a 5kg load cell with an HX711 amplifier, the system detects when an item's weight exceeds a preset threshold (e.g., 200 grams) to start the conveyor motor controlled by an L298N driver and a 6V 600RPM DC gear motor. A mechanical arm, operated by an SG-90 micro servo motor, places items onto the conveyor belt. The HC-SR04 ultrasonic sensor detects and counts each passing item, providing immediate visual feedback through a green LED. The ESP32 microcontroller enables IoT connectivity, allowing remote monitoring and real-time data logging of weight, item count, and system status for efficient inventory management and process control. This automated setup enhances accuracy, efficiency, and quality assurance in manufacturing lines.
+
+## Code and Datasets
+### Maritime Supply Chain Disruption Index (MSDI): code, validation data, and results
+- authors: **Md. Muqtadir Fuad**, [Md. Ashraful Huda Asif](https://ipe.buet.ac.bd/faculty/md-ashraful-huda-asif), Abdullah Al Mazid, [Jannatul Maoya Hossain](https://baust.edu.bd/ipe/faculty?profile=jannatul-maoya-hossain), [Syed Mithun Ali](https://ipe.buet.ac.bd/faculty/dr-syed-mithun-ali)
+- venue: Code and Dataset, 2026
+- links: [Zenodo](https://doi.org/10.5281/zenodo.23300977)
+
+Reproducible pipeline for an LLM-derived, human-validated Maritime Supply Chain Disruption Index (MSDI), used to forecast Shanghai Containerized Freight Index (SCFI) movements, with time-series causality, double/debiased machine learning, multiplicity, and sensitivity analyses. Includes analysis code, configuration, LLM prompts, human validation annotations (400 articles, 50-article pilot, 300 event pairs), and selected result tables. The full news corpus, market price series, and intermediate data are not included; see README.md.
+
+### eGov-Lens: Code and Dataset
+- authors: **Md. Muqtadir Fuad**, Abdullah Al Mazid, Md. Istiak Adnan, Tirthojit Das, Shatabdi Sen Prapti, [Nafisa Mahbub](https://ipe.buet.ac.bd/faculty/dr-nafisa-mahbub)
+- venue: Code and Dataset, 2026
+- links: [Zenodo](https://doi.org/10.5281/zenodo.23300977)
+
+Code and dataset for eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms. This repository includes Bengali public feedback datasets, classical machine learning experiments, transformer-based feature experiments, final results, and entropy-weighted TOPSIS ranking files.
+
+
+### Reproducible Code and Data for Multi-Horizon Dengue Forecasting in Bangladesh (Statistical, ML & Deep Learning Models)
+- authors: **Md. Muqtadir Fuad**, Md. Sajib Milki, Ridwan Al Aziz
+- venue: Code and Dataset, 2026
+- links: [Zenodo](https://doi.org/10.5281/zenodo.19589534)

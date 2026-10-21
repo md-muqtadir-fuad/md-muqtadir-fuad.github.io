@@ -12,13 +12,10 @@
 limit: 10
 
 ## Oct 2026
-- Wrote about my time as webmaster of the IEOM BUET Student Chapter. [Blog](/blogs-posts/posts/blog-ieom-buet.html)
-
-## Sep 2026
-- New post on plotting and figure tools for researchers. [Blog](/blogs-posts/posts/blog-scientific-figures-tools.html)
+- Pre-print of *Hybrid Framework for Sparse Dye Recipe Recommendation System* uploaded to [arXiv](https://arxiv.org/abs/2610.14097).
 
 ## Aug 2026
-- Dengue forecasting paper published in **PLOS ONE**. [Paper](https://doi.org/10.1371/journal.pone.0353069)
+- Dengue forecasting paper published in [PLOS ONE](https://doi.org/10.1371/journal.pone.0353069).
 
 ## Jul 2026
 - Joined the Institute of Appropriate Technology, BUET as **Fab Lab Program Engineer**.
@@ -30,7 +27,8 @@ limit: 10
 - Served as a reviewer for the 7th African and 9th European **IEOM** conferences.
 
 ## Dec 2025
-- Presented our stochastic modeling paper at the 8th IEOM Bangladesh conference.
+- Presented *eGov-Lens* at the 28th **ICCIT**.
+- Presented our stochastic modeling paper at the 8th **IEOM** Bangladesh conference.
 
 ## Nov 2025
 - Led Team ZeroAuth in the AI-FICATION hackathon at CUET (Bangla dialect ASR).
