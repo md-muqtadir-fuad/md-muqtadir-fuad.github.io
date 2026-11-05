@@ -75,6 +75,10 @@ main section[id] {
 .sidebar-links svg {
   @apply w-4 h-4 shrink-0;
 }
+/* Sidebar: light green button to the Space Shooter game */
+.sidebar-links a.game-btn {
+  @apply border border-green-600 bg-green-100 text-green-900 px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-widest no-underline shadow-[2px_2px_0_#16a34a] transition-all hover:bg-green-200 hover:no-underline hover:-translate-y-px hover:shadow-[3px_3px_0_#16a34a];
+}
 
 .news-list li {
   @apply grid grid-cols-[5.5rem_1fr] gap-3 py-1.5 text-sm md:text-base;

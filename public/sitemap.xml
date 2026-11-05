@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://md-muqtadir-fuad.github.io/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://md-muqtadir-fuad.github.io/blogs-posts/blogs.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://md-muqtadir-fuad.github.io/games/space-shooter.html</loc>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-badhan.html</loc>
@@ -39,10 +43,6 @@
   <url>
     <loc>https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-iot-platform.html</loc>
     <lastmod>2026-10-11</lastmod>
-  </url>
-  <url>
-    <loc>https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-quant-note-1.html</loc>
-    <lastmod>2026-10-21</lastmod>
   </url>
   <url>
     <loc>https://md-muqtadir-fuad.github.io/blogs-posts/posts/blog-querynest.html</loc>
