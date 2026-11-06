@@ -20,9 +20,9 @@ readTime: "2 hr read"
 # ------------------------------------------------------------------------------
 # OPTIONAL ADVANCED FIELDS (Uncomment to enable):
 # ------------------------------------------------------------------------------
-# coverImage: "https://example.com/cover.jpg"
-# coverCaption: "System diagram overview."
-# coverAlt: "Descriptive alt text"
+coverImage: "/assets/images/stories/story-2-gutenberg.jpg"
+coverCaption: "Johannes Gutenberg in his 15th-century Mainz workshop casting movable lead type."
+coverAlt: "Gutenberg's workshop with movable metal type and screw press"
 # keywords: ["Machine Learning", "Optimization"]
 author: "Md. Muqtadir Fuad"
 # authorBio: false # Set to false if you don't want the author bio box at the bottom
@@ -33,6 +33,8 @@ author: "Md. Muqtadir Fuad"
 <!-- ======================================================================== -->
 ## Story One: The Blood Price of Asphodel
 
+![The Blood Price of Asphodel: An ethereal sacred stag stands in an asphodel meadow as the Mycenaean fleet waits in the mist](/assets/images/stories/story-1-asphodel.jpg)
+
 In the bronze age of Peloponnese, when Mycenaean kings still claimed descent from Zeus, the perilous and narrow strait of Salamis was bedeviled by a pervasive curse. Dark omens in the limpid coastal waters seemed to portend ruin for King Menelaus’s fractious fleet, which had grown sluggish and somnolent while awaiting favorable winds. Though a stoic commander of sharp tactical acumen, the king was surrounded by complacent and myopic advisors whose rudimentary grasp of sea lore could only hamper the voyage.
 
 To expedite their departure, Menelaus summoned Calchas, an eccentric seer with a predilection for esoteric rites. The prophet was the exact antithesis of the boisterous, ostentatious Mycenaean warlords; he lived a spartan existence and chose to eschew royal gold. With a slow, provincial drawl, Calchas mocked the court’s sham piety and satirical ballads. He refused to offer perfunctory obeisance to the throne, nor would he feign a mawkish sympathy for the nobles who began to lament their stalled ambitions.
@@ -42,6 +44,8 @@ During a clandestine midnight council, while deliberating over a cumbersome bron
 The accused warlord, a truculent and churlish brute, tried to remain nonchalant and evasive, even attempting to avow that his captains were merely partial to hunting wild game. Yet the fastidious priest demanded a chivalrous sacrifice that would supersede all royal decrees. With his bowstring pulled taut, the king had no choice but to sever his alliance with the offending lord, taking no relish in the blood price required to make the wind indispensable to their sails blow once more.
 
 ## Story Two: The Lead Alloy Awakening: Gutenberg, Typography, and the Death of the Medieval Information Monopoly
+
+![The Lead Alloy Awakening: Johannes Gutenberg composing movable lead type under warm lantern light in Mainz](/assets/images/stories/story-2-gutenberg.jpg)
 
 For nearly a millennium following the collapse of the Western Roman Empire, the preservation of European knowledge rested within the quiet, vaulted chambers of monastic scriptoria. In these secluded enclaves, scribes labored over vellum and parchment, treating the act of copying texts as a sacred, almost numinous vocation. Yet as the fifteenth century dawned, this medieval system of information management had grown hopelessly lethargic and incapable of meeting the demands of a rapidly expanding society. Burgeoning urban centers, newly chartered universities, and a rising merchant class hungered for legal codes, scientific treatises, and vernacular literature. The hand-copying model was simply no longer tenable. Into this bottleneck stepped Johannes Gutenberg of Mainz, an inventor whose mechanical synthesis of movable metal type, oil-based ink, and the screw press ignited a tempestuous technological revolution—one that would permanently shatter the medieval monopoly on human thought.
 
@@ -64,6 +68,8 @@ Looking back through the documentary record of early modern Europe, the contrast
 
 ## Story Three: The Pelton Wheel Fallacy
 
+![The Pelton Wheel Fallacy: Miniature Pelton turbine wheel testing under high-pressure water spray in a nocturnal engineering laboratory](/assets/images/stories/story-3-pelton-wheel.jpg)
+
 During the second-year fluid mechanics sessional at the university, Porter agreed to collaborate with Sara on building a miniature Pelton wheel turbine. Though naturally reticent, Porter felt an inborn affinity for her, disguising his romantic fervor behind an altruistic willingness to debug her MATLAB scripts at two in the morning. Their departmental advisor was an exacting professor whose stringent grading rubrics and astringent, scathing critiques left half the sophomores flummoxed. Yet working beside Sara beneath the flickering fluorescent lights of the machine shop felt exhilarating to Porter, shaking him out of his usual post-lecture torpor and lethargic routine. He was a competent and adroit CAD designer, always ready to amend a flawed impeller drawing or trim extraneous, diffuse paragraphs from their lab reports until the technical methodology was pellucid and exhaustive.
 
 However, Sara’s attention had already drifted toward Chase, a self-styled campus polymath and versatile debater from their section. To Porter, Chase was an elitist showman who hid a superficial grasp of thermodynamics behind baroque vocabulary and a Byzantine web of excuses whenever group work was due. While Porter refused to deride Chase openly, he watched with quiet animus as Sara became an eager apologist for Chase’s wayward lab attendance. Whenever Chase offered a conciliatory smile or mimiced the professor’s quirks, Sara’s guarded countenance softened with overt admiration. During fluid lab hours, Porter began noticing subtle, surreptitious glances and covert text messages passing between them across the hydraulic bench—a tantalizing proximity that reminded Porter how divorced his rational engineering mind was from the mechanics of her heart.
@@ -74,6 +80,8 @@ That evening, standing outside the mechanical annex as autumn rain blurred the c
 
 ## Story Four: The Cipher of Sector Four
 
+![The Cipher of Sector Four: Secret rendezvous in the 1961 Tiergarten fog of divided Berlin near the ruins of a cathedral](/assets/images/stories/story-4-berlin-cipher.jpg)
+
 In the winter of 1961, behind the heavy velvet curtain of divided Berlin—where orders to curtail border crossings had just been finalized—cryptographer Viktor Mahler worked inside a windowless listening post. His task was to elucidate an inscrutable Soviet one-time pad whose mathematical structure seemed to antedate modern computer ciphers. While his feckless superiors wallowed in bureaucratic apathy and monotonous committee meetings, Viktor remained thorough and judicious. He refused to let the entrenched orthodoxy of the agency inhibit his iconoclastic methods. For months, he had chosen to immure himself in the basement vault to ruminate over peculiar frequency anomalies and refine a synoptic overview of Warsaw Pact transmissions. Though his divergent theories threatened to alienate him from the directorate’s consensus, a lucid breakthrough finally left him quietly elated.
 
 The intercepted cables exposed "Vesper," a sophisticated double agent operating under the cloak of a West German trade attaché. Publicly, Western officials chose to lionize the attaché as a visionary diplomat of impeccable propriety and understated charm, allowing him to enchant high-society salons with exotic tales and the sheer scintillation of his wit. In reality, he was an unscrupulous, profligate operative whose exploitative network thrived on ideological strife. Apropos of the upcoming Geneva summit, Vesper had begun to premeditate a sensational betrayal that would violate every allied security protocol in an already volatile sector. To gratify his Moscow handlers, he intended to distort NATO radar assessments and forsake three field couriers to certain execution.
@@ -82,8 +90,9 @@ When Viktor presented pertinent proof of the mole’s virulent treason, the stat
 
 That night, stripping away all superfluous caution, Viktor decided to improvise a daring extraction in the Tiergarten fog. Meeting a skittish field courier beside a bombed-out cathedral, he handed over the raw cipher key so the doomed operatives could evade the KGB trap before dawn.
 
+## Story Five: The Separation Gap on Valve Three
 
-## Story Five:  The Separation Gap on Valve Three
+![The Separation Gap on Valve Three: NASA failure analysis cleanroom investigation of the Space Shuttle hydrogen flow control valve](/assets/images/stories/story-5-shuttle-valve.jpg)
 
 In December 2008, after Space Shuttle *Endeavour* returned from STS-126 with an erratic pressure signature in its main propulsion system, NASA propulsion engineer Bill Gerstenmaier had to ascertain why a tiny gaseous hydrogen flow control valve had failed. While acquisitive defense contractors and sanctimonious bureau chiefs offered tepid, prolix briefings to deflect blame, Gerstenmaier held a deep aversion to bogus assurances. He refused to discount the predicament or abet a foolhardy rush to launch the next orbiter, knowing a fractured titanium poppet could rupture a cryogenic line and trigger a cataclysmic explosion. Treating the anomaly as a veritable crisis rather than a subordinate maintenance issue, he gathered an industrious, proficient failure-analysis team in Huntsville to inspect the barely accessible internal lip of the valve.
 
@@ -95,7 +104,9 @@ Though naturally modest and never inclined to divulge his own exhausting hours o
 
 For a deeper look at how engineers diagnosed and solved another famous mechanical flaw in NASA's rocket propulsion history, watch [The Saturn V's Weakest Link: How Engineers Solved Its Biggest Flaw](https://www.youtube.com/watch?v=lQmnIuZ60yE).
 
-## Story Six:  Bread, Roses, and the Looms of Lawrence
+## Story Six: Bread, Roses, and the Looms of Lawrence
+
+![Bread, Roses, and the Looms of Lawrence: Striking textile workers marching through snow past Lawrence woolen mills with Bread and Roses banners](/assets/images/stories/story-6-bread-and-roses.jpg)
 
 In January 1912, when a new Massachusetts labor law reduced the maximum workweek for women and children from fifty-six to fifty-four hours, William Wood—president of the American Woolen Company—used the statute as a base and expedient excuse to cut the weekly wages of thirty thousand immigrant weavers. To the mill barons, deducting three loaves of bread worth of pay was a minute, pedestrian ledger adjustment. Yet for glum families already enduring woeful tenement conditions and perennial malnutrition, this discrepancy in their pay envelopes was a matter of survival. For years, pious corporate philanthropists had touted their munificent civic largess while using duplicitous bookkeeping to conceal official malfeasance and coercion on the factory floor. When naive, gawky Polish and Italian loom-tenders opened their shorted envelopes on January 11, they refused to supplicate before the foremen; instead, they shut down the machinery, turning a local grievance into the harbinger of a radical industrial awakening.
 
@@ -105,7 +116,9 @@ To discomfort (*discomfit*) the state militia and keep national newspapers abrea
 
 Summoned to Washington, teenage mill worker Camella Teoli testified before Congress without a single digression, delivering a terse account of how a twisting machine had torn her scalp off in the factory. Her prowess on the witness stand helped distill the moral core of the strike, inspiring writers to coin the movement the "Bread and Roses" strike—a demand for both temporal survival and noble human dignity. By March, unable to anoint a viable replacement workforce or crush the dissent before a recrudescence of spring protests, the textile trust capitulated, granting raises to a quarter-million workers across New England.
 
-# Story Seven: The Iron Ravens of Sicily
+## Story Seven: The Iron Ravens of Sicily
+
+![The Iron Ravens of Sicily: The Roman Corvus boarding bridge crashing down on a Carthaginian galley at the Battle of Cape Ecnomus](/assets/images/stories/story-7-iron-ravens.jpg)
 
 In 264 BCE, an imminent clash over the strategic straits of Messina plunged the Mediterranean into an unprecedented war. For generations, Carthage had ruled the waves with prodigidous maritime experience, leaving Rome’s fledgling naval forces at a severe disadvantage. Yet the Roman Senate remained resolute, refusing to accept a stinting peace or let Mediterranean trade routes stay inviolate to Punic control. To extrapolate a path to victory, Roman shipwrights engineered a cumbersome yet revolutionary boarding bridge known as the *corvus*—a supple mechanism designed to drop like an iron claw onto enemy decks. This device would render Carthaginian naval superiority obsolete by transforming complex sea maneuvers into elementary infantry combat.
 
