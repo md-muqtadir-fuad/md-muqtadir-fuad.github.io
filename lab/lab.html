@@ -3,270 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Synapse Lab // Spatial Prototyping Workbench — Md. Muqtadir Fuad</title>
-  <meta name="description" content="Spatial drafting workbench and physical prototyping laboratory of Md. Muqtadir Fuad. Interactive CAD splines, kinematics, and epidemiological forecasting dossiers.">
+  <title>My Workspace — Md. Muqtadir Fuad</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./lab.css">
 </head>
 <body>
 
-  <!-- Minimal Workbench Header -->
-  <header class="lab-header">
-    <div class="lab-header-left">
-      <a href="/lab/lab.html" class="lab-title">
-        <span>MMF // RESEARCH WORKBENCH</span>
-        <span class="lab-badge">DESK #02</span>
-      </a>
+  <!-- Top Header Strip -->
+  <header class="cabinet-header">
+    <div class="header-left">
+      <a href="/" class="cabinet-btn-nav">&larr; Main Site</a>
+      <a href="/lab/cutting-mat.html" class="cabinet-btn-nav" style="margin-left: 0.5rem;">Cutting Mat</a>
     </div>
 
-    <div class="lab-header-center">
-      <span id="deskCoords">PAN: (0, 0)</span>
-      <span>&bull;</span>
-      <span id="deskZoom">SCALE: 100%</span>
-      <span>&bull;</span>
-      <span>GRID: 10mm CALIBRATED</span>
+    <div class="header-title-box">
+      <div class="header-title">MY WORKSPACE</div>
     </div>
 
-    <div class="lab-header-right">
-      <button id="btnAutoArrange" class="lab-btn" title="Organize all dossiers into a neat drafting grid">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        AUTO-ARRANGE
-      </button>
-      <button id="btnCenterDesk" class="lab-btn" title="Center desk to origin">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        CENTER
-      </button>
-      <a href="/" class="lab-btn lab-btn-accent" title="Return to main portfolio">
-        &larr; MAIN SITE
-      </a>
+    <div class="header-right">
+      <span id="liveClock" class="clock-live">00:00:00 BST</span>
     </div>
   </header>
 
-  <!-- Metric Millimeter Rulers -->
-  <div class="ruler-top">
-    <canvas id="rulerTopCanvas" class="ruler-canvas"></canvas>
-  </div>
-  <div class="ruler-left">
-    <canvas id="rulerLeftCanvas" class="ruler-canvas"></canvas>
-  </div>
+  <!-- Main Horizontal Cabinet Layout -->
+  <main class="cabinet-workbench">
 
-  <!-- Infinite Cutting Mat Viewport -->
-  <main id="matViewport" class="mat-viewport" tabindex="0" aria-label="Infinite cutting mat workbench">
-    <div id="matPlane" class="mat-canvas-plane">
-
-      <!-- Dossier Card 01: BezierLab -->
-      <article class="mat-card" id="card-bezier" style="left: 1720px; top: 1750px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-01 // ALGO-CAD</span>
-          <span class="dossier-pill active">LIVE ENGINE</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Computational Geometry</div>
-          <h2 class="dossier-title">BezierLab — Spline Engine &amp; Curvature Comb</h2>
-          <p class="dossier-desc">
-            Interactive toolpath and spline evaluator based on Bernstein polynomials, de Casteljau recursion, and G1/G2 continuity verification for CNC and CAD generation.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasBezier" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">Bernstein Polynomials</span>
-            <span class="dossier-tag">G2 Continuity</span>
-            <span class="dossier-tag">TypeScript</span>
-            <span class="dossier-tag">Canvas2D</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">STATUS: PRODUCTION</span>
-          <a href="https://github.com/md-muqtadir-fuad/BezierLab" target="_blank" rel="noopener noreferrer" class="dossier-link">
-            OPEN REPO &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Dossier Card 02: Adaptive Dengue Forecasting -->
-      <article class="mat-card" id="card-dengue" style="left: 2110px; top: 1750px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-02 // BIO-STATS</span>
-          <span class="dossier-pill published">PLOS ONE</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Epidemiological Modeling</div>
-          <h2 class="dossier-title">Adaptive Dengue Forecasting System</h2>
-          <p class="dossier-desc">
-            Empirical Mode Decomposition + bidirectional LSTM neural ensemble predicting climate-driven vector outbreaks across all 8 administrative divisions of Bangladesh.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasDengue" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">PLOS ONE Peer-Reviewed</span>
-            <span class="dossier-tag">EMD / CEEMDAN</span>
-            <span class="dossier-tag">Bi-LSTM</span>
-            <span class="dossier-tag">Wavelet</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">IMPACT: 2024 PAPER</span>
-          <a href="https://doi.org/10.1371/journal.pone.0298706" target="_blank" rel="noopener noreferrer" class="dossier-link">
-            READ PAPER &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Dossier Card 03: Spectral Matcher -->
-      <article class="mat-card" id="card-spectral" style="left: 2500px; top: 1750px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-03 // OPTICS</span>
-          <span class="dossier-pill">PHYSICS SIM</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Inverse Scattering &amp; Dyes</div>
-          <h2 class="dossier-title">Forward-Inverse Spectral Matcher</h2>
-          <p class="dossier-desc">
-            Turbid medium Kubelka-Munk radiative transfer formulation combined with differential evolution to invert raw spectrophotometer curves into exact textile dye formulation recipes.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasSpectral" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">Kubelka-Munk Theory</span>
-            <span class="dossier-tag">Differential Evolution</span>
-            <span class="dossier-tag">NumPy</span>
-            <span class="dossier-tag">Optics</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">ACCURACY: &Delta;E &lt; 0.6</span>
-          <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer" class="dossier-link">
-            VIEW SPECS &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Dossier Card 04: BUET Fab Lab Robot -->
-      <article class="mat-card" id="card-robot" style="left: 1720px; top: 2220px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-04 // MECHATRONICS</span>
-          <span class="dossier-pill active">BUET FAB LAB</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Kinematics &amp; Automation</div>
-          <h2 class="dossier-title">Automated Shoe Care Robot</h2>
-          <p class="dossier-desc">
-            Custom 3-axis CNC gantry with precision cam linkages, compliant polishing end-effectors, and closed-loop position feedback prototyped at BUET Fab Lab.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasKinematics" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">BUET Fab Lab</span>
-            <span class="dossier-tag">Cam Kinematics</span>
-            <span class="dossier-tag">Embedded C++</span>
-            <span class="dossier-tag">SolidWorks</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">STATUS: BUILT PROTOTYPE</span>
-          <a href="/" class="dossier-link">
-            PROJECT DOSSIER &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Dossier Card 05: Sorting Conveyor -->
-      <article class="mat-card" id="card-conveyor" style="left: 2110px; top: 2220px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-05 // CYBER-PHYSICAL</span>
-          <span class="dossier-pill">EDGE IOT</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Edge Vision &amp; Actuation</div>
-          <h2 class="dossier-title">Dynamic Optical Sorting Conveyor</h2>
-          <p class="dossier-desc">
-            Real-time optical object defect detection with microsecond pneumatic reject actuation, continuous encoder tracking, and live MQTT telemetry diagnostics.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasConveyor" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">ESP32</span>
-            <span class="dossier-tag">OpenCV Edge</span>
-            <span class="dossier-tag">MQTT</span>
-            <span class="dossier-tag">Pneumatics</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">LATENCY: &lt;14ms TRIGGER</span>
-          <a href="/" class="dossier-link">
-            SYSTEM DIAGRAM &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Dossier Card 06: Arcade Engine -->
-      <article class="mat-card" id="card-arcade" style="left: 2500px; top: 2220px;">
-        <div class="mat-tape"></div>
-        <div class="mat-card-header">
-          <span class="dossier-id">DS-06 // KINETIC ENGINE</span>
-          <span class="dossier-pill active">INTERACTIVE</span>
-        </div>
-        <div class="mat-card-body">
-          <div class="dossier-category">Real-time Simulation</div>
-          <h2 class="dossier-title">Deterministic 2D Space Engine</h2>
-          <p class="dossier-desc">
-            Fixed-timestep simulation kernel featuring Verlet particle integration, spatial grid broadphase collision detection, and zero-dependency 60fps vector graphics.
-          </p>
-          <div class="schematic-box">
-            <canvas id="canvasArcade" width="310" height="78" class="schematic-canvas"></canvas>
-          </div>
-          <div class="dossier-tags">
-            <span class="dossier-tag">Verlet Integration</span>
-            <span class="dossier-tag">Spatial Hash</span>
-            <span class="dossier-tag">Pure JS</span>
-            <span class="dossier-tag">60 FPS</span>
-          </div>
-        </div>
-        <div class="mat-card-footer">
-          <span style="color: #6b7280;">KERNEL: ZERO DEPS</span>
-          <a href="/games/space-shooter/" class="dossier-link">
-            RUN SIMULATION &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- Tactical Fab Lab Field Sticky Note -->
-      <div class="mat-sticky-note" id="stickyNote" style="left: 1470px; top: 1780px; transform: rotate(-2.5deg);">
-        <strong style="display: block; font-family: monospace; font-size: 0.78rem; margin-bottom: 0.35rem; color: #615a16; text-decoration: underline;">FAB LAB BUET // FIELD NOTE</strong>
-        &bull; Check stepper pulse timing on axis 2.<br>
-        &bull; 0.2mm backlash on lead screw resolved with pre-loaded nut.<br>
-        &bull; Laser bed zero point calibrated for 3mm cast acrylic sheet.<br>
-        &bull; <em>Remember: clamp workpiece firmly before high RPM spindle engage!</em>
+    <!-- Left Column: Manifesto & Minimalist Frame Sketch -->
+    <aside class="manifesto-col">
+      <div class="manifesto-lead">
+<!-- AUTO_GENERATED_LAB_MANIFESTO_START -->
+        <p>
+          This is my personal experimental workspace documenting ongoing investigations, completed prototypes, and working research papers.
+        </p>
+        <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          An open architectural environment designed to test mechanical systems, develop computational geometry algorithms, and organize technical notes.
+        </p>
+<!-- AUTO_GENERATED_LAB_MANIFESTO_END -->
       </div>
+
+      <div class="manifesto-divider"></div>
+
+      <!-- Plain Links: Kaggle, GitHub, Scholar, Completed Projects -->
+      <nav class="manifesto-links" aria-label="Profiles and Completed Projects">
+        <a href="https://www.kaggle.com/mdmuqtadirfuad" target="_blank" rel="noopener noreferrer">Kaggle</a>
+        <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=KumeQCkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Scholar</a>
+        <a href="#completed-projects" id="linkCompletedProjects">Completed projects</a>
+      </nav>
+    </aside>
+
+    <!-- Vertical Partition Drawer Accordion (3 Sections) -->
+    <div class="cabinet-drawers" id="cabinetDrawers">
+
+      <!-- ======================================================================
+           DRAWER 01: ONGOING PROJECTS (NO IMAGES)
+           ====================================================================== -->
+      <section class="drawer-section expanded" data-drawer="ongoing">
+        <div class="drawer-tab" title="Expand Ongoing Projects">
+          <div class="drawer-dot"></div>
+          <div class="drawer-label">Ongoing Projects</div>
+        </div>
+        <div class="drawer-content">
+
+          <div class="editorial-single-col">
+<!-- AUTO_GENERATED_LAB_ONGOING_START -->
+            <!-- Item 01 -->
+            <article class="single-project-item">
+              <h3 class="editorial-title">Kaggle: HVAC design - Neural IPS 2026</h3>
+              <p class="editorial-desc">
+                Intelligent HVAC that will be environment adabtable, enery efficient.
+              </p>
+              <a href="https://www.kaggle.com/competitions/neurips-2026-smart-buildings" class="editorial-link">Project Notes</a>
+            </article>
+<!-- AUTO_GENERATED_LAB_ONGOING_END -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           DRAWER 02: COMPLETED PROJECTS (SINGLE COLUMN DUMMY LIST)
+           ====================================================================== -->
+      <section class="drawer-section collapsed" data-drawer="completed">
+        <div class="drawer-tab" title="Completed Projects"></div>
+        <div class="drawer-content">
+
+          <div class="editorial-single-col">
+<!-- AUTO_GENERATED_LAB_COMPLETED_START -->
+            <!-- Item 01 -->
+            <article class="single-project-item">
+              <h3 class="editorial-title">Maritime Supply Chain Resilience with the help of LLMs</h3>
+              <p class="editorial-desc">
+                Can LLMs give any predictive signals about the incoming disruption?
+              </p>
+              <a href="#" class="editorial-link" onclick="event.preventDefault();">Project Notes</a>
+            </article>
+<!-- AUTO_GENERATED_LAB_COMPLETED_END -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           DRAWER 03: PAPERS (PLAIN STANDARD LIST)
+           ====================================================================== -->
+      <section class="drawer-section collapsed" data-drawer="papers">
+        <div class="drawer-tab" title="Expand Papers">
+          <div class="drawer-dot"></div>
+          <div class="drawer-label">Papers</div>
+        </div>
+        <div class="drawer-content">
+          <ol class="plain-paper-list">
+<!-- AUTO_GENERATED_LAB_PAPERS_START -->
+            <li>
+              <div class="paper-title">Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh</div>
+              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Md. Sajib Milki, Ridwan Al Aziz</div>
+              <div class="paper-venue"><em>PLOS ONE</em>, 2026</div>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer">Paper</a>
+                <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer">Data</a>
+                <a href="/blogs-posts/posts/blog-dengue.html">Blog</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="paper-title">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</div>
+              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Abdullah Al Mazid, Md. Istiak Adnan, Tirthojit Das, Shatabdi Sen Prapti, Nafisa Mahbub</div>
+              <div class="paper-venue"><em>28th International Conference on Computer and Information Technology (ICCIT)</em>, 2025</div>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank" rel="noopener noreferrer">Paper</a>
+                <a href="https://github.com/md-muqtadir-fuad/eGov-Lens" target="_blank" rel="noopener noreferrer">Code &amp; Data</a>
+                <a href="/blogs-posts/posts/blog-egov-lens.html">Blog</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="paper-title">Aerodynamic Performance Analysis of NACA 4415 Airfoil Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis</div>
+              <div class="paper-authors">Md Zisanul Haque Bhuiyan, <strong>Md. Muqtadir Fuad</strong>, Masud Rana, A. S. M. Maruf Hasan, Khalid Ammar</div>
+              <div class="paper-venue"><em>7th Bangladesh Conference on Industrial Engineering and Operations Management</em>, 2024</div>
+              <div class="paper-links">
+                <a href="https://doi.org/10.46254/BA07.20240040" target="_blank" rel="noopener noreferrer">Paper</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="paper-title">A Physics-Informed Inverse Machine Learning Framework for High-Dimensional Sparse Recipe Reconstruction</div>
+              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Md. Istiak Adnan, Ridwan Al Aziz</div>
+              <div class="paper-venue"><em>Under review</em>, 2026</div>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2610.14097" target="_blank" rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+<!-- AUTO_GENERATED_LAB_PAPERS_END -->
+          </ol>
+        </div>
+      </section>
 
     </div>
   </main>
-
-  <!-- Bottom HUD / Controls -->
-  <aside class="mat-hud-bottom">
-    <div class="mat-hud-hint">
-      <strong>DESK CONTROLS:</strong> Drag mat to pan &bull; Scroll / Pinch to zoom &bull; Drag cards to organize desk &bull; Double-click card to bring forward
-    </div>
-
-    <div class="mat-zoom-btns">
-      <button id="btnZoomOut" class="zoom-btn" title="Zoom Out" aria-label="Zoom Out">&minus;</button>
-      <button id="btnZoomReset" class="zoom-btn zoom-reset" title="Reset Zoom">100%</button>
-      <button id="btnZoomIn" class="zoom-btn" title="Zoom In" aria-label="Zoom In">&plus;</button>
-    </div>
-  </aside>
 
   <script type="module" src="./lab.js"></script>
 </body>

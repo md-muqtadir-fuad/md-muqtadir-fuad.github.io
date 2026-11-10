@@ -1,23 +1,23 @@
 /* ==============================================================================
-   SYNAPSE LAB // SPATIAL CUTTING MAT & PROTOTYPING WORKBENCH
-   lab/lab.css - Isolated Stylesheet for /lab/lab.html
+   MY WORKSPACE // EDITORIAL ARCHITECTURAL PARTITIONS
+   lab/demo1.css - Isolated Stylesheet (Frameless Editorial Layout)
    ============================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  --mat-green: #14211d;
-  --mat-grid-minor: rgba(255, 255, 255, 0.08);
-  --mat-grid-major: rgba(255, 255, 255, 0.2);
-  --mat-grid-angle: rgba(255, 255, 255, 0.04);
-  --mat-tape: rgba(235, 222, 192, 0.88);
-  --mat-card-bg: #faf9f6;
-  --mat-card-border: #dcd8cc;
-  --mat-text: #17181a;
-  --mat-text-muted: #5c626e;
-  --mat-accent-green: #2ecc71;
-  --mat-accent-blue: #0284c7;
-  --mat-accent-amber: #d97706;
-  --mat-font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-  --mat-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg-cabinet: #ebe9f2;
+  --bg-panel: #ebe9f2; /* Kept completely uniform with cabinet background */
+  --border-line: #18181b;
+  --border-subtle: rgba(24, 24, 27, 0.16);
+  --text-main: #141416;
+  --text-muted: #4e4e56;
+  --text-light: #767682;
+  --accent-dot: #111113;
+  --accent-blue: #0284c7;
+  --font-serif: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
 }
 
 *, *::before, *::after {
@@ -30,437 +30,557 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: var(--mat-green);
-  color: #fff;
-  font-family: var(--mat-font-sans);
-  user-select: none;
-  -webkit-user-select: none;
+  background-color: var(--bg-cabinet);
+  color: var(--text-main);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Minimal Top HUD Header */
-.lab-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  z-index: 100;
-  background: rgba(14, 22, 19, 0.94);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+/* ==============================================================================
+   1. TOP ARCHITECTURAL HEADER
+   ============================================================================== */
+.cabinet-header {
+  height: 48px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-line);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25rem;
-  font-family: var(--mat-font-mono);
-  font-size: 0.75rem;
+  padding: 0 1.5rem;
+  background-color: var(--bg-cabinet);
+  position: relative;
+  z-index: 50;
 }
 
-.lab-header-left {
+.header-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.lab-title {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.cabinet-btn-nav {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
   text-decoration: none;
-}
-
-.lab-badge {
-  background: rgba(46, 204, 113, 0.15);
-  color: var(--mat-accent-green);
-  border: 1px solid rgba(46, 204, 113, 0.3);
-  font-size: 0.65rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  font-weight: 600;
-}
-
-.lab-header-center {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #8da49b;
-  font-size: 0.72rem;
-}
-
-@media (max-width: 768px) {
-  .lab-header-center {
-    display: none;
-  }
-}
-
-.lab-header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.lab-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #e2e8f0;
-  padding: 0.35rem 0.75rem;
-  border-radius: 4px;
-  font-family: var(--mat-font-mono);
-  font-size: 0.72rem;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
-  transition: all 0.15s ease;
+  gap: 0.35rem;
+  transition: color 0.15s;
 }
-.lab-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
-}
-.lab-btn-accent {
-  background: rgba(46, 204, 113, 0.15);
-  color: var(--mat-accent-green);
-  border-color: rgba(46, 204, 113, 0.4);
-}
-.lab-btn-accent:hover {
-  background: var(--mat-accent-green);
-  color: #000;
+.cabinet-btn-nav:hover {
+  color: var(--text-main);
 }
 
-/* Metric Rulers along Top & Left Edge */
-.ruler-top {
+.header-title-box {
   position: absolute;
-  top: 44px;
-  left: 32px;
-  right: 0;
-  height: 22px;
-  background: rgba(16, 26, 23, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 50;
-  pointer-events: none;
-  font-family: var(--mat-font-mono);
-  font-size: 0.62rem;
-  color: #7d968d;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.header-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-main);
   white-space: nowrap;
 }
 
-.ruler-left {
-  position: absolute;
-  top: 66px;
-  left: 0;
-  width: 32px;
-  bottom: 0;
-  background: rgba(16, 26, 23, 0.95);
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 50;
-  pointer-events: none;
-  font-family: var(--mat-font-mono);
-  font-size: 0.62rem;
-  color: #7d968d;
-}
-
-/* Infinite Cutting Mat Viewport */
-.mat-viewport {
-  position: absolute;
-  top: 44px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  cursor: grab;
-}
-.mat-viewport.is-panning {
-  cursor: grabbing;
-}
-
-/* The 4000x4000px Cutting Mat Canvas Plane */
-.mat-canvas-plane {
-  position: absolute;
-  width: 4000px;
-  height: 4000px;
-  top: 0;
-  left: 0;
-  background-color: var(--mat-green);
-  background-image: 
-    linear-gradient(var(--mat-grid-minor) 1px, transparent 1px),
-    linear-gradient(90deg, var(--mat-grid-minor) 1px, transparent 1px),
-    linear-gradient(var(--mat-grid-major) 1px, transparent 1px),
-    linear-gradient(90deg, var(--mat-grid-major) 1px, transparent 1px),
-    linear-gradient(45deg, var(--mat-grid-angle) 1px, transparent 1px);
-  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px, 200px 200px;
-  transform-origin: 0 0;
-  will-change: transform;
-}
-
-/* Tactile Dossier Cards */
-.mat-card {
-  position: absolute;
-  width: 350px;
-  background: var(--mat-card-bg);
-  border-radius: 4px;
-  border: 1px solid var(--mat-card-border);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.18);
-  cursor: move;
-  cursor: grab;
-  transition: box-shadow 0.18s ease, transform 0.18s ease;
-  color: var(--mat-text);
-  overflow: visible;
-}
-.mat-card:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.22);
-}
-.mat-card.is-dragging {
-  cursor: grabbing;
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55), 0 8px 18px rgba(0, 0, 0, 0.3);
-  z-index: 100 !important;
-}
-
-/* Masking Tape on top */
-.mat-tape {
-  position: absolute;
-  top: -11px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-1.5deg);
-  width: 90px;
-  height: 20px;
-  background: var(--mat-tape);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  pointer-events: none;
-  opacity: 0.95;
-  border-radius: 1px;
-}
-
-.mat-card-header {
-  padding: 0.85rem 1.15rem 0.5rem 1.15rem;
-  border-bottom: 1px solid #ebe7dc;
+.header-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-family: var(--mat-font-mono);
-  font-size: 0.68rem;
-  color: var(--mat-text-muted);
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
 }
 
-.dossier-id {
-  font-weight: 700;
-  color: #121314;
+.clock-live {
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
-.dossier-pill {
-  font-weight: 600;
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  font-size: 0.65rem;
-  background: #eeebe1;
-  color: #444;
-}
-.dossier-pill.active {
-  background: rgba(46, 204, 113, 0.15);
-  color: #1b8a4a;
-}
-.dossier-pill.published {
-  background: rgba(2, 132, 199, 0.15);
-  color: #0284c7;
+/* ==============================================================================
+   2. MAIN HORIZONTAL CABINET WORKBENCH
+   ============================================================================== */
+.cabinet-workbench {
+  display: flex;
+  height: calc(100vh - 48px);
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-cabinet);
 }
 
-.mat-card-body {
-  padding: 1rem 1.15rem;
+/* ==============================================================================
+   3. LEFT STATIC MANIFESTO & SKETCH COLUMN
+   ============================================================================== */
+.manifesto-col {
+  width: 310px;
+  min-width: 310px;
+  border-right: 1px solid var(--border-line);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-cabinet);
+  flex-shrink: 0;
 }
 
-.dossier-category {
-  font-family: var(--mat-font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--mat-accent-blue);
-  margin-bottom: 0.3rem;
+.manifesto-lead {
+  padding: 2.2rem 1.6rem 2rem 1.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--text-main);
 }
 
-.dossier-title {
+.manifesto-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-line);
+}
+
+/* Plain Links in Left Column */
+.manifesto-links {
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.manifesto-links a {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(24, 24, 27, 0.35);
+  transition: color 0.15s, text-decoration-color 0.15s;
+  width: fit-content;
+}
+
+.manifesto-links a:hover {
+  color: #000;
+  text-decoration-color: #000;
+}
+
+/* ==============================================================================
+   4. VERTICAL PARTITION DRAWER ACCORDION (3 SECTIONS)
+   ============================================================================== */
+.cabinet-drawers {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.drawer-section {
+  display: flex;
+  height: 100%;
+  border-right: 2px solid var(--border-line);
+  transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  background-color: var(--bg-cabinet);
+}
+
+.drawer-section:last-child {
+  border-right: none;
+}
+
+.drawer-section.collapsed {
+  flex: 0 0 52px;
+}
+
+.drawer-section.expanded {
+  flex: 1 1 0;
+  background-color: var(--bg-panel);
+}
+
+/* Vertical Tab Strip */
+.drawer-tab {
+  width: 52px;
+  min-width: 52px;
+  height: 100%;
+  border-right: 1px solid transparent;
+  background-color: var(--bg-cabinet);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 1.75rem;
+  user-select: none;
+  transition: background-color 0.15s;
+}
+
+.drawer-section.expanded .drawer-tab {
+  border-right: 2px solid var(--border-line);
+}
+
+.drawer-section.collapsed:hover .drawer-tab {
+  background-color: #dfddec;
+}
+
+/* Dot & Label */
+.drawer-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-main);
+  background: transparent;
+  margin-bottom: 1.35rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.drawer-section.expanded .drawer-dot {
+  background-color: var(--accent-dot);
+}
+
+.drawer-label {
+  font-family: var(--font-serif);
   font-size: 1.1rem;
-  font-weight: 800;
-  color: #111;
-  line-height: 1.35;
-  margin-bottom: 0.5rem;
-}
-
-.dossier-desc {
-  font-size: 0.84rem;
-  color: #4a515c;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-/* Schematics & Canvases */
-.schematic-box {
-  background: #f3f1e9;
-  border: 1px dashed #cdc9bc;
-  border-radius: 4px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-
-.schematic-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.ruler-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Specs Tags */
-.dossier-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.dossier-tag {
-  font-family: var(--mat-font-mono);
-  font-size: 0.68rem;
-  background: #ede9de;
-  color: #333;
-  padding: 0.18rem 0.45rem;
-  border-radius: 3px;
-}
-
-/* Card Footer with Link */
-.mat-card-footer {
-  padding: 0.65rem 1.15rem;
-  background: #f4f2ec;
-  border-top: 1px solid #ebe7dc;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--mat-font-mono);
-  font-size: 0.72rem;
-}
-
-.dossier-link {
-  color: #111;
-  text-decoration: none;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
+  letter-spacing: 0.1em;
+  color: var(--text-main);
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   transition: color 0.15s;
 }
-.dossier-link:hover {
-  color: var(--mat-accent-green);
+
+.drawer-section.collapsed:hover .drawer-label {
+  color: #000;
 }
 
-/* Sticky Note Artifact */
-.mat-sticky-note {
-  position: absolute;
-  width: 220px;
-  background: #fff585;
-  padding: 1.15rem;
-  border-radius: 2px;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
-  font-family: 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
-  font-size: 0.85rem;
-  color: #2e2c14;
-  line-height: 1.45;
-  cursor: grab;
-  border-left: 3px solid rgba(0, 0, 0, 0.08);
-}
-.mat-sticky-note.is-dragging {
-  cursor: grabbing;
-  z-index: 100 !important;
+/* ==============================================================================
+   TOTALLY BLACK STRIP FOR COMPLETED PROJECTS TAB (NO WRITING / NO DOT)
+   ============================================================================== */
+.drawer-section[data-drawer="completed"].collapsed {
+  flex: 0 0 8px;
 }
 
-/* Bottom Hint & Controls */
-.mat-hud-bottom {
-  position: fixed;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  right: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-  z-index: 80;
+.drawer-section[data-drawer="completed"] {
+  border-right: none;
 }
 
-.mat-hud-hint {
-  background: rgba(14, 22, 19, 0.9);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.4rem 0.85rem;
-  border-radius: 4px;
-  font-family: var(--mat-font-mono);
-  font-size: 0.7rem;
-  color: #9db5ab;
-}
-
-.mat-zoom-btns {
-  pointer-events: auto;
-  display: flex;
-  gap: 0.4rem;
-}
-
-.zoom-btn {
-  background: rgba(14, 22, 19, 0.92);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #e2e8f0;
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  font-family: var(--mat-font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
+.drawer-section[data-drawer="completed"] .drawer-tab {
+  width: 8px;
+  min-width: 8px;
+  background-color: #000000;
+  border: none;
+  padding-top: 0;
   cursor: pointer;
-  display: inline-flex;
+}
+
+.drawer-section[data-drawer="completed"].collapsed:hover .drawer-tab {
+  background-color: #18181b;
+}
+
+/* Expanded Panel Content */
+.drawer-content {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2.5rem 3.5rem 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease 0.08s;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.drawer-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+.drawer-section.expanded .drawer-content {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Editorial Lead Paragraph (No extra borders) */
+.editorial-lead {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  max-width: 880px;
+  letter-spacing: 0.01em;
+  margin-bottom: 2.75rem;
+}
+
+/* ==============================================================================
+   5. SINGLE COLUMN SHOWCASE (NO IMAGES, NO META TAGS, NO HORIZONTAL LINES)
+   ============================================================================== */
+.editorial-single-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+  max-width: 780px;
+  margin-bottom: 3rem;
+}
+
+.single-project-item {
+  display: flex;
+  flex-direction: column;
+  border-top: none;
+  padding-top: 0;
+}
+
+.single-project-item .editorial-title {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.single-project-item .editorial-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+/* Image Showcase Grid (Completed Projects) */
+.editorial-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1050px;
+  margin-bottom: 3rem;
+}
+
+.editorial-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Media Frame sitting directly on canvas */
+.editorial-media {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border: 1px solid var(--border-line);
+  background-color: #f7f6fb;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.editorial-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.editorial-item:hover .editorial-media img {
+  transform: scale(1.02);
+}
+
+.editorial-meta {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.15s ease;
-  user-select: none;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
 }
-.zoom-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
+
+.editorial-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
 }
-.zoom-btn:active {
-  transform: scale(0.95);
+
+.editorial-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
 }
-.zoom-btn.zoom-reset {
-  width: auto;
-  padding: 0 0.65rem;
+
+.editorial-link {
+  align-self: flex-start;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-line);
+  padding-bottom: 0.15rem;
+  transition: opacity 0.15s;
+}
+.editorial-link:hover {
+  opacity: 0.6;
+}
+
+/* ==============================================================================
+   6. PLAIN STANDARD PAPERS LIST (NO BOXES, NO ABSTRACTS)
+   ============================================================================== */
+.plain-paper-list {
+  list-style: decimal;
+  padding-left: 1.35rem;
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 0.5rem;
+}
+
+.plain-paper-list li {
+  color: var(--text-light);
+  line-height: 1.5;
+  padding-left: 0.35rem;
+}
+
+.plain-paper-list .paper-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.plain-paper-list .paper-authors {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.plain-paper-list .paper-authors strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.plain-paper-list .paper-venue {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.plain-paper-list .paper-venue em {
+  font-style: italic;
+  color: var(--text-main);
+}
+
+.plain-paper-list .paper-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.plain-paper-list .paper-links a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+}
+
+.plain-paper-list .paper-links a:hover {
+  opacity: 0.6;
+}
+
+/* ==============================================================================
+   7. RESPONSIVE DESIGN
+   ============================================================================== */
+@media (max-width: 1024px) {
+  .manifesto-col {
+    width: 250px;
+    min-width: 250px;
+  }
+  .drawer-content {
+    padding: 2rem;
+  }
+  .editorial-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
-  .mat-hud-hint {
+  html, body {
+    overflow-y: auto;
+  }
+  .cabinet-workbench {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .manifesto-col {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-line);
+  }
+  .manifesto-sketch-block {
     display: none;
   }
-  .mat-hud-bottom {
-    justify-content: flex-end;
+  .cabinet-drawers {
+    flex-direction: column;
+    height: auto;
   }
-  .ruler-top, .ruler-left {
-    display: none;
+  .drawer-section {
+    flex-direction: column;
+    border-right: none;
+    border-bottom: 1px solid var(--border-line);
   }
-  .mat-viewport {
-    top: 44px;
-    left: 0;
+  .drawer-section.collapsed {
+    flex: 0 0 52px;
+    height: 52px;
+  }
+  .drawer-tab {
+    width: 100%;
+    height: 52px;
+    flex-direction: row;
+    padding: 0 1.25rem;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid transparent;
+  }
+  .drawer-section.expanded .drawer-tab {
+    border-bottom: 1px solid var(--border-line);
+  }
+  .drawer-dot {
+    margin-bottom: 0;
+    margin-right: 0.85rem;
+  }
+  .drawer-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .drawer-content {
+    padding: 1.5rem;
+    height: auto;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .header-title {
+    font-size: 0.95rem;
   }
 }

@@ -30,6 +30,8 @@ function markdownWatcherPlugin() {
         [path.resolve(__dirname, 'content/projects.md')]: () => import('./scripts/build-sections.js').then(m => m.buildProjects()),
         [path.resolve(__dirname, 'content/experience.md')]: () => import('./scripts/build-sections.js').then(m => m.buildExperience()),
         [path.resolve(__dirname, 'content/honors.md')]: () => import('./scripts/build-sections.js').then(m => m.buildHonors()),
+        [path.resolve(__dirname, 'content/lab.md')]: () => import('./scripts/build-lab.js').then(m => m.buildLab()),
+        [path.resolve(__dirname, 'lab/lab.md')]: () => import('./scripts/build-lab.js').then(m => m.buildLab()),
       };
       server.watcher.add([contentDir, ...Object.keys(homeSections)]);
 
@@ -85,7 +87,7 @@ export default defineConfig(() => {
           blogs: path.resolve(__dirname, 'blogs-posts/blogs.html'),
           'space-shooter': path.resolve(__dirname, 'games/space-shooter.html'),
           lab: path.resolve(__dirname, 'lab/lab.html'),
-          'lab-index': path.resolve(__dirname, 'lab/index.html'),
+          'cutting-mat': path.resolve(__dirname, 'lab/cutting-mat.html'),
           '404': path.resolve(__dirname, '404.html'),
           ...getBlogInputs(),
         },
