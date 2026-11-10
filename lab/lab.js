@@ -1,423 +1,534 @@
 /**
- * FUAD SYNAPSE LAB // CYBER-PHYSICAL WORKBENCH & EXPERIMENTAL RESEARCH DECK
- * Isolated JavaScript Controller for /lab/lab.html
+ * ==============================================================================
+ * SYNAPSE LAB // SPATIAL CUTTING MAT & PROTOTYPING WORKBENCH
+ * lab/lab.js - Isolated Interactive Controller for /lab/lab.html
+ * ==============================================================================
  */
 
 (function () {
   'use strict';
 
-  // ==========================================================================
-  // 1. AUDIO SYNTHESIZER (Web Audio API)
-  // ==========================================================================
-  class LabAudioEngine {
-    constructor() {
-      this.ctx = null;
-      this.enabled = false;
+  // DOM Elements
+  const viewport = document.getElementById('matViewport');
+  const plane = document.getElementById('matPlane');
+  const rulerTopCanvas = document.getElementById('rulerTopCanvas');
+  const rulerLeftCanvas = document.getElementById('rulerLeftCanvas');
+  const deskCoordsEl = document.getElementById('deskCoords');
+  const deskZoomEl = document.getElementById('deskZoom');
+
+  const btnAutoArrange = document.getElementById('btnAutoArrange');
+  const btnCenterDesk = document.getElementById('btnCenterDesk');
+  const btnZoomIn = document.getElementById('btnZoomIn');
+  const btnZoomOut = document.getElementById('btnZoomOut');
+  const btnZoomReset = document.getElementById('btnZoomReset');
+
+  // Camera State
+  let panX = 0;
+  let panY = 0;
+  let scale = 1.0;
+  const MIN_SCALE = 0.45;
+  const MAX_SCALE = 1.85;
+
+  let isPanning = false;
+  let startPointerX = 0;
+  let startPointerY = 0;
+  let startPanX = 0;
+  let startPanY = 0;
+
+  // Active Pointers for Pinch-to-Zoom
+  const activePointers = new Map();
+  let initialPinchDistance = null;
+  let initialPinchScale = 1.0;
+  let pinchCenter = { x: 0, y: 0 };
+
+  // Card Management
+  let highestZ = 20;
+  const cards = Array.from(document.querySelectorAll('.mat-card, .mat-sticky-note'));
+
+  // Default Organized Grid Positions
+  const defaultPositions = [
+    { id: 'card-bezier', x: 1680, y: 1720 },
+    { id: 'card-dengue', x: 2070, y: 1720 },
+    { id: 'card-spectral', x: 2460, y: 1720 },
+    { id: 'card-robot', x: 1680, y: 2240 },
+    { id: 'card-conveyor', x: 2070, y: 2240 },
+    { id: 'card-arcade', x: 2460, y: 2240 },
+    { id: 'stickyNote', x: 1420, y: 1760 }
+  ];
+
+  // ============================================================================
+  // 1. CAMERA & VIEWPORT TRANSFORM
+  // ============================================================================
+
+  function updateTransform() {
+    plane.style.transform = `translate3d(${panX}px, ${panY}px, 0px) scale(${scale})`;
+
+    // Metric readouts in cm / mm
+    const gridOffsetMmX = Math.round((-panX / scale) / 2); // 2px ≈ 1mm
+    const gridOffsetMmY = Math.round((-panY / scale) / 2);
+    if (deskCoordsEl) {
+      deskCoordsEl.textContent = `X: ${gridOffsetMmX}mm  Y: ${gridOffsetMmY}mm`;
+    }
+    if (deskZoomEl) {
+      deskZoomEl.textContent = `SCALE: ${Math.round(scale * 100)}%`;
     }
 
-    init() {
-      if (!this.ctx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (AudioContext) {
-          this.ctx = new AudioContext();
+    renderRulers();
+  }
+
+  function centerOnDesk(smooth = false) {
+    const vw = viewport.clientWidth;
+    const vh = viewport.clientHeight;
+
+    // Cluster center in mat canvas coordinates
+    const targetCenterX = 2120;
+    const targetCenterY = 2100;
+
+    // Determine initial comfortable scale based on screen width
+    let targetScale = 0.95;
+    if (vw < 800) targetScale = 0.55;
+    else if (vw < 1200) targetScale = 0.75;
+    else if (vw < 1600) targetScale = 0.88;
+
+    const targetPanX = vw / 2 - targetCenterX * targetScale;
+    const targetPanY = vh / 2 - targetCenterY * targetScale;
+
+    if (!smooth) {
+      panX = targetPanX;
+      panY = targetPanY;
+      scale = targetScale;
+      updateTransform();
+      return;
+    }
+
+    // Smooth animation
+    const startX = panX;
+    const startY = panY;
+    const startS = scale;
+    const duration = 400;
+    const startTime = performance.now();
+
+    function ease(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const t = ease(progress);
+
+      panX = startX + (targetPanX - startX) * t;
+      panY = startY + (targetPanY - startY) * t;
+      scale = startS + (targetScale - startS) * t;
+      updateTransform();
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function zoomAtPoint(factor, clientX, clientY) {
+    const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale * factor));
+    if (newScale === scale) return;
+
+    const rect = viewport.getBoundingClientRect();
+    const originX = clientX - rect.left;
+    const originY = clientY - rect.top;
+
+    panX = originX - (originX - panX) * (newScale / scale);
+    panY = originY - (originY - panY) * (newScale / scale);
+    scale = newScale;
+
+    updateTransform();
+  }
+
+  // ============================================================================
+  // 2. METRIC MILLIMETER RULERS
+  // ============================================================================
+
+  function initRulerCanvases() {
+    const dpr = window.devicePixelRatio || 1;
+
+    if (rulerTopCanvas) {
+      const rect = rulerTopCanvas.parentElement.getBoundingClientRect();
+      rulerTopCanvas.width = rect.width * dpr;
+      rulerTopCanvas.height = rect.height * dpr;
+    }
+
+    if (rulerLeftCanvas) {
+      const rect = rulerLeftCanvas.parentElement.getBoundingClientRect();
+      rulerLeftCanvas.width = rect.width * dpr;
+      rulerLeftCanvas.height = rect.height * dpr;
+    }
+
+    renderRulers();
+  }
+
+  function renderRulers() {
+    const dpr = window.devicePixelRatio || 1;
+
+    // Top Horizontal Ruler
+    if (rulerTopCanvas && rulerTopCanvas.parentElement) {
+      const ctx = rulerTopCanvas.getContext('2d');
+      const w = rulerTopCanvas.width / dpr;
+      const h = rulerTopCanvas.height / dpr;
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.fillStyle = '#101a17';
+      ctx.fillRect(0, 0, w, h);
+
+      // 100px on canvas plane = major grid mark (50mm)
+      // 20px on canvas plane = minor mark (10mm)
+      const minorScreenStep = 20 * scale;
+      const majorScreenStep = 100 * scale;
+
+      // Start position aligned with canvas origin
+      const startX = panX % majorScreenStep;
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.fillStyle = '#8da49b';
+      ctx.font = '9px monospace';
+      ctx.textBaseline = 'middle';
+
+      // Draw minor ticks
+      ctx.beginPath();
+      for (let x = panX % minorScreenStep; x < w; x += minorScreenStep) {
+        if (x < 0) continue;
+        ctx.moveTo(x, h - 4);
+        ctx.lineTo(x, h);
+      }
+      ctx.stroke();
+
+      // Draw major ticks & numerals
+      ctx.strokeStyle = 'rgba(46, 204, 113, 0.6)';
+      ctx.beginPath();
+      for (let x = panX % majorScreenStep; x < w; x += majorScreenStep) {
+        if (x < 0) continue;
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+
+        const canvasCoord = Math.round((x - panX) / scale);
+        const mm = Math.round(canvasCoord / 2);
+        if (x + 35 < w) {
+          ctx.fillText(`${mm}mm`, x + 4, 10);
         }
       }
-      if (this.ctx && this.ctx.state === 'suspended') {
-        this.ctx.resume();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Left Vertical Ruler
+    if (rulerLeftCanvas && rulerLeftCanvas.parentElement) {
+      const ctx = rulerLeftCanvas.getContext('2d');
+      const w = rulerLeftCanvas.width / dpr;
+      const h = rulerLeftCanvas.height / dpr;
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.fillStyle = '#101a17';
+      ctx.fillRect(0, 0, w, h);
+
+      const minorScreenStep = 20 * scale;
+      const majorScreenStep = 100 * scale;
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.fillStyle = '#8da49b';
+      ctx.font = '8px monospace';
+
+      // Draw minor ticks
+      ctx.beginPath();
+      for (let y = panY % minorScreenStep; y < h; y += minorScreenStep) {
+        if (y < 0) continue;
+        ctx.moveTo(w - 4, y);
+        ctx.lineTo(w, y);
       }
-    }
+      ctx.stroke();
 
-    toggle() {
-      this.init();
-      this.enabled = !this.enabled;
-      if (this.enabled) {
-        this.playChirp(880, 1320, 0.08);
+      // Draw major ticks
+      ctx.strokeStyle = 'rgba(46, 204, 113, 0.6)';
+      ctx.beginPath();
+      for (let y = panY % majorScreenStep; y < h; y += majorScreenStep) {
+        if (y < 0) continue;
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+
+        const canvasCoord = Math.round((y - panY) / scale);
+        const mm = Math.round(canvasCoord / 2);
+        if (y + 12 < h) {
+          ctx.save();
+          ctx.translate(4, y + 10);
+          ctx.fillText(`${mm}`, 0, 0);
+          ctx.restore();
+        }
       }
-      return this.enabled;
-    }
-
-    playClick() {
-      if (!this.enabled || !this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(1400, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.03);
-      gain.gain.setValueAtTime(0.04, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.03);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.03);
-    }
-
-    playChirp(freq1, freq2, duration) {
-      if (!this.enabled || !this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq1, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(freq2, this.ctx.currentTime + duration);
-      gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + duration);
+      ctx.stroke();
+      ctx.restore();
     }
   }
 
-  const sound = new LabAudioEngine();
+  // ============================================================================
+  // 3. POINTER INTERACTIONS: PANNING & PINCH-ZOOM
+  // ============================================================================
 
-  // ==========================================================================
-  // 2. SIMULATION CHAMBER ENGINE (Lorenz, Bézier, Vector Fluid)
-  // ==========================================================================
-  class SimulationChamber {
-    constructor(canvas) {
-      this.canvas = canvas;
-      this.ctx = canvas.getContext('2d');
-      this.mode = 'attractor'; // 'attractor' | 'bezier' | 'fluid'
-      this.width = canvas.width;
-      this.height = canvas.height;
-      this.running = true;
-      this.fps = 60;
-      this.frameCount = 0;
-      this.lastFpsUpdate = performance.now();
+  viewport.addEventListener('pointerdown', (e) => {
+    // If clicking directly on a link or button, let it fire normally
+    if (e.target.closest('a, button, input')) return;
 
-      // Mouse & Dragging
-      this.mouse = { x: 0, y: 0, px: 0, py: 0, down: false };
-      this.draggedPoint = null;
+    // Check if target is inside a draggable card
+    const card = e.target.closest('.mat-card, .mat-sticky-note');
+    if (card) {
+      initCardDrag(card, e);
+      return;
+    }
 
-      // Parameters
-      this.speed = 1.0;
-      this.chaos = 1.0;
+    // Otherwise, initiate cutting mat pan
+    activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-      // Mode 1: Lorenz Attractor State
-      this.lorenz = {
-        sigma: 10,
-        rho: 28,
-        beta: 8 / 3,
-        dt: 0.007,
-        scale: 11,
-        angleX: 0.4,
-        angleY: 0.7,
-        points: [],
-        maxPoints: 1800,
-        x: 0.1, y: 0, z: 0
+    if (activePointers.size === 1) {
+      isPanning = true;
+      viewport.classList.add('is-panning');
+      startPointerX = e.clientX;
+      startPointerY = e.clientY;
+      startPanX = panX;
+      startPanY = panY;
+      viewport.setPointerCapture(e.pointerId);
+    } else if (activePointers.size === 2) {
+      // 2-finger pinch initiate
+      isPanning = false;
+      const pts = Array.from(activePointers.values());
+      initialPinchDistance = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      initialPinchScale = scale;
+      pinchCenter = {
+        x: (pts[0].x + pts[1].x) / 2,
+        y: (pts[0].y + pts[1].y) / 2
       };
+    }
+  });
 
-      // Mode 2: Bézier Spline Workbench State
-      this.bezier = {
-        points: [
-          { x: 100, y: 350, label: 'P0' },
-          { x: 260, y: 120, label: 'P1' },
-          { x: 560, y: 100, label: 'P2' },
-          { x: 740, y: 360, label: 'P3' }
-        ],
-        showComb: true
-      };
-
-      // Mode 3: Fluid / Vector Field State
-      this.fluid = {
-        particles: [],
-        count: 700
-      };
-
-      this.initEvents();
-      this.resize();
-      this.resetSim();
-      this.loop = this.loop.bind(this);
-      requestAnimationFrame(this.loop);
+  viewport.addEventListener('pointermove', (e) => {
+    if (activePointers.has(e.pointerId)) {
+      activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     }
 
-    resize() {
-      const rect = this.canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      this.width = rect.width;
-      this.height = rect.height;
-      this.canvas.width = rect.width * dpr;
-      this.canvas.height = rect.height * dpr;
-      this.ctx.scale(dpr, dpr);
+    if (activePointers.size === 2 && initialPinchDistance) {
+      const pts = Array.from(activePointers.values());
+      const currentDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      const ratio = currentDist / initialPinchDistance;
+      const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, initialPinchScale * ratio));
 
-      // Reposition Bézier points proportionally
-      if (this.mode === 'bezier') {
-        const w = this.width;
-        const h = this.height;
-        this.bezier.points = [
-          { x: w * 0.15, y: h * 0.75, label: 'P0' },
-          { x: w * 0.35, y: h * 0.25, label: 'P1' },
-          { x: w * 0.65, y: h * 0.2, label: 'P2' },
-          { x: w * 0.85, y: h * 0.75, label: 'P3' }
-        ];
-      }
+      const rect = viewport.getBoundingClientRect();
+      const originX = pinchCenter.x - rect.left;
+      const originY = pinchCenter.y - rect.top;
+
+      panX = originX - (originX - panX) * (newScale / scale);
+      panY = originY - (originY - panY) * (newScale / scale);
+      scale = newScale;
+      updateTransform();
+      return;
     }
 
-    initEvents() {
-      window.addEventListener('resize', () => this.resize());
+    if (isPanning && activePointers.size === 1) {
+      const dx = e.clientX - startPointerX;
+      const dy = e.clientY - startPointerY;
+      panX = startPanX + dx;
+      panY = startPanY + dy;
+      updateTransform();
+    }
+  });
 
-      const getPos = (e) => {
-        const rect = this.canvas.getBoundingClientRect();
-        return {
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        };
-      };
+  function endMatPan(e) {
+    if (activePointers.has(e.pointerId)) {
+      activePointers.delete(e.pointerId);
+    }
+    if (activePointers.size < 2) {
+      initialPinchDistance = null;
+    }
+    if (activePointers.size === 0) {
+      isPanning = false;
+      viewport.classList.remove('is-panning');
+    }
+  }
 
-      this.canvas.addEventListener('mousedown', (e) => {
-        sound.init();
-        const pos = getPos(e);
-        this.mouse.down = true;
-        this.mouse.x = this.mouse.px = pos.x;
-        this.mouse.y = this.mouse.py = pos.y;
+  viewport.addEventListener('pointerup', endMatPan);
+  viewport.addEventListener('pointercancel', endMatPan);
 
-        if (this.mode === 'bezier') {
-          for (let p of this.bezier.points) {
-            const dist = Math.hypot(p.x - pos.x, p.y - pos.y);
-            if (dist < 18) {
-              this.draggedPoint = p;
-              sound.playClick();
-              break;
-            }
-          }
-        }
-      });
+  // Mouse Wheel Zoom / Trackpad Pan
+  viewport.addEventListener('wheel', (e) => {
+    e.preventDefault();
 
-      window.addEventListener('mousemove', (e) => {
-        const pos = getPos(e);
-        this.mouse.px = this.mouse.x;
-        this.mouse.py = this.mouse.y;
-        this.mouse.x = pos.x;
-        this.mouse.y = pos.y;
+    if (e.ctrlKey || e.metaKey || Math.abs(e.deltaY) > 40) {
+      // Zoom centered on cursor
+      const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
+      zoomAtPoint(zoomFactor, e.clientX, e.clientY);
+    } else {
+      // Trackpad 2-finger pan
+      panX -= e.deltaX;
+      panY -= e.deltaY;
+      updateTransform();
+    }
+  }, { passive: false });
 
-        const coordsEl = document.getElementById('telemetryCoords');
-        if (coordsEl) {
-          coordsEl.textContent = `X:${Math.round(pos.x)} Y:${Math.round(pos.y)}`;
-        }
+  // ============================================================================
+  // 4. CARD DRAGGING & REORDERING
+  // ============================================================================
 
-        if (this.mouse.down) {
-          if (this.mode === 'attractor') {
-            const dx = this.mouse.x - this.mouse.px;
-            const dy = this.mouse.y - this.mouse.py;
-            this.lorenz.angleY += dx * 0.01;
-            this.lorenz.angleX += dy * 0.01;
-          } else if (this.mode === 'bezier' && this.draggedPoint) {
-            this.draggedPoint.x = Math.max(10, Math.min(this.width - 10, pos.x));
-            this.draggedPoint.y = Math.max(10, Math.min(this.height - 10, pos.y));
-          }
-        }
-      });
+  function initCardDrag(card, e) {
+    e.stopPropagation();
 
-      window.addEventListener('mouseup', () => {
-        this.mouse.down = false;
-        this.draggedPoint = null;
-      });
+    // Bring card to front
+    highestZ += 1;
+    card.style.zIndex = highestZ;
 
-      // Touch events for mobile
-      this.canvas.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0) {
-          const t = e.touches[0];
-          const rect = this.canvas.getBoundingClientRect();
-          const pos = { x: t.clientX - rect.left, y: t.clientY - rect.top };
-          this.mouse.down = true;
-          this.mouse.x = this.mouse.px = pos.x;
-          this.mouse.y = this.mouse.py = pos.y;
+    card.classList.add('is-dragging');
 
-          if (this.mode === 'bezier') {
-            for (let p of this.bezier.points) {
-              if (Math.hypot(p.x - pos.x, p.y - pos.y) < 28) {
-                this.draggedPoint = p;
-                break;
-              }
-            }
-          }
-        }
-      }, { passive: true });
+    const cardRect = card.getBoundingClientRect();
+    const planeRect = plane.getBoundingClientRect();
 
-      this.canvas.addEventListener('touchmove', (e) => {
-        if (e.touches.length > 0) {
-          const t = e.touches[0];
-          const rect = this.canvas.getBoundingClientRect();
-          const pos = { x: t.clientX - rect.left, y: t.clientY - rect.top };
-          const dx = pos.x - this.mouse.x;
-          const dy = pos.y - this.mouse.y;
-          this.mouse.x = pos.x;
-          this.mouse.y = pos.y;
+    // Current card position in plane coordinates
+    const initialLeft = parseFloat(card.style.left) || (cardRect.left - planeRect.left) / scale;
+    const initialTop = parseFloat(card.style.top) || (cardRect.top - planeRect.top) / scale;
 
-          if (this.mode === 'attractor') {
-            this.lorenz.angleY += dx * 0.01;
-            this.lorenz.angleX += dy * 0.01;
-          } else if (this.mode === 'bezier' && this.draggedPoint) {
-            this.draggedPoint.x = pos.x;
-            this.draggedPoint.y = pos.y;
-          }
-        }
-      }, { passive: true });
+    const startX = e.clientX;
+    const startY = e.clientY;
 
-      this.canvas.addEventListener('touchend', () => {
-        this.mouse.down = false;
-        this.draggedPoint = null;
-      });
+    card.setPointerCapture(e.pointerId);
+
+    function onPointerMove(moveEvent) {
+      const dx = (moveEvent.clientX - startX) / scale;
+      const dy = (moveEvent.clientY - startY) / scale;
+
+      const newLeft = Math.round(initialLeft + dx);
+      const newTop = Math.round(initialTop + dy);
+
+      card.style.left = `${newLeft}px`;
+      card.style.top = `${newTop}px`;
     }
 
-    setMode(newMode) {
-      this.mode = newMode;
-      this.resetSim();
-      sound.playChirp(600, 1200, 0.1);
-
-      const hintEl = document.getElementById('canvasHint');
-      if (hintEl) {
-        if (newMode === 'attractor') {
-          hintEl.textContent = '🖱 Drag to rotate 3D Lorenz attractor';
-        } else if (newMode === 'bezier') {
-          hintEl.textContent = '🖱 Drag control points P0, P1, P2, P3';
-        } else if (newMode === 'fluid') {
-          hintEl.textContent = '🖱 Move mouse to perturb aerodynamic velocity field';
-        }
-      }
+    function onPointerUp(upEvent) {
+      card.classList.remove('is-dragging');
+      card.removeEventListener('pointermove', onPointerMove);
+      card.removeEventListener('pointerup', onPointerUp);
+      card.removeEventListener('pointercancel', onPointerUp);
+      try {
+        card.releasePointerCapture(upEvent.pointerId);
+      } catch (_) {}
     }
 
-    resetSim() {
-      if (this.mode === 'attractor') {
-        this.lorenz.points = [];
-        this.lorenz.x = 0.1;
-        this.lorenz.y = 0;
-        this.lorenz.z = 0;
-      } else if (this.mode === 'fluid') {
-        this.fluid.particles = [];
-        for (let i = 0; i < this.fluid.count; i++) {
-          this.fluid.particles.push({
-            x: Math.random() * this.width,
-            y: Math.random() * this.height,
-            vx: 0, vy: 0,
-            age: Math.random() * 120,
-            maxAge: 80 + Math.random() * 100
-          });
-        }
-      }
-    }
+    card.addEventListener('pointermove', onPointerMove);
+    card.addEventListener('pointerup', onPointerUp);
+    card.addEventListener('pointercancel', onPointerUp);
+  }
 
-    loop(timestamp) {
-      this.frameCount++;
-      if (timestamp - this.lastFpsUpdate >= 1000) {
-        this.fps = Math.round((this.frameCount * 1000) / (timestamp - this.lastFpsUpdate));
-        this.frameCount = 0;
-        this.lastFpsUpdate = timestamp;
-        const fpsEl = document.getElementById('telemetryFps');
-        if (fpsEl) fpsEl.textContent = `${this.fps} FPS`;
-      }
+  // Double click card to bring forward or focus
+  cards.forEach((card) => {
+    card.addEventListener('dblclick', () => {
+      highestZ += 2;
+      card.style.zIndex = highestZ;
+    });
+  });
 
-      this.ctx.clearRect(0, 0, this.width, this.height);
+  // ============================================================================
+  // 5. AUTO-ARRANGE & TOP CONTROLS
+  // ============================================================================
 
-      if (this.mode === 'attractor') {
-        this.renderLorenz();
-      } else if (this.mode === 'bezier') {
-        this.renderBezier();
-      } else if (this.mode === 'fluid') {
-        this.renderFluid();
-      }
+  function autoArrangeCards() {
+    defaultPositions.forEach((pos) => {
+      const el = document.getElementById(pos.id);
+      if (!el) return;
 
-      requestAnimationFrame(this.loop);
-    }
+      // Animate smoothly
+      el.style.transition = 'left 0.4s cubic-bezier(0.16, 1, 0.3, 1), top 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.left = `${pos.x}px`;
+      el.style.top = `${pos.y}px`;
 
-    // ------------------------------------------------------------------------
-    // Mode 1: Lorenz Attractor
-    // ------------------------------------------------------------------------
-    renderLorenz() {
-      const { sigma, beta, dt, scale, angleX, angleY } = this.lorenz;
-      const rho = 28 * this.chaos;
-      const stepsPerFrame = Math.round(10 * this.speed);
+      setTimeout(() => {
+        el.style.transition = '';
+      }, 420);
+    });
 
-      for (let i = 0; i < stepsPerFrame; i++) {
-        const dx = sigma * (this.lorenz.y - this.lorenz.x) * dt;
-        const dy = (this.lorenz.x * (rho - this.lorenz.z) - this.lorenz.y) * dt;
-        const dz = (this.lorenz.x * this.lorenz.y - beta * this.lorenz.z) * dt;
+    centerOnDesk(true);
+  }
 
-        this.lorenz.x += dx;
-        this.lorenz.y += dy;
-        this.lorenz.z += dz;
+  if (btnAutoArrange) {
+    btnAutoArrange.addEventListener('click', autoArrangeCards);
+  }
 
-        this.lorenz.points.push({ x: this.lorenz.x, y: this.lorenz.y, z: this.lorenz.z });
-        if (this.lorenz.points.length > this.lorenz.maxPoints) {
-          this.lorenz.points.shift();
-        }
-      }
+  if (btnCenterDesk) {
+    btnCenterDesk.addEventListener('click', () => centerOnDesk(true));
+  }
 
-      // Auto-rotation when not dragging
-      if (!this.mouse.down) {
-        this.lorenz.angleY += 0.003 * this.speed;
-      }
+  if (btnZoomIn) {
+    btnZoomIn.addEventListener('click', () => {
+      const rect = viewport.getBoundingClientRect();
+      zoomAtPoint(1.2, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+  }
 
-      const cx = this.width / 2;
-      const cy = this.height / 2;
-      const cosY = Math.cos(this.lorenz.angleY);
-      const sinY = Math.sin(this.lorenz.angleY);
-      const cosX = Math.cos(this.lorenz.angleX);
-      const sinX = Math.sin(this.lorenz.angleX);
+  if (btnZoomOut) {
+    btnZoomOut.addEventListener('click', () => {
+      const rect = viewport.getBoundingClientRect();
+      zoomAtPoint(0.83, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+  }
 
-      const project = (p) => {
-        // Center attractor vertically (average z is around 25)
-        const x0 = p.x;
-        const y0 = p.y;
-        const z0 = p.z - 25;
+  if (btnZoomReset) {
+    btnZoomReset.addEventListener('click', () => {
+      centerOnDesk(true);
+    });
+  }
 
-        // Rotate Y
-        const x1 = x0 * cosY - z0 * sinY;
-        const z1 = x0 * sinY + z0 * cosY;
+  // ============================================================================
+  // 6. MICRO-SCHEMATIC ANIMATED VISUALIZATIONS
+  // ============================================================================
 
-        // Rotate X
-        const y2 = y0 * cosX - z1 * sinX;
-        const z2 = y0 * sinX + z1 * cosX;
+  // Dossier 1: Bézier Spline Evaluator
+  function initBezierCanvas() {
+    const canvas = document.getElementById('canvasBezier');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
 
-        const fov = 400;
-        const perspective = fov / (fov + z2 * scale * 0.4);
-        return {
-          px: cx + x1 * scale * perspective,
-          py: cy + y2 * scale * perspective,
-          depth: z2
-        };
-      };
+    let tVal = 0;
 
-      if (this.lorenz.points.length < 2) return;
+    function render() {
+      tVal = (tVal + 0.008) % 1;
+      ctx.clearRect(0, 0, w, h);
 
-      this.ctx.lineWidth = 1.2;
-      for (let i = 1; i < this.lorenz.points.length; i++) {
-        const p1 = project(this.lorenz.points[i - 1]);
-        const p2 = project(this.lorenz.points[i]);
-
-        const progress = i / this.lorenz.points.length;
-        const alpha = Math.min(1, progress * 1.2);
-        
-        // Gradient color: Cyan to Electric Violet
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = `hsla(${185 + progress * 80}, 100%, 55%, ${alpha})`;
-        this.ctx.moveTo(p1.px, p1.py);
-        this.ctx.lineTo(p2.px, p2.py);
-        this.ctx.stroke();
-      }
-
-      // Lead glowing particle
-      const lead = project(this.lorenz.points[this.lorenz.points.length - 1]);
-      this.ctx.beginPath();
-      this.ctx.arc(lead.px, lead.py, 3.5, 0, Math.PI * 2);
-      this.ctx.fillStyle = '#00f0ff';
-      this.ctx.shadowColor = '#00f0ff';
-      this.ctx.shadowBlur = 12;
-      this.ctx.fill();
-      this.ctx.shadowBlur = 0;
-    }
-
-    // ------------------------------------------------------------------------
-    // Mode 2: Bézier Spline Workbench
-    // ------------------------------------------------------------------------
-    renderBezier() {
-      const [p0, p1, p2, p3] = this.bezier.points;
-      const ctx = this.ctx;
-
-      // Draw dashed control polygon
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-      ctx.setLineDash([4, 4]);
+      // Background grid
+      ctx.strokeStyle = '#e2dfd2';
       ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 20) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 20) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // 4 Control points
+      const p0 = { x: 25, y: h - 18 };
+      const p1 = { x: 75 + Math.sin(tVal * Math.PI * 2) * 20, y: 15 };
+      const p2 = { x: 210, y: h - 15 + Math.cos(tVal * Math.PI * 2) * 12 };
+      const p3 = { x: w - 25, y: 22 };
+
+      // Hull lines
+      ctx.strokeStyle = '#d0cbbe';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
       ctx.moveTo(p0.x, p0.y);
       ctx.lineTo(p1.x, p1.y);
       ctx.lineTo(p2.x, p2.y);
@@ -425,629 +536,381 @@
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Cubic Bézier calculation
-      const evaluate = (t) => {
-        const mt = 1 - t;
-        const mt2 = mt * mt;
-        const mt3 = mt2 * mt;
-        const t2 = t * t;
-        const t3 = t2 * t;
-
-        const x = mt3 * p0.x + 3 * mt2 * t * p1.x + 3 * mt * t2 * p2.x + t3 * p3.x;
-        const y = mt3 * p0.y + 3 * mt2 * t * p1.y + 3 * mt * t2 * p2.y + t3 * p3.y;
-
-        // 1st Derivative (Velocity / Tangent)
-        const dx = 3 * mt2 * (p1.x - p0.x) + 6 * mt * t * (p2.x - p1.x) + 3 * t2 * (p3.x - p2.x);
-        const dy = 3 * mt2 * (p1.y - p0.y) + 6 * mt * t * (p2.y - p1.y) + 3 * t2 * (p3.y - p2.y);
-
-        // 2nd Derivative (Acceleration)
-        const ddx = 6 * mt * (p2.x - 2 * p1.x + p0.x) + 6 * t * (p3.x - 2 * p2.x + p1.x);
-        const ddy = 6 * mt * (p2.y - 2 * p1.y + p0.y) + 6 * t * (p3.y - 2 * p2.y + p1.y);
-
-        // Curvature kappa = |x'y'' - y'x''| / (x'^2 + y'^2)^(3/2)
-        const num = dx * ddy - dy * ddx;
-        const denom = Math.pow(dx * dx + dy * dy, 1.5);
-        const curvature = denom !== 0 ? num / denom : 0;
-
-        return { x, y, dx, dy, curvature };
-      };
-
-      // Draw Curvature Comb Spikes
-      const samples = 60;
+      // Cubic curve
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(255, 183, 3, 0.45)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i <= samples; i++) {
-        const t = i / samples;
-        const pt = evaluate(t);
-        const len = Math.hypot(pt.dx, pt.dy);
-        if (len > 0.001) {
-          const nx = -pt.dy / len;
-          const ny = pt.dx / len;
-          const combHeight = pt.curvature * 3500;
-          ctx.moveTo(pt.x, pt.y);
-          ctx.lineTo(pt.x + nx * combHeight, pt.y + ny * combHeight);
-        }
-      }
-      ctx.stroke();
-
-      // Draw Main Bézier Spline with Gradient Glow
-      ctx.beginPath();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#00f0ff';
-      ctx.shadowColor = 'rgba(0, 240, 255, 0.5)';
-      ctx.shadowBlur = 10;
       ctx.moveTo(p0.x, p0.y);
       ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
       ctx.stroke();
-      ctx.shadowBlur = 0;
 
-      // Draw Control Point Handles
-      this.bezier.points.forEach((p, idx) => {
-        const isSelected = this.draggedPoint === p;
+      // de Casteljau point evaluation
+      const u = tVal;
+      const q0 = { x: p0.x + (p1.x - p0.x) * u, y: p0.y + (p1.y - p0.y) * u };
+      const q1 = { x: p1.x + (p2.x - p1.x) * u, y: p1.y + (p2.y - p1.y) * u };
+      const q2 = { x: p2.x + (p3.x - p2.x) * u, y: p2.y + (p3.y - p2.y) * u };
+      const r0 = { x: q0.x + (q1.x - q0.x) * u, y: q0.y + (q1.y - q0.y) * u };
+      const r1 = { x: q1.x + (q2.x - q1.x) * u, y: q1.y + (q2.y - q1.y) * u };
+      const pt = { x: r0.x + (r1.x - r0.x) * u, y: r0.y + (r1.y - r0.y) * u };
+
+      // Eval tangent point
+      ctx.fillStyle = '#2ecc71';
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Control points
+      [p0, p1, p2, p3].forEach((p, idx) => {
+        ctx.fillStyle = idx === 0 || idx === 3 ? '#1e293b' : '#d97706';
         ctx.beginPath();
-        ctx.arc(p.x, p.y, isSelected ? 8 : 6, 0, Math.PI * 2);
-        ctx.fillStyle = idx === 0 || idx === 3 ? '#00ff9d' : '#ffb703';
+        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#fff';
-        ctx.stroke();
-
-        ctx.font = '11px "JetBrains Mono", monospace';
-        ctx.fillStyle = '#fff';
-        ctx.fillText(`${p.label} (${Math.round(p.x)}, ${Math.round(p.y)})`, p.x + 10, p.y - 10);
       });
     }
 
-    // ------------------------------------------------------------------------
-    // Mode 3: Aerodynamic Vector Field / Fluid
-    // ------------------------------------------------------------------------
-    renderFluid() {
-      const ctx = this.ctx;
-      const speedMult = this.speed * 2.5;
-
-      ctx.fillStyle = 'rgba(4, 5, 8, 0.2)';
-      ctx.fillRect(0, 0, this.width, this.height);
-
-      this.fluid.particles.forEach((p) => {
-        // Base flow from left to right + noise vortices
-        const scale = 0.006 * this.chaos;
-        const angle = Math.sin(p.x * scale) * Math.cos(p.y * scale) * Math.PI * 2;
-        
-        let fx = Math.cos(angle) * 1.5 + 1.8;
-        let fy = Math.sin(angle) * 1.2;
-
-        // Interaction with mouse obstacle/vortex
-        const dx = p.x - this.mouse.x;
-        const dy = p.y - this.mouse.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist < 120 && dist > 1) {
-          const force = (120 - dist) / 120;
-          fx += (dx / dist) * force * 5;
-          fy += (dy / dist) * force * 5;
-        }
-
-        p.vx = p.vx * 0.9 + fx * 0.1;
-        p.vy = p.vy * 0.9 + fy * 0.1;
-
-        const prevX = p.x;
-        const prevY = p.y;
-        p.x += p.vx * speedMult;
-        p.y += p.vy * speedMult;
-        p.age++;
-
-        // Reset if offscreen or expired
-        if (p.x > this.width || p.x < 0 || p.y > this.height || p.y < 0 || p.age > p.maxAge) {
-          p.x = 0;
-          p.y = Math.random() * this.height;
-          p.vx = 2;
-          p.vy = 0;
-          p.age = 0;
-        }
-
-        // Draw particle stream segment
-        const velocity = Math.hypot(p.vx, p.vy);
-        const hue = 180 + Math.min(100, velocity * 25);
-        ctx.beginPath();
-        ctx.strokeStyle = `hsla(${hue}, 100%, 60%, 0.7)`;
-        ctx.lineWidth = 1.2;
-        ctx.moveTo(prevX, prevY);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-      });
-    }
-
-    capturePNG() {
-      const link = document.createElement('a');
-      link.download = `fuad-lab-${this.mode}-${Date.now()}.png`;
-      link.href = this.canvas.toDataURL('image/png');
-      link.click();
-      sound.playChirp(1200, 2400, 0.15);
-    }
+    return render;
   }
 
-  // ==========================================================================
-  // 3. MINI OSCILLOSCOPE WAVEFORMS ON PROJECT CARDS
-  // ==========================================================================
-  function initMiniCanvases() {
-    const miniCanvases = document.querySelectorAll('.card-canvas-mini');
-    miniCanvases.forEach((canvas) => {
-      const type = canvas.dataset.type || 'wave';
-      const ctx = canvas.getContext('2d');
-      let offset = Math.random() * 100;
+  // Dossier 2: Dengue Signal Decomposer
+  function initDengueCanvas() {
+    const canvas = document.getElementById('canvasDengue');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
 
-      function drawMini() {
-        const w = (canvas.width = canvas.clientWidth);
-        const h = (canvas.height = canvas.clientHeight);
-        ctx.clearRect(0, 0, w, h);
+    let phase = 0;
 
-        offset += 0.05;
+    function render() {
+      phase += 0.03;
+      ctx.clearRect(0, 0, w, h);
 
-        // Grid lines
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.08)';
-        ctx.lineWidth = 1;
+      // Baseline
+      ctx.strokeStyle = '#e2dfd2';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, h / 2);
+      ctx.lineTo(w, h / 2);
+      ctx.stroke();
+
+      // IMF 1: High frequency climatic wavelet
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.4)';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      for (let x = 0; x < w; x++) {
+        const y = h / 2 + Math.sin(x * 0.12 + phase * 2) * 12;
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Ensembled prediction curve
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      for (let x = 0; x < w; x++) {
+        const trend = Math.sin(x * 0.025 + phase * 0.4) * 22;
+        const seasonal = Math.sin(x * 0.07 + phase) * 8;
+        const y = h / 2 + trend + seasonal;
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Threshold indicator
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.6)';
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(0, 18);
+      ctx.lineTo(w, 18);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    return render;
+  }
+
+  // Dossier 3: Kubelka-Munk Spectral Curve
+  function initSpectralCanvas() {
+    const canvas = document.getElementById('canvasSpectral');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    let pulse = 0;
+
+    function render() {
+      pulse += 0.02;
+      ctx.clearRect(0, 0, w, h);
+
+      // Spectrum fill
+      const grad = ctx.createLinearGradient(0, 0, w, 0);
+      grad.addColorStop(0, '#6366f1');
+      grad.addColorStop(0.35, '#06b6d4');
+      grad.addColorStop(0.7, '#10b981');
+      grad.addColorStop(1, '#f59e0b');
+
+      ctx.fillStyle = grad;
+      ctx.globalAlpha = 0.15;
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x < w; x++) {
+        const normX = x / w;
+        const peak = Math.exp(-Math.pow((normX - 0.52), 2) / 0.04);
+        const y = h - 12 - (peak * 50 + Math.sin(normX * 8 + pulse) * 4);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+
+      // Curve line
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      for (let x = 0; x < w; x++) {
+        const normX = x / w;
+        const peak = Math.exp(-Math.pow((normX - 0.52), 2) / 0.04);
+        const y = h - 12 - (peak * 50 + Math.sin(normX * 8 + pulse) * 4);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Spectral wavelength markers
+      ctx.fillStyle = '#78716c';
+      ctx.font = '8px monospace';
+      ctx.fillText('400nm', 6, h - 3);
+      ctx.fillText('550nm', w / 2 - 14, h - 3);
+      ctx.fillText('700nm', w - 30, h - 3);
+    }
+
+    return render;
+  }
+
+  // Dossier 4: Cam Linkage & Kinematics
+  function initKinematicsCanvas() {
+    const canvas = document.getElementById('canvasKinematics');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    let theta = 0;
+
+    function render() {
+      theta += 0.035;
+      ctx.clearRect(0, 0, w, h);
+
+      const cx = 90;
+      const cy = h / 2;
+      const camR1 = 18;
+      const camR2 = 28;
+
+      // Rotating eccentric cam
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(theta);
+
+      ctx.fillStyle = '#e2dfd2';
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(6, 0, camR2, camR1, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Cam pivot
+      ctx.fillStyle = '#0284c7';
+      ctx.beginPath();
+      ctx.arc(0, 0, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Follower arm
+      const followerDisp = Math.cos(theta) * 12;
+      const followerX = cx + camR2 + 8 + followerDisp;
+
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(followerX, cy);
+      ctx.lineTo(w - 30, cy);
+      ctx.stroke();
+
+      // Polishing toolhead
+      ctx.fillStyle = '#2ecc71';
+      ctx.fillRect(w - 30, cy - 14, 18, 28);
+
+      // Trajectory curve on right
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let i = 0; i < 40; i++) {
+        const x = w - 8 - i;
+        const y = cy + Math.sin(theta - i * 0.15) * 14;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    return render;
+  }
+
+  // Dossier 5: Dynamic Sorting Conveyor
+  function initConveyorCanvas() {
+    const canvas = document.getElementById('canvasConveyor');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    let offset = 0;
+
+    function render() {
+      offset = (offset + 1.2) % 30;
+      ctx.clearRect(0, 0, w, h);
+
+      // Conveyor belt bed
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(15, h - 22, w - 30, 10);
+
+      // Rollers
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 2;
+      for (let x = 20; x < w - 20; x += 30) {
         ctx.beginPath();
-        ctx.moveTo(0, h / 2);
-        ctx.lineTo(w, h / 2);
+        ctx.arc(x + offset, h - 17, 4, 0, Math.PI * 2);
         ctx.stroke();
-
-        ctx.beginPath();
-        ctx.lineWidth = 1.5;
-
-        if (type === 'bezier') {
-          ctx.strokeStyle = '#00f0ff';
-          ctx.moveTo(0, h * 0.8);
-          ctx.bezierCurveTo(w * 0.3, h * 0.1 + Math.sin(offset) * 10, w * 0.7, h * 0.9, w, h * 0.2);
-        } else if (type === 'ecg') {
-          ctx.strokeStyle = '#00ff9d';
-          ctx.moveTo(0, h / 2);
-          for (let x = 0; x < w; x++) {
-            const phase = (x + offset * 15) % 60;
-            let y = h / 2;
-            if (phase > 20 && phase < 25) y -= 18;
-            else if (phase >= 25 && phase < 30) y += 12;
-            ctx.lineTo(x, y);
-          }
-        } else if (type === 'fourier') {
-          ctx.strokeStyle = '#ffb703';
-          ctx.moveTo(0, h / 2);
-          for (let x = 0; x < w; x += 2) {
-            const y = h / 2 + Math.sin(x * 0.08 + offset) * 12 + Math.sin(x * 0.03 - offset * 1.5) * 8;
-            ctx.lineTo(x, y);
-          }
-        } else if (type === 'stepper') {
-          ctx.strokeStyle = '#b5179e';
-          ctx.moveTo(0, h * 0.7);
-          for (let x = 0; x < w; x += 16) {
-            const high = (Math.floor(x / 16) + Math.floor(offset * 2)) % 2 === 0;
-            const y = high ? h * 0.25 : h * 0.75;
-            ctx.lineTo(x, y);
-            ctx.lineTo(x + 16, y);
-          }
-        } else {
-          ctx.strokeStyle = '#00f0ff';
-          ctx.moveTo(0, h / 2);
-          for (let x = 0; x < w; x += 2) {
-            ctx.lineTo(x, h / 2 + Math.sin(x * 0.05 + offset) * 14);
-          }
-        }
-        ctx.stroke();
-
-        requestAnimationFrame(drawMini);
       }
 
-      drawMini();
-    });
+      // Optical beam trigger
+      const beamX = w * 0.45;
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.7)';
+      ctx.setLineDash([2, 2]);
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(beamX, 8);
+      ctx.lineTo(beamX, h - 22);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Actuator solenoid
+      ctx.fillStyle = '#10b981';
+      ctx.fillRect(beamX - 10, 5, 20, 8);
+
+      // Moving package items
+      const pkgPos = (offset * 4) % (w - 60) + 20;
+      ctx.fillStyle = '#e2dfd2';
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(pkgPos, h - 38, 16, 16);
+      ctx.strokeRect(pkgPos, h - 38, 16, 16);
+    }
+
+    return render;
   }
 
-  // ==========================================================================
-  // 4. INTERACTIVE EMBEDDED TERMINAL (LAB-SHELL)
-  // ==========================================================================
-  class LabTerminal {
-    constructor(dockEl, simEngine) {
-      this.dock = dockEl;
-      this.sim = simEngine;
-      this.output = dockEl.querySelector('.terminal-output');
-      this.input = dockEl.querySelector('.terminal-input');
-      this.header = dockEl.querySelector('.terminal-header');
-      this.toggleBtn = dockEl.querySelector('.term-toggle-btn');
-      this.history = [];
-      this.historyIndex = -1;
+  // Dossier 6: 2D Deterministic Physics Engine
+  function initArcadeCanvas() {
+    const canvas = document.getElementById('canvasArcade');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
 
-      this.init();
-    }
+    // 6 verlet particles
+    const particles = [
+      { x: 40, y: 35, vx: 1.2, vy: 0.8 },
+      { x: 120, y: 55, vx: -1.0, vy: 1.1 },
+      { x: 180, y: 25, vx: 0.9, vy: -0.7 },
+      { x: 240, y: 45, vx: -1.3, vy: -0.6 }
+    ];
 
-    init() {
-      // Toggle minimize/expand
-      this.header.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'BUTTON') {
-          this.dock.classList.toggle('minimized');
-          sound.playClick();
+    function render() {
+      ctx.clearRect(0, 0, w, h);
+
+      // Update & bounce particles
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 15 || p.x > w - 15) p.vx *= -1;
+        if (p.y < 15 || p.y > h - 15) p.vy *= -1;
+      });
+
+      // Spatial springs / mesh connections
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.35)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const d = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+          if (d < 110) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
         }
-      });
-
-      this.toggleBtn.addEventListener('click', () => {
-        this.dock.classList.toggle('minimized');
-        sound.playClick();
-      });
-
-      // Terminal Command Dispatcher
-      this.input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const raw = this.input.value.trim();
-          if (raw) {
-            this.history.push(raw);
-            this.historyIndex = this.history.length;
-            this.execute(raw);
-          }
-          this.input.value = '';
-          sound.playClick();
-        } else if (e.key === 'ArrowUp') {
-          if (this.historyIndex > 0) {
-            this.historyIndex--;
-            this.input.value = this.history[this.historyIndex];
-          }
-          e.preventDefault();
-        } else if (e.key === 'ArrowDown') {
-          if (this.historyIndex < this.history.length - 1) {
-            this.historyIndex++;
-            this.input.value = this.history[this.historyIndex];
-          } else {
-            this.historyIndex = this.history.length;
-            this.input.value = '';
-          }
-          e.preventDefault();
-        }
-      });
-    }
-
-    log(text, className = '') {
-      const p = document.createElement('div');
-      p.className = className;
-      p.innerHTML = text;
-      this.output.appendChild(p);
-      this.output.scrollTop = this.output.scrollHeight;
-    }
-
-    execute(cmdStr) {
-      this.log(`<span class="term-prompt">fuad@lab:~$</span> <span class="term-cmd">${cmdStr}</span>`);
-      const parts = cmdStr.toLowerCase().split(/\s+/);
-      const cmd = parts[0];
-      const arg = parts[1];
-
-      switch (cmd) {
-        case 'help':
-          this.log(`Available Commands:<br>
-  - <span class="term-line-cyan">projects</span> : List all active lab projects & research bays<br>
-  - <span class="term-line-cyan">sim &lt;attractor|bezier|fluid&gt;</span> : Switch simulation chamber mode<br>
-  - <span class="term-line-cyan">status</span> : Display live hardware & research telemetry<br>
-  - <span class="term-line-cyan">matrix</span> : Toggle high-tech scanlines overlay<br>
-  - <span class="term-line-cyan">whoami</span> : Display researcher identity & BUET affiliation<br>
-  - <span class="term-line-cyan">portfolio</span> : Return to main portfolio view<br>
-  - <span class="term-line-cyan">clear</span> : Clear terminal screen`);
-          break;
-
-        case 'projects':
-        case 'list':
-          this.log(`ACTIVE RESEARCH BAYS:<br>
-  [BAY-01] BezierLab: Mathematical Spline Synthesizer<br>
-  [BAY-02] Dengue Epidemiology Forecasting Framework (PLOS ONE)<br>
-  [BAY-03] Physics-Informed Spectral Matching Machine<br>
-  [BAY-04] FabLab Automated Shoe Cleaning Robot<br>
-  [BAY-05] IoT Sensor Sorting Conveyor<br>
-  [BAY-06] Retro Space Shooter Physics Rig<br>
-  [BAY-07] BanglaBERT & Resource-Constrained NLP Benchmarks`);
-          break;
-
-        case 'sim':
-          if (['attractor', 'bezier', 'fluid'].includes(arg)) {
-            this.sim.setMode(arg);
-            // Update UI buttons
-            document.querySelectorAll('.sim-mode-btn').forEach((btn) => {
-              btn.classList.toggle('active', btn.dataset.mode === arg);
-            });
-            this.log(`Simulation switched to: <span class="term-line-success">${arg.toUpperCase()}</span>`, 'term-line-success');
-          } else {
-            this.log(`Usage: sim &lt;attractor | bezier | fluid&gt;`, 'term-line-warn');
-          }
-          break;
-
-        case 'status':
-          this.log(`NODE STATUS: ONLINE<br>
-  FPS: ${this.sim.fps} | COORD: (${Math.round(this.sim.mouse.x)}, ${Math.round(this.sim.mouse.y)})<br>
-  AFFILIATION: Institute of Appropriate Technology, BUET<br>
-  PROJECT PIN: 14011 (Fab Lab Prototyping Facility)`, 'term-line-info');
-          break;
-
-        case 'matrix':
-          const scanlines = document.getElementById('crtScanlines');
-          if (scanlines) {
-            scanlines.classList.toggle('disabled');
-            const state = scanlines.classList.contains('disabled') ? 'OFF' : 'ON';
-            this.log(`CRT Matrix Scanlines: <span class="term-line-cyan">${state}</span>`);
-          }
-          break;
-
-        case 'whoami':
-          this.log(`Md. Muqtadir Fuad — Program Engineer (Fab Lab), BUET.<br>Industrial & Production Engineering Researcher.`, 'term-line-success');
-          break;
-
-        case 'portfolio':
-          this.log(`Navigating to / ...`, 'term-line-info');
-          setTimeout(() => (window.location.href = '/'), 500);
-          break;
-
-        case 'clear':
-          this.output.innerHTML = '';
-          break;
-
-        default:
-          this.log(`Command not recognized: '${cmd}'. Type <span class="term-line-cyan">'help'</span> for instructions.`, 'term-line-error');
-          break;
       }
+
+      // Draw particle cores
+      particles.forEach((p) => {
+        ctx.fillStyle = '#2ecc71';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#0284c7';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+        ctx.stroke();
+      });
     }
+
+    return render;
   }
 
-  // ==========================================================================
-  // 5. BLUEPRINT & SCHEMATICS DATA & MODAL CONTROLLER
-  // ==========================================================================
-  const SCHEMATICS = {
-    bezierlab: {
-      badge: 'BAY 01 // GEOMETRIC ENGINE',
-      title: 'BezierLab: Parametric Spline & Curvature Synthesis',
-      diagram: `[P0] ───(Tangent Vector t0)───> [P1]
-   \\                                  \\
-    \\ (De Casteljau Subdivision)       \\
-     \\                                  \\
-      [P(t)] = (1-t)³P0 + 3(1-t)²t P1 + 3(1-t)t² P2 + t³ P3
-       \\                                  \\
-        [P2] ───(Curvature Comb κ)──────> [P3]`,
-      body: `<p><strong>Core Concept:</strong> BezierLab is a specialized mathematical workbench for generating, evaluating, and exporting arbitrary-order Bézier curves and B-spline paths for CNC machining and vector rendering.</p>
-      <p class="mt-3"><strong>Key Mathematical Formulations:</strong></p>
-      <ul style="padding-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
-        <li>Parametric cubic curve: <code>P(t) = (1-t)³P₀ + 3(1-t)²t P₁ + 3(1-t)t² P₂ + t³P₃</code></li>
-        <li>Curvature analysis: <code>κ(t) = |x'y'' - y'x''| / (x'² + y'²)^(3/2)</code></li>
-        <li>Continuous curvature combs normal to tangent vectors for G2 continuity verification in rapid prototyping.</li>
-      </ul>`
-    },
-    dengue: {
-      badge: 'BAY 02 // EPIDEMIOLOGY AI',
-      title: 'Tactical vs. Strategic Dengue Forecasting Framework',
-      diagram: `[Climate Covariates] ────┐
-  (Temp, Rainfall, Hum)  │
-                         ▼
-[Serotype Distributions] ──> [Feature Engineering & Lag Decomposition]
-                         │
-                         ▼
-              [Multi-Horizon Ensemble]
-        ├── Tactical (1-4 weeks): GBDT + Rolling Lags
-        └── Strategic (5-12 weeks): Climate Transfer Models
-                         │
-                         ▼
-              [PLOS ONE Published Validation]`,
-      body: `<p><strong>Published in PLOS ONE:</strong> An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates across Bangladesh.</p>
-      <p class="mt-3"><strong>Impact & Architecture:</strong> Demonstrates that short-term outbreaks require autoregressive serotype dynamics, whereas long-range seasonal planning hinges upon lagged meteorological covariates.</p>`
-    },
-    spectral: {
-      badge: 'BAY 03 // HYBRID PHYSICS-ML',
-      title: 'Forward-Inverse Spectral Recipe Matcher',
-      diagram: `[Target Reflectance R_λ] ──> [Module B: Sparse Inverse Reconstructor]
-                                       │ (Median Blend / Sparse L1)
-                                       ▼
-                             [Candidate Recipe Blend]
-                                       │
-                                       ▼
-  [Process Parameters] ────> [Module A: Multi-Target Forward Quality Model]
-                             (Gradient Boosted Decision Trees)
-                                       │
-                                       ▼
-                             [Module C: Feasibility & ΔE Ranking]`,
-      body: `<p><strong>Industrial Problem:</strong> Traditional Kubelka-Munk physics fails to predict sparse textile dye recipes under shop-floor process variations.</p>
-      <p class="mt-3"><strong>Solution:</strong> A hybrid physics-informed machine learning architecture combining spectral descriptors with gradient boosting, yielding a component-wise median blend recipe MAE of 0.0295 and eliminating costly physical dye laboratory trials.</p>`
-    },
-    shoeshiner: {
-      badge: 'BAY 04 // MECHATRONICS',
-      title: 'Semi-Automated Shoe Cleaning & Polishing Machine',
-      diagram: `[Foot Presence Sensor] ──> [State Controller / Microcontroller]
-                                 │
-            ┌────────────────────┼────────────────────┐
-            ▼                    ▼                    ▼
-     [Rotary Brush Actuators] [Wax Dispersion] [Linear Cam Guide]
-            │                    │                    │
-            └────────────────────┴────────────────────┘
-                                 │
-                                 ▼
-                     [Safety Interlock & Cycle End]`,
-      body: `<p><strong>FabLab Mechatronics Project:</strong> Designed and fabricated at BUET Fab Lab. Combines mechanical cam-guided brush kinematics with an automated liquid wax metering system for rapid ergonomic shoe maintenance.</p>`
-    },
-    conveyor: {
-      badge: 'BAY 05 // IOT & COMPUTER VISION',
-      title: 'IoT Dynamic Sorting Conveyor Platform',
-      diagram: `[High-Speed Camera / IR] ──> [Edge Vision Node] ──> [Cloud Dashboard / MQTT]
-                                       │
-                                       ▼
-                       [Sorting Solenoid Diverter Gate]
-                                       │
-                                       ▼
-                        [Bin Allocation & Telemetry]`,
-      body: `<p><strong>Real-time Telemetry:</strong> High-throughput automated conveyor platform featuring optical object classification, MQTT telemetry broadcast, and dynamic pneumatically assisted divergence gates.</p>`
-    },
-    spaceshooter: {
-      badge: 'BAY 06 // KINETIC ENGINE',
-      title: 'Retro Space Shooter Arcade Physics Rig',
-      diagram: `[User Input Vector] ──> [Kinetic State Machine (60 FPS)]
-                               │
-       ┌───────────────────────┼───────────────────────┐
-       ▼                       ▼                       ▼
-[AABB Hitbox Query]   [Particle Emitter Pool]   [Web Audio Synth]
-       │                       │                       │
-       └───────────────────────┴───────────────────────┘
-                               │
-                               ▼
-                       [HTML5 Canvas Blit]`,
-      body: `<p><strong>Playable Arcade Engine:</strong> Built directly within this portfolio at <code>/games/space-shooter.html</code>. Features pure vanilla Canvas 2D particle dynamics, responsive controls, powerup multipliers, and zero third-party dependencies.</p>`
+  // Master Render Loop for micro-schematics
+  function startSchematicLoop() {
+    const renders = [
+      initBezierCanvas(),
+      initDengueCanvas(),
+      initSpectralCanvas(),
+      initKinematicsCanvas(),
+      initConveyorCanvas(),
+      initArcadeCanvas()
+    ].filter(Boolean);
+
+    function loop() {
+      renders.forEach((fn) => fn());
+      requestAnimationFrame(loop);
     }
-  };
 
-  function initModals() {
-    const modalOverlay = document.getElementById('schematicModal');
-    const modalBadge = document.getElementById('modalBadge');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDiagram = document.getElementById('modalDiagram');
-    const modalBody = document.getElementById('modalBody');
-    const closeBtn = document.getElementById('modalCloseBtn');
+    requestAnimationFrame(loop);
+  }
 
-    document.querySelectorAll('[data-blueprint]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const key = btn.dataset.blueprint;
-        const data = SCHEMATICS[key];
-        if (data) {
-          modalBadge.textContent = data.badge;
-          modalTitle.textContent = data.title;
-          modalDiagram.textContent = data.diagram;
-          modalBody.innerHTML = data.body;
-          modalOverlay.classList.add('active');
-          sound.playChirp(700, 1400, 0.1);
-        }
-      });
-    });
+  // ============================================================================
+  // 7. INITIALIZATION & RESIZE
+  // ============================================================================
 
-    const closeModal = () => {
-      modalOverlay.classList.remove('active');
-      sound.playClick();
-    };
+  function init() {
+    initRulerCanvases();
+    centerOnDesk(false);
+    startSchematicLoop();
 
-    closeBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-        closeModal();
-      }
+    window.addEventListener('resize', () => {
+      initRulerCanvases();
     });
   }
 
-  // ==========================================================================
-  // 6. FILTER PILLS
-  // ==========================================================================
-  function initFilters() {
-    const pills = document.querySelectorAll('.filter-pill');
-    const cards = document.querySelectorAll('.lab-card');
-
-    pills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        sound.playClick();
-        pills.forEach((p) => p.classList.remove('active'));
-        pill.classList.add('active');
-
-        const category = pill.dataset.filter;
-        cards.forEach((card) => {
-          if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 
-  // ==========================================================================
-  // 7. DOM READY BOOTSTRAP
-  // ==========================================================================
-  document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Simulation Chamber
-    const canvas = document.getElementById('labCanvas');
-    const chamber = new SimulationChamber(canvas);
-
-    // Mode Buttons
-    document.querySelectorAll('.sim-mode-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.sim-mode-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        chamber.setMode(btn.dataset.mode);
-      });
-    });
-
-    // Sliders
-    const speedSlider = document.getElementById('sliderSpeed');
-    if (speedSlider) {
-      speedSlider.addEventListener('input', (e) => {
-        chamber.speed = parseFloat(e.target.value);
-      });
-    }
-
-    const chaosSlider = document.getElementById('sliderChaos');
-    if (chaosSlider) {
-      chaosSlider.addEventListener('input', (e) => {
-        chamber.chaos = parseFloat(e.target.value);
-      });
-    }
-
-    // Action buttons
-    const btnReset = document.getElementById('btnResetSim');
-    if (btnReset) {
-      btnReset.addEventListener('click', () => {
-        chamber.resetSim();
-        sound.playClick();
-      });
-    }
-
-    const btnCapture = document.getElementById('btnCapturePNG');
-    if (btnCapture) {
-      btnCapture.addEventListener('click', () => {
-        chamber.capturePNG();
-      });
-    }
-
-    // Sound Toggle HUD Button
-    const btnAudio = document.getElementById('btnToggleAudio');
-    if (btnAudio) {
-      btnAudio.addEventListener('click', () => {
-        const enabled = sound.toggle();
-        btnAudio.textContent = enabled ? 'SFX: ON' : 'SFX: OFF';
-        btnAudio.classList.toggle('active', enabled);
-      });
-    }
-
-    // CRT Toggle HUD Button
-    const btnCrt = document.getElementById('btnToggleCrt');
-    const crtOverlay = document.getElementById('crtScanlines');
-    if (btnCrt && crtOverlay) {
-      btnCrt.addEventListener('click', () => {
-        sound.playClick();
-        crtOverlay.classList.toggle('disabled');
-        const active = !crtOverlay.classList.contains('disabled');
-        btnCrt.textContent = active ? 'CRT: ON' : 'CRT: OFF';
-        btnCrt.classList.toggle('active', active);
-      });
-    }
-
-    // Realtime UTC/Local Clock
-    const clockEl = document.getElementById('telemetryClock');
-    if (clockEl) {
-      const updateClock = () => {
-        const now = new Date();
-        clockEl.textContent = now.toTimeString().split(' ')[0] + ' LCL';
-      };
-      updateClock();
-      setInterval(updateClock, 1000);
-    }
-
-    // Initialize Card Mini-Waveforms
-    initMiniCanvases();
-
-    // Initialize Terminal
-    const termDock = document.getElementById('terminalDock');
-    if (termDock) {
-      new LabTerminal(termDock, chamber);
-    }
-
-    // Initialize Modals & Filters
-    initModals();
-    initFilters();
-  });
 })();
-
