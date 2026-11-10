@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Workspace — Md. Muqtadir Fuad</title>
+  <title>My Workspace | Md. Muqtadir Fuad</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./lab.css">
 </head>
 <body>
 
-  <!-- Top Header Strip -->
+  <!-- Header -->
   <header class="cabinet-header">
     <div class="header-left">
       <a href="/" class="cabinet-btn-nav">&larr; Main Site</a>
-      <a href="/lab/cutting-mat.html" class="cabinet-btn-nav" style="margin-left: 0.5rem;">Cutting Mat</a>
     </div>
 
     <div class="header-title-box">
@@ -24,14 +20,13 @@
     </div>
 
     <div class="header-right">
-      <span id="liveClock" class="clock-live">00:00:00 BST</span>
+      <span id="liveClock" class="clock-live">00:00:00</span>
     </div>
   </header>
 
-  <!-- Main Horizontal Cabinet Layout -->
   <main class="cabinet-workbench">
 
-    <!-- Left Column: Manifesto & Minimalist Frame Sketch -->
+    <!-- Left column: intro text and profile links -->
     <aside class="manifesto-col">
       <div class="manifesto-lead">
 <!-- AUTO_GENERATED_LAB_MANIFESTO_START -->
@@ -46,7 +41,6 @@
 
       <div class="manifesto-divider"></div>
 
-      <!-- Plain Links: Kaggle, GitHub, Scholar, Completed Projects -->
       <nav class="manifesto-links" aria-label="Profiles and Completed Projects">
         <a href="https://www.kaggle.com/mdmuqtadirfuad" target="_blank" rel="noopener noreferrer">Kaggle</a>
         <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -55,12 +49,10 @@
       </nav>
     </aside>
 
-    <!-- Vertical Partition Drawer Accordion (3 Sections) -->
+    <!-- Drawers. The content between AUTO_GENERATED markers is rendered from lab/lab.md by scripts/build-lab.js. -->
     <div class="cabinet-drawers" id="cabinetDrawers">
 
-      <!-- ======================================================================
-           DRAWER 01: ONGOING PROJECTS (NO IMAGES)
-           ====================================================================== -->
+      <!-- Ongoing projects -->
       <section class="drawer-section expanded" data-drawer="ongoing">
         <div class="drawer-tab" title="Expand Ongoing Projects">
           <div class="drawer-dot"></div>
@@ -83,9 +75,7 @@
         </div>
       </section>
 
-      <!-- ======================================================================
-           DRAWER 02: COMPLETED PROJECTS (SINGLE COLUMN DUMMY LIST)
-           ====================================================================== -->
+      <!-- Completed projects -->
       <section class="drawer-section collapsed" data-drawer="completed">
         <div class="drawer-tab" title="Completed Projects"></div>
         <div class="drawer-content">
@@ -105,58 +95,52 @@
         </div>
       </section>
 
-      <!-- ======================================================================
-           DRAWER 03: PAPERS (PLAIN STANDARD LIST)
-           ====================================================================== -->
+      <!-- Papers -->
       <section class="drawer-section collapsed" data-drawer="papers">
         <div class="drawer-tab" title="Expand Papers">
           <div class="drawer-dot"></div>
           <div class="drawer-label">Papers</div>
         </div>
         <div class="drawer-content">
-          <ol class="plain-paper-list">
+          <div class="editorial-single-col">
 <!-- AUTO_GENERATED_LAB_PAPERS_START -->
-            <li>
-              <div class="paper-title">Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh</div>
-              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Md. Sajib Milki, Ridwan Al Aziz</div>
-              <div class="paper-venue"><em>PLOS ONE</em>, 2026</div>
-              <div class="paper-links">
-                <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer">Paper</a>
-                <a href="https://doi.org/10.5281/zenodo.19589534" target="_blank" rel="noopener noreferrer">Data</a>
-                <a href="/blogs-posts/posts/blog-dengue.html">Blog</a>
+            <article class="single-project-item">
+              <h3 class="editorial-title">Tactical vs. strategic: An adaptable framework for horizon-dependent dengue forecasting using data-driven approaches with serotype and climate covariates in Bangladesh</h3>
+              <p class="editorial-desc"><em>PLOS ONE</em>, 2026</p>
+              <div class="editorial-links">
+                <a href="https://doi.org/10.1371/journal.pone.0353069" class="editorial-link" target="_blank" rel="noopener noreferrer">Paper</a>
+                <a href="https://doi.org/10.5281/zenodo.19589534" class="editorial-link" target="_blank" rel="noopener noreferrer">Data</a>
+                <a href="/blogs-posts/posts/blog-dengue.html" class="editorial-link">Blog</a>
               </div>
-            </li>
+            </article>
 
-            <li>
-              <div class="paper-title">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</div>
-              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Abdullah Al Mazid, Md. Istiak Adnan, Tirthojit Das, Shatabdi Sen Prapti, Nafisa Mahbub</div>
-              <div class="paper-venue"><em>28th International Conference on Computer and Information Technology (ICCIT)</em>, 2025</div>
-              <div class="paper-links">
-                <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" target="_blank" rel="noopener noreferrer">Paper</a>
-                <a href="https://github.com/md-muqtadir-fuad/eGov-Lens" target="_blank" rel="noopener noreferrer">Code &amp; Data</a>
-                <a href="/blogs-posts/posts/blog-egov-lens.html">Blog</a>
+            <article class="single-project-item">
+              <h3 class="editorial-title">eGov-Lens: A Multi-Dimensional Machine Learning Approach to Aspect-Based Public Feedback Analysis on Bengali e-Government Platforms</h3>
+              <p class="editorial-desc"><em>ICCIT</em>, 2025</p>
+              <div class="editorial-links">
+                <a href="https://doi.org/10.1109/ICCIT68739.2025.11491291" class="editorial-link" target="_blank" rel="noopener noreferrer">Paper</a>
+                <a href="https://github.com/md-muqtadir-fuad/eGov-Lens" class="editorial-link" target="_blank" rel="noopener noreferrer">Code &amp; Data</a>
+                <a href="/blogs-posts/posts/blog-egov-lens.html" class="editorial-link">Blog</a>
               </div>
-            </li>
+            </article>
 
-            <li>
-              <div class="paper-title">Aerodynamic Performance Analysis of NACA 4415 Airfoil Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis</div>
-              <div class="paper-authors">Md Zisanul Haque Bhuiyan, <strong>Md. Muqtadir Fuad</strong>, Masud Rana, A. S. M. Maruf Hasan, Khalid Ammar</div>
-              <div class="paper-venue"><em>7th Bangladesh Conference on Industrial Engineering and Operations Management</em>, 2024</div>
-              <div class="paper-links">
-                <a href="https://doi.org/10.46254/BA07.20240040" target="_blank" rel="noopener noreferrer">Paper</a>
+            <article class="single-project-item">
+              <h3 class="editorial-title">Aerodynamic Performance Analysis of NACA 4415 Airfoil Incorporating Gurney and Bionic Flap: A Steady-State Numerical Analysis</h3>
+              <p class="editorial-desc"><em>IEOM Bangladesh</em>, 2024</p>
+              <div class="editorial-links">
+                <a href="https://doi.org/10.46254/BA07.20240040" class="editorial-link" target="_blank" rel="noopener noreferrer">Paper</a>
               </div>
-            </li>
+            </article>
 
-            <li>
-              <div class="paper-title">A Physics-Informed Inverse Machine Learning Framework for High-Dimensional Sparse Recipe Reconstruction</div>
-              <div class="paper-authors"><strong>Md. Muqtadir Fuad</strong>, Md. Istiak Adnan, Ridwan Al Aziz</div>
-              <div class="paper-venue"><em>Under review</em>, 2026</div>
-              <div class="paper-links">
-                <a href="https://arxiv.org/abs/2610.14097" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <article class="single-project-item">
+              <h3 class="editorial-title">A Physics-Informed Inverse Machine Learning Framework for High-Dimensional Sparse Recipe Reconstruction</h3>
+              <p class="editorial-desc">Under review, 2026</p>
+              <div class="editorial-links">
+                <a href="https://arxiv.org/abs/2610.14097" class="editorial-link" target="_blank" rel="noopener noreferrer">arXiv</a>
               </div>
-            </li>
+            </article>
 <!-- AUTO_GENERATED_LAB_PAPERS_END -->
-          </ol>
+          </div>
         </div>
       </section>
 

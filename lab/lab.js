@@ -1,25 +1,18 @@
-/**
- * MY WORKSPACE // EDITORIAL ARCHITECTURAL PARTITIONS
- * lab/demo1.js - Isolated Interactive Controller
- */
+// Workspace page: clock and drawer accordion. Used only by lab/lab.html.
 
 (function () {
   'use strict';
 
-  // 1. Live BST Clock
+  // Clock in the visitor's local time
   const clockEl = document.getElementById('liveClock');
   function updateClock() {
     if (!clockEl) return;
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, '0');
-    const m = String(now.getMinutes()).padStart(2, '0');
-    const s = String(now.getSeconds()).padStart(2, '0');
-    clockEl.textContent = `${h}:${m}:${s} BST`;
+    clockEl.textContent = new Date().toLocaleTimeString('en-GB', { hour12: false });
   }
   updateClock();
   setInterval(updateClock, 1000);
 
-  // 2. Drawer Accordion Interaction
+  // Drawer accordion: one drawer open at a time
   const drawers = Array.from(document.querySelectorAll('.drawer-section'));
 
   function expandDrawer(drawerNameOrEl) {
@@ -46,7 +39,7 @@
     tab.addEventListener('click', () => expandDrawer(drawer));
   });
 
-  // 3. Left sidebar trigger for Completed Projects
+  // "Completed projects" link in the left column toggles that drawer
   const linkCompleted = document.getElementById('linkCompletedProjects');
   if (linkCompleted) {
     linkCompleted.addEventListener('click', (e) => {

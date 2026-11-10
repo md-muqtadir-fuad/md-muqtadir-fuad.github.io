@@ -8,23 +8,13 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const LAB_HTML_PATH = path.resolve(rootDir, 'lab/lab.html');
-const CANDIDATE_MD_PATHS = [
-  path.resolve(rootDir, 'content/lab.md'),
-  path.resolve(rootDir, 'lab/lab.md'),
-];
+const LAB_MD_PATH = path.resolve(rootDir, 'lab/lab.md');
 
 const escapeHtml = (s = '') =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const inline = (s = '') => marked.parseInline(s);
 const parseLinks = (s = '') =>
   [...s.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)].map((m) => ({ label: m[1], url: m[2] }));
-
-function findLabMdPath() {
-  const existing = CANDIDATE_MD_PATHS.filter((p) => fs.existsSync(p));
-  if (existing.length === 0) return null;
-  if (existing.length === 1) return existing[0];
-  return existing.sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)[0];
-}
 
 // Split markdown into top-level sections by "# Heading"
 function parseSections(markdown) {
@@ -132,30 +122,23 @@ function renderProjects(lines) {
     .join('\n\n');
 }
 
+// Papers share the project layout: title, one line of text (venue and year), then links.
 function renderPapers(lines) {
-  const entries = parseEntries(lines);
-  return entries
+  return parseEntries(lines)
     .map((e) => {
-      const authors = e.fields.authors || '';
-      const venue = e.fields.venue || '';
-      const linksStr = e.fields.links || '';
-
-      const links = parseLinks(linksStr);
-      const linksHtml = links
+      const links = parseLinks(e.fields.links || '')
         .map((l) => {
-          const isExternal = l.url.startsWith('http');
-          const relAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-          return `                <a href="${escapeHtml(l.url)}"${relAttr}>${escapeHtml(l.label)}</a>`;
+          const external = l.url.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : '';
+          return `                <a href="${escapeHtml(l.url)}" class="editorial-link"${external}>${escapeHtml(l.label)}</a>`;
         })
         .join('\n');
 
       return [
-        '            <li>',
-        `              <div class="paper-title">${inline(e.title)}</div>`,
-        authors && `              <div class="paper-authors">${inline(authors)}</div>`,
-        venue && `              <div class="paper-venue">${inline(venue)}</div>`,
-        linksHtml && `              <div class="paper-links">\n${linksHtml}\n              </div>`,
-        '            </li>',
+        '            <article class="single-project-item">',
+        `              <h3 class="editorial-title">${inline(e.title)}</h3>`,
+        e.description && `              <p class="editorial-desc">${inline(e.description)}</p>`,
+        links && `              <div class="editorial-links">\n${links}\n              </div>`,
+        '            </article>',
       ]
         .filter(Boolean)
         .join('\n');
@@ -176,9 +159,9 @@ function replaceRegion(html, marker, newContent) {
 }
 
 export function buildLab() {
-  const mdPath = findLabMdPath();
-  if (!mdPath) {
-    console.warn('[build-lab] No lab.md found in content/ or lab/, skipping.');
+  const mdPath = LAB_MD_PATH;
+  if (!fs.existsSync(mdPath)) {
+    console.warn('[build-lab] lab/lab.md not found, skipping.');
     return;
   }
   if (!fs.existsSync(LAB_HTML_PATH)) {
