@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse Lab // Cyber-Physical Workbench &amp; Research Deck — Md. Muqtadir Fuad</title>
+  <meta name="description" content="Interactive cyber-physical research lab and experimental workbench of Md. Muqtadir Fuad, Program Engineer (Fab Lab) at BUET. Exploring chaos dynamics, generative kinematics, and applied AI.">
+  <meta name="author" content="Md. Muqtadir Fuad">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Synapse Lab // Cyber-Physical Workbench &amp; Research Deck">
+  <meta property="og:description" content="Interactive simulation chamber, generative mathematics, robotics prototypes, and AI benchmarks by Md. Muqtadir Fuad, BUET.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/md-muqtadir-fuad/portfolio/refs/heads/master/public/images/fuad.jpg">
+  <meta property="og:url" content="https://md-muqtadir-fuad.github.io/lab/lab.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Isolated Stylesheet -->
+  <link rel="stylesheet" href="./lab.css">
+</head>
+<body>
+
+  <!-- Background Ambience -->
+  <div class="lab-grid-bg"></div>
+  <div class="lab-grid-glow"></div>
+  <div id="crtScanlines" class="lab-crt-scanlines disabled"></div>
+
+  <!-- HUD Header & Telemetry -->
+  <header class="lab-hud-header">
+    <div class="lab-hud-left">
+      <a href="/lab/lab.html" class="lab-brand">
+        <svg class="lab-logo-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>SYNAPSE LAB // DECK-01</span>
+      </a>
+      <div class="lab-status-badge">
+        <span class="pulse-dot"></span>
+        <span>SYS_OPTIMAL</span>
+      </div>
+    </div>
+
+    <div class="lab-hud-center">
+      <div class="telemetry-item">
+        <span class="telemetry-label">CLOCK:</span>
+        <span id="telemetryClock" class="telemetry-val">00:00:00 LCL</span>
+      </div>
+      <div class="telemetry-item">
+        <span class="telemetry-label">RATE:</span>
+        <span id="telemetryFps" class="telemetry-val">60 FPS</span>
+      </div>
+      <div class="telemetry-item">
+        <span class="telemetry-label">AFFILIATION:</span>
+        <span class="telemetry-val">BUET FAB LAB PIN-14011</span>
+      </div>
+    </div>
+
+    <div class="lab-hud-right">
+      <button id="btnToggleAudio" class="lab-btn-hud" title="Toggle Synthesized Web Audio">SFX: OFF</button>
+      <button id="btnToggleCrt" class="lab-btn-hud" title="Toggle CRT Scanline Overlay">CRT: OFF</button>
+      <a href="/" class="lab-btn-hud">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>MAIN PORTFOLIO</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="lab-wrapper">
+
+    <!-- HERO SIMULATION CHAMBER -->
+    <section class="lab-chamber">
+      <div class="chamber-top-bar">
+        <div class="chamber-title-group">
+          <span class="chamber-badge">SIMULATION CHAMBER</span>
+          <h2 class="chamber-title">Nonlinear Dynamics &amp; Kinematics Workbench</h2>
+        </div>
+
+        <div class="chamber-sim-modes">
+          <button class="sim-mode-btn active" data-mode="attractor">3D LORENZ CHAOS</button>
+          <button class="sim-mode-btn" data-mode="bezier">BÉZIER SPLINE</button>
+          <button class="sim-mode-btn" data-mode="fluid">VECTOR FLUID (CFD)</button>
+        </div>
+      </div>
+
+      <!-- Canvas Viewport -->
+      <div class="chamber-viewport">
+        <canvas id="labCanvas"></canvas>
+
+        <div class="canvas-hud-overlay">
+          <div>// LIVE TELEMETRY</div>
+          <div id="telemetryCoords">X:0 Y:0</div>
+          <div>SOLVER: 4th-Order Runge-Kutta</div>
+        </div>
+
+        <div id="canvasHint" class="canvas-hint-overlay">
+          <span>🖱 Drag to rotate 3D Lorenz attractor</span>
+        </div>
+      </div>
+
+      <!-- Controls & Parameters -->
+      <div class="chamber-bottom-bar">
+        <div class="chamber-slider-group">
+          <div class="slider-item">
+            <label for="sliderSpeed">SPEED:</label>
+            <input type="range" id="sliderSpeed" min="0.2" max="2.5" step="0.1" value="1.0">
+          </div>
+          <div class="slider-item">
+            <label for="sliderChaos">TURBULENCE:</label>
+            <input type="range" id="sliderChaos" min="0.5" max="2.0" step="0.05" value="1.0">
+          </div>
+        </div>
+
+        <div class="chamber-action-group">
+          <button id="btnResetSim" class="lab-btn-action">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            RESET
+          </button>
+          <button id="btnCapturePNG" class="lab-btn-action">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+            SNAPSHOT
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH & PROTOTYPE MATRIX -->
+    <section>
+      <div class="lab-section-header">
+        <div>
+          <span class="section-tag">// ACTIVE RESEARCH &amp; EXPERIMENT RIGS</span>
+          <h1 class="section-title">The Innovation Deck</h1>
+          <p class="section-subtitle">
+            Prototypes, generative kinematics, and applied AI systems developed across BUET Fab Lab, industrial manufacturing, and open-source computing.
+          </p>
+        </div>
+
+        <div class="lab-filters">
+          <button class="filter-pill active" data-filter="all">ALL RIGS</button>
+          <button class="filter-pill" data-filter="geometry">GEOMETRY &amp; MATH</button>
+          <button class="filter-pill" data-filter="ai">AI &amp; FORECASTING</button>
+          <button class="filter-pill" data-filter="fablab">FABLAB &amp; ROBOTICS</button>
+          <button class="filter-pill" data-filter="games">KINETIC ENGINES</button>
+        </div>
+      </div>
+
+      <!-- Bento Cards Grid -->
+      <div class="lab-cards-grid">
+
+        <!-- BAY 01: BezierLab -->
+        <article class="lab-card" data-category="geometry">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 01</span>
+            <span class="card-status-pill active-rig">
+              <span class="card-led"></span> ACTIVE RIG
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Mathematical Splines // SVG Engine</div>
+            <h3 class="card-title">BezierLab: Curvature &amp; Path Synthesis</h3>
+            <p class="card-desc">
+              Interactive spline generator analyzing continuous curvature combs (κ), G2 continuity verification, and real-time parametric path generation for precision digital manufacturing.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="bezier"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">TypeScript</span>
+              <span class="spec-badge">WebGL</span>
+              <span class="spec-badge">De Casteljau</span>
+              <span class="spec-badge">SVG Parser</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="bezierlab">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="https://github.com/md-muqtadir-fuad/BezierLab" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+              LAUNCH REPO →
+            </a>
+          </div>
+        </article>
+
+        <!-- BAY 02: Dengue Epidemiological AI -->
+        <article class="lab-card" data-category="ai">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 02</span>
+            <span class="card-status-pill research">
+              <span class="card-led"></span> PLOS ONE
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Predictive AI // Epidemiology</div>
+            <h3 class="card-title">Adaptive Dengue Forecasting Model</h3>
+            <p class="card-desc">
+              Multi-horizon epidemiological prediction framework decoupling short-term viral serotype dynamics from long-term meteorological and lagged climate drivers across Bangladesh.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="ecg"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">Python</span>
+              <span class="spec-badge">LightGBM</span>
+              <span class="spec-badge">Climate Covariates</span>
+              <span class="spec-badge">Time-Series</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="dengue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+              READ ARTICLE →
+            </a>
+          </div>
+        </article>
+
+        <!-- BAY 03: Spectral Matcher -->
+        <article class="lab-card" data-category="ai">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 03</span>
+            <span class="card-status-pill research">
+              <span class="card-led"></span> NEURAL INVERSE
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Physics-Informed ML // Spectroscopy</div>
+            <h3 class="card-title">Sparse Inverse Formulation Machine</h3>
+            <p class="card-desc">
+              3-module hybrid machine learning framework mapping high-dimensional spectrophotometric reflectance data (Rλ, K/S) to sparse industrial chemical recipes, achieving 0.0295 MAE.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="fourier"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">PyTorch</span>
+              <span class="spec-badge">Spectroscopy</span>
+              <span class="spec-badge">Forward-Inverse</span>
+              <span class="spec-badge">Optimization</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="spectral">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="/blogs-posts/posts/blog-ug-thesis.html" class="card-btn card-btn-primary">
+              DEEP DIVE →
+            </a>
+          </div>
+        </article>
+
+        <!-- BAY 04: Mechatronics Shoe Shiner -->
+        <article class="lab-card" data-category="fablab">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 04</span>
+            <span class="card-status-pill bench-test">
+              <span class="card-led"></span> FABLAB RIG
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Robotics &amp; Mechatronics // BUET Fab Lab</div>
+            <h3 class="card-title">Automated Shoe Care Robot</h3>
+            <p class="card-desc">
+              Semi-automated electromechanical machine combining rotary horsehair and nylon buffing heads, infrared presence tripwires, and metered wax peristaltic dispensers.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="stepper"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">SolidWorks</span>
+              <span class="spec-badge">C++ / Arduino</span>
+              <span class="spec-badge">Sensors</span>
+              <span class="spec-badge">Actuators</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="shoeshiner">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="/blogs-posts/posts/blog-shoe-shiner.html" class="card-btn card-btn-primary">
+              CAD &amp; VIDEO →
+            </a>
+          </div>
+        </article>
+
+        <!-- BAY 05: IoT Sorting Conveyor -->
+        <article class="lab-card" data-category="fablab">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 05</span>
+            <span class="card-status-pill active-rig">
+              <span class="card-led"></span> IOT TELEMETRY
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Smart Manufacturing // Edge Vision</div>
+            <h3 class="card-title">IoT Dynamic Conveyor Sorter</h3>
+            <p class="card-desc">
+              Automated package classification conveyor integrating optical sensors, pneumatic kickers, and an ESP32 web telemetry telemetry broker for real-time logistics tracking.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="wave"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">ESP32</span>
+              <span class="spec-badge">MQTT</span>
+              <span class="spec-badge">WebSockets</span>
+              <span class="spec-badge">Pneumatics</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="conveyor">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="/blogs-posts/posts/blog-iot-conveyor.html" class="card-btn card-btn-primary">
+              EXPERIMENT →
+            </a>
+          </div>
+        </article>
+
+        <!-- BAY 06: Retro Space Shooter Engine -->
+        <article class="lab-card" data-category="games">
+          <div class="lab-card-header">
+            <span class="bay-number">BAY 06</span>
+            <span class="card-status-pill active-rig">
+              <span class="card-led"></span> 60 FPS ARCADE
+            </span>
+          </div>
+          <div class="lab-card-body">
+            <div class="card-tech-category">Kinetic State Engine // Canvas Game</div>
+            <h3 class="card-title">Space Shooter Kinetic Engine</h3>
+            <p class="card-desc">
+              High-performance 60fps arcade game built directly into the site featuring spatial partitioning, particle disintegration physics, and responsive keyboard/touch control loops.
+            </p>
+            <div class="card-instrument-box">
+              <canvas class="card-canvas-mini" data-type="fourier"></canvas>
+            </div>
+            <div class="card-specs-row">
+              <span class="spec-badge">HTML5 Canvas</span>
+              <span class="spec-badge">Spatial Partitioning</span>
+              <span class="spec-badge">Web Audio</span>
+              <span class="spec-badge">AABB Collisions</span>
+            </div>
+          </div>
+          <div class="lab-card-footer">
+            <button class="card-btn card-btn-secondary" data-blueprint="spaceshooter">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              BLUEPRINT
+            </button>
+            <a href="/games/space-shooter.html" class="card-btn card-btn-primary">
+              PLAY GAME →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lab-footer">
+      <div>
+        SYNAPSE LAB // RESEARCH NODE OF MD. MUQTADIR FUAD<br>
+        BUET INDUSTRIAL &amp; PRODUCTION ENGINEERING · HEAT PIN-14011
+      </div>
+      <div class="footer-links">
+        <a href="/">PORTFOLIO</a>
+        <a href="/blogs-posts/blogs.html">BLOG ARCHIVE</a>
+        <a href="/publications.html">PUBLICATIONS</a>
+        <a href="https://github.com/md-muqtadir-fuad" target="_blank" rel="noopener noreferrer">GITHUB</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- INTERACTIVE LAB SHELL / TERMINAL (FLOATING) -->
+  <aside id="terminalDock" class="lab-terminal-dock minimized">
+    <div class="terminal-header">
+      <div class="terminal-title-group">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+        <span>LAB-SHELL v2.4 (CLI)</span>
+      </div>
+      <div class="terminal-controls">
+        <button class="term-control-btn term-toggle-btn" title="Toggle Terminal Size">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <div class="terminal-output">
+        <div class="term-line-info">// FUAD LAB OPERATING SYSTEM INITIALIZED.</div>
+        <div class="term-line-info">// Type <span class="term-line-cyan">'help'</span> for an index of diagnostic routines.</div>
+      </div>
+      <div class="terminal-input-bar">
+        <span class="terminal-prompt">&gt;</span>
+        <input type="text" class="terminal-input" placeholder="type a command..." spellcheck="false" autocomplete="off">
+      </div>
+    </div>
+  </aside>
+
+  <!-- BLUEPRINT & SCHEMATIC MODAL -->
+  <div id="schematicModal" class="lab-modal-overlay">
+    <div class="lab-modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span id="modalBadge" class="modal-badge">BAY 01</span>
+          <h3 id="modalTitle" class="modal-title">Engineering Schematic</h3>
+        </div>
+        <button id="modalCloseBtn" class="modal-close-btn" title="Close Schematic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-content">
+        <pre id="modalDiagram" class="modal-schematic-diagram"></pre>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Isolated Script -->
+  <script type="module" src="./lab.js"></script>
+</body>
+</html>

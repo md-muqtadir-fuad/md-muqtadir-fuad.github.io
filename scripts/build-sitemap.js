@@ -17,6 +17,7 @@ const PAGES = [
   ['/', ['index.html', 'content/updates.md', 'content/publications.md', 'content/projects.md', 'content/experience.md', 'content/honors.md']],
   ['/blogs-posts/blogs.html', ['blogs-posts/blogs.html']],
   ['/games/space-shooter.html', ['games/space-shooter.html']],
+  ['/lab/lab.html', ['lab/lab.html', 'lab/lab.css', 'lab/lab.js']],
 ];
 
 // Last commit date of a file (YYYY-MM-DD), falling back to its modification time

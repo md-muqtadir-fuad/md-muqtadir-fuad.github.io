@@ -84,6 +84,8 @@ export default defineConfig(() => {
           contacts: path.resolve(__dirname, 'contacts.html'),
           blogs: path.resolve(__dirname, 'blogs-posts/blogs.html'),
           'space-shooter': path.resolve(__dirname, 'games/space-shooter.html'),
+          lab: path.resolve(__dirname, 'lab/lab.html'),
+          'lab-index': path.resolve(__dirname, 'lab/index.html'),
           '404': path.resolve(__dirname, '404.html'),
           ...getBlogInputs(),
         },
