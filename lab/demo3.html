@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 3: Explorable Mechanics // Research Lab — Md. Muqtadir Fuad</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./demo3.css">
+</head>
+<body>
+
+  <!-- Demo Switcher Banner -->
+  <nav class="demo-switcher-bar">
+    <div style="font-weight: 700; color: #fff;">LAB DEMO COMPARISON:</div>
+    <div class="demo-tabs">
+      <a href="/lab/demo1.html" class="demo-tab-link">DEMO 1: Industrial Hardware</a>
+      <a href="/lab/demo2.html" class="demo-tab-link">DEMO 2: Spatial Cutting Mat</a>
+      <a href="/lab/demo3.html" class="demo-tab-link active">DEMO 3: Explorable Mechanics</a>
+    </div>
+    <a href="/" class="demo-back">&larr; Main Portfolio</a>
+  </nav>
+
+  <article class="exp-container">
+    <header class="exp-header">
+      <div class="exp-kicker">EXPLORABLE RESEARCH NOTEBOOK // BUET</div>
+      <h1 class="exp-title">Computational Mechanics &amp; Kinematics Laboratory</h1>
+      <p class="exp-intro">
+        An interactive laboratory exploring geometric spline continuity, four-bar linkage kinematics, and lagged epidemiological drivers through explorable models rather than static descriptions.
+      </p>
+    </header>
+
+    <!-- APPARATUS 01: FOUR-BAR LINKAGE -->
+    <section class="apparatus-block">
+      <div class="apparatus-num">APPARATUS 01 // MECHATRONICS &amp; MECHANISM SYNTHESIS</div>
+      <h2 class="apparatus-title">Kinematics of a Planar Four-Bar Cam Linkage</h2>
+      <p class="apparatus-text">
+        In automated machinery—such as the automated shoe-cleaning robot developed at BUET Fab Lab—a rotating crank drives an oscillating rocker to cycle rotary cleaning heads across an ergonomic footbed. Drag the crank angle slider below to simulate real-time position analysis:
+      </p>
+
+      <div class="apparatus-stage">
+        <canvas id="canvasLinkage" class="stage-canvas"></canvas>
+        <div class="stage-controls">
+          <div class="control-item">
+            <label for="sliderCrankAngle">CRANK ANGLE (&theta;):</label>
+            <input type="range" id="sliderCrankAngle" min="0" max="360" value="0">
+          </div>
+          <div>CRANK POSITION: <span id="readoutAngle" class="stage-readout">0&deg;</span></div>
+        </div>
+      </div>
+
+      <div class="apparatus-footer">
+        <span>PROJECT: Automated Shoe Shiner Rig</span>
+        <a href="/blogs-posts/posts/blog-shoe-shiner.html">READ DESIGN REPORT &rarr;</a>
+      </div>
+    </section>
+
+    <!-- APPARATUS 02: BÉZIER SPLINES -->
+    <section class="apparatus-block">
+      <div class="apparatus-num">APPARATUS 02 // GEOMETRIC COMPUTING</div>
+      <h2 class="apparatus-title">Continuous Curvature Combs on Cubic Splines</h2>
+      <p class="apparatus-text">
+        In CAD surface modeling and CNC toolhead machining (the basis of <strong>BezierLab</strong>), curvature continuity (G2) is critical to prevent acceleration spikes in motor actuators. The orange spikes below represent the local curvature vector &kappa; normal to the curve. Drag the control handles to inspect:
+      </p>
+
+      <div class="apparatus-stage">
+        <canvas id="canvasBezier" class="stage-canvas"></canvas>
+        <div class="stage-controls">
+          <div>INTERACTION: <span class="stage-readout">🖱 Drag any handle P0, P1, P2, P3</span></div>
+          <div>PEAK CURVATURE: <span id="readoutMaxCurv" class="stage-readout">&kappa;_max: 0.00 mm⁻¹</span></div>
+        </div>
+      </div>
+
+      <div class="apparatus-footer">
+        <span>PROJECT: BezierLab Desktop Workstation</span>
+        <a href="https://github.com/md-muqtadir-fuad/BezierLab" target="_blank">GITHUB REPOSITORY &rarr;</a>
+      </div>
+    </section>
+
+    <!-- APPARATUS 03: DENGUE CLIMATE LAG -->
+    <section class="apparatus-block">
+      <div class="apparatus-num">APPARATUS 03 // EPIDEMIOLOGICAL TIME-SERIES</div>
+      <h2 class="apparatus-title">Phase-Lag Coupling in Climate-Driven Dengue Outbreaks</h2>
+      <p class="apparatus-text">
+        Published in <em>PLOS ONE</em> (2026), our findings demonstrate that meteorological spikes (blue curve) do not immediately trigger caseload surges (red curve). Instead, a multi-week incubation and vector breeding lag decouples immediate weather from epidemic peaks. Slide the lag window below:
+      </p>
+
+      <div class="apparatus-stage">
+        <canvas id="canvasDengue" class="stage-canvas"></canvas>
+        <div class="stage-controls">
+          <div class="control-item">
+            <label for="sliderLagWeeks">MODEL LAG OFFSET:</label>
+            <input type="range" id="sliderLagWeeks" min="0" max="10" value="5">
+          </div>
+          <div>ACTIVE LAG: <span id="readoutLag" class="stage-readout">5 Weeks</span></div>
+          <div>EMPIRICAL FIT: <span id="readoutR2" class="stage-readout">R²: 1.00</span></div>
+        </div>
+      </div>
+
+      <div class="apparatus-footer">
+        <span>PROJECT: PLOS ONE (doi:10.1371/journal.pone.0353069)</span>
+        <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank">OFFICIAL PUBLICATION &rarr;</a>
+      </div>
+    </section>
+  </article>
+
+  <script type="module" src="./demo3.js"></script>
+</body>
+</html>

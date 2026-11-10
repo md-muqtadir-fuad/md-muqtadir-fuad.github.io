@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 1: Industrial Hardware // Lab Desk — Md. Muqtadir Fuad</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./demo1.css">
+</head>
+<body>
+
+  <!-- Demo Switcher Banner -->
+  <nav class="demo-switcher-bar">
+    <div style="font-weight: 700; color: #fff;">LAB DEMO COMPARISON:</div>
+    <div class="demo-tabs">
+      <a href="/lab/demo1.html" class="demo-tab-link active">DEMO 1: Industrial Hardware</a>
+      <a href="/lab/demo2.html" class="demo-tab-link">DEMO 2: Spatial Cutting Mat</a>
+      <a href="/lab/demo3.html" class="demo-tab-link">DEMO 3: Explorable Mechanics</a>
+    </div>
+    <a href="/" class="demo-back">&larr; Main Portfolio</a>
+  </nav>
+
+  <main class="ind-container">
+    <!-- Main Hardware Rack Chassis -->
+    <div class="ind-rack">
+      <div class="screw tl"></div>
+      <div class="screw tr"></div>
+      <div class="screw bl"></div>
+      <div class="screw br"></div>
+
+      <!-- Header Strip -->
+      <header class="ind-header">
+        <div class="ind-brand-title">
+          <span>MMF-LAB // UNIT-01</span>
+          <span class="brand-tag">FABLAB BUET</span>
+        </div>
+        <div class="ind-header-meta">
+          <span>SPEC: MECHATRONICS &amp; COMPUTATION</span>
+          <span>CALIBRATED: 2026</span>
+        </div>
+      </header>
+
+      <!-- Faceplate Grid -->
+      <div class="ind-faceplate">
+
+        <!-- Left: Cathode Screen -->
+        <div class="ind-display-unit">
+          <div class="screen-bezel">
+            <canvas id="crtCanvas" class="screen-crt-canvas"></canvas>
+          </div>
+          <div class="screen-readout">
+            <span id="readoutMode">MODE: LISSAJOUS</span>
+            <span>BANDWIDTH: 100 MHz</span>
+            <span>CH1: ON</span>
+          </div>
+        </div>
+
+        <!-- Right: Tactile Hardware Controls -->
+        <div class="ind-controls-unit">
+          <div>
+            <div class="control-section-title">FUNCTION SELECTOR</div>
+            <div class="switches-row">
+              <button class="switch-btn active" data-mode="lissajous">LISSAJOUS</button>
+              <button class="switch-btn" data-mode="harmonic">HARMONIC</button>
+              <button class="switch-btn" data-mode="bezier">BÉZIER</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="control-section-title">PARAMETRIC POTENTIOMETERS (DRAG UP/DOWN)</div>
+            <div class="knobs-row">
+              <div class="knob-container">
+                <div id="dialFreq1" class="knob-dial">
+                  <div class="knob-indicator"></div>
+                </div>
+                <span class="knob-label">FREQ α</span>
+                <span id="valFreq1" class="knob-val">3.0 Hz</span>
+              </div>
+
+              <div class="knob-container">
+                <div id="dialFreq2" class="knob-dial">
+                  <div class="knob-indicator"></div>
+                </div>
+                <span class="knob-label">FREQ β</span>
+                <span id="valFreq2" class="knob-val">4.0 Hz</span>
+              </div>
+
+              <div class="knob-container">
+                <div id="dialDamp" class="knob-dial">
+                  <div class="knob-indicator"></div>
+                </div>
+                <span class="knob-label">DAMPING</span>
+                <span id="valDamp" class="knob-val">0.8</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="control-section-title">7-SEGMENT FREQ READOUT</div>
+            <div id="segmentReadout" class="segment-display">3.0 / 4.0</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LOWER MODULES: PROJECT CASSETTES -->
+    <section class="modules-section">
+      <div class="section-label-bar">
+        <span>// PHYSICAL MODULE ARCHIVE</span>
+        <span>&mdash;</span>
+        <span>ENGINEERING CASSETTES</span>
+      </div>
+
+      <div class="cassettes-grid">
+
+        <article class="cassette-card">
+          <div class="cassette-top">
+            <span class="cassette-id">CASSETTE 01</span>
+            <span class="cassette-status"></span>
+          </div>
+          <div class="cassette-body">
+            <div class="cassette-cat">Kinematics // Splines</div>
+            <h3 class="cassette-title">BezierLab Core</h3>
+            <p class="cassette-desc">Desktop workstation for N-degree Bézier curves with interactive control-point manipulation and curvature comb diagnostics.</p>
+            <div class="cassette-specs">
+              <span class="cassette-spec-tag">C++ / Qt</span>
+              <span class="cassette-spec-tag">G2 Continuity</span>
+              <span class="cassette-spec-tag">De Casteljau</span>
+            </div>
+          </div>
+          <div class="cassette-footer">
+            <a href="https://github.com/md-muqtadir-fuad/BezierLab" target="_blank" class="cassette-link">SPECIFICATION &rarr;</a>
+          </div>
+        </article>
+
+        <article class="cassette-card">
+          <div class="cassette-top">
+            <span class="cassette-id">CASSETTE 02</span>
+            <span class="cassette-status"></span>
+          </div>
+          <div class="cassette-body">
+            <div class="cassette-cat">Epidemiology // ML</div>
+            <h3 class="cassette-title">Dengue Forecasting Rig</h3>
+            <p class="cassette-desc">Adaptive horizon-dependent prediction framework leveraging serotype evolution and lagged meteorological covariates (PLOS ONE).</p>
+            <div class="cassette-specs">
+              <span class="cassette-spec-tag">LightGBM</span>
+              <span class="cassette-spec-tag">Climate Lags</span>
+              <span class="cassette-spec-tag">Time-Series</span>
+            </div>
+          </div>
+          <div class="cassette-footer">
+            <a href="https://doi.org/10.1371/journal.pone.0353069" target="_blank" class="cassette-link">PAPER DOSSIER &rarr;</a>
+          </div>
+        </article>
+
+        <article class="cassette-card">
+          <div class="cassette-top">
+            <span class="cassette-id">CASSETTE 03</span>
+            <span class="cassette-status"></span>
+          </div>
+          <div class="cassette-body">
+            <div class="cassette-cat">Robotics // Fab Lab</div>
+            <h3 class="cassette-title">Automated Shoe Shiner</h3>
+            <p class="cassette-desc">Pneumatically and cam-driven dual rotary brush mechanism with automatic wax metering and infrared safety tripwire.</p>
+            <div class="cassette-specs">
+              <span class="cassette-spec-tag">SolidWorks</span>
+              <span class="cassette-spec-tag">Mechatronics</span>
+              <span class="cassette-spec-tag">PLC Cycle</span>
+            </div>
+          </div>
+          <div class="cassette-footer">
+            <a href="/blogs-posts/posts/blog-shoe-shiner.html" class="cassette-link">ASSEMBLY REPORT &rarr;</a>
+          </div>
+        </article>
+
+        <article class="cassette-card">
+          <div class="cassette-top">
+            <span class="cassette-id">CASSETTE 04</span>
+            <span class="cassette-status"></span>
+          </div>
+          <div class="cassette-body">
+            <div class="cassette-cat">Physics-Informed ML</div>
+            <h3 class="cassette-title">Sparse Recipe Matcher</h3>
+            <p class="cassette-desc">Multi-target forward quality and sparse inverse reconstructor predicting chemical color formulations within ±0.20 ΔE.</p>
+            <div class="cassette-specs">
+              <span class="cassette-spec-tag">PyTorch</span>
+              <span class="cassette-spec-tag">Spectrophotometry</span>
+              <span class="cassette-spec-tag">0.0295 MAE</span>
+            </div>
+          </div>
+          <div class="cassette-footer">
+            <a href="/blogs-posts/posts/blog-ug-thesis.html" class="cassette-link">EXPERIMENT LOG &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./demo1.js"></script>
+</body>
+</html>
