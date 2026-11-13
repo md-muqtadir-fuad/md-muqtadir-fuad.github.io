@@ -24,6 +24,10 @@ An open architectural environment designed to test mechanical systems, develop c
 - link: Project Notes (https://www.kaggle.com/competitions/neurips-2026-smart-buildings)
 Intelligent HVAC that will be environment adabtable, enery efficient. 
 
+### BengaliSci-Open
+- link: Project Notes (#)
+Large scale bengali LLM benchmark on Science and Engineering questionire.
+
 
 # Completed Projects
 
