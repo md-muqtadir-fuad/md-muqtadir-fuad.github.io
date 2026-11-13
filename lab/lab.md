@@ -32,7 +32,7 @@ Large scale bengali LLM benchmark on Science and Engineering questionire.
 # Completed Projects
 
 ### Maritime Supply Chain Resilience with the help of LLMs
-- link: Project Notes (#)
+- link: Project Notes (https://github.com/md-muqtadir-fuad/msdi-maritime-disruption-index)
 Can LLMs give any predictive signals about the incoming disruption?
 
 
