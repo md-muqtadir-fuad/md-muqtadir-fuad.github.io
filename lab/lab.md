@@ -20,7 +20,7 @@ An open architectural environment designed to test mechanical systems, develop c
 
 # Ongoing Projects
 
-### Kaggle: HVAC design - Neural IPS 2026 
+### Kaggle: HVAC design - NeurIPS 2026 
 - link: Project Notes (https://www.kaggle.com/competitions/neurips-2026-smart-buildings)
 Intelligent HVAC that will be environment adabtable, enery efficient. 
 
